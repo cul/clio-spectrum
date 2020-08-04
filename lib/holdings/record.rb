@@ -616,9 +616,8 @@ module Voyager
             # new-generation Valet services
             # -- recap_loan --
             services << 'recap_loan'
-            # -- recap_scan --  but not for MICROFORM, CD-ROM, etc.!
+            # -- recap_scan --  (but not for MICROFORM, CD-ROM, etc.)
             unscannable = APP_CONFIG['unscannable_offsite_call_numbers'] || ['none']
-            # raise unless call_number.starts_with? "LD1237.5D"
             services << 'recap_scan' unless unscannable.any? { |bad| call_number.starts_with?(bad) }
             # TODO - transitional, cleanup old-gen 'offsite'
             services.delete('offsite') if unscannable.any? { |bad| call_number.starts_with?(bad) }
@@ -680,12 +679,17 @@ module Voyager
         # NEXT-1664 - Criteria for Page/Scan service links
         # If the bibid is in the ETAS database, marked as 'deny', then we have
         # emergency online access - and thus can't offer Scan or Page
+        # "Any service that would involve the use of our physical copy should be suppressed"
         if Covid.lookup_db_etas_status(bibid) == 'deny'
-          # Service "ill" is actually Chapter/Article-Scan right now...
-          services.delete('ill')
+          # Scan services ("ill" is actually Chapter/Article-Scan right now)
+          services.delete('campus_scan')
+          services.delete('offsite')
+          services.delete('recap_scan')
+          # Pick-up services
           services.delete('campus_paging')
-          # Wait a second - for ETAS we can't offer ANY service, right?
-          services = []
+          services.delete('recap_loan')
+          # We're still allowed to offer services for non-CUL material,
+          # so ILL (ILL Scan and ILL Loan) and BD are still ok.
         end
 
         # only provide borrow direct request for printed books and scores
