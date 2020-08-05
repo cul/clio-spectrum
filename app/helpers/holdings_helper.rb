@@ -683,7 +683,7 @@ module HoldingsHelper
   #     https://valet.cul.columbia.edu/recap_scan/2929292/10086
   def recap_scan_link
     valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
-    "#{valet_url}/recap_scan/="
+    "#{valet_url}/recap_scan/"
   end
   
   def offsite_link
