@@ -611,14 +611,16 @@ module Voyager
           # offsite
           offsite_locations = OFFSITE_CONFIG['offsite_locations'] || []
           if offsite_locations.include?(location_code)
-            # old-generation Valet service
-            services << 'offsite'
             # new-generation Valet services
             # -- recap_loan --
-            services << 'recap_loan'
+            recap_loan_locations = APP_CONFIG['recap_loan_locations'] || ['none']
+            services << 'recap_loan' if recap_loan_locations.include?(location_code)
             # -- recap_scan --  (but not for MICROFORM, CD-ROM, etc.)
             unscannable = APP_CONFIG['unscannable_offsite_call_numbers'] || ['none']
             services << 'recap_scan' unless unscannable.any? { |bad| call_number.starts_with?(bad) }
+
+            # old-generation Valet service
+            services << 'offsite'
             # TODO - transitional, cleanup old-gen 'offsite'
             services.delete('offsite') if unscannable.any? { |bad| call_number.starts_with?(bad) }
           end

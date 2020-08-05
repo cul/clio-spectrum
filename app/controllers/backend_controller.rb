@@ -125,12 +125,14 @@ class BackendController < ApplicationController
   #   "CU18799175"  =>  "Available"
   # }
   def self.scsb_availabilities(id)
-    # # LIBSYS-2892 - Suspend all Offsite ReCAP borrowing - it's all Unavailable
-    # return nil
-    # Pretend this id is unavailable (nil) unless we've
-    # reinstated the 'offsite' service.
-    reinstated = APP_CONFIG['reinstated_services'] || []
-    return nil unless reinstated.include?('offsite')
+    # we're reinstating services!  
+    # let the true SCSB status be returned
+    # # # LIBSYS-2892 - Suspend all Offsite ReCAP borrowing - it's all Unavailable
+    # # return nil
+    # # Pretend this id is unavailable (nil) unless we've
+    # # reinstated the 'offsite' service.
+    # reinstated = APP_CONFIG['reinstated_services'] || []
+    # return nil unless reinstated.include?('offsite')
     
     if id.empty?
       logger.error 'BackendController#scsb_availabilities passed empty id'
