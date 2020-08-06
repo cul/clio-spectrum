@@ -700,7 +700,7 @@ module HoldingsHelper
 
   def campus_paging_link
     valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
-    "#{valet_url}/paging/"
+    "#{valet_url}/campus_paging/"
   end
 
   # *** Valet service recap_loan needs both bib_id AND holding_id
