@@ -342,6 +342,18 @@ module HoldingsHelper
       # Here's what we want returned - key:value, e.g.
       "#{key}:#{value}"
     end
+
+    # NEXT-1690 - old East Asian records store OCLC in 079$a
+    # If we find it there, replace value from the 035 OCLC field
+    # https://www1.columbia.edu/sec/cu/libraries/inside/clio/docs/bcd/cpm/cpmrec/cpm108.html
+    if key == 'oclc'
+      if document.key?('marc_display') && document.to_marc['079']
+        value = document.to_marc['079']['a'] || ''
+        value.gsub!(/^oc[mn]/, '')
+        bibkeys = [ "#{key}:#{value}" ] if value
+      end
+    end
+
     return bibkeys.uniq
   end
 
