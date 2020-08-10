@@ -124,7 +124,7 @@ module HoldingsHelper
     #    links.sort { |x,y| x.first <=> y.first }
   end
 
-  SERVICE_ORDER = %w(campus_scan recap_scan offsite ill campus_paging recap_loan barnard_remote spec_coll precat on_order borrow_direct  recall_hold in_process doc_delivery ).freeze
+  SERVICE_ORDER = %w(campus_scan recap_scan offsite ill campus_paging recap_loan barnard_remote spec_coll precat on_order borrow_direct recall_hold in_process doc_delivery ).freeze
 
   # parameters: title, link (url or javascript), optional extra param
   # When 2nd param is a JS function,
@@ -148,7 +148,8 @@ module HoldingsHelper
                            tooltip:    'Campus Paging', js_function: 'OpenWindow'},
       'recap_loan'     => {link_label: 'Pick-Up',       service_url: recap_loan_link, 
                            tooltip:    'ReCAP Loan',    js_function: 'OpenWindow'},
-      'borrow_direct'  => {link_label: 'Borrow Direct', service_url: borrow_direct_link},
+      'borrow_direct'  => {link_label: 'Pick-up (Borrow Direct)', service_url: borrow_direct_link,
+                           tooltip:    'Borrow Direct' },
       # ====  OTHER SERVICES  ====
       'barnard_remote' => {link_label: 'BearStor',      service_url: barnard_remote_link, 
                            js_function: 'OpenWindow'},
@@ -723,10 +724,13 @@ module HoldingsHelper
   end
 
   def borrow_direct_link
-    # new simplified config approach
-    return APP_CONFIG['service_links']['borrow_direct'] if APP_CONFIG['service_links'] && APP_CONFIG['service_links']['borrow_direct']
-    # old config approach:
-    'http://www.columbia.edu/cgi-bin/cul/borrowdirect?'
+    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+    "#{valet_url}/borrow_direct/"
+
+    # # new simplified config approach
+    # return APP_CONFIG['service_links']['borrow_direct'] if APP_CONFIG['service_links'] && APP_CONFIG['service_links']['borrow_direct']
+    # # old config approach:
+    # 'http://www.columbia.edu/cgi-bin/cul/borrowdirect?'
   end
 
   # ====  OTHER SERVICES  ====
