@@ -14,11 +14,11 @@
     %script{async: true, src: "https://cse.google.com/cse.js?cx=#{cs_id}"}
     .gcse-searchresults-only{data: {resultSetSize: 3, enableOrderBy: 'false'}}
   
-    :javascript
-      window.__gcse || (window.__gcse = {});
-        window.__gcse.searchCallbacks = {
-          web: {
-            ready: myWebResultsRenderedCallback,
-          },
-        };
-  
+    / :javascript
+    /   window.__gcse || (window.__gcse = {});
+    /     window.__gcse.searchCallbacks = {
+    /       web: {
+    /         ready: myWebResultsRenderedCallback,
+    /       },
+    /     };
+    /
