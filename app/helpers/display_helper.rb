@@ -315,7 +315,7 @@ module DisplayHelper
       display_value = display_value.html_safe
 
       # NEXT-1671 - don't use vernacular to build query links, it's unreliable
-      if t880_indicator && Rails.env != 'clio_prod'
+      if t880_indicator
         out << display_value
         next
       end
