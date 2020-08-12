@@ -19,7 +19,7 @@ describe 'Format assignments for types of "Computer Files"', :skip_travis do
     it "bib #{bib} should have two formats: 'Computer File' && US Gov.Doc." do
       resp = solr_response('q' => "id:#{bib}", 'fl' => 'id,format', 'facet' => false)
       formatList = resp['response']['docs'][0]['format']
-      expect(formatList).to be == ['Computer File', 'FOIA Document']
+      expect(formatList).to be == ['Computer File', 'US Government Document']
     end
   end
 

@@ -38,7 +38,7 @@ module FormatMacro
     lambda do |record, accumulator, _context|
       # accumulate format values
       formats = []
-      
+
       # NEXT-1645 - support FOIA filter via Format facet
       formats << :foia if record.id.starts_with?('FOIA')
 
