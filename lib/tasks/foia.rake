@@ -29,7 +29,7 @@ namespace :foia do
   end
 
   ##############################################################
-  desc 'list already-downloaded FOIA files from extract directory'
+  desc 'list downloaded FOIA files in local directory'
   task :list do
     setup_ingest_logger
     Rails.logger.info('- listing already-downloaded FOIA files')
