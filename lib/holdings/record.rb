@@ -653,13 +653,16 @@ module Voyager
         # - NO ill/scan if we're already offering offsite/scan service
         if item_status[:status] != 'online' && ! services.include?('offsite')
           services << 'ill'
+          services << 'ill_scan'
         end
         
 
         # We can only ever have ONE "Scan" service.
         services.delete('ill') if services.include?('campus_scan')
+        services.delete('ill_scan') if services.include?('campus_scan')
         # 8/3 - recap_scan is currently "offsite"
         services.delete('ill') if services.include?('offsite')
+        services.delete('ill_scan') if services.include?('offsite')
         # 8/3 - recap_scan is currently "offsite"
 
         # # If this is a BearStor holding and some items are available,
@@ -714,6 +717,7 @@ module Voyager
             # NEXT-1555 - Valet Borrow Direct
             # services.delete('borrow_direct')
             services.delete('ill')
+            services.delete('ill_scan')
           end
         end
 
@@ -799,9 +803,11 @@ module Voyager
         out << 'recall_hold'    if message =~ /Recall/i
         out << 'recall_hold'    if message =~ /hold /
         out << 'borrow_direct'  if message =~ /Borrow/
-        out << 'ill'            if message =~ /ILL/
         out << 'in_process'     if message =~ /In Process/
+        out << 'ill'            if message =~ /ILL/
         out << 'ill'            if message =~ /Interlibrary Loan/
+        out << 'ill_scan'       if message =~ /ILL/
+        out << 'ill_scan'       if message =~ /Interlibrary Loan/
         out
       end
 

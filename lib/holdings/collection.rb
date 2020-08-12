@@ -104,6 +104,7 @@ module Voyager
         if (document['format'] & scan_formats).empty?
           holdings_records.each do |record|
             record.services.delete('ill') # internal code 'ill' is actuall "Scan"
+            record.services.delete('ill_scan')
           end
         end
 

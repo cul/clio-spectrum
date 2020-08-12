@@ -124,7 +124,7 @@ module HoldingsHelper
     #    links.sort { |x,y| x.first <=> y.first }
   end
 
-  SERVICE_ORDER = %w(campus_scan recap_scan offsite ill campus_paging recap_loan barnard_remote spec_coll precat on_order borrow_direct recall_hold in_process doc_delivery ).freeze
+  SERVICE_ORDER = %w(campus_scan recap_scan offsite ill_scan ill campus_paging recap_loan barnard_remote spec_coll precat on_order borrow_direct recall_hold in_process doc_delivery ).freeze
 
   # parameters: title, link (url or javascript), optional extra param
   # When 2nd param is a JS function,
@@ -143,6 +143,8 @@ module HoldingsHelper
                            tooltip:    'Offsite',       js_function: 'OpenWindow'},
       'ill'            => {link_label: 'Scan',          service_url: ill_link,
                            tooltip:    'Illiad Book/Article Scan'},
+      'ill_scan'       => {link_label: 'Scan',          service_url: ill_scan_link,
+                           tooltip:    'Illiad Book/Article Scan'},
       # ====  PICK-UP SERVICES  ====
       'campus_paging'  => {link_label: 'Pick-up',       service_url: campus_paging_link, 
                            tooltip:    'Campus Paging', js_function: 'OpenWindow'},
@@ -153,6 +155,7 @@ module HoldingsHelper
       # ====  OTHER SERVICES  ====
       'barnard_remote' => {link_label: 'BearStor',      service_url: barnard_remote_link, 
                            js_function: 'OpenWindow'},
+      'spec_coll'      => {link_label: 'Special Collections', service_url: 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='},
       'precat'         => {link_label: 'Precataloging', service_url: precat_link, 
                            js_function: 'OpenWindow'},
       'recall_hold'    => {link_label: 'Recall / Hold', service_url: recall_hold_link},
@@ -160,7 +163,6 @@ module HoldingsHelper
                            js_function: 'OpenWindow'},
       'in_process'     => {link_label: 'In Process',    service_url: in_process_link,
                            js_function: 'OpenWindow'},
-      'spec_coll'      => {link_label: 'Special Collections', service_url: 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='},
       # 'doc_delivery'   => {link_label: 'Scan', 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?'}
     }
   end
@@ -702,6 +704,11 @@ module HoldingsHelper
   def offsite_link
     valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
     "#{valet_url}/offsite_requests/bib?bib_id="
+  end
+
+  def ill_scan_link
+    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+    "#{valet_url}/ill_scan/"
   end
   
   def ill_link
