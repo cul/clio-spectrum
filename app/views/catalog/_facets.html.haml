@@ -10,7 +10,7 @@
 
     #facet-panel-collapse.collapse.panel-group
     
-      - if APP_CONFIG['govdocs_exclusion']
+      - if APP_CONFIG['foia_exclusion']
         - if ['catalog','new_arrivals'].include?(@source)
           .panel.panel-default.facet_limit
             .panel-heading
@@ -19,7 +19,7 @@
 
             .panel-body
               %div.search_option
-                = render_govdocs_toggle      
+                = render_foia_toggle
 
       - facet_field_names.reject { |name| facet = facet_by_field_name(name); facet.nil? || facet.items.empty? }.each do |solr_fname|
 

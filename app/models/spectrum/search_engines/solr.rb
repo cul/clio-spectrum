@@ -678,7 +678,7 @@ module Spectrum
 
               config.default_solr_params = {
                 qt: 'search',
-                fq: ['{!raw f=format}US Government Document']
+                fq: ['{!raw f=format}FOIA Document']
               }
 
               config.add_facet_field 'format',

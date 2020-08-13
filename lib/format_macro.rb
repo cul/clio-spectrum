@@ -29,13 +29,19 @@ module FormatMacro
     video:  'Video',
     usdoc:  'US Government Document',
     nydoc:  'NY State/City Government Document',
-    art:    'Art Work (Original)'
+    art:    'Art Work (Original)',
+    # NEXT-1645 - support FOIA filter via Format facet
+    foia:   'FOIA Document'
   }.freeze
 
   def columbia_format
     lambda do |record, accumulator, _context|
       # accumulate format values
       formats = []
+
+      # NEXT-1645 - support FOIA filter via Format facet
+      f965 = Marc21.extract_marc_from(record, '965a')
+      formats << :foia if f965.include?('965FOIA')
 
       # pull out the field values we need
       leader06 = record.leader.byteslice(6)

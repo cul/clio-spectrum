@@ -152,73 +152,29 @@ module CulFacetsHelper
   #   false
   # end
   
-  # CLIO includes a Search Options with quick-select toggles.
-  # One of them replicates the format:Online facet, 
-  # but with a check-mark GUI widget
-  def render_online_toggle
-    onlineFacetItem = Blacklight::Solr::Response::Facets::FacetItem.new(value: 'Online')
-
-    # Is format:Online already selected?
-    if facet_in_params?('format', 'Online')
-      # the "remove facet" url
-      url = search_action_path(search_state.remove_facet_params('format', onlineFacetItem))
-      icon = content_tag(:span, '', class: 'glyphicon glyphicon-check')
-    # Is format:Online not yet selected?
-    else
-      # the "add facet" url
-      url = path_for_facet('format', onlineFacetItem)
-      icon = content_tag(:span, '', class: 'glyphicon glyphicon-unchecked')
-    end
-    
-    content_tag(:div, 
-    link_to(icon, url) + ' Online only'
-    )
-            
-  end
 
   # CLIO includes a Search Options with quick-select toggles.
-
-  # Committee doesn't want this
-  # # One of CLIO's Search Options toggles replicates the format:Online facet,
-  # # but with a check-mark GUI widget
-  # def render_online_toggle
-  #   onlineFacetItem = Blacklight::Solr::Response::Facets::FacetItem.new(value: 'Online')
-  #
-  #   # Is format:Online already selected?
-  #   if facet_in_params?('format', 'Online')
-  #     # the "remove facet" url
-  #     url = search_action_path(search_state.remove_facet_params('format', onlineFacetItem))
-  #     icon = content_tag(:span, '', class: 'glyphicon glyphicon-check')
-  #   # Is format:Online not yet selected?
-  #   else
-  #     # the "add facet" url
-  #     url = path_for_facet('format', onlineFacetItem)
-  #     icon = content_tag(:span, '', class: 'glyphicon glyphicon-unchecked')
-  #   end
-  #
-  #   content_tag(:div, link_to(icon, url) + ' Online only')
-  # end
-
-  # Another of CLIO's Search Options toggles controls render_govdocs_togglet GovDocs docs are included in search-results
-  def render_govdocs_toggle
-    # Are we currently excluding GovDocs?
-    # If so, (1) render toggle as checked, (2) link to un-exclude
+  # There is currently only one - to include/exclude FOIA documents
+  def render_foia_toggle
+    # Are we currently excluding FOIA documents?
+    # If so, (1) render toggle as UN-checked, meaning yes, exclude,
+    # (2) link to un-exclude
     excluded_format_field = '-format'
-    govdocs_item = 'US Government Document'
+    foia_item = 'FOIA Document'
 
-    if params['f'] && params['f'][excluded_format_field] && params['f'][excluded_format_field].include?(govdocs_item)
-      icon = content_tag(:span, '', class: 'glyphicon glyphicon-check')
-      url = search_action_path(search_state.remove_facet_params(excluded_format_field, govdocs_item))
-    else
+    if params['f'] && params['f'][excluded_format_field] && params['f'][excluded_format_field].include?(foia_item)
       icon = content_tag(:span, '', class: 'glyphicon glyphicon-unchecked')
-      # first, clear out "format=govdoc" if it's there
-      without_govdocs = search_state.remove_facet_params('format', govdocs_item)
-      new_state = search_state.reset(without_govdocs)
-      # same search, but w/govdocs excluded:
-      url = search_action_path(new_state.add_facet_params_and_redirect(excluded_format_field, govdocs_item))
+      url = search_action_path(search_state.remove_facet_params(excluded_format_field, foia_item))
+    else
+      icon = content_tag(:span, '', class: 'glyphicon glyphicon-check')
+      # first, clear out "format=FOIA Document" if it's there
+      without_foia = search_state.remove_facet_params('format', foia_item)
+      new_state = search_state.reset(without_foia)
+      # same search, but w/foia excluded:
+      url = search_action_path(new_state.add_facet_params_and_redirect(excluded_format_field, foia_item))
     end
 
-    label = 'Exclude Online U.S. Government Information'
+    label = 'Include Freedom of Information Archive documents'
     content_tag(:div, link_to(icon, url) + ' ' + label)
   end
   

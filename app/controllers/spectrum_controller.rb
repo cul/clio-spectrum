@@ -311,9 +311,9 @@ class SpectrumController < ApplicationController
 
     fixed_params['source'] = source
 
-    # Exclude GovDocs for catalog queries via Quicksearch JSON
-    if APP_CONFIG['govdocs_exclusion']
-      fixed_params['f'] = {'-format' => ['US Government Document']} if source == 'catalog'
+    # Exclude FOIA for catalog queries via Quicksearch JSON
+    if APP_CONFIG['foia_exclusion']
+      fixed_params['f'] = {'-format' => ['FOIA Document']} if source == 'catalog'
     end
 
     # "results" is not the search results, it's the Search Engine object, in a
