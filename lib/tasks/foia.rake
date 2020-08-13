@@ -189,9 +189,15 @@ namespace :foia do
     FileUtils.mkdir_p(current_dir)
     FileUtils.mkdir_p(old_dir)
 
-    # roll previous-load of same filename aside, copy in newest version
-    FileUtils.rm("#{old_dir}/#{filename}") if File.exist?("#{old_dir}/#{filename}")
-    FileUtils.mv("#{current_dir}/#{filename}", "#{old_dir}/#{filename}") if File.exist?("#{current_dir}/#{filename}")
+    # Clear out the current dir of ALL files we find there.
+    # We want to ONLY index the single specified file.
+    all_files = Dir.glob("#{current_dir}/*.xml").map { |f| File.basename(f) }.sort
+    all_files.each do |filename|
+      FileUtils.rm("#{old_dir}/#{filename}") if File.exist?("#{old_dir}/#{filename}")
+      FileUtils.mv("#{current_dir}/#{filename}", "#{old_dir}/#{filename}")
+    end
+    
+    # Copy the newest version of the requested file into place for indexing
     FileUtils.cp("#{extract_dir}/#{filename}", current_dir)
 
     Rails.logger.info('--- calling bibliographic:extract:ingest')
