@@ -128,6 +128,17 @@ $(document).ready(function() {
       }
     );  // .typeahead()
 
+    // Before we open the typeahead, compare 'q' input field to 'q' URL param
+    // If 'q' came from the URL, not the user, abort the typeahead
+    $('.best-bets-typeahead').bind('typeahead:beforeopen', function(ev, suggestion) {
+      // console.log('>> typeahead:beforeopen');
+      query_input = ev.target.value;
+      query_param = window.location.search
+      if (query_param.includes("q=" + query_input)) {
+        return false;
+      }
+    });
+
     // Before the destructive 'select' callback is called,
     // preserve the original search value in a data attribute.
     $('.best-bets-typeahead').bind('typeahead:beforeselect', function(ev, suggestion) {
