@@ -123,6 +123,16 @@ module Voyager
             available_copy = 'Y' unless record.location_name =~ /Reserve|Non\-Circ/ || record.location_name =~ /BearStor/
           end
         end
+        
+        # If there's ANY copy available on-campus for scanning,
+        # we'll remove any links to other Scan services
+        campus_scan_available = holdings_records.any? do |record|
+          record.services.include?('campus_scan')
+        end
+        holdings_records.each do |record|
+          record.services.delete('recap_scan') if campus_scan_available
+          record.services.delete('ill_scan') if campus_scan_available
+        end
 
         # adjust services
         holdings_records.each do |record|
