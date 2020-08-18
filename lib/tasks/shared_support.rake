@@ -10,7 +10,7 @@ require File.join(Rails.root.to_s, 'config', 'initializers/aaa_load_app_config.r
 EXTRACTS = %w(full incremental cumulative subset law auth recap foia).freeze
 
 # process large 'deletes' files in batches of this many
-DELETES_SLICE = 1000
+DELETES_SLICE = 10000
 
 # BIB_SOLR_URL = Blacklight.connection_config[:url]
 # BIB_SOLR = RSolr.connect(url: BIB_SOLR_URL)
@@ -50,14 +50,15 @@ def solr_delete_ids(solr_connection, ids)
     Rails.logger.debug('committing changes...') if ENV['DEBUG']
     solr_connection.commit
 
-  rescue Timeout::Error
+  rescue Faraday::TimeoutError, Net::ReadTimeout, Timeout::Error
     Rails.logger.info('Timed out!')
     if retries <= 0
       Rails.logger.error('Out of retries, stopping delete process.')
       raise
     end
-
-    Rails.logger.info('Trying again.')
+    sleep_sec = 60
+    Rails.logger.info("Sleeping #{sleep_sec}, trying again.")
+    sleep(sleep_sec)
     retries -= 1
     retry
   end

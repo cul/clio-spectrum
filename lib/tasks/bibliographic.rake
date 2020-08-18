@@ -57,7 +57,7 @@ namespace :bibliographic do
     stale = (ENV['STALE_DAYS'] || 70).to_i
     Rails.logger.info("-- pruning records older than [ #{stale} ] days.")
     # TODO: - SOLR RECORDS SHOULD SELF-IDENTIFY AS VOYAGER FEED RECORDS
-    query = "timestamp:[* TO NOW/DAY-#{stale}DAYS] AND id:[0 TO 999999]"
+    query = "timestamp:[* TO NOW/DAY-#{stale}DAYS] AND id:[0 TO 99999999]"
     puts "DEBUG query=#{query}" if ENV['DEBUG']
 
     # To be safe, refuse to delete over N records
