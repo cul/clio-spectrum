@@ -124,7 +124,7 @@ module HoldingsHelper
     #    links.sort { |x,y| x.first <=> y.first }
   end
 
-  SERVICE_ORDER = %w(campus_scan recap_scan offsite ill_scan ill campus_paging recap_loan barnard_remote spec_coll precat on_order borrow_direct recall_hold in_process doc_delivery ).freeze
+  SERVICE_ORDER = %w(campus_scan recap_scan offsite ill_scan ill campus_paging recap_loan barnard_remote avery_onsite spec_coll precat on_order borrow_direct recall_hold in_process doc_delivery ).freeze
 
   # parameters: title, link (url or javascript), optional extra param
   # When 2nd param is a JS function,
@@ -155,6 +155,8 @@ module HoldingsHelper
       # ====  OTHER SERVICES  ====
       'barnard_remote' => {link_label: 'BearStor',      service_url: barnard_remote_link, 
                            js_function: 'OpenWindow'},
+      'avery_onsite'   => {link_label: 'On-Site Use',      service_url: avery_onsite_link, 
+                           tooltip:    'Avery Onsite',     js_function: 'OpenWindow'},
       'spec_coll'      => {link_label: 'Special Collections', service_url: 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='},
       'precat'         => {link_label: 'Precataloging', service_url: precat_link, 
                            js_function: 'OpenWindow'},
@@ -745,6 +747,12 @@ module HoldingsHelper
     valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
     # return "#{valet_url}/barnard_remote_requests/bib?bib_id="
     "#{valet_url}/bearstor/"
+  end
+
+  def avery_onsite_link
+    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+    # return "#{valet_url}/barnard_remote_requests/bib?bib_id="
+    "#{valet_url}/avery_onsite/"
   end
 
   def precat_link

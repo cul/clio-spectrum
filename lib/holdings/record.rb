@@ -532,6 +532,12 @@ module Voyager
           return ['spec_coll']
         end
 
+        # ====== AVERY ONSITE MEDIATED REQUEST ======
+        # LIBSYS-3200 - Access to some non-circ Avery locations requires mediated access
+        avery_onsite_locations = APP_CONFIG['avery_onsite_locations'] || [ 'ave', 'fax', 'off,ave', 'off,fax' ]
+        services << 'avery_onsite' if avery_onsite_locations.include?(location_code)
+        
+        \
         # ====== ORDERS ======
         # Orders such as "Pre-Order", "On-Order", etc.
         # List of available services per order status hardcoded into yml config file.
