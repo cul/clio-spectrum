@@ -38,3 +38,6 @@
   = add_row("Subjects (Genre)", generate_value_links_subject(display_marc_field(marc, 'subject_genre')))
   = add_row('Format', formats_with_icons(document))
 
+  = add_row("Language", document["language_facet"], :join => '; ')
+  = add_row("Language Note", display_marc_field(marc, 'language'))
+  = add_row("References", display_marc_field(marc, 'references'))

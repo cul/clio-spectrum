@@ -54,8 +54,9 @@
   = add_row("Running Title", display_marc_field(marc, 'title_running'))
   = add_row("Spine Title", display_marc_field(marc, 'title_spine'))
 
-  = add_row("Language", document["language_facet"], :join   => '; ')
+  = add_row("Language", document["language_facet"], :join => '; ')
   = add_row("Language Note", display_marc_field(marc, 'language'))
+  = add_row("References", display_marc_field(marc, 'references'))
 
   = add_row('Related To', display_marc_field(marc, 'related_to'))
   = add_row('Format', formats_with_icons(document))
