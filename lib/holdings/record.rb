@@ -537,7 +537,7 @@ module Voyager
         avery_onsite_locations = APP_CONFIG['avery_onsite_locations'] || [ 'ave', 'fax', 'off,ave', 'off,fax' ]
         services << 'avery_onsite' if avery_onsite_locations.include?(location_code)
         
-        \
+
         # ====== ORDERS ======
         # Orders such as "Pre-Order", "On-Order", etc.
         # List of available services per order status hardcoded into yml config file.
@@ -630,7 +630,7 @@ module Voyager
             # TODO - transitional, cleanup old-gen 'offsite'
             services.delete('offsite') if unscannable.any? { |bad| call_number.starts_with?(bad) }
           end
-          
+
           # ------ BEAR-STOR ------
           # If this is a BearStor holding and some items are available,
           # enable the BearStor request link (barnard_remote)
@@ -657,18 +657,20 @@ module Voyager
         # services << 'ill' unless item_status[:status] == 'online' or
         # - NO ill/scan for ONLINE records
         # - NO ill/scan if we're already offering offsite/scan service
-        if item_status[:status] != 'online' && ! services.include?('offsite')
+        if item_status[:status] != 'online' && ! services.include?('recap_scan')
           services << 'ill'
           services << 'ill_scan'
         end
         
 
         # We can only ever have ONE "Scan" service.
-        services.delete('ill') if services.include?('campus_scan')
         services.delete('ill_scan') if services.include?('campus_scan')
-        # 8/3 - recap_scan is currently "offsite"
-        services.delete('ill') if services.include?('offsite')
-        services.delete('ill_scan') if services.include?('offsite')
+        services.delete('ill_scan') if services.include?('recap_scan')
+
+        # logic to support old keys - should be deletable...
+        services.delete('ill') if services.include?('campus_scan')
+        services.delete('ill') if services.include?('recap_scan')
+
         # 8/3 - recap_scan is currently "offsite"
 
         # # If this is a BearStor holding and some items are available,
@@ -699,6 +701,10 @@ module Voyager
           # Pick-up services
           services.delete('campus_paging')
           services.delete('recap_loan')
+          # Other services
+          services.delete('bearstor')
+          services.delete('avery_onsite')
+          services.delete('spec_coll')
           # We're still allowed to offer services for non-CUL material,
           # so ILL (ILL Scan and ILL Loan) and BD are still ok.
         end
