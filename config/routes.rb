@@ -65,6 +65,7 @@ Rails.application.routes.draw do
   # special admin pages
   get 'admin/system'
   get 'admin/format_icons'
+  get 'admin/request_services'
 
   # and this..
   get 'catalog/:id/librarian_view', to: 'catalog#librarian_view', as: 'librarian_view_catalog'

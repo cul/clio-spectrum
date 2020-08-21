@@ -1,0 +1,28 @@
+
+
+%h2 CLIO Request Service Details
+
+%h4 Request Service Locations
+
+
+
+
+%table.table.table-bordered.table-striped.table-hover.table-condensed
+  %thead
+    %tr
+      %th
+      - @request_services.each do |service|
+        %th.sticky=service
+  %tbody
+    - @all_locations.each do |location|
+      %tr
+        %th=location
+        - @request_services.each do |service|
+          %td.text-center
+            - location_list = APP_CONFIG["#{service}_locations"] || []
+            - if location_list.include?(location)
+              Yes
+            - else
+              ='-'
+            
+        
