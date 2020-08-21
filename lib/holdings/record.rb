@@ -532,11 +532,6 @@ module Voyager
           return ['spec_coll']
         end
 
-        # ====== AVERY ONSITE MEDIATED REQUEST ======
-        # LIBSYS-3200 - Access to some non-circ Avery locations requires mediated access
-        avery_onsite_locations = APP_CONFIG['avery_onsite_locations'] || [ 'ave', 'fax', 'off,ave', 'off,fax' ]
-        services << 'avery_onsite' if avery_onsite_locations.include?(location_code)
-        
 
         # ====== ORDERS ======
         # Orders such as "Pre-Order", "On-Order", etc.
@@ -636,6 +631,11 @@ module Voyager
           # enable the BearStor request link (barnard_remote)
           bearstor_locations = APP_CONFIG['barnard_remote_locations'] || ['none']
           services << 'barnard_remote' if bearstor_locations.include?(location_code)
+
+          # ------ AVERY ONSITE MEDIATED REQUEST ------
+          # LIBSYS-3200 - Access to some non-circ Avery locations requires mediated access
+          avery_onsite_locations = APP_CONFIG['avery_onsite_locations'] || [ 'ave', 'fax', 'off,ave', 'off,fax' ]
+          services << 'avery_onsite' if avery_onsite_locations.include?(location_code)    
           
           # ------ PRE-CAT ------
           services << 'precat' if location_name =~ /^Precat/
