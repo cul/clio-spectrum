@@ -634,8 +634,8 @@ module Voyager
           # ------ BEAR-STOR ------
           # If this is a BearStor holding and some items are available,
           # enable the BearStor request link (barnard_remote)
-          bearstor_location = APP_CONFIG['barnard_remote_location'] || 'none'
-          services << 'barnard_remote' if location_code == bearstor_location
+          bearstor_locations = APP_CONFIG['barnard_remote_locations'] || ['none']
+          services << 'barnard_remote' if bearstor_locations.include?(location_code)
           
           # ------ PRE-CAT ------
           services << 'precat' if location_name =~ /^Precat/
