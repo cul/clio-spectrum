@@ -698,7 +698,7 @@ module Voyager
           services.delete('campus_scan')
           services.delete('offsite')
           services.delete('recap_scan')
-          # Pick-up services
+          # Pick-Up services
           services.delete('campus_paging')
           services.delete('recap_loan')
           # Other services

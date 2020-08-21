@@ -11,13 +11,13 @@
   %thead
     %tr
       %th
-      - @request_services.each do |service|
+      - @configured_services.each do |service|
         %th.sticky=service
   %tbody
     - @all_locations.each do |location|
       %tr
         %th=location
-        - @request_services.each do |service|
+        - @configured_services.each do |service|
           %td.text-center
             - location_list = APP_CONFIG["#{service}_locations"] || []
             - if location_list.include?(location)
