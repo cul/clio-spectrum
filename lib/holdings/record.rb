@@ -529,7 +529,7 @@ module Voyager
         if ['rbx', 'off,rbx', 'rbms', 'off,rbms', 'rbi', 'uacl', 'uacl,low', 'off,uacl',
             'clm', 'dic', 'dic4off', 'gax', 'oral', 'rbx4off', 'off,dic',
             'off,oral'].include?(location_code)
-          return ['spec_coll']
+          return ['aeon']
         end
 
 
@@ -704,7 +704,7 @@ module Voyager
           # Other services
           services.delete('bearstor')
           services.delete('avery_onsite')
-          services.delete('spec_coll')
+          services.delete('aeon')
           # We're still allowed to offer services for non-CUL material,
           # so ILL (ILL Scan and ILL Loan) and BD are still ok.
         end
