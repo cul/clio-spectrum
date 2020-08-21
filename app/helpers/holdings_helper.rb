@@ -146,11 +146,11 @@ module HoldingsHelper
       'ill_scan'       => {link_label: 'Scan',          service_url: ill_scan_link,
                            tooltip:    'Illiad Book/Article Scan'},
       # ====  PICK-UP SERVICES  ====
-      'campus_paging'  => {link_label: 'Pick-up',       service_url: campus_paging_link, 
+      'campus_paging'  => {link_label: 'Pick-Up',       service_url: campus_paging_link, 
                            tooltip:    'Campus Paging', js_function: 'OpenWindow'},
       'recap_loan'     => {link_label: 'Pick-Up',       service_url: recap_loan_link, 
                            tooltip:    'ReCAP Loan',    js_function: 'OpenWindow'},
-      'borrow_direct'  => {link_label: 'Pick-up (Borrow Direct)', service_url: borrow_direct_link,
+      'borrow_direct'  => {link_label: 'Pick-Up (Borrow Direct)', service_url: borrow_direct_link,
                            tooltip:    'Borrow Direct' },
       # ====  OTHER SERVICES  ====
       'barnard_remote' => {link_label: 'BearStor',      service_url: barnard_remote_link, 
