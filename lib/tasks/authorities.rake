@@ -54,7 +54,8 @@ namespace :authorities do
       if numFound > 0
         Rails.logger.info('-- pruning...')
         solr_connection.delete_by_query query
-        solr_connection.commit
+        # No, don't commit from client, rely on Solr server-side auto-commit
+        # solr_connection.commit
       end
     end
 

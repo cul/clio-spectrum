@@ -47,8 +47,9 @@ def solr_delete_ids(solr_connection, ids)
     Rails.logger.debug("deleting #{ids.size} records...") if ENV['DEBUG']
     solr_connection.delete_by_id(ids)
 
-    Rails.logger.debug('committing changes...') if ENV['DEBUG']
-    solr_connection.commit
+    # No, don't commit from client, rely on Solr server-side auto-commit
+    # Rails.logger.debug('committing changes...') if ENV['DEBUG']
+    # solr_connection.commit
 
   rescue Faraday::TimeoutError, Net::ReadTimeout, Timeout::Error
     Rails.logger.info('Timed out!')

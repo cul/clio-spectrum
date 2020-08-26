@@ -692,6 +692,7 @@ module Voyager
         # end
 
 
+        # ====== ETAS - NO ACCESS TO PHYSICAL BOOK ======
         # NEXT-1664 - Criteria for Page/Scan service links
         # If the bibid is in the ETAS database, marked as 'deny', then we have
         # emergency online access - and thus can't offer Scan or Page

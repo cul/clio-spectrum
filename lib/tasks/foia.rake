@@ -65,11 +65,11 @@ namespace :foia do
     
     list.contents.each do |object|
       filename = object.key
-      Rails.logger.info('-' * 60)
+      Rails.logger.info('-' * 40)
       Rake::Task['foia:download_file'].reenable
       Rake::Task['foia:download_file'].invoke(filename, s3)
     end
-    Rails.logger.info('-' * 60)
+    Rails.logger.info('-' * 40)
     
     Rails.logger.info("- finished processing #{list.contents.size} files.")
   end
@@ -158,11 +158,11 @@ namespace :foia do
     end
 
     all_files.each do |filename|
-      Rails.logger.info('-' * 60)
+      Rails.logger.info('-' * 40)
       Rake::Task['foia:ingest_file'].reenable
       Rake::Task['foia:ingest_file'].invoke(filename)
     end
-    Rails.logger.info('-' * 60)
+    Rails.logger.info('-' * 40)
     
     Rails.logger.info('-- ingest of all files complete.')
     
@@ -248,7 +248,8 @@ namespace :foia do
       if numFound > 0
         Rails.logger.info('-- pruning...')
         solr_connection.delete_by_query query
-        solr_connection.commit
+        # No, don't commit from client, rely on Solr server-side auto-commit
+        # solr_connection.commit
       end
     end
     Rails.logger.info('-- pruning complete.')

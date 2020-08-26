@@ -75,7 +75,8 @@ namespace :bibliographic do
       if numFound > 0
         Rails.logger.info('-- pruning...')
         solr_connection.delete_by_query query
-        solr_connection.commit
+        # No, don't commit from client, rely on Solr server-side auto-commit
+        # solr_connection.commit
       end
     end
 
@@ -85,7 +86,9 @@ namespace :bibliographic do
     Rails.logger.info('-- pruning law...')
     query = "timestamp:[* TO NOW/DAY-#{stale}DAYS] AND id:[b0 TO b999999]"
     solr_connection.delete_by_query query
-    solr_connection.commit
+
+    # No, don't commit from client, rely on Solr server-side auto-commit
+    # solr_connection.commit
 
     Rails.logger.info('-- pruning complete.')
   end
