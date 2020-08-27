@@ -699,9 +699,9 @@ module Voyager
         # "Any service that would involve the use of our physical copy should be suppressed"
         if Covid.lookup_db_etas_status(bibid) == 'deny'
           # Scan services ("ill" is actually Chapter/Article-Scan right now)
-          services.delete('campus_scan')
+          # services.delete('campus_scan')
           services.delete('offsite')
-          services.delete('recap_scan')
+          # services.delete('recap_scan')
           # Pick-Up services
           services.delete('campus_paging')
           services.delete('recap_loan')
