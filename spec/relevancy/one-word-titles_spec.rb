@@ -57,13 +57,13 @@ describe 'Searching for one-word titles: ', :skip_travis do
 
   it 'Science' do
     resp = solr_resp_ids_from_query('Science')
-    expect(rank(resp, 3328066)).to be <= 1
+    expect(rank(resp, 14950826)).to be <= 1
 
     resp = solr_resp_ids_from_journal_title_query('Science')
-    expect(rank(resp, 3328066)).to be <= 5
+    expect(rank(resp, 14950826)).to be <= 5
 
     resp = solr_resp_ejournal_ids_only('q' => 'Science')
-    expect(rank(resp, 3328066)).to be <= 1
+    expect(rank(resp, 14950826)).to be <= 1
   end
 
   it 'Neurology' do
@@ -101,13 +101,13 @@ describe 'Searching for one-word titles: ', :skip_travis do
 
   it 'Brain' do
     resp = solr_resp_ids_from_query('Brain')
-    expect(rank(resp, 3398529)).to be <= 5
+    expect(rank(resp, 14947553)).to be <= 5
 
     resp = solr_resp_ids_from_journal_title_query('Brain')
-    expect(rank(resp, 3398529)).to be <= 1
+    expect(rank(resp, 14947553)).to be <= 1
 
     resp = solr_resp_ejournal_ids_only('q' => 'Brain')
-    expect(rank(resp, 3398529)).to be <= 1
+    expect(rank(resp, 14947553)).to be <= 1
   end
 
   it 'Lancet' do

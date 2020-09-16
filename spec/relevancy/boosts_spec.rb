@@ -38,7 +38,7 @@ describe 'Boosts', :skip_travis do
 
   it 'foreign affairs' do
     resp = solr_resp_doc_ids_only('q' => 'foreign affairs')
-    expect(rank(resp, 3326026)).to be <= 1
+    expect(rank(resp, 14948784)).to be <= 1
   end
 
   it 'morningstar' do
@@ -53,7 +53,7 @@ describe 'Boosts', :skip_travis do
 
   it 'science' do
     resp = solr_resp_doc_ids_only('q' => 'science')
-    expect(rank(resp, 3328066)).to be <= 1
+    expect(rank(resp, 14950826)).to be <= 1
   end
 
   it 'the new yorker' do
@@ -75,7 +75,7 @@ describe 'Boosts', :skip_travis do
 
   it 'consumer reports' do
     resp = solr_resp_doc_ids_only('q' => 'consumer reports')
-    expect(rank(resp, 3325559)).to be <= 1
+    expect(rank(resp, 14948087)).to be <= 1
   end
 
   it 'harvard business review' do
