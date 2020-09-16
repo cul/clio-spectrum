@@ -26,12 +26,6 @@ if %w(clio_app_dev clio_app_test clio_prod).include?(@environment)
     rake 'authorities:daily', subject: 'authorities:daily'
   end
 
-  # == BIBLIOGRAPHIC ==
-  # Run all daily ingest tasks, together within one rake task
-  every :day, at: '2am' do
-    rake 'bibliographic:daily', subject: 'bibliographic:daily'
-  end
-
   # == DATABASE MAINTENANCE ==
   every :day, at: '3:10am' do
     rake 'blacklight:delete_old_searches[1]', subject: 'blacklight:delete_old_searches'
@@ -41,6 +35,14 @@ if %w(clio_app_dev clio_app_test clio_prod).include?(@environment)
   end
   every :day, at: '3:30am' do
     rake 'hours:update_all', subject: 'hours:update_all'
+  end
+
+  # == BIBLIOGRAPHIC ==
+  # Run all daily ingest tasks, together within one rake task.
+  # The daily clio-extract needs to complete before this - and 
+  # that runs from 10pm until, on bad days, 2:30am or so.
+  every :day, at: '4am' do
+    rake 'bibliographic:daily', subject: 'bibliographic:daily'
   end
 
   # == RECAP ==
