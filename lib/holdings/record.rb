@@ -13,6 +13,7 @@ module Voyager
         mfhd_status ||= {}
 
         @bibid = marc['001'].value
+        @bibid_pul = marc['009'].present? ? marc['009'].value : ''
         @holding_id = mfhd_id
 
         tag852 = nil
@@ -170,7 +171,7 @@ module Voyager
         fmt = marc.leader[6..7]
 
         # add available services
-        @services = determine_services(@location_name, @location_code, @temp_loc_flag, @call_number, @item_status, @orders, @bibid, fmt)
+        @services = determine_services(@location_name, @location_code, @temp_loc_flag, @call_number, @item_status, @orders, @bibid, fmt, @bibid_pul)
       end
 
       # Collect data from all variables into a hash
@@ -517,7 +518,7 @@ module Voyager
         location_note
       end
 
-      def determine_services(location_name, location_code, temp_loc_flag, call_number, item_status, orders, bibid, fmt)
+      def determine_services(location_name, location_code, temp_loc_flag, call_number, item_status, orders, bibid, fmt, bibid_pul)
         services = []
 
         # ====== SPECIAL COLLECTIONS ======
@@ -623,10 +624,17 @@ module Voyager
             unscannable = APP_CONFIG['unscannable_offsite_call_numbers'] || ['none']
             services << 'recap_scan' unless unscannable.any? { |bad| call_number.starts_with?(bad) }
 
-            # old-generation Valet service
-            services << 'offsite'
-            # TODO - transitional, cleanup old-gen 'offsite'
-            services.delete('offsite') if unscannable.any? { |bad| call_number.starts_with?(bad) }
+            # Physical loans of Princeton ETAS titles is not allowed
+            # (but may be available via the Borrow Direct network)
+            if location_code == 'scsbpul' && Covid.lookup_db_etas_status_princeton(bibid_pul) == 'deny'
+              services.delete('recap_loan')
+              services << 'borrow_direct'
+            end
+            
+            # # old-generation Valet service
+            # services << 'offsite'
+            # # TODO - transitional, cleanup old-gen 'offsite'
+            # services.delete('offsite') if unscannable.any? { |bad| call_number.starts_with?(bad) }
           end
 
           # ------ BEAR-STOR ------
