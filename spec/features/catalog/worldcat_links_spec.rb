@@ -25,7 +25,7 @@ describe 'WorldCat links' do
   # end
 
   it 'should work with ISBN' do
-    visit solr_document_path('12762189')
+    visit solr_document_path('14976920')
     within '.holdings' do
       expect(page).to have_link('WorldCat', href: 'https://www.worldcat.org/isbn/9781473993334')
     end
