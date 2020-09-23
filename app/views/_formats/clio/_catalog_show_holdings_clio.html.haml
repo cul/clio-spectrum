@@ -15,10 +15,11 @@
           -# -# NEXT-1041 - Icon or other visual cue
           -# %span.glyphicon.glyphicon-map-marker.text-primary
           = entry['location_link']
-        - if entry['hours']
-          .hours
-            %span.holdings_label Today's Hours: 
-            = entry['hours']
+        -# NEXT-1689 - suppress building hours during covid
+        -# - if entry['hours']
+        -#   .hours
+        -#     %span.holdings_label Today's Hours:
+        -#     = entry['hours']
 
         .location_notes
           -# Include location-notes, if any
