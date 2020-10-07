@@ -161,7 +161,7 @@ edition:
         display: ab
 exhibitions:
     -   tag: 585
-        display: 3a
+        display: a
 finding_aid:
     -   tag: 555
         ind1: '0'
