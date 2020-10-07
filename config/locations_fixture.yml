@@ -39,6 +39,15 @@
   :location_code: butler
   :links: 
   :category: physical
+  :location: Columbia FLI
+  :found_in: |-
+    Columbia FLI Partnership Library
+    401 Butler
+
+- :library_code: butler
+  :location_code: butler
+  :links: 
+  :category: physical
   :location: Ancient/Medieval
   :found_in: |-
     Ancient/Medieval Reading Room
