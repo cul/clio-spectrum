@@ -159,6 +159,9 @@ description:
 edition:
     -   tag: 250
         display: ab
+exhibitions:
+    -   tag: 585
+        display: 3a
 finding_aid:
     -   tag: 555
         ind1: '0'
