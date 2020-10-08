@@ -8,6 +8,8 @@
   - excluded_solr_field = "-#{solr_field}"
   - if params['f'] && params['f'][excluded_solr_field]
     - Array.wrap(params['f'][excluded_solr_field]).each do |item|
+      -# NEXT-1645 - if we have a negated Format:FOIA Document, render that AFTER
+      - next if item == 'FOIA Document'
       %li
         = render_selected_excluded_facet_value(excluded_solr_field, item)
 
@@ -18,6 +20,13 @@
         = render_selected_facet_value(solr_field, item)
       - else
         = render_facet_value(solr_field, item)
+
+  -# NEXT-1645 - if we have a negated Format:FOIA Document, render that AFTER
+  - if params['f'] && params['f']['-format']
+    - Array.wrap(params['f']['-format']).each do |item|
+      - next unless item == 'FOIA Document'
+      %li
+        = render_selected_excluded_facet_value(excluded_solr_field, item)
 
   - unless paginator.last_page? || params[:action] == "facet"
     -# Do we use 'more_facets_link', which triggers a modal, or not?
