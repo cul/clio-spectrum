@@ -176,7 +176,7 @@ class CatalogController < ApplicationController
         # }
       end
 
-      @collection = Voyager::Holdings::Collection.new(@document, circ_status, scsb_status)
+      @collection = Holdings::Collection.new(@document, circ_status, scsb_status)
 
       @holdings = @collection.to_holdings
 
