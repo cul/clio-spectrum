@@ -471,6 +471,12 @@ module Voyager
 
       def assign_location_note(location_code)
         location_note = ''
+      # Barnard Special Collections (which are exclusively Zines - LIBSYS-3358)
+      if ['bar,bda', 'bar,spec', 'bara'].include?(location_code)
+        # location_note = 'Available by appointment. <a href="https://archives.barnard.edu/about-us/contact-us">Contact Barnard Archives.</a>'
+        location_note = 'Contact the Barnard Zine Library ( <a href="mailto:zines@barnard.edu">zines@barnard.edu</a> )'
+        return location_note
+      end
 
         # Avery Art Properties (NEXT-1318)
         if location_code == 'avap'
@@ -491,11 +497,6 @@ module Voyager
           return location_note
         end
 
-        # Barnard Archives
-        if ['bar,bda', 'bar,spec', 'bara'].include?(location_code)
-          location_note = 'Available by appointment. <a href="https://archives.barnard.edu/about-us/contact-us">Contact Barnard Archives.</a>'
-          return location_note
-        end
 
         # Burke
         if ['uts,arc', 'uts,essxx1', 'uts,essxx2', 'uts,essxx3', 'uts,gil', 'uts,mac',

@@ -50,7 +50,7 @@ describe 'Locations' do
     it 'should have a map of Barnard if location is Barnard Archives', :skip_travis do
       visit location_display_path('Barnard+Archives+%28Non-Circulating%29')
       expect(page).to have_css('.gmap_container')
-      expect(page).to have_css('.well h1', text: 'Barnard Archives')
+      expect(page).to have_css('.well h1', text: 'Barnard')
     end
 
     it 'should have a google map for a location with a map', :skip_travis do
