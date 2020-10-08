@@ -689,7 +689,7 @@ class CatalogController < ApplicationController
           stream.write solr_doc['marc_display'].
                          gsub(/<leader/, "\n    <leader").
                          gsub(/<controlfield/, "\n    <controlfield").
-                         gsub(/<\/?datafield/, "\n  <datafield").
+                         gsub(/<\/?datafield/, "\n  </datafield").
                          gsub(/<subfield/, "\n    <subfield").
                          gsub(/<\/record/, "\n</record")
           stream.write "\n"
