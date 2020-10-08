@@ -40,10 +40,9 @@ module Clio
     # require 'rsolr_notifications'
     require 'browse_support'
 
-    # don't need these anymore
-    # require 'holdings/collection'
-    # require 'holdings/record'
-    # require 'holdings/item'
+    require 'holdings/collection'
+    require 'holdings/record'
+    require 'holdings/item'
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
