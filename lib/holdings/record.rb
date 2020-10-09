@@ -498,7 +498,9 @@ module Holdings
 
       # Barnard Special Collections (which are exclusively Zines - LIBSYS-3358)
       if ['bar,spec'].include?(location_code)
-        location_note = 'Contact the Barnard Zine Library ( <a href="mailto:zines@barnard.edu">zines@barnard.edu</a> )'
+        # location_note = 'Contact the Barnard Zine Library ( <a href="mailto:zines@barnard.edu">zines@barnard.edu</a> )'
+        location_note = 'Available by XX appointment. <a href="https://zines.barnard.edu">Contact Barnard Zine
+Library.</a>'
         return location_note
       end
 
