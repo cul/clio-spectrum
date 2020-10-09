@@ -491,8 +491,13 @@ module Holdings
       end
 
       # Barnard Special Collections (which are exclusively Zines - LIBSYS-3358)
-      if ['bar,bda', 'bar,spec', 'bara'].include?(location_code)
-        # location_note = 'Available by appointment. <a href="https://archives.barnard.edu/about-us/contact-us">Contact Barnard Archives.</a>'
+      if ['bar,bda', 'bara'].include?(location_code)
+        location_note = 'Available by appointment. <a href="https://archives.barnard.edu/about-us/contact-us">Contact Barnard Archives.</a>'
+        return location_note
+      end
+
+      # Barnard Special Collections (which are exclusively Zines - LIBSYS-3358)
+      if ['bar,spec'].include?(location_code)
         location_note = 'Contact the Barnard Zine Library ( <a href="mailto:zines@barnard.edu">zines@barnard.edu</a> )'
         return location_note
       end
