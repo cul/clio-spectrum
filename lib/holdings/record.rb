@@ -490,7 +490,7 @@ module Holdings
         return location_note
       end
 
-      # Barnard Special Collections (which are exclusively Zines - LIBSYS-3358)
+      # Barnard Archives
       if ['bar,bda', 'bara'].include?(location_code)
         location_note = 'Available by appointment. <a href="https://archives.barnard.edu/about-us/contact-us">Contact Barnard Archives.</a>'
         return location_note
