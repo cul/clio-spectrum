@@ -15,6 +15,9 @@ class CatalogController < ApplicationController
   # (and then un-processed params are stored to session[:search])
   prepend_before_action :preprocess_search_params
 
+  # We want to know our datasource for any action
+  before_action { @source = active_source }
+
   # Bring in endnote export, etc.
   include Blacklight::Marc::Catalog
 
@@ -28,7 +31,7 @@ class CatalogController < ApplicationController
   # When a catalog search is submitted, this is the
   # very first point of code that's hit
   def index
-    @source = active_source
+    # @source = active_source
     params['source'] = @source
     debug_timestamp('CatalogController#index() begin')
 
