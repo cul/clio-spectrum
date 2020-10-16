@@ -16,6 +16,9 @@
   = add_row("Copyright", display_marc_field(marc, 'publish_copyright'))
   = add_row("Description", display_marc_field(marc, 'description'))
 
+  = add_row("Map Format", display_marc_field(marc, 'map_format'))
+  = add_row("Scale", display_marc_field(marc, 'scale'))
+
   = add_row("Series", generate_value_links(display_marc_field(marc, 'series'), :series_title))
   = add_row("System Details", display_marc_field(marc, 'system_details'))
   = add_row("Constituent Items", display_marc_field(marc, 'constituent_items'))
