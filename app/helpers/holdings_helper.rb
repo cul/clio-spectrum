@@ -510,13 +510,17 @@ module HoldingsHelper
                       "/brief/#{id_type}/#{id_value}.json"
     # Rails.logger.debug "hathi_brief_url=#{hathi_brief_url}"
     http_client = HTTPClient.new
-    http_client.connect_timeout = 5 # default 60
-    http_client.send_timeout    = 5 # default 120
-    http_client.receive_timeout = 5 # default 60
+    http_client.connect_timeout = 10 # default 60
+    http_client.send_timeout    = 10 # default 120
+    http_client.receive_timeout = 10 # default 60
 
     # Rails.logger.debug "fetch_hathi_brief() get_content(#{hathi_brief_url})"
     begin
+      hathi_lookup_start = Time.now
       json_data = http_client.get_content(hathi_brief_url)
+      hathi_lookup_elapsed_ms = (Time.now - hathi_lookup_start) * 1000
+      Rails.logger.debug "Hathi lookup #{hathi_brief_url} - #{hathi_lookup_elapsed_ms}ms"
+
       hathi_holdings_data = JSON.parse(json_data)
 
       # Hathi will pass back a valid, but empty, response.
