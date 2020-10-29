@@ -14,6 +14,9 @@ module Spectrum
 
       def initialize(reg_params, blacklight_config)
         @params = reg_params.to_unsafe_h || HashWithIndifferentAccess.new
+        
+        @params = strip_foia_negation if APP_CONFIG['foia_exclusion']
+        
         @config = blacklight_config
         # raise
         parse_queries
@@ -265,6 +268,32 @@ module Spectrum
           }
         end
       end
+
+
+      # NEXT-1645 - Committee-driven software development!
+      # This method called above in initialize() like this:
+      #   @params = strip_foia_negation if APP_CONFIG['foia_exclusion']
+      # Depending on the query, @params may look like:
+      #   {"f"=>{"-format"=>["FOIA Document"]}, "q"=>"test"}
+      #   {"f"=>{"-format"=>["FOIA Document"], "format"=>["Book"]}, "q"=>"test"}
+      #   {"f"=>{"-format"=>["FOIA Document", "Book"]}, "q"=>"test"}
+      #   {"f"=>{"-format"=>["FOIA Document", "Book"]}, "f_operator"=>{"format"=>"OR"}, "q"=>"test"}
+      def strip_foia_negation
+        return @params unless @params && @params[:f] && @params[:f]['-format']
+        
+        # Delete the "FOIA Document" format negation, if found
+        @params[:f]['-format'].delete('FOIA Document')
+        
+        # Delete the format-negation key, if "FOIA Document" was the only format-negation
+        @params[:f].delete('-format') if @params[:f]['-format'].empty?
+        
+        # Delete the facet/filter key, if format-negation was the only facet/filter
+        @params.delete(:f) if @params[:f].empty?
+        
+        # Return whatever @params looks like now
+        @params
+      end
+
     end
   end
 end

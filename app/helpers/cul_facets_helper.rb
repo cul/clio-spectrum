@@ -153,29 +153,33 @@ module CulFacetsHelper
   # end
   
 
-  # CLIO includes a Search Options with quick-select toggles.
-  # There is currently only one - to include/exclude FOIA documents
-  def render_foia_toggle
-    # Are we currently excluding FOIA documents?
-    # If so, (1) render toggle as UN-checked, meaning yes, exclude,
-    # (2) link to un-exclude
-    excluded_format_field = '-format'
-    foia_item = 'FOIA Document'
-
-    if params['f'] && params['f'][excluded_format_field] && params['f'][excluded_format_field].include?(foia_item)
-      icon = content_tag(:span, '', class: 'glyphicon glyphicon-unchecked')
-      url = search_action_path(search_state.remove_facet_params(excluded_format_field, foia_item))
-    else
-      icon = content_tag(:span, '', class: 'glyphicon glyphicon-check')
-      # first, clear out "format=FOIA Document" if it's there
-      without_foia = search_state.remove_facet_params('format', foia_item)
-      new_state = search_state.reset(without_foia)
-      # same search, but w/foia excluded:
-      url = search_action_path(new_state.add_facet_params_and_redirect(excluded_format_field, foia_item))
-    end
-
-    label = 'Include Freedom of Information Archive documents'
-    content_tag(:div, link_to(icon, url) + ' ' + label)
-  end
+  # NEXT-1645 - NO, after building this whole thing, updating display and
+  # functionality a few times, CUD how now decided to NOT use this at all,
+  # so just comment out all this work.
+  #
+  # # CLIO includes a Search Options with quick-select toggles.
+  # # There is currently only one - to include/exclude FOIA documents
+  # def render_foia_toggle
+  #   # Are we currently excluding FOIA documents?
+  #   # If so, (1) render toggle as UN-checked, meaning yes, exclude,
+  #   # (2) link to un-exclude
+  #   excluded_format_field = '-format'
+  #   foia_item = 'FOIA Document'
+  #
+  #   if params['f'] && params['f'][excluded_format_field] && params['f'][excluded_format_field].include?(foia_item)
+  #     icon = content_tag(:span, '', class: 'glyphicon glyphicon-unchecked')
+  #     url = search_action_path(search_state.remove_facet_params(excluded_format_field, foia_item))
+  #   else
+  #     icon = content_tag(:span, '', class: 'glyphicon glyphicon-check')
+  #     # first, clear out "format=FOIA Document" if it's there
+  #     without_foia = search_state.remove_facet_params('format', foia_item)
+  #     new_state = search_state.reset(without_foia)
+  #     # same search, but w/foia excluded:
+  #     url = search_action_path(new_state.add_facet_params_and_redirect(excluded_format_field, foia_item))
+  #   end
+  #
+  #   label = 'Include Freedom of Information Archive documents'
+  #   content_tag(:div, link_to(icon, url) + ' ' + label)
+  # end
   
 end

@@ -256,15 +256,15 @@ module DatasourcesHelper
       return articles_index_path('q' => query, 'new_search' => true)
     end
 
-    exclude_govdocs = '' 
+    exclude_foia = '' 
     if APP_CONFIG['foia_exclusion']
       if (['catalog','new_arrivals'].include?(source))
-        exclude_govdocs = '&f[-format][]=FOIA+Document'
+        exclude_foia = '&f[-format][]=FOIA+Document'
       end
     end
 
 
-    "/#{source}?" + { q: query }.to_query + exclude_govdocs
+    "/#{source}?" + { q: query }.to_query + exclude_foia
   end
 
   def datasource_switch_link(title, source, *args)
