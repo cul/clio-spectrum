@@ -1,31 +1,4 @@
 
-# require 'simplecov'
-# require 'coveralls'
-# require 'codeclimate-test-reporter'
-
-# # Using Coveralls with SimpleCov, per:
-# #   https://coveralls.zendesk.com/hc/en-us/articles/201769485-Ruby-Rails
-# # Whoa!  Using all three?
-# #   https://coderwall.com/p/vwhuqq/using-code-climate
-# SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-#   Coveralls::SimpleCov::Formatter,
-#   SimpleCov::Formatter::HTMLFormatter,
-#   CodeClimate::TestReporter::Formatter
-# ])
-# SimpleCov.start 'rails' do
-#   # don't do coverage of our testing code
-#   add_filter '/spec/'
-#   # don't do coverage of our rake tasks
-#   add_filter '/lib/tasks/'
-# end
-
-# Don't know why this is here - try removing it
-# require 'rubygems'
-
-# # Can these two coexist?
-# Coveralls.wear!('rails')
-# CodeClimate::TestReporter.start
-
 # shouldn't be necessary?
 ENV['RAILS_ENV'] ||= 'test'
 
@@ -37,18 +10,11 @@ require 'holdings/collection'
 require 'holdings/item'
 require 'holdings/record'
 
-# require 'rake'
-
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
-  # # Some specs need a rake task run first to set up conditions
-  # Rails.application.load_tasks
-
-  # Rails 4 - remove
-  # config.treat_symbols_as_metadata_keys_with_true_values = true
   config.mock_with :rspec
   config.include(MailerMacros)
   config.before(:each) { reset_email }
@@ -114,26 +80,4 @@ Capybara::Webkit.configure do |config|
   config.allow_url('hathitrust.org')
   config.allow_url('books.google.com')
 
-  # OLD - WAS PART OF RSPEC CONFIG BLOCK ABOVE
-  # # Turn this block on when we upgrade capybara-webkit
-  # # from https://github.com/thoughtbot/capybara-webkit/issues/717
-  # config.before(:each, :js) do
-  #   page.driver.block_unknown_urls
-  #   # page.driver.allow_url("hathitrust.org")
-  #   # page.driver.allow_url("books.google.com")
-  #   # page.driver.allow_url("bronte.cul.columbia.edu")
-  #
-  #   # We reliably get "Errno::EPIPE: Broken pipe" unless
-  #   # we allow connections to here.  Annoying, mysterious.
-  #   # page.driver.allow_url("google-analytics.com")
-  #
-  #   # All this, just for the maps on the location pages.
-  #   # But leaving these URLs blocked doesn't interfere
-  #   # with Selenium testing - so don't whitelist.
-  #   # page.driver.allow_url("maps.google.com")
-  #   # page.driver.allow_url("maps.googleapis.com")
-  #   # page.driver.allow_url("gstatic.com")
-  #   # page.driver.allow_url("googlecode.com")
-  #   # page.driver.allow_url("googleapis.com")
-  # end
 end
