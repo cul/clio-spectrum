@@ -18,7 +18,7 @@
         - else
           %span.disabled= previous_string
       
-        %span#current_item_info= " | #{result.start_item} - #{result.end_item} of #{number_with_delimiter(result.total_items)} | "
+        %span.current_item_info{data: {total_items: result.total_items}}= " | #{result.start_item} - #{result.end_item} of #{number_with_delimiter(result.total_items)} | "
       
         - next_string = "Next \u00bb"
         - if result.next_page?

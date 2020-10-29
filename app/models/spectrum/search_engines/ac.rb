@@ -251,9 +251,7 @@ module Spectrum
 
         # DISSERTATIONS
         # hardcode filter to show only dissertations if we're in that datasource
-        # api_params['type'] = 'Theses' if options['datasource'] == 'ac_dissertations'
-        # 6/2020 - the field name seems to have changed
-        api_params['genre_ssim'] = 'Theses' if options['datasource'] == 'ac_dissertations'
+        api_params['type[]'] = 'Theses' if options['datasource'] == 'ac_dissertations'
 
         search_url = "#{search_url}?#{api_params.to_query}" if api_params.present?
         Rails.logger.debug "Spectrum::SearchEngines::Ac build_search_url(options)\n    #{search_url}"
