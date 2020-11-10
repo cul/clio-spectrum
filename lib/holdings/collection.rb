@@ -133,13 +133,21 @@ module Holdings
         record.services.delete('ill_scan') if campus_scan_available
       end
 
+      # If there's ANY copy available for Pickup, don't offer Borrow Direct
+      pickup_available = holdings_records.any? do |record|
+        record.services.include?('campus_paging') ||
+        record.services.include?('recap_loan')
+      end
+      holdings_records.each do |record|
+        record.services.delete('borrow_direct') if pickup_available
+      end
+      
       # adjust services
       holdings_records.each do |record|
-        # doc_delivery ("Scan & Deliver") is going away forever
-        # record.services.delete('doc_delivery') if offsite_copy == 'Y'
-        record.services.delete('borrow_direct') if available_copy == 'Y'
-        # NEXT-1670 - Scan service (internally: ill) for ALL records
-        # record.services.delete('ill') if available_copy == 'Y'
+
+        # replace with service-based logic above
+        # record.services.delete('borrow_direct') if available_copy == 'Y'
+
         # NEXT-1559 - don't display bearstor request link if copy is available
         record.services.delete('barnard_remote') if available_copy == 'Y'
       end

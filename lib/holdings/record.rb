@@ -537,12 +537,6 @@ Library.</a>'
       aeon_locations = APP_CONFIG['aeon_locations'] || []
       return ['aeon'] if aeon_locations.include?(location_code)
       
-      # if ['rbx', 'off,rbx', 'rbms', 'off,rbms', 'rbi', 'uacl', 'uacl,low', 'off,uacl',
-      #     'clm', 'dic', 'dic4off', 'gax', 'oral', 'rbx4off', 'off,dic',
-      #     'off,oral'].include?(location_code)
-      #   return ['aeon']
-      # end
-
 
       # ====== ORDERS ======
       # Orders such as "Pre-Order", "On-Order", etc.
@@ -562,15 +556,19 @@ Library.</a>'
         return services.flatten.uniq
       end
 
+
       # ====== ONLINE ======
       # Is this an Online resource?  Do nothing - add no services for online records.
       if item_status[:status] == 'online'
         return services.flatten.uniq
       end
 
+
       # Scan for things like "Recall", "Hold", etc.
-      services << scan_message(location_name)
-      
+      services << scan_message( location_name )
+      services << scan_messages( item_status[:messages] )
+
+
       # ====== ITEM STATUS "NONE"?? ======
       # Item Status is "none"?  Something's odd, this is not a regular holding.
       # Might be In-Process?
@@ -578,37 +576,18 @@ Library.</a>'
         services << 'in_process' if call_number =~ /in process/i
       end
 
-      # Scan item-status messages for any mention of "Borrow Direct", "ILL", etc.
-      services << scan_messages( item_status[:messages] )
-   
-      # messages = item_status[:messages]
-      #
-      # case item_status[:status]
-      # # when 'online'
-      # #   # do nothing - add no services for online records
-      # # when 'none'
-      # #   # status "none"?  Something's odd, not a regular holding.
-      # #   services << 'in_process' if call_number =~ /in process/i
-      # when 'available'
-      #   services << process_for_services(location_name, location_code, temp_loc_flag, bibid, messages)
-      # when 'some_available'
-      #   services << process_for_services(location_name, location_code, temp_loc_flag, bibid, messages)
-      # # when 'not_available'
-      # #   services << scan_messages(messages) if messages.present?
-      # end
-
 
       # ====== COPY AVAILABLE ======
       # - LOTS of different services are possible when we have an available copy
       if item_status[:status] == 'available' || item_status[:status] == 'some_available'
 
         # ------ CAMPUS SCAN ------
-        # We might soon limit this service by location.
+        # If campus-scanning is only offered for certain locations....
         campus_scan_locations = APP_CONFIG['campus_scan_locations'] || []
         if campus_scan_locations.present?
           services << 'campus_scan' if campus_scan_locations.include?(location_code)
         else
-          # But until that's done - add the service for any non-offsite location
+          # Otherwise, offer campus scanning for any non-offsite location
           offsite_locations = OFFSITE_CONFIG['offsite_locations'] || []
           services << 'campus_scan' unless offsite_locations.include?(location_code)
         end
@@ -616,19 +595,17 @@ Library.</a>'
 
         # ------ CAMPUS PAGING ------
         # NEXT-1664 / NEXT-1666 - new Paging/Pickup service for available on-campus material
-        campus_paging_locations = APP_CONFIG['campus_paging_locations'] || APP_CONFIG['paging_locations'] || ['none']
+        campus_paging_locations = APP_CONFIG['campus_paging_locations'] || []
         services << 'campus_paging' if campus_paging_locations.include?(location_code)
 
         # ------ RECAP / OFFSITE ------
-        # offsite
         offsite_locations = OFFSITE_CONFIG['offsite_locations'] || []
         if offsite_locations.include?(location_code)
-          # new-generation Valet services
           # -- recap_loan --
-          recap_loan_locations = APP_CONFIG['recap_loan_locations'] || ['none']
+          recap_loan_locations = APP_CONFIG['recap_loan_locations'] || []
           services << 'recap_loan' if recap_loan_locations.include?(location_code)
           # -- recap_scan --  (but not for MICROFORM, CD-ROM, etc.)
-          unscannable = APP_CONFIG['unscannable_offsite_call_numbers'] || ['none']
+          unscannable = APP_CONFIG['unscannable_offsite_call_numbers'] || []
           services << 'recap_scan' unless unscannable.any? { |bad| call_number.starts_with?(bad) }
 
           # Physical loans of Princeton ETAS titles is not allowed
@@ -637,11 +614,6 @@ Library.</a>'
             services.delete('recap_loan')
             services << 'borrow_direct'
           end
-          
-          # # old-generation Valet service
-          # services << 'offsite'
-          # # TODO - transitional, cleanup old-gen 'offsite'
-          # services.delete('offsite') if unscannable.any? { |bad| call_number.starts_with?(bad) }
         end
 
         # ------ BEAR-STOR ------
@@ -652,7 +624,7 @@ Library.</a>'
 
         # ------ AVERY ONSITE MEDIATED REQUEST ------
         # LIBSYS-3200 - Access to some non-circ Avery locations requires mediated access
-        avery_onsite_locations = APP_CONFIG['avery_onsite_locations'] || [ 'ave', 'fax', 'off,ave', 'off,fax' ]
+        avery_onsite_locations = APP_CONFIG['avery_onsite_locations'] || []
         services << 'avery_onsite' if avery_onsite_locations.include?(location_code)    
         
         # ------ PRE-CAT ------
@@ -664,69 +636,35 @@ Library.</a>'
       services = services.flatten.uniq
 
 
-      # TODO
-      # This is in-transition, and it's pretty ugly rignt now.
-      # The service known within CLIO code as 'ill' is actually Chapter/Article Scan.
-      # And this service should be added to ALL physical items (not _online_)
-      # no matter their status.
-      # Available onsite?  We'll try scan it here.
-      # Unavailable? Or indeterminable ("none")?  We'll send it out to ILL for scanning.
-      # Either way, CLIO will link out to CGI (or Valet) for Illiad submission
-      # services << 'ill' unless item_status[:status] == 'online' or
-      # - NO ill/scan for ONLINE records
-      # - NO ill/scan if we're already offering offsite/scan service
-      if item_status[:status] != 'online' && ! services.include?('recap_scan')
-        services << 'ill'
-        services << 'ill_scan'
-      end
-      
-
-      # We can only ever have ONE "Scan" service.
-      services.delete('ill_scan') if services.include?('campus_scan')
-      services.delete('ill_scan') if services.include?('recap_scan')
-
-      # logic to support old keys - should be deletable...
-      services.delete('ill') if services.include?('campus_scan')
-      services.delete('ill') if services.include?('recap_scan')
-
-      # 8/3 - recap_scan is currently "offsite"
-
-      # # If this is a BearStor holding and some items are available,
-      # # enable the BearStor request link (barnard_remote)
-      # if location_code == APP_CONFIG['barnard_remote_location'] &&
-      #    %w(available some_available).include?(item_status[:status])
-      #   services << 'barnard_remote'
-      # end
-
-      # # NEXT-1664 - new Paging service
-      # # NEXT-1666 - criteria for offering the paging service
-      # paging_locations = APP_CONFIG['paging_locations'] || ['glx']
-      # if paging_locations.include?(location_code) &&
-      #    %w(available some_available).include?(item_status[:status])
-      #   services << 'campus_paging'
-      # end
-
-
       # ====== ETAS - NO ACCESS TO PHYSICAL BOOK ======
       # NEXT-1664 - Criteria for Page/Scan service links
       # If the bibid is in the ETAS database, marked as 'deny', then we have
-      # emergency online access - and thus can't offer Scan or Page
-      # "Any service that would involve the use of our physical copy should be suppressed"
+      # emergency online access - and thus can't offer physical access to the book.
+      # (But scanning has been deemed OK, so don't suppress scan options)
       if Covid.lookup_db_etas_status(bibid) == 'deny'
-        # Scan services ("ill" is actually Chapter/Article-Scan right now)
+        # --  Scan services  --
         # services.delete('campus_scan')
-        services.delete('offsite')
         # services.delete('recap_scan')
-        # Pick-Up services
+
+        # --  Pick-Up services  --
         services.delete('campus_paging')
         services.delete('recap_loan')
-        # Other services
+        # Can't offer our book, but can offer book via Borrow Direct
+        services << 'borrow_direct'
+
+        # --  Other services  --
         services.delete('bearstor')
         services.delete('avery_onsite')
         services.delete('aeon')
-        # We're still allowed to offer services for non-CUL material,
-        # so ILL (ILL Scan and ILL Loan) and BD are still ok.
       end
+
+
+      # Last-chance rules, every physical item should offer some kind of "Scan" and "Pickup"
+      if item_status[:status] != 'online'
+        services << 'ill_scan' unless services.include?('campus_scan') or services.include?('recap_scan') or services.include?('ill_scan')
+        services << 'borrow_direct' unless services.include?('campus_paging') or services.include?('recap_loan')  or services.include?('avery_onsite') or services.include?('borrow_direct')
+      end
+
 
       # only provide borrow direct request for printed books and scores
       # and CDs and DVDS (LIBSYS-1327)
@@ -741,16 +679,26 @@ Library.</a>'
       # unless fmt == 'am' || fmt == 'cm'
       services.delete('borrow_direct') unless %w(am cm gm jm).include?(fmt)
 
-      # NEXT-1470 - Suppress BD and ILL links for Partner ReCAP items,
-      # but leave enabled for CUL offsite.
-      if ['scsbnypl', 'scsbpul'].include? location_code
-        if Rails.env == 'clio_prod'
-          # NEXT-1555 - Valet Borrow Direct
-          # services.delete('borrow_direct')
-          services.delete('ill')
-          services.delete('ill_scan')
-        end
-      end
+      # 11/2020 - this clause is obsolete.  
+      # Unavailable ReCAP partner items should offer Scan via ILL network.
+      # # NEXT-1470 - Suppress BD and ILL links for Partner ReCAP items,
+      # # but leave enabled for CUL offsite.
+      # if ['scsbnypl', 'scsbpul'].include? location_code
+      #   if Rails.env == 'clio_prod'
+      #     # NEXT-1555 - Valet Borrow Direct
+      #     # services.delete('borrow_direct')
+      #     services.delete('ill_scan')
+      #   end
+      # end
+
+      # Double-check that we didn't accidently add overlapping services.
+      # We can only ever have ONE "Scan" service 
+      services.delete('ill_scan') if services.include?('campus_scan')
+      services.delete('ill_scan') if services.include?('recap_scan')
+      # We can only ever have ONE "Pickup" service 
+      services.delete('borrow_direct') if services.include?('campus_paging')
+      services.delete('borrow_direct') if services.include?('recap_loan')
+      
 
       Rails.logger.debug("determine_services(#{location_name}, #{location_code}, #{temp_loc_flag}, #{call_number}, #{item_status}, #{orders}, #{bibid}, #{fmt}) found: #{services}")
 
@@ -835,10 +783,11 @@ Library.</a>'
       out << 'recall_hold'    if message =~ /hold /
       out << 'borrow_direct'  if message =~ /Borrow/
       out << 'in_process'     if message =~ /In Process/
-      out << 'ill'            if message =~ /ILL/
-      out << 'ill'            if message =~ /Interlibrary Loan/
-      out << 'ill_scan'       if message =~ /ILL/
-      out << 'ill_scan'       if message =~ /Interlibrary Loan/
+      # LIBSYS-3435 - service logic no longer based on string scanning
+      # out << 'ill'            if message =~ /ILL/
+      # out << 'ill'            if message =~ /Interlibrary Loan/
+      # out << 'ill_scan'       if message =~ /ILL/
+      # out << 'ill_scan'       if message =~ /Interlibrary Loan/
       out
     end
 
