@@ -16,7 +16,7 @@
         %span.hidden-xs Search
       =link_to "Basic Search", "#", class: "btn btn-link advanced_search_toggle"
 
-    = hidden_field_tag 'search_field', 'advanced'
+    = hidden_field_tag 'search_field', 'advanced', id: 'advanced_search_field'
 
     - (1..5).each do |i|
       .advanced_search_row.form_group.row

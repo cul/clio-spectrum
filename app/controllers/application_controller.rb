@@ -391,7 +391,10 @@ class ApplicationController < ActionController::Base
     # This is supposed to catch the GET - return the HTML of the form
     unless !request.xhr? && flash[:success]
       respond_to do |format|
-        format.js { render layout: false }
+        # Explicitly set content-type on returned HTML chunk,
+        # so that JQuery "Intellegent Guess" parsing doesn't 
+        # interpret as JSON and throw parsererror
+        format.js { render layout: false, content_type: 'text/html' }
         format.html
       end
     end

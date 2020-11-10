@@ -219,7 +219,9 @@ describe 'Catalog Interface' do
         find('button[type=submit]').click
       end
 
-      expect(find('#main-flashes')).to have_text 'Email sent'
+      expect(find('.modal-body')).to have_text('Email sent')
+
+      # expect(find('#main-flashes')).to have_text 'Email sent'
     end
   end
 
