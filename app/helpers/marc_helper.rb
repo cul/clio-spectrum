@@ -149,9 +149,9 @@ module MarcHelper
     unless subflds.empty?
       out = subflds.shift.value
       subflds.each do |s|
-        splitable_subfields = 'vxyz'
         # NEXT-1672 - split on Title of Work as well
-        splitable_subfields = 'tvxyz' if Rails.env != 'clio_prod'
+        # splitable_subfields = 'vxyz'
+        splitable_subfields = 'tvxyz'
         out += if splitable_subfields.include?(s.code)
                  ' - ' + s.value
                else
