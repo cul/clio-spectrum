@@ -493,12 +493,11 @@ default_datasource_bar:
     - databases
     - journals
     - archives
+    - govdocs
     - new_arrivals
     - ebooks
     - articles
-    # - academic_commons
     - ac
-    # - library_web
     - lweb
     - geo
   minor_sources:
@@ -508,5 +507,6 @@ default_datasource_bar:
     - databases
     - journals
     - archives
+    - govdocs
     - new_arrivals
 
