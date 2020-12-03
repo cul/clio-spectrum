@@ -96,6 +96,15 @@ describe 'record tests' do
     end
   end
 
+  # NEXT-1706 - PMRR special handling
+  it 'microform link', :js do
+    visit solr_document_path('3124506')
+    expect(page).to have_css('#clio_holdings .holding')
+    within ('div#clio_holdings') do
+      expect(page).to have_link('Arrange for Access', href: 'https://library.columbia.edu/libraries/pmrr/services.html?3124506')
+    end
+  end
+
   it 'special collections services', :js do
     visit solr_document_path('6201975')
     expect(page).to have_css('#clio_holdings .holding')

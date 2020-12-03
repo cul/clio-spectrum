@@ -537,6 +537,9 @@ Library.</a>'
       aeon_locations = APP_CONFIG['aeon_locations'] || []
       return ['aeon'] if aeon_locations.include?(location_code)
       
+      # ====== MICROFORMS ======
+      microform_locations = APP_CONFIG['microform_locations'] || ['mrr']
+      return ['microform'] if microform_locations.include?(location_code)
 
       # ====== ORDERS ======
       # Orders such as "Pre-Order", "On-Order", etc.

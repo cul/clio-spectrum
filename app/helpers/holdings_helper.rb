@@ -124,7 +124,7 @@ module HoldingsHelper
     #    links.sort { |x,y| x.first <=> y.first }
   end
 
-  SERVICE_ORDER = %w(campus_scan recap_scan offsite ill_scan ill campus_paging recap_loan barnard_remote avery_onsite aeon precat on_order borrow_direct recall_hold in_process doc_delivery ).freeze
+  SERVICE_ORDER = %w(campus_scan recap_scan offsite ill_scan ill campus_paging recap_loan barnard_remote avery_onsite aeon microform precat on_order borrow_direct recall_hold in_process doc_delivery ).freeze
 
   # parameters: title, link (url or javascript), optional extra param
   # When 2nd param is a JS function,
@@ -157,7 +157,8 @@ module HoldingsHelper
                            js_function: 'OpenWindow'},
       'avery_onsite'   => {link_label: 'On-Site Use',      service_url: avery_onsite_link, 
                            tooltip:    'Avery Onsite',     js_function: 'OpenWindow'},
-      'aeon'      => {link_label: 'Special Collections', service_url: 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='},
+      'aeon'           => {link_label: 'Special Collections', service_url: 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='},
+      'microform'      => {link_label: 'Arrange for Access', service_url: 'https://library.columbia.edu/libraries/pmrr/services.html?'},
       'precat'         => {link_label: 'Precataloging', service_url: precat_link, 
                            js_function: 'OpenWindow'},
       'recall_hold'    => {link_label: 'Recall / Hold', service_url: recall_hold_link},
