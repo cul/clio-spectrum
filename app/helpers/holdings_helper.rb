@@ -174,6 +174,41 @@ module HoldingsHelper
 
     # For some reason, this singleton value is stored in an array.  :(
     holding_id = holding_id.first if holding_id.is_a?(Array)
+    
+    # ACTUALLY, we "condense" similar holdings into "entries".
+    #   An "entry" is a group of holdings sharing: location/call-num
+    #
+    # When holding_id is non-singleton, that means the service link
+    # is offered with respect to the LIST of similar holdings.
+    # This is OK for bib-based services (campus paging/scanning, or BD),
+    # but NOT OK for holdings-based services (recap-loan / recap-scan).
+    #
+    # fixes?
+    # 1) don't condense holdings with recap-loan/recap-scan.  
+    #    this would result in many more "Requests:" sections.
+    # 2) Pickup/Scan link opens CLIO-side intermediary holdings-selection form, then jumps by bib/mfhd_id to Valet
+    #    But - GUI issues, not easy to do
+    # 3) Pickup/Scan link jumps by-bib go Valet, then opens Valet-side intermediary holdings-selection form
+    #    GUI is already figured out, easy to do
+    #    But - do we have to worry that different holdings would have different availabilities?
+    #       due to new offsite-availability rules?
+    #       what are those rules that determine CLIO's offering of the recap services?
+    #
+    # recap_loan_locations - list of locations.  All holdings within an "entry" will have same location
+    # scan_formats - this turns off recap_scan, but format is a bib-level element, all holdings will have the same format
+    # unscannable_offsite_call_numbers - call-number is also the same across an "entry"
+    #
+    #    OK, so it seems safe to let Valet treat an entire "entry" the same?
+    #    But -- CLIO service links are by-entry, not by-bib.  So still possibly a problem,
+    #    if a ReCAP bib has two entries/holdings, might they have different locations or call-numbers?  
+    #      Such that one holding is valid and the other is not?  How likely?  
+    #      Some micro, some not?  or split locations?  Within the same bib?  Very very unlikely, right?
+    #
+    # so we're coming around to re-inserting the holdings-selection form in Valet.
+    # if we do that, how?
+    # - different routes, different arg patterns to the recap_blah paths?
+    #     with a "loopback" holding-selction GET form?
+    # raise 
 
     # # LIBSYS-2891 / LIBSYS-2892 - libraries closed, suspend ALL services
     # 6/2020 - Suspended services are beginning to be reinstated.
@@ -201,10 +236,11 @@ module HoldingsHelper
       
       link_target = service_url + clio_id.to_s
       
-      # Some links need more than bib.  ReCAP needs holdings id too.  For example:
-      #     https://valet.cul.columbia.edu/recap_loan/2929292/10086
-      #     https://valet.cul.columbia.edu/recap_scan/2929292/10086
-      link_target += '/' + holding_id.to_s if ['recap_loan', 'recap_scan'].include?(svc)
+      # NEXT-1693 - nope, don't do this anymore
+      # # Some links need more than bib.  ReCAP needs holdings id too.  For example:
+      # #     https://valet.cul.columbia.edu/recap_loan/2929292/10086
+      # #     https://valet.cul.columbia.edu/recap_scan/2929292/10086
+      # link_target += '/' + holding_id.to_s if ['recap_loan', 'recap_scan'].include?(svc)
 
       link_options = {}
       
