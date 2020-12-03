@@ -96,14 +96,14 @@ module Holdings
     # Some qualities of the bib record affect services offered
     def adjust_services_for_bib(document, holdings_records)
 
-      # NEXT-1673 - only offer "Scan" (i.e., 'ill') for certain formats
+      # NEXT-1673 - only offer "Scan" for certain formats
       scan_formats = APP_CONFIG['scan_formats'] || ['book']
       # If there's no intersection between this bib's formats and the scannable list,
-      # Then remove all 'ill' service links
+      # Then remove all scan-related service links
       if (document['format'] & scan_formats).empty?
         holdings_records.each do |record|
-          record.services.delete('ill') # internal code 'ill' is actuall "Scan"
           record.services.delete('ill_scan')
+          record.services.delete('recap_scan')
         end
       end
 
@@ -153,12 +153,6 @@ module Holdings
       end
     end
 
-    def condense_holdings(holdings)
-      # processing varies depending on complexity
-      complexity = determine_complexity(holdings)
-      entries = process_holdings(holdings, complexity)
-      entries
-    end
 
     def determine_complexity(holdings)
       # holdings are complex if anything other than item_status has a value
@@ -179,7 +173,19 @@ module Holdings
       :simple
     end
 
-    def process_holdings(holdings, complexity)
+
+    # def condense_holdings(holdings)
+    #   # processing varies depending on complexity
+    #   complexity = determine_complexity(holdings)
+    #   entries = process_holdings(holdings, complexity)
+    #   entries
+    # end
+
+    # def process_holdings(holdings, complexity)
+    def condense_holdings(holdings)
+      # processing varies depending on complexity
+      complexity = determine_complexity(holdings)
+
       entries = []
 
       # Look at each Holding in turn...
