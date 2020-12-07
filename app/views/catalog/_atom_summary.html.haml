@@ -12,7 +12,7 @@
 
 
 %dl
-  -# = add_row('Title', document.fetch('title_display', nil), :style => :dlist)
+  = add_row('Title', document.fetch('title_display', nil), :style => :text)
   = add_row('  Author', document.fetch('author_display', nil), :style => :text)
   = add_row('  Published', document.fetch('full_publisher_display', nil), :style => :text)
   - unless (locations = document["location_call_number_id_display"].listify.reject { |l| l.match(/^Online/) }).empty?

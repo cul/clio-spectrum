@@ -436,12 +436,6 @@ module DisplayHelper
 
       output = searches.join(' > ')
       
-      if Rails.env == 'clio_dev'  || Rails.env == 'development'
-        if (output.match(/Illegal/)) 
-          output = output + " INFO LINK"
-        end
-      end
-      
       output
       
     # uniq, because different vocabularies may offer same subject term
@@ -464,52 +458,53 @@ module DisplayHelper
   def add_row(title, value, options = {})
     options.reverse_merge!(
       join: nil,
-      abbreviate: nil,
       html_safe: true,
       expand: false,
       style: @add_row_style || :definition,
       spans: [2, 10],
-      label_style: 'field'
     )
 
     value_txt = convert_values_to_text(value, options)
-    spans = options[:spans]
 
-    result = ''
-    unless value_txt.empty?
-      if options[:style] == :text
-        result = (title.to_s + ': ' + value_txt.to_s + "\n").html_safe
-      else
-        result = content_tag(:div, class: 'row document-row') do
-          if options[:style] == :definition
-            # add space after row label, to help capybara string matchers
-            content_tag(:div, title.to_s.html_safe + ' ', class: "#{options[:label_style]} col-sm-#{spans.first}") +
-              content_tag(:div, value_txt, class: "value col-sm-#{spans.last}")
-          end
-        end
-      end
+    # no value means no row
+    return '' if value_txt.empty?
 
+    # if caller asks for plain text, return plain text
+    if options[:style] == :text
+      return (title.to_s + ': ' + value_txt.to_s + "\n").html_safe
+    end
+
+    # invalid style option!  we only know :text and :definition
+    return '' unless options[:style] == :definition
+
+    # Default case - build up an HTML div for the row ("definition" style)
+    title_span = options[:spans].first
+    value_span = options[:spans].last
+
+    result = content_tag(:div, class: 'row document-row') do
+      # add space after row label, to help capybara string matchers
+      content_tag(:div, title.to_s.html_safe + ' ', class: "field col-sm-#{title_span}") +
+        content_tag(:div, value_txt, class: "value col-sm-#{value_span}")
     end
 
     result
   end
 
   def convert_values_to_text(value, options = {})
-    values = value.listify.flatten
+    values = Array(value).flatten
 
-    values = values.map { |txt| txt.to_s.abbreviate(options[:abbreviate]) } if options[:abbreviate]
-
+    # Sometimes the row value intentionally contains embedded HTML
     values = if options[:html_safe]
                values.map(&:html_safe)
              else
-               values.map { |v| h(v) }.map(&:html_safe)
+               values.map { |v| html_escape(v) }.map(&:html_safe)
              end
-
-    # Join multiple data values into a single delimited display string
-    values = values.join(options[:join]).listify if options[:join]
 
     # Don't do our fancy html/JS markup if we're in a text-only context
     return values.join("\r\n  ") if options[:style] == :text
+
+    # Join multiple data values into a single delimited display string
+    values = values.join(options[:join]).listify if options[:join]
 
     # "Teaser" option - If the text is long enough, wrap the end of it
     # within a span, with a hide/show toggle.
@@ -547,14 +542,6 @@ module DisplayHelper
     end
 
     value_txt = values.join("\n")
-
-    # if options[:expand_to] && !options[:expand_to].strip.empty?
-    #   value_txt += content_tag(:div, link_to(' more &#x25BC;'.html_safe, '#'),
-    #                            class: 'entry expander')
-    #   value_txt += content_tag(:div, options[:expand_to].html_safe,
-    #                            class: 'expander_more')
-    # end
-
     value_txt = value_txt.html_safe
     value_txt
   end
@@ -563,7 +550,6 @@ module DisplayHelper
   # (key-encoded value) query string.
   # For use to create COinS, among other things. COinS are
   # for Zotero, among other things.
-
   def catalog_to_openurl_ctx_kev(document)
     return '' unless document
     # No, be forgiving.

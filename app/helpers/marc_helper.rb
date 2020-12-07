@@ -1,6 +1,10 @@
 module MarcHelper
   DELIM = '|DELIM|'.freeze
 
+  # Given the full MARC of a document and a CLIO field-name,
+  # - lookup the CLIO config for the field-name,
+  # - parse the marc according to the config
+  # - return an array of strings for display
   def display_marc_field(marc, field_name)
     config = MARC_FIELDS[field_name]
 
