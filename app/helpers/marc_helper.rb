@@ -146,23 +146,33 @@ module MarcHelper
     value
   end
 
+  # output subject headings with ' - ' preceeding subfields vxyz
   def select_subfields_subject_heading(field, subfields_to_select)
-    # output subject headings with ' - ' preceeding subfields vxyz
-    out = ''
     subflds = field.subfields.select { |sf| subfields_to_select == :all || subfields_to_select.include?(sf.code) }
-    unless subflds.empty?
-      out = subflds.shift.value
-      subflds.each do |s|
-        # NEXT-1672 - split on Title of Work as well
-        # splitable_subfields = 'vxyz'
-        splitable_subfields = 'tvxyz'
-        out += if splitable_subfields.include?(s.code)
-                 ' - ' + s.value
-               else
-                 ' ' + s.value
-               end
-      end
+    return '' if subflds.empty?
+
+    first_subfield = subflds.shift
+    out = first_subfield.value
+    # \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+    # NEXT-1601 - If we have a local NNC preferred term, use it instead of the LOC term
+    out = (LOCAL_SUBJECTS[out] || out) if first_subfield.code == 'a'
+
+    # out = subflds.shift.value
+
+    subflds.each do |s|
+      subfield_value = s.value
+      # NEXT-1601 - If we have a local NNC preferred term, use it instead of the LOC term
+      subfield_value = (LOCAL_SUBJECTS['subfield_value'] || subfield_value) if s.code == 'a'
+      # NEXT-1672 - split on Title of Work as well
+      # splitable_subfields = 'vxyz'
+      splitable_subfields = 'tvxyz'
+      out += if splitable_subfields.include?(s.code)
+               ' - ' + s.value
+             else
+               ' ' + s.value
+             end
     end
+
     out
   end
 

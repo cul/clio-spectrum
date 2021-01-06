@@ -106,8 +106,15 @@ namespace :authorities do
         provide 'log.level', 'info'
         # match our default application log format
         provide 'log.format', ['%d [%L] %m', '%Y-%m-%d %H:%M:%S']
-        # thread pool boosts throughput, even on MRI
-        provide 'processing_thread_pool', '10'
+        
+        # our testing shows thread pool boosts throughput, even on MRI
+        # but - authorities talks to the database, and SQLite doesn't consitently work w/multithreading
+        if Rails.env.development?  ||  Rails.env.test?
+          provide 'processing_thread_pool', '0'
+        else
+          provide 'processing_thread_pool', '10'
+        end
+       
         provide 'solr_writer.commit_on_close', 'true'
         # How many records skipped due to errors before we
         #   bail out with a fatal error?

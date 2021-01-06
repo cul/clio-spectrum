@@ -9,6 +9,10 @@ extend Traject::Macros::MarcFormats
 
 Marc21 = Traject::Macros::Marc21 # shortcut
 
+# Explicitly require, to enable inline ActiveRecord calls
+require 'local_subject'
+
+
 # Which authorized heading fields do we care about?
 # Any kind of person, any topic, or any Geo term,
 # because any of these could be used in a bib record's
@@ -34,20 +38,22 @@ disqualifiers = disqualifying_subfields.join
 # - Subject Authority Records, Topical or Geographic, also unqualified
 # - And skip if there are no variants
 each_record do |record, context|
+  authority_id = record['001'].value
+  
   # # abort after a certain number of records
   # raise "EARLY ABORT FOR TESTING" if context.position > 100
 
   # assume we're going to skip this record, unless we find something interesting.
   skip = true
   # store subfield 'a' for debugging
-  name = nil
+  loc_subject = nil
 
   interesting_fields.each do |field|
     # Is one of the interesting authorized headings found in the record?
     next unless record[field].present?
     # ... with a name subfield ($a)?
     next unless record[field]['a'].present?
-    name = record[field]['a']
+    loc_subject = record[field]['a']
     # ... and without further qualification (subdivision, subheading)?
     all_subfields = record[field].subfields.map(&:code)
     # (intersection must be empty)
@@ -57,22 +63,36 @@ each_record do |record, context|
     # Now, are there also any variant forms present?
 
     # (determine the tracings from the field tag)
-    see_from = field.sub(/^1/, '4')
-    see_also = field.sub(/^1/, '5')
+    see_from_tag = field.sub(/^1/, '4')
+    see_also_tag = field.sub(/^1/, '5')
 
     # Do we have at least one tracing, with an 'a' subfield?
-    next unless (record[see_from].present? && record[see_from]['a'].present?) || (record[see_also].present? && record[see_also]['a'].present?)
+    next unless (record[see_from_tag].present? && record[see_from_tag]['a'].present?) ||
+                (record[see_also_tag].present? && record[see_also_tag]['a'].present?)
     # ... if yes, then KEEP THIS RECORD!
     # DEBUG
-    # puts "KEEP auth id #{record['001'].value} (\"#{name}\")"
+    # puts "KEEP auth id #{record['001'].value} (\"#{loc_subject}\")"
     skip = false
+    
+    
+    # NEXT-1601 - LOCAL SUBJECTS - If any of our "see_from" fields is a local NNC variant,
+    # record this to a mapping used for rewriting the term in the discovery interface.
+    record.fields(see_from_tag).each do |see_from_field|
+      next unless see_from_field['5'] == 'NNC'
+      
+      # We've found a locally defined subject variant!
+      nnc_subject = see_from_field['a']
+      # puts "DEBUG authority_id='#{authority_id}' loc_subject='#{loc_subject}' nnc_subject='#{nnc_subject}'"
+      LocalSubject.create(authority_id: authority_id, loc_subject: loc_subject, nnc_subject: nnc_subject)
+    end
+    
   end
 
   # When "skip" is still true, we never found a reason to keep this record.
   # context.skip is noisy - it'll print a line of output to DEBUG for each
   # record skipped.  We may as well try to output useful details.
   next unless skip
-  note = name.nil? ? '(no authorized name field)' : "(\"#{name}\")"
+  note = loc_subject.nil? ? '(no authorized name field)' : "(\"#{loc_subject}\")"
   context.skip!("skipping auth id #{record['001'].value} #{note}")
   next
 end
@@ -91,8 +111,9 @@ to_field 'id', extract_marc('001', first: true)
 # want to analyze the full MARC record, we need to use this field-type.
 to_field 'marc_txt', serialized_marc(format: 'xml')
 
-# This might be useful in the future.
-to_field 'text', extract_all_marc_values
+# no, don't include this very large data until we really need it
+# # This might be useful in the future.
+# to_field 'text', extract_all_marc_values
 
 ###  Store authorized forms separately
 
@@ -105,22 +126,25 @@ to_field 'subject_t', extract_marc('150a', trim_punctuation: false)
 # Geo Authorized form (Geographic Name)
 to_field 'geo_t', extract_marc('151a', trim_punctuation: false)
 
-###  COMBINED AUTHOR+SUBJECT FIELDS
+###  COMBINED AUTHOR+SUBJECT+GEO FIELDS
 
-# This is the matcher field.
-# Full authorized terms from the bib record will be matched against this.
+# This is the matcher field used during bib record indexing.
+# Full authorized terms from the bib record will be matched against this field.
 # We need to bring in many subfields for better precision in matching.
+#
 # If doing exact string match (_s), query term must include the same subfields.
 # Solr text field allowed fuzzy matching (American == American Airlines)
 # to_field "authorized_t", extract_marc("100abcdgqu:110abcdgnu:111acdegjnqu:150a:151a", trim_punctuation: false)
+#
 # Solr string field for precise match only (American != American Airlines)
 # AND:  we'll add the disqualifying subfields here as a backup safety measure.
 #  If by mistake "$a India $x Foreign relations" isn't skipped (as it should
 # have been above), then insert with authorized form "India Foreign relations"
 # instead of "India", so it doesn't clobber our base "India" record.
+# to_field "authorized_s", extract_marc("100abcdgqu:110abcdgnu:111acdegjnqu:150a:151a", trim_punctuation: false)
+#
 # SWITCH from _s to _ss, because this is now a multivalued field.
 # (multivalued?  yes, for Geo we support both the 151a and the 781zz as authorized)
-# to_field "authorized_s", extract_marc("100abcdgqu:110abcdgnu:111acdegjnqu:150a:151a", trim_punctuation: false)
 to_field 'authorized_ss', extract_marc("100abcdgqu#{disqualifiers}:110abcdgnu#{disqualifiers}:111acdegjnqu#{disqualifiers}:150a#{disqualifiers}:151a#{disqualifiers}:781zz", trim_punctuation: false)
 
 # The Variant list is used to improve retrieval from patron queries.
@@ -142,7 +166,7 @@ to_field 'variant_t' do |record, accumulator, _context|
     next unless field['a']
 
     # Ignore tracings that aren't the same 'kind' as the authorized form
-    # e.g., see this Personal Name with a See Also Corporate Name
+    # e.g., here's a Personal Name with a See Also Corporate Name
     #   100 10 $a Comonfort, Ignacio, $d 1812-1863
     #   510 10 $a Mexico. $b President (1855-1858 : Comonfort)
     authorized_field = field.tag.sub(/^[45]/, '1')
@@ -166,9 +190,11 @@ to_field 'variant_t' do |record, accumulator, _context|
 
     # Ok, there's an "a", and no bad subfields, so yes, we want this variant.
     # Gather up any subfields that might be useful
+    #
     # Start with abcdeq, see how this goes...
     # accumulator << field['abcdeq']  <--- can't do this
     # variant_string = ['a','b','c','d','e','q'].map {|code| field[code]}.compact.join(' ')
+    #
     # This many subfields will make for very fat variant strings.
     # That may lead to retrieving too many records.
     # Let's keep it simpler.  How about just 'a'?  Let's try.
@@ -178,3 +204,5 @@ to_field 'variant_t' do |record, accumulator, _context|
     accumulator << variant_string
   end
 end
+
+

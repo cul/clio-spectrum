@@ -1,0 +1,2 @@
+class LocalSubjectsController < ApplicationController
+end

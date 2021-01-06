@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_01_010101) do
+ActiveRecord::Schema.define(version: 2021_01_01_010101) do
 
   create_table "best_bets", force: :cascade do |t|
     t.string "title", null: false
@@ -32,6 +32,25 @@ ActiveRecord::Schema.define(version: 2019_06_01_010101) do
     t.string "user_type"
     t.string "document_type"
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
+
+  create_table "hathi_overlap", id: false, force: :cascade do |t|
+    t.text "oclc", null: false
+    t.text "local_id", null: false
+    t.text "item_type"
+    t.text "access"
+    t.text "rights"
+    t.index ["local_id"], name: "hathi_overlap_local_id"
+    t.index ["oclc"], name: "hathi_overlap_oclc"
+  end
+
+  create_table "hathi_overlap_princeton", id: false, force: :cascade do |t|
+    t.text "oclc"
+    t.text "local_id"
+    t.text "item_type"
+    t.text "access"
+    t.text "rights"
+    t.index ["local_id"], name: "hathi_overlap_princeton_id"
   end
 
   create_table "item_alerts", force: :cascade do |t|
@@ -69,6 +88,14 @@ ActiveRecord::Schema.define(version: 2019_06_01_010101) do
     t.string "library_code"
     t.index ["library_code"], name: "index_library_hours_on_library_code"
     t.index ["library_id", "date"], name: "index_library_hours_on_library_id_and_date"
+  end
+
+  create_table "local_subjects", force: :cascade do |t|
+    t.string "authority_id"
+    t.string "loc_subject"
+    t.string "nnc_subject"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "locations", force: :cascade do |t|
