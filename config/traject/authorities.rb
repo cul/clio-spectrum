@@ -85,7 +85,8 @@ each_record do |record, context|
       puts "DEBUG authority_id='#{authority_id}' loc_subject='#{loc_subject}' nnc_subject='#{nnc_subject}'" if ENV['DEBUG']
       LocalSubject.where(loc_subject: loc_subject).delete_all
       LocalSubject.create(authority_id: authority_id, loc_subject: loc_subject, nnc_subject: nnc_subject)
-    end
+      ActiveRecord::Base.clear_active_connections!
+end
     
   end
 
