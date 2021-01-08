@@ -155,21 +155,27 @@ module MarcHelper
     out = first_subfield.value
     # \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
     # NEXT-1601 - If we have a local NNC preferred term, use it instead of the LOC term
-    out = (LOCAL_SUBJECTS[out] || out) if first_subfield.code == 'a'
-
-    # out = subflds.shift.value
+    # Be careful to string-match w/out terminal punctuation, but to re-insert for display.
+    match_term = out.sub(/[\.\,]$/, '')
+    if local_subject = LOCAL_SUBJECTS[match_term]
+      out.sub!(/^#{match_term}/, local_subject)
+    end
 
     subflds.each do |s|
       subfield_value = s.value
       # NEXT-1601 - If we have a local NNC preferred term, use it instead of the LOC term
-      subfield_value = (LOCAL_SUBJECTS['subfield_value'] || subfield_value) if s.code == 'a'
+      match_term = subfield_value.sub(/[\.\,]$/, '')
+      if local_subject = LOCAL_SUBJECTS[match_term]
+        subfield_value.sub!(/^#{match_term}/, local_subject)
+      end
+
       # NEXT-1672 - split on Title of Work as well
       # splitable_subfields = 'vxyz'
       splitable_subfields = 'tvxyz'
       out += if splitable_subfields.include?(s.code)
-               ' - ' + s.value
+               ' - ' + subfield_value
              else
-               ' ' + s.value
+               ' ' + subfield_value
              end
     end
 
