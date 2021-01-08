@@ -9,7 +9,7 @@ extend Traject::Macros::MarcFormats
 
 Marc21 = Traject::Macros::Marc21 # shortcut
 
-# Explicitly require, to enable inline ActiveRecord calls
+# Explicitly require, to allow ActiveRecord calls within Traject
 require 'local_subject'
 
 
