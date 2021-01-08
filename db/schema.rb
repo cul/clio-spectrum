@@ -91,11 +91,14 @@ ActiveRecord::Schema.define(version: 2021_01_01_010101) do
   end
 
   create_table "local_subjects", force: :cascade do |t|
-    t.string "authority_id"
-    t.string "loc_subject"
-    t.string "nnc_subject"
+    t.string "authority_id", null: false
+    t.string "authority_field"
+    t.string "authority_subfield"
+    t.string "loc_subject", null: false
+    t.string "nnc_subject", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["loc_subject"], name: "index_local_subjects_on_loc_subject", unique: true
   end
 
   create_table "locations", force: :cascade do |t|

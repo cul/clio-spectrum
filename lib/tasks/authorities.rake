@@ -134,9 +134,6 @@ namespace :authorities do
 
       Rails.logger.info("- processing #{files_to_read.size} files...")
 
-      # clear out our local-subjects database table
-      LocalSubject.delete_all
-
       # index each file
       files_to_read.each do |filename|
         begin
@@ -170,18 +167,15 @@ namespace :authorities do
         end
       end
 
-      # We've processed all files?  Rebuild local_subjects.yml from database
-      Rails.logger.info("--- rebuilding local_subjects.yml")
+      # # We've processed all files?  Rebuild local_subjects.yml from database
+      # Rails.logger.info("--- rebuilding local_subjects.yml")
 
-      local_subjects_hash = {}
-      LocalSubject.find_each do |local_subject|
-        local_subjects_hash[ local_subject.loc_subject ] = local_subject.nnc_subject
-      end
-      local_subject_file = APP_CONFIG['extract_home'] + '/local_subjects/local_subjects.yml'
-      File.open(local_subject_file, "w") { |file| file.write(local_subjects_hash.to_yaml) }
-
-      # and then leave database table empty between runs
-      LocalSubject.delete_all
+      # local_subjects_hash = {}
+      # LocalSubject.find_each do |local_subject|
+      #   local_subjects_hash[ local_subject.loc_subject ] = local_subject.nnc_subject
+      # end
+      # local_subject_file = APP_CONFIG['extract_home'] + '/local_subjects/local_subjects.yml'
+      # File.open(local_subject_file, "w") { |file| file.write(local_subjects_hash.to_yaml) }
 
     
       Rails.logger.info("- finished processing #{files_to_read.size} files.")
