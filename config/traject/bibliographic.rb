@@ -161,7 +161,29 @@ to_field 'title_sort', marc_sortable_title do |_record, accumulator|
   accumulator.map! { |title| title.strip.gsub(/[^[:word:]\s]/, '').downcase }
 end
 
-to_field 'subject_txt', extract_marc("600#{ATOZ}:610#{ATOZ}:611#{ATOZ}:630#{ATOZ}:648#{ATOZ}:650#{ATOZ}:651#{ATOZ}:653aa:654#{ATOZ}:655#{ATOZ}", trim_punctuation: true, alternate_script: true)
+# to_field 'subject_txt', extract_marc("600#{ATOZ}:610#{ATOZ}:611#{ATOZ}:630#{ATOZ}:648#{ATOZ}:650#{ATOZ}:651#{ATOZ}:653aa:654#{ATOZ}:655#{ATOZ}", trim_punctuation: true, alternate_script: true)
+
+to_field 'subject_txt', extract_marc("600#{ATOZ}:610#{ATOZ}:611#{ATOZ}:630#{ATOZ}:648#{ATOZ}:650#{ATOZ}:651#{ATOZ}:653#{ATOZ}:654#{ATOZ}:655#{ATOZ}", trim_punctuation: true, alternate_script: true) do |record, accumulator|
+  
+  subject_tags = [ '600', '610', '611', '630', '648', '650', '651', '653', '654', '655' ]
+  record.each_by_tag( subject_tags ) do |datafield|
+    locally_prefered_subject_found = false
+    subject_nnc = ''
+    datafield.map do |subfield|
+      # build up the full subject, subfield-by-subfield.
+      # we don't know until we're through if we replaced any of them.
+      subfield_value = Marc21.trim_punctuation(subfield.value)
+      subject_nnc = subject_nnc + ' ' + (LOCAL_SUBJECTS[subfield_value] || subfield_value)
+
+      # flag for if any loc headings were replaced by locally preferred headings
+      locally_prefered_subject_found = true if LOCAL_SUBJECTS[subfield_value]
+    end
+
+    # if we found any subject within this datafield that we could replace, 
+    # then add the local NNC subject string to our index field
+    accumulator << subject_nnc.strip! if locally_prefered_subject_found
+  end
+end
 
 # \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 # NEXT-1601 - If we have a local NNC preferred term, use it instead of the LOC term
