@@ -37,7 +37,7 @@ gem 'gmaps4rails'
 
 # pagination
 # pinned - see NEXT-1626
-gem 'kaminari', '~> 1.1.0'
+gem 'kaminari', '~> 1.2.1'
 
 # Authentication
 gem 'devise', '~> 4.4.0'
