@@ -40,7 +40,7 @@ gem 'gmaps4rails'
 gem 'kaminari', '~> 1.1.0'
 
 # Authentication
-gem 'devise', '~> 4.4.0'
+gem 'devise', '~> 4.7.1'
 
 # gem 'cul_omniauth'
 # gem 'cul_omniauth', git: 'https://github.com/cul/cul_omniauth', branch: 'rails-5'
