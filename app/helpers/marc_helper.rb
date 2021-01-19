@@ -158,7 +158,7 @@ module MarcHelper
     # Be careful to string-match w/out terminal punctuation, but to re-insert for display.
     match_term = out.sub(/[\.\,]$/, '')
     if local_subject = LOCAL_SUBJECTS[match_term]
-      out.sub!(/^#{match_term}/, local_subject)
+      out.sub!(match_term, local_subject)
     end
 
     subflds.each do |s|
