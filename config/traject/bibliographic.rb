@@ -192,7 +192,7 @@ to_field 'subject_topic_facet' do |record, accumulator|
   subject_fields = '600abcdq:600x:610ab:610x:611ab:611x:630a:630x:650a:650x:651x:655x'
   all_subjects = Marc21.extract_marc_from(record, subject_fields, trim_punctuation: true, alternate_script: false).flatten.uniq
   all_subjects.each do |subject|
-    accumulator << LOCAL_SUBJECTS[subject] || subject
+    accumulator << (LOCAL_SUBJECTS[subject] || subject)
   end
 end
 
