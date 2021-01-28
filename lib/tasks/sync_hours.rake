@@ -105,16 +105,9 @@ namespace :hours do
       LibraryHours.create(daily_hours)
     end
 
-    # sftp = get_sftp()
-    #
-    #
     # @conn = Faraday.new(url: url)
     # raise "Faraday.new(#{url}) failed!" unless @conn
     # @conn.headers['Content-Type'] = 'application/json'
-    #
-    # json =
-    # Rake::Task["recap:ingest_file"].reenable
-    # Rake::Task["recap:ingest_file"].invoke(filename)
   end
 end
 

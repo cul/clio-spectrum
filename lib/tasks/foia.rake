@@ -15,10 +15,11 @@ namespace :foia do
     Rails.logger.info('- listing remote files from S3 bucket')
     
     Rails.logger.info('- creating S3 client connection')
-    s3 = get_s3
+    s3 = get_foia_s3
 
-    Rails.logger.info("- list objects in bucket #{FOIA_BUCKET}")
-    list = s3.list_objects(bucket: FOIA_BUCKET)
+    bucket = APP_CONFIG['aws']['foia_bucket']
+    Rails.logger.info("- list objects in bucket #{bucket}")
+    list = s3.list_objects(bucket: bucket)
     list.contents.each do |object|
       filename = object.key
       bytes = object.size
@@ -56,10 +57,11 @@ namespace :foia do
     Rails.logger.info('- downloading ALL remote FOIA files')
     
     Rails.logger.info('- creating S3 client connection')
-    s3 = get_s3
+    s3 = get_foia_s3
     
     Rails.logger.info('- getting list of files')
-    list = s3.list_objects(bucket: FOIA_BUCKET)
+    bucket = APP_CONFIG['aws']['foia_bucket']
+    list = s3.list_objects(bucket: bucket)
   
     Rails.logger.info("- downloading #{list.contents.size} files...")
     
@@ -92,19 +94,20 @@ namespace :foia do
     s3 = args[:s3]
     unless (s3)
       Rails.logger.info('--- creating S3 client connection')
-      s3 = get_s3
+      s3 = get_foia_s3
     end
     
     downloaded_file = "#{extract_dir}/#{filename}"
     
     # validate passed filename
     Rails.logger.info("--- verifying filename #{filename}")
+    bucket = APP_CONFIG['aws']['foia_bucket']
     objectsize = nil
     begin
-      response = s3.list_objects(bucket: FOIA_BUCKET, prefix: filename)
+      response = s3.list_objects(bucket: bucket, prefix: filename)
       objectsize = response.contents.first.size
     rescue
-      abort("Unable to find file '#{filename}' in s3 bucket '#{FOIA_BUCKET}'")
+      abort("Unable to find file '#{filename}' in s3 bucket '#{bucket}'")
     end
     
     # download the file
@@ -112,7 +115,7 @@ namespace :foia do
     Rails.logger.info("--- saving to extract diretory #{extract_dir}")
     response = s3.get_object(
         response_target: downloaded_file,
-        bucket: FOIA_BUCKET, 
+        bucket: bucket, 
         key: filename,
     )
     Rails.logger.info("--- download of #{filename} complete.")
@@ -129,11 +132,11 @@ namespace :foia do
     # delete the file from the s3 bucket
     Rails.logger.info("--- deleting #{filename} from s3 bucket...")
     
-    response = s3.delete_object(bucket: FOIA_BUCKET, key: filename)
+    response = s3.delete_object(bucket: bucket, key: filename)
     # Rails.logger.debug(response.inspect)
     
     # verify that the object is no longer found in the S3 bucket
-    response = s3.list_objects(bucket: FOIA_BUCKET, prefix: filename)
+    response = s3.list_objects(bucket: bucket, prefix: filename)
     abort("ERROR:  file #{filename} still found in s3 bucket after delete") unless response && response.contents && response.contents.size == 0
     
     Rails.logger.info("--- deleted.")
@@ -260,8 +263,8 @@ namespace :foia do
 end
 
 
-def get_s3
-  abort("AWS connection details not found in app_config") unless APP_CONFIG['aws']
+def get_foia_s3
+  abort("AWS connection details for FOIA not found in app_config") unless APP_CONFIG['aws']
   aws_access_key_id = APP_CONFIG['aws']['access_key_id']
   aws_secret_access_key = APP_CONFIG['aws']['secret_access_key']
   aws_region = APP_CONFIG['aws']['region']

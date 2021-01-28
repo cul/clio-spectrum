@@ -18,8 +18,8 @@ DELETES_SLICE = 10000
 AUTHORITIES_SOLR = RSolr.connect(url: APP_CONFIG['authorities_solr_url'])
 
 
-# Name of the AWS S3 bucket where we retreive FOIA files
-FOIA_BUCKET = (APP_CONFIG['aws'] || Hash.new())['foia_bucket']
+# # Name of the AWS S3 bucket where we retreive FOIA files
+# FOIA_BUCKET = (APP_CONFIG['aws'] || Hash.new())['foia_bucket']
 
 # totally doesn't work - "dynamic constant assignment"
 # AUTHORITIES_SOLR_FAILURES = 0
