@@ -90,24 +90,20 @@ class CatalogController < ApplicationController
     # reach into search config to find possible source-specific service alert warning
     search_config = DATASOURCES_CONFIG['datasources'][@source]
     warning = search_config ? search_config['warning'] : nil
-    # raise
+
     respond_to do |format|
       format.html do
         render locals: { warning: warning, response: @response },
                layout: 'quicksearch'
       end
-      # format.csv do
-      #   # render locals: {response: @response, errors: @errors},
-      #   #        layout: false,
-      #   #        filename: 'foo'
-      #   send_data results_as_csv(@response), filename: csv_filename()
-      # end
       format.rss  { render layout: false }
       format.atom { render layout: false }
-      # format.xls  {
-      #   render locals: {response: @response}, layout: false
-      #   response.headers['Content-Disposition'] = "attachment; filename=foo.xls"
-      # }
+      format.json do
+        @presenter = Blacklight::JsonPresenter.new(@response,
+                                                   @document_list,
+                                                   facets_from_request,
+                                                   blacklight_config)
+      end
     end
   end
 
