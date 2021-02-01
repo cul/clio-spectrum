@@ -40,6 +40,29 @@ disqualifiers = disqualifying_subfields.join
 each_record do |record, context|
   authority_id = record['001'].value
   
+  # NEXT-1601 - local subject headings
+  # Beyond the regular 1xx$a replacement rules, we need to catch 180$x
+  #   180 - Heading-General Subdivision, $x - General subdivision 
+  # Special-case this, it doesn't fit into the below logic at all.
+  # Only insert database record for the swap, 
+  # then let the rest of the logic consider whether this record
+  # gets added to Solr or not.
+  if record['180'].present? && record['180']['x'].present?
+    loc_subject = record['180']['x']
+
+    record.fields('480').each do |field480|
+      next unless field480['5'] == 'NNC'
+      
+      # We've found a locally defined subject variant!
+      nnc_subject = field480['x']
+      puts "DEBUG - 180$x - authority_id='#{authority_id}' loc_subject='#{loc_subject}' nnc_subject='#{nnc_subject}'" if ENV['DEBUG']
+      LocalSubject.where(loc_subject: loc_subject).delete_all
+      LocalSubject.create(authority_id: authority_id, loc_subject: loc_subject, nnc_subject: nnc_subject)
+      ActiveRecord::Base.clear_active_connections!
+    end
+  end
+  
+  
   # # abort after a certain number of records
   # raise "EARLY ABORT FOR TESTING" if context.position > 100
 
@@ -86,7 +109,7 @@ each_record do |record, context|
       LocalSubject.where(loc_subject: loc_subject).delete_all
       LocalSubject.create(authority_id: authority_id, loc_subject: loc_subject, nnc_subject: nnc_subject)
       ActiveRecord::Base.clear_active_connections!
-end
+    end
     
   end
 
