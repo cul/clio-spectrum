@@ -106,6 +106,9 @@ gem 'net-ldap'
 # Fetch feed files from ReCAP
 gem 'net-sftp'
 
+# Fetch files from other CUL hosts
+gem 'net-scp'
+
 # Talk to SCSB REST API
 # pin faraday (LIBSYS-2941)
 gem 'faraday', '1.0.0'
