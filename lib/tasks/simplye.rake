@@ -24,16 +24,21 @@ namespace :simplye do
   task :fetch do
     setup_ingest_logger
     Rails.logger.info("===  fetching SimplyE datafile  ===")
+    remote_host = APP_CONFIG['simplye']['scp_remote_host']
+    username = APP_CONFIG['simplye']['username']
     remote_file = APP_CONFIG['simplye']['scp_remote_path'] + '/' + APP_CONFIG['simplye']['data_file']
     local_file  = APP_CONFIG['extract_home'] + '/simplye/' + APP_CONFIG['simplye']['data_file']
 
-    Rails.logger.info("-- fetching...")      
-    Net::SCP.download!(
-      APP_CONFIG['simplye']['scp_remote_host'],
-      APP_CONFIG['simplye']['scp_username'],
-      remote_file,
-      local_file,
-    )
+    Rails.logger.info("-- fetching...")
+    begin
+      Net::SCP.download!(remote_host, username, remote_file, local_file )
+    rescue Net::SCP::Error => ex
+      Rails.logger.error "Net::SCP::Error error: #{ex.message}"
+      Rails.logger.error "  remote_host=[#{remote_host}]"
+      Rails.logger.error "  username=[#{username}]"
+      Rails.logger.error "  remote_file=[#remote_file]"
+      Rails.logger.error "  local_file=[#{local_file}]"
+    end
     if File.exist?(local_file)
       Rails.logger.info("-- fetched.")      
     else
@@ -71,10 +76,11 @@ namespace :simplye do
 
     local_file  = APP_CONFIG['extract_home'] + '/simplye/' + APP_CONFIG['simplye']['data_file']
     
+    body = ''
+    
     begin
       Rake::Task['simplye:fetch'].invoke
       Rake::Task['simplye:validate'].invoke
-      
       
       current_links = SimplyeLink.all()
       Rails.logger.info("-- current: #{current_links.size} SimplyE links.")
