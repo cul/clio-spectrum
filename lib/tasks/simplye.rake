@@ -72,7 +72,7 @@ namespace :simplye do
     local_file  = APP_CONFIG['extract_home'] + '/simplye/' + APP_CONFIG['simplye']['data_file']
     
     begin
-      # Rake::Task['simplye:fetch'].invoke
+      Rake::Task['simplye:fetch'].invoke
       Rake::Task['simplye:validate'].invoke
       
       
