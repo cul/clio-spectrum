@@ -25,7 +25,7 @@ namespace :simplye do
     setup_ingest_logger
     Rails.logger.info("===  fetching SimplyE datafile  ===")
     remote_host = APP_CONFIG['simplye']['scp_remote_host']
-    username = APP_CONFIG['simplye']['username']
+    username = APP_CONFIG['simplye']['scp_username']
     remote_file = APP_CONFIG['simplye']['scp_remote_path'] + '/' + APP_CONFIG['simplye']['data_file']
     local_file  = APP_CONFIG['extract_home'] + '/simplye/' + APP_CONFIG['simplye']['data_file']
 
@@ -36,7 +36,7 @@ namespace :simplye do
       Rails.logger.error "Net::SCP::Error error: #{ex.message}"
       Rails.logger.error "  remote_host=[#{remote_host}]"
       Rails.logger.error "  username=[#{username}]"
-      Rails.logger.error "  remote_file=[#remote_file]"
+      Rails.logger.error "  remote_file=[#{remote_file}]"
       Rails.logger.error "  local_file=[#{local_file}]"
     end
     if File.exist?(local_file)
