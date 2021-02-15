@@ -29,6 +29,10 @@
   - if document.in_pegasus?
     = render "/_formats/clio/catalog_show_holdings_pegasus", document: document
 
+  -# SIMPLYE HOLDINGS
+  - if document.simplye_link
+    = render "/_formats/clio/catalog_show_holdings_simplye", document: document
+
   -# GOOGLE HOLDINGS
   = render "/_formats/clio/catalog_show_holdings_google", document: document
 

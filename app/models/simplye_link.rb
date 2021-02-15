@@ -1,0 +1,2 @@
+class SimplyeLink < ApplicationRecord
+end

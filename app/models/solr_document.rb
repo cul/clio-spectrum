@@ -57,6 +57,13 @@ class SolrDocument
     true
   end
   
+  def simplye_link
+    if found = SimplyeLink.find_by(bib_id: id)
+      return found['simplye_url']
+    end
+    return nil
+  end
+
   # Is this one of the 3M HathiTrust public domain records
   # that we loaded directly into Solr?  (NEXT-1644)
   def hathi_public_domain?
