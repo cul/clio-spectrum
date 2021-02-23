@@ -82,6 +82,7 @@ namespace :simplye do
       Rake::Task['simplye:fetch'].invoke
       Rake::Task['simplye:validate'].invoke
       
+      Rails.logger.info("===  loading SimplyE datafile  ===")
       current_links = SimplyeLink.all()
       Rails.logger.info("-- current: #{current_links.size} SimplyE links.")
 
