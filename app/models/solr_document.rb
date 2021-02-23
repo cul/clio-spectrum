@@ -40,21 +40,24 @@ class SolrDocument
 
   # Detect Law records, cataloged in Pegasus (https://pegasus.law.columbia.edu/)
   def in_pegasus?
-    # Document must have an id, which must be a "b" followed by a number...
-    return false unless id && id.match(/^b\d{2,9}$/)
+    key?('source_display') &&
+      Array(self['source_display']).include?('law')
 
-    # And, confirm that the Location is "Law"
-
-    # pull out the Location/call-number/holdings-id field...
-    return false unless location_call_number_id = self[:location_call_number_id_display]
-    # unpack, and confirm each occurrance ()
-    Array.wrap(location_call_number_id).each do |portmanteau|
-      location = portmanteau.partition(' >>').first
-      # If we find any location that's not Law, this is NOT pegasus
-      return false if location && location != 'Law'
-    end
-
-    true
+    # # Document must have an id, which must be a "b" followed by a number...
+    # return false unless id && id.match(/^b\d{2,9}$/)
+    #
+    # # And, confirm that the Location is "Law"
+    #
+    # # pull out the Location/call-number/holdings-id field...
+    # return false unless location_call_number_id = self[:location_call_number_id_display]
+    # # unpack, and confirm each occurrance ()
+    # Array.wrap(location_call_number_id).each do |portmanteau|
+    #   location = portmanteau.partition(' >>').first
+    #   # If we find any location that's not Law, this is NOT pegasus
+    #   return false if location && location != 'Law'
+    # end
+    #
+    # true
   end
   
   def simplye_link
