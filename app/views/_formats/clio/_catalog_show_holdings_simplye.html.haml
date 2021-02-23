@@ -1,5 +1,5 @@
 
-- if document.simplye_link && APP_CONFIG['simplye']['enabled']
+- if APP_CONFIG['simplye_enabled'] && document.simplye_link
   .holdings_section
     .holdings_title SimplyE
     =link_to APP_CONFIG['simplye']['anchor_text'], document.simplye_link, class: 'simplye_link', target: '_blank'

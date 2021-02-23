@@ -61,6 +61,7 @@ class SolrDocument
   end
   
   def simplye_link
+    return nil unless APP_CONFIG['simplye_enabled']
     if found = SimplyeLink.find_by(bib_id: id)
       return found['simplye_url']
     end
