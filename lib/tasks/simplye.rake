@@ -157,7 +157,7 @@ Changes detection found #{adds.size} adds, #{updates.size} updates, and #{delete
       # No matter what happened, generate an output email notification
       Rails.logger.info('-- sending notification email...')
       notification_email = RakeMailer.rake_mail(
-          to:           'marquis@columbia.edu',
+          to:           APP_CONFIG['simplye']['notification_email'],
           subject:      'SimplyE Processing Notification',
           body:         body,
           content_type: 'text/plain',

@@ -59,7 +59,6 @@ if %w(clio_app_dev clio_app_test clio_prod).include?(@environment)
     rake 'bibliographic:extract:process EXTRACT=law', subject: 'law load'
   end
 
-
 end
 
 # Anything for PROD only?
@@ -70,6 +69,12 @@ if ['clio_prod'].include?(@environment)
   # Then each environment can index from this local location individually.
   every :day, at: '11:30pm' do
     rake 'recap:download', subject: 'recap download'
+  end
+
+  # == SIMPLYE ==
+  # Daily reload of SimplyE links
+  every :day, at: '2am' do
+    rake 'simplye:process', subject: 'simplye:process'
   end
 
 end
