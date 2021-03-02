@@ -157,7 +157,8 @@ module HoldingsHelper
                            js_function: 'OpenWindow'},
       'avery_onsite'   => {link_label: 'On-Site Use',      service_url: avery_onsite_link, 
                            tooltip:    'Avery Onsite',     js_function: 'OpenWindow'},
-      'aeon'           => {link_label: 'Special Collections', service_url: 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='},
+      # 'aeon'           => {link_label: 'Special Collections', service_url: 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='},
+      'aeon'           => {link_label: 'Special Collections', service_url: aeon_link},
       'microform'      => {link_label: 'Arrange for Access', service_url: 'https://library.columbia.edu/libraries/pmrr/services.html?'},
       'precat'         => {link_label: 'Precataloging', service_url: precat_link, 
                            js_function: 'OpenWindow'},
@@ -794,6 +795,11 @@ module HoldingsHelper
     valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
     # return "#{valet_url}/barnard_remote_requests/bib?bib_id="
     "#{valet_url}/avery_onsite/"
+  end
+
+  def aeon_link
+    aeon_url = APP_CONFIG['aeon_url'] || 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl'
+    "#{aeon_url}?bibkey="
   end
 
   def precat_link
