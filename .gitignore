@@ -1,5 +1,6 @@
 config/database.yml
 config/app_config.yml
+config/service_locations.yml
 config/solr.yml
 config/blacklight.yml
 config/cas.yml

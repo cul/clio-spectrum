@@ -534,11 +534,11 @@ Library.</a>'
       # LIBSYS-2505 - Any new locations need to be added in two places - keep them in sync!
       # - the CLIO OPAC: https://github.com/cul/clio-spectrum/blob/master/lib/holdings/record.rb
       # - the Aeon request script:  /www/data/cu/lso/lib/aeondata.pm
-      aeon_locations = APP_CONFIG['aeon_locations'] || []
+      aeon_locations = SERVICE_LOCATIONS['aeon_locations'] || []
       return ['aeon'] if aeon_locations.include?(location_code)
       
       # ====== MICROFORMS ======
-      microform_locations = APP_CONFIG['microform_locations'] || ['mrr']
+      microform_locations = SERVICE_LOCATIONS['microform_locations'] || ['mrr']
       return ['microform'] if microform_locations.include?(location_code)
 
       # ====== ORDERS ======
@@ -586,7 +586,7 @@ Library.</a>'
 
         # ------ CAMPUS SCAN ------
         # If campus-scanning is only offered for certain locations....
-        campus_scan_locations = APP_CONFIG['campus_scan_locations'] || []
+        campus_scan_locations = SERVICE_LOCATIONS['campus_scan_locations'] || []
         if campus_scan_locations.present?
           services << 'campus_scan' if campus_scan_locations.include?(location_code)
         else
@@ -598,14 +598,14 @@ Library.</a>'
 
         # ------ CAMPUS PAGING ------
         # NEXT-1664 / NEXT-1666 - new Paging/Pickup service for available on-campus material
-        campus_paging_locations = APP_CONFIG['campus_paging_locations'] || []
+        campus_paging_locations = SERVICE_LOCATIONS['campus_paging_locations'] || []
         services << 'campus_paging' if campus_paging_locations.include?(location_code)
 
         # ------ RECAP / OFFSITE ------
         offsite_locations = OFFSITE_CONFIG['offsite_locations'] || []
         if offsite_locations.include?(location_code)
           # -- recap_loan --
-          recap_loan_locations = APP_CONFIG['recap_loan_locations'] || []
+          recap_loan_locations = SERVICE_LOCATIONS['recap_loan_locations'] || []
           services << 'recap_loan' if recap_loan_locations.include?(location_code)
           # -- recap_scan --  (but not for MICROFORM, CD-ROM, etc.)
           unscannable = APP_CONFIG['unscannable_offsite_call_numbers'] || []
@@ -622,12 +622,12 @@ Library.</a>'
         # ------ BEAR-STOR ------
         # If this is a BearStor holding and some items are available,
         # enable the BearStor request link (barnard_remote)
-        bearstor_locations = APP_CONFIG['barnard_remote_locations'] || ['none']
+        bearstor_locations = SERVICE_LOCATIONS['barnard_remote_locations'] || ['none']
         services << 'barnard_remote' if bearstor_locations.include?(location_code)
 
         # ------ AVERY ONSITE MEDIATED REQUEST ------
         # LIBSYS-3200 - Access to some non-circ Avery locations requires mediated access
-        avery_onsite_locations = APP_CONFIG['avery_onsite_locations'] || []
+        avery_onsite_locations = SERVICE_LOCATIONS['avery_onsite_locations'] || []
         services << 'avery_onsite' if avery_onsite_locations.include?(location_code)    
         
         # ------ PRE-CAT ------

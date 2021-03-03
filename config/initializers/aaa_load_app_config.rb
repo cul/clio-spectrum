@@ -17,6 +17,9 @@ end
 PERMISSIONS_CONFIG ||= YAML.load(File.read(Rails.root.to_s + '/config/permissions.yml'))
 DATASOURCES_CONFIG ||= YAML.load(File.read(Rails.root.to_s + '/config/datasources.yml'))
 SEARCHES_CONFIG ||= YAML.load(File.read(Rails.root.to_s + '/config/searches.yml'))
+
+SERVICE_LOCATIONS ||= YAML.load(File.read(Rails.root.to_s + '/config/service_locations.yml'))
+
 raw_config = File.read(Rails.root.to_s + '/config/marc_display_fields.yml')
 marc_config = YAML.load(raw_config)
 MARC_FIELDS ||= marc_config
