@@ -595,11 +595,15 @@ Library.</a>'
           services << 'campus_scan' unless offsite_locations.include?(location_code)
         end
         
-
         # ------ CAMPUS PAGING ------
         # NEXT-1664 / NEXT-1666 - new Paging/Pickup service for available on-campus material
         campus_paging_locations = SERVICE_LOCATIONS['campus_paging_locations'] || []
         services << 'campus_paging' if campus_paging_locations.include?(location_code)
+
+        # ------ FLIP PAGING ------
+        # LIBSYS-3775 - FLIP material is only available to SAC patrons
+        flip_paging_locations = SERVICE_LOCATIONS['flip_paging_locations'] || []
+        services << 'flip_paging' if flip_paging_locations.include?(location_code)
 
         # ------ RECAP / OFFSITE ------
         offsite_locations = OFFSITE_CONFIG['offsite_locations'] || []
@@ -651,6 +655,7 @@ Library.</a>'
 
         # --  Pick-Up services  --
         services.delete('campus_paging')
+        services.delete('flip_paging')
         services.delete('recap_loan')
         # Can't offer our book, but can offer book via Borrow Direct
         services << 'borrow_direct'

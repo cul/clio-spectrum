@@ -19,7 +19,7 @@
         %th=location
         - @configured_services.each do |service|
           %td.text-center
-            - location_list = APP_CONFIG["#{service}_locations"] || []
+            - location_list = SERVICE_LOCATIONS["#{service}_locations"] || []
             - if location_list.include?(location)
               Yes
             - else

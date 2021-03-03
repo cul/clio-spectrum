@@ -22,6 +22,7 @@ class AdminController < ApplicationController
       'ill_scan',
       # ### "Pick-Up" Services ###
       'campus_paging',
+      'flip_paging',
       'recap_loan',
       'borrow_direct',
       # ### Other Services ###
@@ -34,7 +35,7 @@ class AdminController < ApplicationController
     @all_locations = []
     @configured_services = []
     all_request_services.each do |service|
-      location_list = APP_CONFIG["#{service}_locations"] 
+      location_list = SERVICE_LOCATIONS["#{service}_locations"] 
       if location_list.present?
         @configured_services << service
         @all_locations << location_list
