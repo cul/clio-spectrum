@@ -21,8 +21,9 @@
       - else
         = render_facet_value(solr_field, item)
 
-  -# NEXT-1645 - if we have a negated Format:FOIA Document, render that AFTER
-  - if params['f'] && params['f']['-format']
+  -# NEXT-1645 - When working with 'format' facet', if we have a 
+  -#   negated Format:FOIA Document, render that AFTER
+  - if solr_field == 'format' && params['f'] && params['f']['-format']
     - Array.wrap(params['f']['-format']).each do |item|
       - next unless item == 'FOIA Document'
       %li
