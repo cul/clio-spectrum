@@ -414,7 +414,7 @@ end
 
 #  If this is a ReCAP Partner record, use the pre-contructed ReCAP Location Name.
 #  Otherwise - use the 992$a local field, which should hold a clean facet-ready Location value
-to_field 'location_facet' do |_record, accumulator|
+to_field 'location_facet' do |record, accumulator|
   if recap_location_name.present?
     accumulator << recap_location_name 
   else

@@ -18,6 +18,9 @@ class ApplicationController < ActionController::Base
   include Blacklight::Catalog
   include Blacklight::Configurable
 
+  # Silence deprecation warning
+  skip_after_action :discard_flash_if_xhr
+
   include BrowseSupport
   include PreferenceSupport
 
