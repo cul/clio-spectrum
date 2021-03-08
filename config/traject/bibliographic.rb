@@ -407,9 +407,19 @@ to_field 'call_number_display', extract_marc('992b', trim_punctuation: true) do 
   end
 end
 
-to_field 'location_facet', extract_marc('992a', trim_punctuation: true) do |_record, accumulator|
-  # Add SCSB partner location name, if there is one
-  accumulator << recap_location_name if recap_location_name.present?
+# # to_field 'location_facet', extract_marc('992a', trim_punctuation: true) do |_record, accumulator|
+# #   # Add SCSB partner location name, if there is one
+# #   accumulator << recap_location_name if recap_location_name.present?
+# # end
+
+#  If this is a ReCAP Partner record, use the pre-contructed ReCAP Location Name.
+#  Otherwise - use the 992$a local field, which should hold a clean facet-ready Location value
+to_field 'location_facet' do |_record, accumulator|
+  if recap_location_name.present?
+    accumulator << recap_location_name 
+  else
+    accumulator << Marc21.extract_marc_from(record, '992a', trim_punctuation: true)
+  end
 end
 
 to_field 'location_txt', extract_marc('852ab:992ab', trim_punctuation: true) do |_record, accumulator|
