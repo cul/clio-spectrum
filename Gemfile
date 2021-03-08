@@ -79,7 +79,7 @@ gem 'httpclient'
 
 # pin to 1.10.x, newer versions require glibc 2.14, which our CentOS 6 servers don't have
 # gem 'nokogiri'
-gem 'nokogiri', '~>1.10.0'
+gem 'nokogiri', '~>1.11.0'
 
 # HTML replacement language
 gem 'haml'
