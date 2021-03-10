@@ -705,6 +705,7 @@ Library.</a>'
       services.delete('ill_scan') if services.include?('recap_scan')
       # We can only ever have ONE "Pickup" service 
       services.delete('borrow_direct') if services.include?('campus_paging')
+      services.delete('borrow_direct') if services.include?('flip_paging')
       services.delete('borrow_direct') if services.include?('recap_loan')
       
 
