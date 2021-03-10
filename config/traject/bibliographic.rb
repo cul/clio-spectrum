@@ -418,7 +418,7 @@ to_field 'location_facet' do |record, accumulator|
   if recap_location_name.present?
     accumulator << recap_location_name 
   else
-    accumulator << Marc21.extract_marc_from(record, '992a', trim_punctuation: true)
+    accumulator << Marc21.extract_marc_from(record, '992a', trim_punctuation: true).first
   end
 end
 
