@@ -34,6 +34,10 @@ AUTHORITIES_SOLR = RSolr.connect(url: APP_CONFIG['authorities_solr_url'])
 def setup_ingest_logger
   # Redirect logger to stderr for our ingest tasks tasks
   Rails.logger = Logger.new(STDERR)
+
+  # Turn off DEBUG-level logging for rake tasks
+  Rails.logger.level = Logger::INFO
+
   # Then also write messages to a distinct 'ingest' log file
   ingest_log_file = File.join(Rails.root, 'log', "#{Rails.env}_ingest.log")
   ingest_log_logger = Logger.new(ingest_log_file)
