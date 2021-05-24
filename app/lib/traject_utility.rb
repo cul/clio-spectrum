@@ -34,11 +34,14 @@ module TrajectUtility
     return '' unless code
     case code
     # Princeton
-    when 'scsbpul', 'scsb-pul'
+    when 'scsbpul'
       return 'Offsite Shared Collection (Princeton)'
     # NYPL
-    when 'scsbnypl', 'scsb-nypl'
+    when 'scsbnypl'
       return 'Offsite Shared Collection (NYPL)'
+    # Harvard
+    when 'scsbhl'
+      return 'Offsite Shared Collection (Harvard)'
     end
     ''
   end
