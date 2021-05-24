@@ -87,6 +87,8 @@ class NearbyOnShelf
   def get_spines_from_field_values(desired_values, field)
     spines_hash = {}
     response, docs = get_solr_response_for_field_values(field, desired_values.compact)
+    # SUL switched to this.  Worked for them, not for me.
+    # response, docs = search_results(q: { field => desired_values.compact})
     docs.each do |doc|
       hsh = get_spine_hash_from_doc(doc, desired_values.compact, field)
       spines_hash.merge!(hsh) unless hsh.nil?
