@@ -40,7 +40,7 @@ describe 'Virtual Shelf Browse' do
   it 'should display special text for items without call-numbers' do
     unavailable_text = I18n.t('blacklight.browse.unavailable')
     # offsite, no call number assigned - should be durable for testing
-    visit solr_document_path(388818)
+    visit solr_document_path(634161)
     expect(page).to have_text(unavailable_text)
   end
 end

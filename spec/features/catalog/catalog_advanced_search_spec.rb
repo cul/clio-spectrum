@@ -77,7 +77,7 @@ describe 'Catalog Advanced Search' do
     'ISBN' => '13',
     'ISSN' => '2372',
     'Call Number' => 'PN1995.9.P7',
-    'Location' => 'Dakhla Library'
+    'Location' => 'Journalism'
   }.each_pair do |searchField, searchValue|
 
     it "supports fielded search by #{searchField}", :js do
