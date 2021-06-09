@@ -8,6 +8,7 @@ offsite_locations:
   - scsb-nypl
   - scsb-pul
   # (we seem to have switched to non-hyphenated forms)
+  - scsbhl
   - scsbnypl
   - scsbpul
   # Columbia's Voyager offsite location codes
