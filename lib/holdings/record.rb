@@ -36,7 +36,7 @@ module Holdings
 
       # ReCAP partner records don't have an 852$a
       if @location_name =~ /^scsb/i
-        @location_name = TrajectUtility.recap_location_code_to_label(@location_name)
+        @location_name = TrajectUtility.recap_location_code_to_name(@location_name)
       end
 
       @call_number      = parse_call_number(tag852)           # string

@@ -3,6 +3,9 @@ module TrajectUtility
   MAX_INDEX = NUM_ALPHA.size - 1
   MAP = NUM_ALPHA.index_by { |char| NUM_ALPHA[MAX_INDEX - NUM_ALPHA.index(char)] }
 
+  # shortcut
+  Marc21 = Traject::Macros::Marc21
+
   def self.reverseString(string)
     # fold diacritics back to ascii
     string = ActiveSupport::Inflector.transliterate(string)
@@ -30,7 +33,28 @@ module TrajectUtility
     end
   end
 
-  def self.recap_location_code_to_label(code)
+  def self.recap_location_name(record)
+    return '' unless record.present?
+    first_location_code = Marc21.extract_marc_from(record, '852b', first: true).first
+    return '' unless first_location_code.present?
+    return '' unless first_location_code.starts_with? 'scsb'
+
+    recap_location_name = TrajectUtility.recap_location_code_to_name(first_location_code)
+    return recap_location_name
+  end
+  
+  def self.harvard_storage_location_code(record)
+    return '' unless record.present?
+    first_location_code = Marc21.extract_marc_from(record, '852b', first: true).first
+    return '' unless first_location_code.present?
+    return '' unless first_location_code == 'scsbhl'
+
+    storage_location = Marc21.extract_marc_from(record, '876l', first: true).first
+    return '' unless ['RECAP', 'HD'].include? storage_location
+    return storage_location.downcase
+  end
+  
+  def self.recap_location_code_to_name(code)
     return '' unless code
     case code
     # Princeton

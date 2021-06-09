@@ -52,23 +52,24 @@ callnumber_map = Traject::TranslationMap.new('callnumber_map')
 #   # end
 # end
 
-# Set any local variables to be used repeatedly in below logic
-recap_location_code = ''
-recap_location_name = ''
-
-each_record do |record, _context|
-  # SCSB ReCAP - re-set the value for each record
-  first_location_code = Marc21.extract_marc_from(record, '852b', first: true).first
-  if first_location_code.present? && first_location_code.match(/^scsb/)
-    recap_location_code = first_location_code
-    recap_location_name = TrajectUtility.recap_location_code_to_label(recap_location_code)
-  end
-  # broken during multi-threaded indexing
-  # # Reset authorities counter variables for each new record
-  # author_variant_count = 0
-  # subject_variant_count = 0
-  # geo_variant_count = 0
-end
+# Not thread safe
+# # Set any local variables to be used repeatedly in below logic
+# recap_location_code = ''
+# recap_location_name = ''
+#
+# each_record do |record, _context|
+#   # SCSB ReCAP - re-set the value for each record
+#   first_location_code = Marc21.extract_marc_from(record, '852b', first: true).first
+#   if first_location_code.present? && first_location_code.match(/^scsb/)
+#     recap_location_code = first_location_code
+#     recap_location_name = TrajectUtility.recap_location_code_to_name(recap_location_code)
+#   end
+#   # broken during multi-threaded indexing
+#   # # Reset authorities counter variables for each new record
+#   # author_variant_count = 0
+#   # subject_variant_count = 0
+#   # geo_variant_count = 0
+# end
 
 to_field 'id', extract_marc('001', first: true)
 
@@ -379,16 +380,18 @@ CALL_NUMBER_ONLY = /^.* \>\> (.*)\|DELIM\|.*/
 # $b is a composite: location-label,  '>>', call-number, '|DELIM|', holdings-id
 # e.g.
 # Offsite - Place Request for delivery within 2 business days >> GR359 .G64 1999g|DELIM|3507870
-to_field 'location_call_number_id_display', extract_marc('992b', trim_punctuation: true) do |_record, accumulator|
+to_field 'location_call_number_id_display', extract_marc('992b', trim_punctuation: true) do |record, accumulator|
   # Add SCSB partner location name, if there is one
+  recap_location_name = TrajectUtility.recap_location_name(record)
   accumulator << recap_location_name if recap_location_name.present?
 end
 
-to_field 'location_call_number_txt', extract_marc('992b', trim_punctuation: true) do |_record, accumulator|
+to_field 'location_call_number_txt', extract_marc('992b', trim_punctuation: true) do |record, accumulator|
   accumulator.map! do |value|
     value.split('|DELIM|').first
   end
   # Add SCSB partner location name, if there is one
+  recap_location_name = TrajectUtility.recap_location_name(record)
   accumulator << recap_location_name if recap_location_name.present?
 end
 
@@ -407,14 +410,11 @@ to_field 'call_number_display', extract_marc('992b', trim_punctuation: true) do 
   end
 end
 
-# # to_field 'location_facet', extract_marc('992a', trim_punctuation: true) do |_record, accumulator|
-# #   # Add SCSB partner location name, if there is one
-# #   accumulator << recap_location_name if recap_location_name.present?
-# # end
 
 #  If this is a ReCAP Partner record, use the pre-contructed ReCAP Location Name.
 #  Otherwise - use the 992$a local field, which should hold a clean facet-ready Location value
 to_field 'location_facet' do |record, accumulator|
+  recap_location_name = TrajectUtility.recap_location_name(record)
   if recap_location_name.present?
     accumulator << recap_location_name 
   else
@@ -422,13 +422,19 @@ to_field 'location_facet' do |record, accumulator|
   end
 end
 
-to_field 'location_txt', extract_marc('852ab:992ab', trim_punctuation: true) do |_record, accumulator|
+to_field 'location_txt', extract_marc('852ab:992ab', trim_punctuation: true) do |record, accumulator|
   accumulator.map! do |value|
     value.split('|DELIM|').first
   end
 
   # Add SCSB partner location name, if there is one
+  recap_location_name = TrajectUtility.recap_location_name(record)
   accumulator << recap_location_name if recap_location_name.present?
+  # For Harvard ReCAP, add physical storage location as additional searchable value
+  #   "scsbhlrecap" for ReCAP or "scsbhlhd" for Harvard Depository
+  harvard_storage_location_code = TrajectUtility.harvard_storage_location_code(record)
+  accumulator << ('scsbhl' + harvard_storage_location_code) if harvard_storage_location_code.present?
+  
 end
 
 to_field 'url_munged_display' do |record, accumulator|
