@@ -116,6 +116,9 @@ module Holdings
       holdings_marc.each_by_tag('876') do |t876|
         # subfield l has tempLocation
         if t876['l']
+          # LIBSYS-3953 - Harvard uses temp location for storage location - ignore
+          next if ['RECAP', 'HD'].include?(t876['l'])
+          
           tempLocations << { itemLabel: (t876['3'] || ''), tempLocation: t876['l'] }
         end
       end
