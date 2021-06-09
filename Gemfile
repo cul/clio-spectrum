@@ -6,7 +6,7 @@ gem 'activerecord-session_store'
 
 ###  BLACKLIGHT (begin)  ###
 
-gem 'blacklight', '~>6.19.0'
+gem 'blacklight', '~>6.0'
 # gem 'blacklight', path: '/Users/marquis/src/blacklight'
 
 gem 'blacklight-marc'
@@ -36,11 +36,11 @@ gem 'rest-client'
 gem 'gmaps4rails'
 
 # pagination
-# pinned - see NEXT-1626
-gem 'kaminari', '~> 1.1.0'
+gem 'kaminari'
 
 # Authentication
-gem 'devise', '~> 4.4.0'
+# gem 'devise', '~> 4.4.0'
+gem 'devise'
 
 # gem 'cul_omniauth'
 # gem 'cul_omniauth', git: 'https://github.com/cul/cul_omniauth', branch: 'rails-5'
@@ -205,7 +205,7 @@ gem 'aws-sdk-s3', '~> 1'
 group :development do
   # Upgrade to Capistrano 3.x
   # http://capistranorb.com/documentation/upgrading/
-  gem 'capistrano', '~> 3.0', require: false
+  gem 'capistrano', require: false
   # Rails and Bundler integrations were moved out from Capistrano 3
   gem 'capistrano-rails', require: false
   gem 'capistrano-bundler', require: false
