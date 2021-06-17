@@ -14,6 +14,27 @@
   font-weight: normal;
   font-style: normal;
 }
+
+
+@font-face {
+  font-family: 'DanaLibraryHandRegular';
+  src: asset-url('DanaLibraryHand-Regular.otf') format('opentype');
+}
+
+.library-hand {
+  font-family: DanaLibraryHandRegular, courier, monospace;
+}
+
+@font-face {
+  font-family: 'DanaLibraryHandBold';
+  src: asset-url('DanaLibraryHand-Bold.otf') format('opentype');
+}
+
+.library-hand-bold {
+  font-family: DanaLibraryHandBold, courier, monospace;
+  font-size: 120%;
+}
+
 body {
   background-color: #eeeeff !important;
 }
