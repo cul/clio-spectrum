@@ -297,7 +297,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2021.0225)
     mini_mime (1.1.0)
-    mini_portile2 (2.4.0)
+    mini_portile2 (2.5.3)
     minitest (5.14.4)
     multi_json (1.15.0)
     multipart-post (2.1.1)
@@ -310,8 +310,9 @@ GEM
     net-ssh (6.1.0)
     netrc (0.11.0)
     nio4r (2.5.7)
-    nokogiri (1.10.10)
-      mini_portile2 (~> 2.4.0)
+    nokogiri (1.11.4)
+      mini_portile2 (~> 2.5.0)
+      racc (~> 1.4)
     omniauth (1.9.1)
       hashie (>= 3.4.6)
       rack (>= 1.6.2, < 3)
@@ -325,6 +326,7 @@ GEM
       activerecord (>= 5.2)
       request_store (~> 1.1)
     public_suffix (4.0.6)
+    racc (1.5.2)
     rack (2.2.3)
     rack-attack (6.5.0)
       rack (>= 1.0, < 3)
@@ -543,7 +545,7 @@ DEPENDENCIES
   net-ldap
   net-scp
   net-sftp
-  nokogiri (~> 1.10.0)
+  nokogiri (~> 1.11.4)
   paper_trail
   rack
   rack-attack
