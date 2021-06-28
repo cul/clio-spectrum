@@ -8,7 +8,7 @@ describe 'Spectrum::SearchEngines::GoogleCustomSearch' do
     end
 
     it 'should get many items, successfully' do
-      expect(@search_engine.total_items).to be > 500
+      expect(@search_engine.total_items.to_i).to be > 500
       expect(@search_engine.successful?).to be true
     end
 
