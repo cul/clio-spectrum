@@ -1,6 +1,9 @@
 
 -# container for a single doc - within AGGREGATE views, e.g., QuickSearch
-.result{source: 'ac', item_id: document.id}
+
+/ _formats/ac/_aggregate.html.haml
+
+.result{source: 'ac', item_id: document.id, class: alternating_line('ac')}
 
   - if document.is_a? AcDocument
 

@@ -1,6 +1,8 @@
 -# container for a single doc - within AGGREGATE views, e.g., QuickSearch
 
-.result{source: 'geo', item_id: document.id}
+/ _formats/geo/_aggregate.html.haml
+
+.result{source: 'geo', item_id: document.id, class: alternating_line('geo')}
 
   -# https://dlc.library.columbia.edu/catalog/ldpd:166321
   .result_title= link_to document.fetch('dc_title_s'), APP_CONFIG['geo_catalog_url'] + document.id
