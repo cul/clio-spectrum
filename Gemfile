@@ -111,7 +111,8 @@ gem 'net-scp'
 
 # Talk to SCSB REST API
 # pin faraday (LIBSYS-2941)
-gem 'faraday', '1.0.0'
+# gem 'faraday', '1.0.0'
+gem 'faraday'
 
 # For, e.g., Google Custom Search API
 # Our code seems to break beyond 0.36?

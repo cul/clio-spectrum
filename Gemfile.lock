@@ -76,16 +76,16 @@ GEM
     autoprefixer-rails (10.2.5.1)
       execjs (> 0)
     aws-eventstream (1.1.1)
-    aws-partitions (1.461.0)
-    aws-sdk-core (3.114.0)
+    aws-partitions (1.472.0)
+    aws-sdk-core (3.115.0)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
       aws-sigv4 (~> 1.1)
       jmespath (~> 1.0)
-    aws-sdk-kms (1.43.0)
+    aws-sdk-kms (1.44.0)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.95.0)
+    aws-sdk-s3 (1.96.1)
       aws-sdk-core (~> 3, >= 3.112.0)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.1)
@@ -161,7 +161,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.1.8)
+    concurrent-ruby (1.1.9)
     crass (1.0.6)
     daemons (1.4.0)
     debug_inspector (1.1.0)
@@ -191,9 +191,21 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
-    faraday (1.0.0)
+    faraday (1.4.3)
+      faraday-em_http (~> 1.0)
+      faraday-em_synchrony (~> 1.0)
+      faraday-excon (~> 1.1)
+      faraday-net_http (~> 1.0)
+      faraday-net_http_persistent (~> 1.1)
       multipart-post (>= 1.2, < 3)
-    ffi (1.15.1)
+      ruby2_keywords (>= 0.0.4)
+    faraday-em_http (1.0.0)
+    faraday-em_synchrony (1.0.0)
+    faraday-excon (1.1.0)
+    faraday-net_http (1.0.1)
+    faraday-net_http_persistent (1.1.0)
+    ffi (1.15.3)
+    gems (1.2.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     gmaps4rails (2.1.2)
@@ -207,7 +219,9 @@ GEM
       mini_mime (~> 1.0)
       representable (~> 3.0)
       retriable (>= 2.0, < 4.0)
-      signet (~> 0.12)
+      rexml
+      signet (~> 0.14)
+      webrick
     google-apis-discovery_v1 (0.5.0)
       google-apis-core (>= 0.3, < 2.a)
     google-apis-generator (0.3.0)
@@ -228,7 +242,7 @@ GEM
       tilt
     hashie (3.6.0)
     http-accept (1.7.0)
-    http-cookie (1.0.3)
+    http-cookie (1.0.4)
       domain_name (~> 0.5)
     httpclient (2.8.3)
     i18n (1.8.10)
@@ -266,7 +280,7 @@ GEM
     lcsort (0.9.1)
     library_stdnums (1.6.0)
     libv8 (3.16.14.19)
-    loofah (2.9.1)
+    loofah (2.10.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -368,6 +382,7 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     retriable (3.1.2)
+    rexml (3.2.5)
     rsolr (2.3.0)
       builder (>= 2.1.2)
       faraday (>= 0.9.0)
@@ -401,6 +416,7 @@ GEM
       rspec (~> 3.5)
       rspec-collection_matchers
     rspec-support (3.10.2)
+    ruby2_keywords (0.0.4)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -468,7 +484,8 @@ GEM
     unf_ext (0.0.7.7)
     warden (1.2.9)
       rack (>= 2.0.9)
-    websocket-driver (0.7.3)
+    webrick (1.7.0)
+    websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     whenever (1.0.0)
@@ -478,7 +495,7 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     yell (2.2.2)
-    zip_tricks (5.5.0)
+    zip_tricks (5.6.0)
 
 PLATFORMS
   ruby
@@ -508,7 +525,7 @@ DEPENDENCIES
   devise
   exception_notification
   factory_bot_rails
-  faraday (= 1.0.0)
+  faraday
   gmaps4rails
   google-api-client
   haml
