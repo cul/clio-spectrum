@@ -40,7 +40,8 @@ module Spectrum
         @errors = nil
         Rails.logger.debug "[Spectrum][GoogleCustomSearch] service_params: #{service_params}"
 
-        service = Customsearch::CustomsearchService.new
+        # service = Customsearch::CustomsearchService.new
+        service = Customsearch::CustomSearchAPIService.new
         service.key = cs_key
           
         # Cache to avoid redundant searches - needs to include all dynamic params
@@ -48,11 +49,13 @@ module Spectrum
         results = Rails.cache.fetch(cache_key, expires_in: 7.day) do
           Rails.logger.debug "GoogleCustomSearch cache miss for cache_key #{cache_key}"
           # service.list_cse_siterestricts(@q, cx: cs_id, start: @start, num: @rows)
-          service.list_cse_siterestricts(@q, service_params)
+          # service.list_cse_siterestricts(@q, service_params)
+          service_params[:q] = @q
+          service.list_cse_siterestricts(service_params)
         end
 
         @documents = Array(results.items).map { |item| LwebDocument.new(item) }
-        @count = results.search_information.total_results
+        @count = results.search_information.total_results.to_i
       end
 
       def current_page
