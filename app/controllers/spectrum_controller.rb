@@ -252,11 +252,15 @@ class SpectrumController < ApplicationController
       params['q'] = params['s.q'] unless params['q']
       params.delete('s.q')
     end
-    #
+
     #   # LibraryWeb QuickSearch will pass us "search_field=all_fields",
     #   # which means to do a Summon search against 's.q'
+    
+    # Given this:  { search_field: 'title', q: 'apple' }
+    # Build this:  { title: 'apple' }
     if params['q'] && params['search_field'] && (params['search_field'] != 'all_fields')
-      escaped_params = URI.escape("#{params['search_field']}=#{params['q']}")
+      # escaped_params = URI.escape("#{params['search_field']}=#{params['q']}")
+      escaped_params = CGI.escape(params['search_field']) + '=' + CGI.escape(params['q'])
       hash = Rack::Utils.parse_nested_query(escaped_params)
       params.merge! hash
       # params.delete('q') unless params['search_field'] == 'q'
