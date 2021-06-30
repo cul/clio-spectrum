@@ -523,6 +523,7 @@ module Spectrum
             config.per_page = [10, 25, 50, 100]
             config.default_per_page = 10
             config.spell_max = 0
+            config.fetch_many_document_params = { fl: '*' }
           end
         # Else, we're in one of the single-source searches....
         else
@@ -538,6 +539,7 @@ module Spectrum
 
             config.add_search_field 'all_fields', label: 'All Fields'
             config.document_solr_request_handler = 'document'
+            config.fetch_many_document_params = { fl: '*' }
 
             case source
             when 'catalog'
