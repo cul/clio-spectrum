@@ -109,7 +109,7 @@ module Recap
     def self.get_bib_availability(bibliographicId = nil, institutionId = nil, conn = nil)
       raise 'Recap::ScsbRest.get_bib_availability() got nil bibliographicId' if bibliographicId.blank?
       raise 'Recap::ScsbRest.get_bib_availability() got nil institutionId' if institutionId.blank?
-      # Rails.logger.debug "- get_bib_availability(#{bibliographicId}, #{institutionId})"
+      Rails.logger.debug "- get_bib_availability(#{bibliographicId}, #{institutionId})"
 
       conn ||= open_connection
       raise "get_bib_availability() bad connection [#{conn.inspect}]" unless conn
@@ -121,10 +121,10 @@ module Recap
         institutionId:   institutionId
       }
       # Noisy debugging when needed
-      # Rails.logger.debug "get_bib_availability(#{bibliographicId}) calling SCSB REST API with params #{params.inspect}"
+      Rails.logger.debug "get_bib_availability(#{bibliographicId}) calling SCSB REST API with params #{params.inspect}"
       response = conn.post path, params.to_json
-      # Rails.logger.debug "SCSB response status: #{response.status}"
-      # Rails.logger.debug "SCSB response body: #{response.body}"
+      Rails.logger.debug "SCSB response status: #{response.status}"
+      Rails.logger.debug "SCSB response body: #{response.body}"
 
       if response.status != 200
         # Raise or just log error?
