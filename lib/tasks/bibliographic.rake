@@ -239,7 +239,11 @@ namespace :bibliographic do
         # match our default application log format
         provide 'log.format', ['%d [%L] %m', '%Y-%m-%d %H:%M:%S']
         # thread pool boosts throughput, even on MRI
-        provide 'processing_thread_pool', '10'
+        # provide 'processing_thread_pool', '10'
+        # ... but maybe parallelism is why we're getting mystery errors:
+        # Exception: Errno::EADDRNOTAVAIL: Cannot assign requested address - 
+        # connect(2) for "clio-solr-prod1.cul.columbia.edu" port 8983 (clio-solr-prod1.cul.columbia.edu:8983)
+        provide 'processing_thread_pool', '0'
         provide 'solr_writer.commit_on_close', 'true'
         # How many records skipped due to errors before we
         #   bail out with a fatal error?

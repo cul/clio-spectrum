@@ -111,7 +111,9 @@ namespace :authorities do
         if Rails.env.development?  ||  Rails.env.test?
           provide 'processing_thread_pool', '0'
         else
-          provide 'processing_thread_pool', '10'
+          # we're getting EADDRNOTAVAIL errors - seems to be due to parallelism?
+          # provide 'processing_thread_pool', '10'
+          provide 'processing_thread_pool', '0'
         end
        
         provide 'solr_writer.commit_on_close', 'true'
