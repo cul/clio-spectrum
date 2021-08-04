@@ -180,11 +180,13 @@ class CatalogController < ApplicationController
       @holdings = @collection.to_holdings
 
     else
-      # Pegasus (Law) documents have no MARC holdings.
-      # Everything else is supposed to.
-      unless @document.in_pegasus?
-        Rails.logger.error "Document #{@document.id} has no MARC holdings!"
-      end
+      # This is obsolete - CLIO now aggregates MARC data from
+      # many sources, only some of whihc have MARC holdings.
+      # # Pegasus (Law) documents have no MARC holdings.
+      # # Everything else is supposed to.
+      # unless @document.in_pegasus?
+      #   Rails.logger.error "Document #{@document.id} has no MARC holdings!"
+      # end
     end
 
     # In support of "nearby" / "virtual shelf browse", remember this bib

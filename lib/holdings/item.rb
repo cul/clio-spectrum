@@ -72,7 +72,7 @@ module Holdings
         # Not sure why this would happen.
         if mfhd_status[item_id][:statusCode].blank?
           mfhd_status[item_id][:statusCode] = 13
-          Rails.logger.warn "No mfhd status code for holding_id #{mfhd_id}, item_id #{item_id}, barcode #{barcode} - defaulting to 'Unavailable'"
+          Rails.logger.debug "No mfhd status code for holding_id #{mfhd_id}, item_id #{item_id}, barcode #{barcode} - defaulting to 'Unavailable'"
         end
       end
 
