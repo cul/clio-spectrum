@@ -39,6 +39,11 @@ disqualifiers = disqualifying_subfields.join
 # - And skip if there are no variants
 each_record do |record, context|
   authority_id = record['001'].value
+
+  cataloging_source = 'unknown'
+  if record['040'].present? && record['040']['a'].present?
+    cataloging_source = record['040']['a']
+  end
   
   # NEXT-1601 - local subject headings
   # Beyond the regular 1xx$a replacement rules, we need to catch 180$x
@@ -92,7 +97,14 @@ each_record do |record, context|
     # Do we have at least one tracing, with an 'a' subfield?
     next unless (record[see_from_tag].present? && record[see_from_tag]['a'].present?) ||
                 (record[see_also_tag].present? && record[see_also_tag]['a'].present?)
-    # ... if yes, then KEEP THIS RECORD!
+
+    # And make sure this isn't an NLM/MESH record marked for suppression (NEXT-1734)
+if Rails.env != 'clio_prod'
+    next if cataloging_source == 'DNLM' && record[see_from_tag].present? &&
+            record[see_from_tag]['w'].present? && record[see_from_tag]['w'] == 'nnna'
+end
+    # ------------------------------------------------------------------------------
+    # ... if we've reached here, then we found a variant we want - KEEP THIS RECORD!
     # DEBUG
     # puts "KEEP auth id #{record['001'].value} (\"#{loc_subject}\")"
     skip = false
@@ -179,6 +191,14 @@ to_field 'variant_t' do |record, accumulator, _context|
   # DEBUG
   # puts "started variant_t for #{record['001'].value}"
 
+  # We'll use this to skip NLM/MESH headings marked for suppresion (NEXT-1734)
+  # Cataloging Source - https://www.loc.gov/marc/authority/ad040.html
+  # Usually DLC, but maybe DNLM, NNC, JnP, etc.
+  cataloging_source = 'unknown'
+  if record['040'].present? && record['040']['a'].present?
+    cataloging_source = record['040']['a']
+  end
+
   # 4xx - See From Tracing Fields
   # 5xx - See Also Tracing Fields
   # NEXT-1331 - Drop the '550' altogether
@@ -189,6 +209,11 @@ to_field 'variant_t' do |record, accumulator, _context|
     # puts "-- record #{record['001'].value}, field #{field}"
     # We need a name/term field
     next unless field['a']
+
+if Rails.env != 'clio_prod'
+    # make sure this isn't an NLM/MESH record marked for suppression (NEXT-1734)
+    next if cataloging_source == 'DNLM' && field['w'].present? && field['w'] == 'nnna'
+end
 
     # Ignore tracings that aren't the same 'kind' as the authorized form
     # e.g., here's a Personal Name with a See Also Corporate Name
