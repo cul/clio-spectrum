@@ -275,12 +275,12 @@ namespace :recap do
 
     filename = args[:filename]
 
-    sftp_deletes_dir = APP_CONFIG['recap']['sftp_deletes_dir']
-    abort('ERROR: app_config missing recap/sftp_deletes_dir!') unless sftp_deletes_dir
+    afs_deletes_dir = APP_CONFIG['recap']['afs_deletes_dir']
+    abort('ERROR: app_config missing recap/afs_deletes_dir!') unless afs_deletes_dir
     extract_home = APP_CONFIG['extract_home']
     abort('ERROR: app_config missing extract_home!') unless extract_home
 
-    extract_dir = APP_CONFIG['extract_home'] + '/recap/' + sftp_deletes_dir
+    extract_dir = APP_CONFIG['extract_home'] + '/recap/' + afs_deletes_dir
     full_path = extract_dir + '/' + filename
 
     abort('recap:ingest[:filename] not passed filename!') unless filename
@@ -359,19 +359,19 @@ namespace :recap do
   end
 
   ##############################################################
-  desc "delete from new ReCAP .zip files that haven't yet been delete"
+  desc "delete from new ReCAP .zip files that haven't yet been deleted"
   task :delete_new, [:count] do |_t, args|
     setup_ingest_logger
 
     count = (args[:count] || '1').to_i
     Rails.logger.info("- delete_new - deleting from up to #{count} new files.")
 
-    sftp_deletes_dir = APP_CONFIG['recap']['sftp_deletes_dir']
-    abort('ERROR: app_config missing recap/sftp_deletes_dir!') unless sftp_deletes_dir
+    afs_deletes_dir = APP_CONFIG['recap']['afs_deletes_dir']
+    abort('ERROR: app_config missing recap/afs_deletes_dir!') unless afs_deletes_dir
     extract_home = APP_CONFIG['extract_home']
     abort('ERROR: app_config missing extract_home!') unless extract_home
 
-    extract_dir = extract_home + '/recap/' + sftp_deletes_dir
+    extract_dir = extract_home + '/recap/' + afs_deletes_dir
 
     # read in our 'last-delete-file' file - or abort if not found.
     # this file tells us the last file that was deleted from.
@@ -384,7 +384,7 @@ namespace :recap do
     Rails.logger.info("--- last delete: #{last_delete}")
 
     # retrieve the list of files, sorted (alphanumeric sort == chronological sort)
-    all_files = Dir.glob("#{extract_dir}/PUL-NYPL*.zip").map { |f| File.basename(f) }.sort
+    all_files = Dir.glob("#{extract_dir}/PUL-NYPL-HL*.zip").map { |f| File.basename(f) }.sort
     abort("Can't find any delete files in #{extract_dir}") if all_files.size.zero?
     Rails.logger.info("--- found #{all_files.size} total files.")
     # puts all_files.inspect  # DEBUG
@@ -494,7 +494,7 @@ namespace :recap do
     Rails.logger.info("--- last ingest: #{last_incremental}")
 
     # retrieve the list of files, sorted (alphanumeric sort == chronological sort)
-    all_files = Dir.glob("#{extract_dir}/PUL-NYPL*.zip").map { |f| File.basename(f) }.sort
+    all_files = Dir.glob("#{extract_dir}/PUL-NYPL-HL*.zip").map { |f| File.basename(f) }.sort
     abort("Can't find any ingest files in #{extract_dir}") if all_files.size.zero?
     Rails.logger.info("--- found #{all_files.size} total files.")
     # puts all_files.inspect
