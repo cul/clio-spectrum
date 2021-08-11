@@ -13,7 +13,7 @@ describe 'Testing Author Searching', :skip_travis do
   # 100 1  |a Seuss, |c Dr.
   it 'subfield 100$c (titles and words associated with a name)' do
     resp = solr_resp_doc_ids_only(author_search_args('dr seuss'))
-    expect(resp.size).to be <= 50
+    expect(resp.size).to be <= 80
     expect(rank(resp, 3157951)).to be <= 50
   end
 

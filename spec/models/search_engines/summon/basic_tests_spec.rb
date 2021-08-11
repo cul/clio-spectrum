@@ -62,7 +62,9 @@ describe 'Spectrum::SearchEngines::Summon' do
       APP_CONFIG['summon']['secret_key'] = 'BROKEN'
       sum = Spectrum::SearchEngines::Summon.new({ 'source' => 'articles', 's.q' => 'Dog' }, SUMMON_FACETS_FOR_SPECS)
       expect(sum.successful?).to be false
-      expect(sum.errors).to eq('401: Unauthorized')
+      # print sum.inspect
+      # expect(sum.errors).to eq('401: Unauthorized')
+      expect(sum.errors).to match /^401/
     end
 
     it 'methods should handle broken Summon @search object' do

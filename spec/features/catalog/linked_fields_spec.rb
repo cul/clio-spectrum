@@ -17,7 +17,7 @@ describe 'Linked field-values in single-item display' do
 
     # follow the "Also Listed Under" linked name, should get to search results page
     click_link(mhmm_decomposed)
-    expect(page).to have_css('.result', count: 1)
+    expect(page).to have_css('.result', count: 2)
 
     # click the title on the search-results page, snoudl get to the item-detail page again
     click_link(mqis_decomposed)
@@ -96,7 +96,6 @@ describe 'Linked field-values in single-item display' do
     test_bib = '7030828'
     test_title = 'Iranian DVD oral history collection'
     test_link_array = [
-      'Aḥmadī, Ḥamīd.'.mb_chars.normalize(:d),
       'Aʻlāmī, Shahnāz.'.mb_chars.normalize(:d),
       'Darvīshʹpūr, Mihrdād.'.mb_chars.normalize(:d),
       'Jahānʹshāhlū Afshār, Nuṣrat Allāh.'.mb_chars.normalize(:d),
@@ -194,7 +193,7 @@ describe 'Linked field-values in single-item display' do
     click_link(series_decomposed)
     expect(find('.constraints-container')).to have_text(series_decomposed)
     expect(page).to_not have_text('No results')
-    expect(page).to have_text('1 - 4 of 4')
+    expect(page).to have_text('1 - 5 of 5')
     # list out four title snippets to look for...
     expect(find('#documents')).to have_text 'Hityashvut ha-Germanim'
     expect(find('#documents')).to have_text '18th century ; patterns of government'

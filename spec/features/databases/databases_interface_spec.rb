@@ -113,7 +113,8 @@ describe 'Databases' do
 
   # NEXT-1211 - When I do a blank ejournals search, view a title, and view the MARC record, my results revert back to the full catalog results
   it 'should preserve active_source through MARC view', :js do
-    firstTitle = '17th-18th century'
+    # firstTitle = '17th-18th century'
+    firstTitle = '19th century British pamphlets'
     visit databases_index_path(q: '', sort: 'title_sort asc')
     expect(page).to have_text firstTitle
 
