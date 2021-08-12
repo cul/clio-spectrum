@@ -275,12 +275,12 @@ namespace :recap do
 
     filename = args[:filename]
 
-    afs_deletes_dir = APP_CONFIG['recap']['afs_deletes_dir']
-    abort('ERROR: app_config missing recap/afs_deletes_dir!') unless afs_deletes_dir
+    aws_deletes_dir = APP_CONFIG['recap']['aws_deletes_dir']
+    abort('ERROR: app_config missing recap/aws_deletes_dir!') unless aws_deletes_dir
     extract_home = APP_CONFIG['extract_home']
     abort('ERROR: app_config missing extract_home!') unless extract_home
 
-    extract_dir = APP_CONFIG['extract_home'] + '/recap/' + afs_deletes_dir
+    extract_dir = APP_CONFIG['extract_home'] + '/recap/' + aws_deletes_dir
     full_path = extract_dir + '/' + filename
 
     abort('recap:ingest[:filename] not passed filename!') unless filename
@@ -366,12 +366,12 @@ namespace :recap do
     count = (args[:count] || '1').to_i
     Rails.logger.info("- delete_new - deleting from up to #{count} new files.")
 
-    afs_deletes_dir = APP_CONFIG['recap']['afs_deletes_dir']
-    abort('ERROR: app_config missing recap/afs_deletes_dir!') unless afs_deletes_dir
+    aws_deletes_dir = APP_CONFIG['recap']['aws_deletes_dir']
+    abort('ERROR: app_config missing recap/aws_deletes_dir!') unless aws_deletes_dir
     extract_home = APP_CONFIG['extract_home']
     abort('ERROR: app_config missing extract_home!') unless extract_home
 
-    extract_dir = extract_home + '/recap/' + afs_deletes_dir
+    extract_dir = extract_home + '/recap/' + aws_deletes_dir
 
     # read in our 'last-delete-file' file - or abort if not found.
     # this file tells us the last file that was deleted from.
