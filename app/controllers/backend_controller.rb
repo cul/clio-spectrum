@@ -141,7 +141,7 @@ class BackendController < ApplicationController
 
     # NEXT-1660 - COVID - Don't offer offsite requests for Hathi ETAS
     etas_status = Covid.lookup_db_etas_status(id)
-    return nil if (etas_status == 'deny')
+    return nil if (APP_CONFIG['hathi_etas'] && etas_status == 'deny')
 
     scsb_status = BackendController.scsb_status(id)
 

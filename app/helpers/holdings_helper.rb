@@ -223,7 +223,7 @@ module HoldingsHelper
 
     # NEXT-1660 - COVID - Don't offer offsite requests for Hathi ETAS
     etas_status = Covid.lookup_db_etas_status(clio_id)
-    services.delete('offsite') if (etas_status == 'deny')
+    services.delete('offsite') if (APP_CONFIG['hathi_etas'] && etas_status == 'deny')
 
     # If none, give up.  Immediately return empty service list.
     return [] unless services

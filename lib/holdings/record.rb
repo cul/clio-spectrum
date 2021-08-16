@@ -648,7 +648,7 @@ Library.</a>'
       # If the bibid is in the ETAS database, marked as 'deny', then we have
       # emergency online access - and thus can't offer physical access to the book.
       # (But scanning has been deemed OK, so don't suppress scan options)
-      if Covid.lookup_db_etas_status(bibid) == 'deny'
+      if APP_CONFIG['hathi_etas'] && Covid.lookup_db_etas_status(bibid) == 'deny'
         # --  Scan services  --
         # services.delete('campus_scan')
         # services.delete('recap_scan')
