@@ -537,9 +537,10 @@ Library.</a>'
       aeon_locations = SERVICE_LOCATIONS['aeon_locations'] || []
       return ['aeon'] if aeon_locations.include?(location_code)
       
-      # ====== MICROFORMS ======
-      microform_locations = SERVICE_LOCATIONS['microform_locations'] || ['mrr']
-      return ['microform'] if microform_locations.include?(location_code)
+      # LIBSYS-4156 - 8/2021, remove microform service
+      # # ====== MICROFORMS ======
+      # microform_locations = SERVICE_LOCATIONS['microform_locations'] || ['mrr']
+      # return ['microform'] if microform_locations.include?(location_code)
 
       # ====== ORDERS ======
       # Orders such as "Pre-Order", "On-Order", etc.
@@ -629,10 +630,11 @@ Library.</a>'
         bearstor_locations = SERVICE_LOCATIONS['barnard_remote_locations'] || ['none']
         services << 'barnard_remote' if bearstor_locations.include?(location_code)
 
-        # ------ AVERY ONSITE MEDIATED REQUEST ------
-        # LIBSYS-3200 - Access to some non-circ Avery locations requires mediated access
-        avery_onsite_locations = SERVICE_LOCATIONS['avery_onsite_locations'] || []
-        services << 'avery_onsite' if avery_onsite_locations.include?(location_code)    
+        # LIBSYS-3200 - 8/2021, turn off Avery Onsite
+        # # ------ AVERY ONSITE MEDIATED REQUEST ------
+        # # LIBSYS-3200 - Access to some non-circ Avery locations requires mediated access
+        # avery_onsite_locations = SERVICE_LOCATIONS['avery_onsite_locations'] || []
+        # services << 'avery_onsite' if avery_onsite_locations.include?(location_code)
         
         # ------ PRE-CAT ------
         services << 'precat' if location_name =~ /^Precat/
