@@ -26,6 +26,7 @@ class AdminController < ApplicationController
       'recap_loan',
       'borrow_direct',
       # ### Other Services ###
+      'barnard_alum',
       'barnard_remote',
       'avery_onsite',
       'aeon',

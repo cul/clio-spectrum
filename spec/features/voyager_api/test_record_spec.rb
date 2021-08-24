@@ -106,6 +106,15 @@ describe 'record tests' do
   #   end
   # end
 
+  # LIBSYS-4084 - Barnard Alum Pickup
+  it 'barnard alum pickup link', :js do
+    visit solr_document_path('9526549')
+    expect(page).to have_css('#clio_holdings .holding')
+    within ('div#clio_holdings') do
+      expect(page).to have_link('Barnard Alum Pick-Up', href: 'https://library.columbia.edu/resolve/barlib0001#9526549')
+    end
+  end
+
   it 'special collections services', :js do
     visit solr_document_path('6201975')
     expect(page).to have_css('#clio_holdings .holding')

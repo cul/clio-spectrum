@@ -124,7 +124,7 @@ module HoldingsHelper
     #    links.sort { |x,y| x.first <=> y.first }
   end
 
-  SERVICE_ORDER = %w(campus_scan recap_scan offsite ill_scan ill campus_paging flip_paging recap_loan barnard_remote avery_onsite aeon microform precat on_order borrow_direct recall_hold in_process doc_delivery ).freeze
+  SERVICE_ORDER = %w(campus_scan recap_scan offsite ill_scan ill campus_paging flip_paging recap_loan barnard_remote barnard_alum avery_onsite aeon microform precat on_order borrow_direct recall_hold in_process doc_delivery ).freeze
 
   # parameters: title, link (url or javascript), optional extra param
   # When 2nd param is a JS function,
@@ -157,6 +157,8 @@ module HoldingsHelper
       # ====  OTHER SERVICES  ====
       'barnard_remote' => {link_label: 'BearStor',         service_url: barnard_remote_link, 
                            tooltip:    'Barnard Remote',   js_function: 'OpenWindow'},
+      'barnard_alum'   => {link_label: 'Barnard Alum Pick-Up', 
+                           service_url: 'http://www.columbia.edu/cgi-bin/cul/resolve?barlib0001#'},
       'avery_onsite'   => {link_label: 'On-Site Use',      service_url: avery_onsite_link, 
                            tooltip:    'Avery Onsite',     js_function: 'OpenWindow'},
       # 'aeon'           => {link_label: 'Special Collections', service_url: 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='},

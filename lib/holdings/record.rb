@@ -609,6 +609,11 @@ Library.</a>'
         flip_paging_locations = SERVICE_LOCATIONS['flip_paging_locations'] || []
         services << 'flip_paging' if flip_paging_locations.include?(location_code)
 
+        # ------ BARNARD ALUM PICKUP ------
+        # LIBSYS-4084 - add simple link to form for barnard alum access
+        barnard_alum_locations = SERVICE_LOCATIONS['barnard_alum_locations'] || []
+        services << 'barnard_alum' if barnard_alum_locations.include?(location_code)
+
         # ------ RECAP / OFFSITE ------
         offsite_locations = OFFSITE_CONFIG['offsite_locations'] || []
         if offsite_locations.include?(location_code)
