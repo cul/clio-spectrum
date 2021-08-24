@@ -574,10 +574,11 @@ module HoldingsHelper
                         !hathi_holdings_data['records'].empty?
 
       ### NEXT-1633 - COVID - stop suppressing Limited View Hathi links
-      ### # NEXT-1357 - Only display 'Full view' HathiTrust records
-      ### hathi_holdings_data['items'].delete_if do |item|
-      ###   item['usRightsString'].downcase.include?('limited')
-      ### end
+      ### LIBSYS-3996 - End ETAS, restore previous behavior (suppress "limited")
+      # NEXT-1357 - Only display 'Full view' HathiTrust records
+      hathi_holdings_data['items'].delete_if do |item|
+        item['usRightsString'].downcase.include?('limited')
+      end
 
       # Only display Hathi 'Full view' holdings.
       # If there are none, supress any Hathi data.
@@ -627,32 +628,32 @@ module HoldingsHelper
   #   end
   # end
 
-  # Return the
-  def format_hathi_search_result_link(document)
-    # show-links feature must be toggled on
-    return nil unless APP_CONFIG['hathi_search_results_links']
-    # document must have a hathi access value
-    return nil unless document['hathi_access_s']
-    
-    # NEXT-1668 - turn off colored indicators
-    # green_check = image_tag('icons/online.png', class: 'availability')
-    green_check = image_tag('icons/none.png', class: 'availability')
-    label = hathi_link_label(document['hathi_access_s'])
-    
-    # mark with spans so that onload JS can manipulate link DOM
-    # (add bib_#{document.id} as shortcut for JavaScript)
-    bib_class = "bib_#{document.id}"
-    label_span = content_tag(:span, label, class: "hathi_label #{bib_class}")
-    link_span = content_tag(:span, label_span, class: "hathi_link #{bib_class}")
-    
-    return green_check + link_span
-    
-    # TODO - real-time defered JS lookup of URL, for live linking
-    # = image_tag("icons/online.png")
-    # 
-    # -# %a{href: "#{item['itemURL']}"}= item['usRightsString']
-    # %a{href: hathi_item_url(item)}= hathi_link_label(item)
-  end
+  # # Return the
+  # def format_hathi_search_result_link(document)
+  #   # show-links feature must be toggled on
+  #   return nil unless APP_CONFIG['hathi_search_results_links']
+  #   # document must have a hathi access value
+  #   return nil unless document['hathi_access_s']
+  #
+  #   # NEXT-1668 - turn off colored indicators
+  #   # green_check = image_tag('icons/online.png', class: 'availability')
+  #   green_check = image_tag('icons/none.png', class: 'availability')
+  #   label = hathi_link_label(document['hathi_access_s'])
+  #
+  #   # mark with spans so that onload JS can manipulate link DOM
+  #   # (add bib_#{document.id} as shortcut for JavaScript)
+  #   bib_class = "bib_#{document.id}"
+  #   label_span = content_tag(:span, label, class: "hathi_label #{bib_class}")
+  #   link_span = content_tag(:span, label_span, class: "hathi_link #{bib_class}")
+  #
+  #   return green_check + link_span
+  #
+  #   # TODO - real-time defered JS lookup of URL, for live linking
+  #   # = image_tag("icons/online.png")
+  #   #
+  #   # -# %a{href: "#{item['itemURL']}"}= item['usRightsString']
+  #   # %a{href: hathi_item_url(item)}= hathi_link_label(item)
+  # end
   
   def hathi_item_url(item)
     # if the 'item' we get isn't parsable for any reason,
