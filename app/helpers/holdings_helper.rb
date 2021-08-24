@@ -158,7 +158,7 @@ module HoldingsHelper
       'barnard_remote' => {link_label: 'BearStor',         service_url: barnard_remote_link, 
                            tooltip:    'Barnard Remote',   js_function: 'OpenWindow'},
       'barnard_alum'   => {link_label: 'Barnard Alum Pick-Up', 
-                           service_url: 'http://www.columbia.edu/cgi-bin/cul/resolve?barlib0001#'},
+                           service_url: 'https://library.columbia.edu/resolve/barlib0001#'},
       'avery_onsite'   => {link_label: 'On-Site Use',      service_url: avery_onsite_link, 
                            tooltip:    'Avery Onsite',     js_function: 'OpenWindow'},
       # 'aeon'           => {link_label: 'Special Collections', service_url: 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='},
