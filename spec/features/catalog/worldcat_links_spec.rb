@@ -40,7 +40,7 @@ describe 'WorldCat links' do
 
   it 'should not link when standard numbers absent' do
     # A catalog record with no OCLC number at all
-    visit solr_document_path('9999999')
+    visit solr_document_path('2885')
     within '.holdings' do
       expect(page).not_to have_link('WorldCat')
     end
