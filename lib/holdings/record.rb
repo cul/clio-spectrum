@@ -517,13 +517,13 @@ Library.</a>'
       #   return location_note
       # end
 
-      # LIBSYS-1365 - Geology Library closure
-      unless APP_CONFIG['geology_not_yet'].present?
-        if ['glg', 'glg,fol'].include?(location_code)
-          location_note = "Geology collection: to request this item <em><a href='https://library.columbia.edu/find/request/geology-collection-paging/form.html'>click here</a></em>"
-          return location_note
-        end
-      end
+      # # LIBSYS-1365 - Geology Library closure
+      # unless APP_CONFIG['geology_not_yet'].present?
+      #   if ['glg', 'glg,fol'].include?(location_code)
+      #     location_note = "Geology collection: to request this item <em><a href='https://library.columbia.edu/find/request/geology-collection-paging/form.html'>click here</a></em>"
+      #     return location_note
+      #   end
+      # end
 
       location_note
     end
