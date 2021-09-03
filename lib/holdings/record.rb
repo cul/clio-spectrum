@@ -583,6 +583,12 @@ Library.</a>'
         services << 'in_process' if call_number =~ /in process/i
       end
 
+      # ====== NO COPY AVAILABLE ======
+      # - Something that we have, but which is currently not available (checked-out, etc.)
+      if item_status[:status] == 'not_available'
+        services << 'ill_scan'
+        services << 'borrow_direct' 
+      end
 
       # ====== COPY AVAILABLE ======
       # - LOTS of different services are possible when we have an available copy
@@ -680,7 +686,9 @@ Library.</a>'
       # Last-chance rules, every physical item should offer some kind of "Scan" and "Pickup"
       if item_status[:status] != 'online'
         services << 'ill_scan' unless services.include?('campus_scan') or services.include?('recap_scan') or services.include?('ill_scan')
-        services << 'borrow_direct' unless services.include?('campus_paging') or services.include?('recap_loan')  or services.include?('avery_onsite') or services.include?('borrow_direct')
+        # LIBSYS-4191 - remove "last-chance" logic for physical loan,
+        #               trust the above logic to properly assign
+        # services << 'borrow_direct' unless services.include?('campus_paging') or services.include?('recap_loan')  or services.include?('avery_onsite') or services.include?('borrow_direct')
       end
 
 
