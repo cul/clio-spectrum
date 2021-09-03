@@ -36,7 +36,7 @@ describe 'Item Locations should show correct library hours', :skip_travis do
     # Pull up the item-detail page, follow link to Location page...
     visit solr_document_path('565036')
     expect(find('.holdings-container')).to have_text(target)
-    within('.location_box .location', text: target) do
+    within all('.location_box .location', text: target).first do
       # Can't use click_link(), because location pages open in new window
       location_page_url = find('a.location_display', text: target)[:href]
       visit location_page_url
