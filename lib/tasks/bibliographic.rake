@@ -7,6 +7,13 @@ namespace :bibliographic do
     startTime = Time.now
     puts_datestamp '====>>>  START bibliographic:daily  <<<===='
 
+    # put this FIRST, so that today's changes get pushed through to CLIO quickly.
+    # (The later full-slice will undo some edits, but hopefully the cumulative will put them back?)
+    puts_datestamp '==== bibliographic:extract:process (incremental) ===='
+    ENV['EXTRACT'] = 'incremental'
+    Rake::Task['bibliographic:extract:process'].invoke
+    Rake::Task['bibliographic:extract:process'].reenable
+
     puts_datestamp '==== bibliographic:extract:fetch (full) ===='
     ENV['EXTRACT'] = 'full'
     Rake::Task['bibliographic:extract:fetch'].invoke
@@ -17,11 +24,6 @@ namespace :bibliographic do
 
     puts_datestamp '==== bibliographic:extract:process (cumulative) ===='
     ENV['EXTRACT'] = 'cumulative'
-    Rake::Task['bibliographic:extract:process'].invoke
-    Rake::Task['bibliographic:extract:process'].reenable
-
-    puts_datestamp '==== bibliographic:extract:process (incremental) ===='
-    ENV['EXTRACT'] = 'incremental'
     Rake::Task['bibliographic:extract:process'].invoke
     Rake::Task['bibliographic:extract:process'].reenable
 
