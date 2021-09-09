@@ -343,7 +343,7 @@ module HoldingsHelper
         copy['items'].each_pair do |_message, details|
           # NEXT-1745 - turn them back on
           # # NEXT-1668 - turn off colored indicators
-          # # status_image = 'icons/' + 'none' + '.png'
+          # ### status_image = 'icons/' + 'none' + '.png'
           status_image = 'icons/' + details['status'] + '.png'
           status_label = details['status'].humanize
           # details['image_link'] = image_tag('icons/' + details['status'] + '.png')
@@ -817,6 +817,9 @@ module HoldingsHelper
   end
 
   def recall_hold_link
+    # Valet Hold/Recall isn't ready
+    return 'http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId='
+
     if Rails.env == 'clio_prod'
       'http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId='
     else
