@@ -341,9 +341,10 @@ module HoldingsHelper
       # add status icons
       entry['copies'].each do |copy|
         copy['items'].each_pair do |_message, details|
-          # NEXT-1668 - turn off colored indicators
-          # status_image = 'icons/' + details['status'] + '.png'
-          status_image = 'icons/' + 'none' + '.png'
+          # NEXT-1745 - turn them back on
+          # # NEXT-1668 - turn off colored indicators
+          # # status_image = 'icons/' + 'none' + '.png'
+          status_image = 'icons/' + details['status'] + '.png'
           status_label = details['status'].humanize
           # details['image_link'] = image_tag('icons/' + details['status'] + '.png')
           details['image_link'] = image_tag(status_image, title: status_label, alt: status_label)
