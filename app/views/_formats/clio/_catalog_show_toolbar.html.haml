@@ -103,23 +103,21 @@
               -# %li= link_to "Borrow Direct", "#{borrow_direct_link}#{clio_id}", target: "_blank"
               -# %li= link_to 'Offsite', '#', onclick: "OpenURLinWindow('#{clio_id}', '#{offsite_link()}'); return false;"
             - else
-              - if Rails.env != 'clio_prod'
-                - # Offer ALL services for Columbia Voyager records
-                %li= link_to "Borrow Direct", "#{borrow_direct_link}#{clio_id}", target: "_blank"
-                %li= link_to "Place a Recall / Hold", "#{recall_hold_link}#{clio_id}", target: "_blank"
-                %li= link_to "ILL", "#{ill_link}#{clio_id}", target: "_blank"
-                %li= link_to "Scan & Deliver", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?#{clio_id}", target: "_blank"
-                %li= link_to "Inter-Campus Delivery", "#{intercampus_link}#{clio_id}", target: "_blank"
-                %li= link_to "In-Process / On Order", "#", onclick: "OpenInprocessRequest('#{clio_id}'); return false;"
-                %li= link_to 'Precataloging', '#', onclick: "OpenURLinWindow('#{clio_id}', '#{precat_link()}'); return false;"
-                %li= link_to 'Offsite', '#', onclick: "OpenURLinWindow('#{clio_id}', '#{recap_loan_link()}'); return false;"
-                %li= link_to "Item Feedback", "#", onclick: "OpenItemFeedback('#{clio_id}'); return false;"
-                %li= link_to "Item Not On Shelf?", "#", onclick: "OpenSearchRequest('#{clio_id}'); return false;"
-              - else
-                -# LIBSYS-2891 / LIBSYS-2892 - ALL library request services suspended
-                %li= covid_19_blurb
-              
-  
+              - # Offer ALL services for Columbia Voyager records
+              %li= link_to "Borrow Direct", "#{borrow_direct_link}#{clio_id}", target: "_blank"
+              %li= link_to "Place a Recall / Hold", "#{recall_hold_link}#{clio_id}", target: "_blank"
+              %li= link_to "ILL", "#{ill_link}#{clio_id}", target: "_blank"
+              %li= link_to "Scan & Deliver", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?#{clio_id}", target: "_blank"
+              %li= link_to "Inter-Campus Delivery", "#{intercampus_link}#{clio_id}", target: "_blank"
+              %li= link_to "In-Process / On Order", "#", onclick: "OpenInprocessRequest('#{clio_id}'); return false;"
+              %li= link_to 'Precataloging', '#', onclick: "OpenURLinWindow('#{clio_id}', '#{precat_link()}'); return false;"
+              %li= link_to 'Offsite', '#', onclick: "OpenURLinWindow('#{clio_id}', '#{recap_loan_link()}'); return false;"
+              %li= link_to "Item Feedback", "#", onclick: "OpenItemFeedback('#{clio_id}'); return false;"
+              %li= link_to "Item Not On Shelf?", "#", onclick: "OpenSearchRequest('#{clio_id}'); return false;"
+              -# LIBSYS-2891 / LIBSYS-2892 - ALL library request services suspended
+              -# %li= covid_19_blurb
+
+
 
         -# %ul.nav.navbar-nav.navbar-right
         .navbar-text
