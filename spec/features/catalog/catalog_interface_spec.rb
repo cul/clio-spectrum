@@ -404,14 +404,15 @@ describe 'Catalog Interface' do
   #   NEXT-1140 - Special character not sorting properly
   it 'Title sort should disregard diacritics' do
     rizq = 'Rizq, Yūnān Labīb'.mb_chars.normalize(:d)
-    yahud = 'al-Yahūd fī Miṣr'.mb_chars.normalize(:d)
+    yahud_d = 'al-Yahūd fī Miṣr'.mb_chars.normalize(:d)
+    yahud_c = 'al-Yahūd fī Miṣr'.mb_chars.normalize(:c)
 
     visit catalog_index_path(q: rizq, search_field: 'author', sort: 'title_sort desc', rows: 10)
     expect(page).to have_css('#documents .document.result')
 
-    # The title-sort of this record begins with "Yahud".
-    # It should be alphabetically second-to-last of the Rizq titles.
-    expect(all('#documents .document.result').first).to have_text yahud
+    # The title-sort/desc list should begin with "Yahud" (not "ʻAṣr")
+    # (which could be composed or decomposed, depending on who supplied the record)
+    expect(all('#documents .document.result').first).to have_text(yahud_d) | have_text(yahud_c)
   end
 
   #   NEXT-1140 - Special character not sorting properly
