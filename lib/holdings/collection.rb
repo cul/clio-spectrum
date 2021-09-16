@@ -124,12 +124,13 @@ module Holdings
       end
       
       # If there's ANY copy available on-campus for scanning,
-      # we'll remove any links to other Scan services
+      # we'll remove any links to ILL Scan services
       campus_scan_available = holdings_records.any? do |record|
         record.services.include?('campus_scan')
       end
       holdings_records.each do |record|
-        record.services.delete('recap_scan') if campus_scan_available
+        # NEXT-1739 - Campus Scan should NOT block ReCAP Scan any longer
+        # record.services.delete('recap_scan') if campus_scan_available
         record.services.delete('ill_scan') if campus_scan_available
       end
 
