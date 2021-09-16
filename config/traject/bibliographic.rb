@@ -86,10 +86,8 @@ end
 to_field 'text', extract_all_marc_values(from: '010', to: '852') do |record, accumulator|
   extra_fields = []
 
-  # # 035$a - System Control Number
-  # extra_fields << Marc21.extract_marc_from(record, '035a')
-  # # 852$x - Staff Note
-  # extra_fields << Marc21.extract_marc_from(record, '852x')
+  # 856$z - Electronic Location and Access / Public note
+  extra_fields << Marc21.extract_marc_from(record, '856z')
   # 876$p - Barcode
   extra_fields << Marc21.extract_marc_from(record, '876p')
   # 891$c, $a, $e - Donor Info ('Gift', donor name, donor code)
