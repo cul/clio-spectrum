@@ -46,7 +46,7 @@ module FormatMacro
       # pull out the field values we need
       leader06 = record.leader.byteslice(6)
       leader07 = record.leader.byteslice(7)
-      f001 = Marc21.extract_marc_from(record, '001')
+      f001 = Marc21.extract_marc_from(record, '001').first
       f006 = Marc21.extract_marc_from(record, '006')
       f007 = Marc21.extract_marc_from(record, '007')
       # control field 008 is non-repeatable, but this call returns an array
