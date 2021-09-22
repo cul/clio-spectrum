@@ -684,7 +684,8 @@ Library.</a>'
 
 
       # Last-chance rules, every physical item should offer some kind of "Scan" and "Pickup"
-      if item_status[:status] != 'online'
+      # NEXT-1755 - do not offer ILL Scan for Reserves locations
+      if item_status[:status] != 'online' and not location_code.match(/,res/)
         services << 'ill_scan' unless services.include?('campus_scan') or services.include?('recap_scan') or services.include?('ill_scan')
         # LIBSYS-4191 - remove "last-chance" logic for physical loan,
         #               trust the above logic to properly assign
