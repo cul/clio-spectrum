@@ -471,16 +471,16 @@ datasources:
         name: Name
 
 
-  # dlc:
-  #   name: Digital Library Collections
-  #   search_box:
-  #     route: dlc_index_path
-  #     # placeholder: dlc
-  #     search_type: blacklight
-  #     # search_fields:
-  #     #   all_fields: All Fields
-  #     #   title: Title
-  #     #   name: Name
+  dlc:
+    name: Digital Library Collections
+    search_box:
+      route: dlc_index_path
+      # placeholder: dlc
+      search_type: blacklight
+      # search_fields:
+      #   all_fields: All Fields
+      #   title: Title
+      #   name: Name
 
 
 # This is the _default_ sidebar.
