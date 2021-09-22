@@ -630,12 +630,13 @@ Library.</a>'
           unscannable = APP_CONFIG['unscannable_offsite_call_numbers'] || []
           services << 'recap_scan' unless unscannable.any? { |bad| call_number.starts_with?(bad) }
 
-          # Physical loans of Princeton ETAS titles is not allowed
-          # (but may be available via the Borrow Direct network)
-          if location_code == 'scsbpul' && Covid.lookup_db_etas_status_princeton(bibid_pul) == 'deny'
-            services.delete('recap_loan')
-            services << 'borrow_direct'
-          end
+          # LIBSYS-3996	- End ETAS service
+          # # Physical loans of Princeton ETAS titles is not allowed
+          # # (but may be available via the Borrow Direct network)
+          # if location_code == 'scsbpul' && Covid.lookup_db_etas_status_princeton(bibid_pul) == 'deny'
+          #   services.delete('recap_loan')
+          #   services << 'borrow_direct'
+          # end
         end
 
         # ------ BEAR-STOR ------
@@ -659,28 +660,29 @@ Library.</a>'
       services = services.flatten.uniq
 
 
-      # ====== ETAS - NO ACCESS TO PHYSICAL BOOK ======
-      # NEXT-1664 - Criteria for Page/Scan service links
-      # If the bibid is in the ETAS database, marked as 'deny', then we have
-      # emergency online access - and thus can't offer physical access to the book.
-      # (But scanning has been deemed OK, so don't suppress scan options)
-      if APP_CONFIG['hathi_etas'] && Covid.lookup_db_etas_status(bibid) == 'deny'
-        # --  Scan services  --
-        # services.delete('campus_scan')
-        # services.delete('recap_scan')
-
-        # --  Pick-Up services  --
-        services.delete('campus_paging')
-        services.delete('flip_paging')
-        services.delete('recap_loan')
-        # Can't offer our book, but can offer book via Borrow Direct
-        services << 'borrow_direct'
-
-        # --  Other services  --
-        services.delete('bearstor')
-        services.delete('avery_onsite')
-        services.delete('aeon')
-      end
+      # LIBSYS-3996	- End ETAS service
+      # # ====== ETAS - NO ACCESS TO PHYSICAL BOOK ======
+      # # NEXT-1664 - Criteria for Page/Scan service links
+      # # If the bibid is in the ETAS database, marked as 'deny', then we have
+      # # emergency online access - and thus can't offer physical access to the book.
+      # # (But scanning has been deemed OK, so don't suppress scan options)
+      # if APP_CONFIG['hathi_etas'] && Covid.lookup_db_etas_status(bibid) == 'deny'
+      #   # --  Scan services  --
+      #   # services.delete('campus_scan')
+      #   # services.delete('recap_scan')
+      #
+      #   # --  Pick-Up services  --
+      #   services.delete('campus_paging')
+      #   services.delete('flip_paging')
+      #   services.delete('recap_loan')
+      #   # Can't offer our book, but can offer book via Borrow Direct
+      #   services << 'borrow_direct'
+      #
+      #   # --  Other services  --
+      #   services.delete('bearstor')
+      #   services.delete('avery_onsite')
+      #   services.delete('aeon')
+      # end
 
 
       # Last-chance rules, every physical item should offer some kind of "Scan" and "Pickup"
