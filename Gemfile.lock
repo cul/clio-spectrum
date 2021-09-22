@@ -278,7 +278,7 @@ GEM
       unf
     marc-fastxmlwriter (1.0.0)
       marc (~> 1.0)
-    marcel (1.0.1)
+    marcel (1.0.2)
     memoist (0.16.2)
     method_source (1.0.0)
     mime-types (3.3.1)
