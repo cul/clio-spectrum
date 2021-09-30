@@ -12,7 +12,8 @@
         = render '/item_number', :counter => counter
 
       .item_number_allowance
-        = link_to document.fetch('title_display_ssm'), APP_CONFIG['dlc_catalog_url'] + document['id']
+        - dlc_title = Array(document.fetch('title_display_ssm')).join(' / ')
+        = link_to dlc_title, APP_CONFIG['dlc_catalog_url'] + document['id']
 
 
   / main container for doc partial view

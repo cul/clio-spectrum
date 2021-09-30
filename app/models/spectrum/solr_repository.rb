@@ -48,7 +48,7 @@ module Spectrum
             when 'geo', 'geo_cul'
               APP_CONFIG['geo_solr_url']
             when 'dlc'
-              APP_CONFIG['dcv_solr_url']
+              APP_CONFIG['dlc_solr_url']
             else
               # default to our primary Solr connection.
               connection_config[:url]
