@@ -819,6 +819,16 @@ module HoldingsHelper
     # end
   end
 
+  def item_feedback_link
+    # NEXT-1551 - cutover to Valet precat in all environments
+    if Rails.env == 'clio_prod'
+      'https://www1.columbia.edu/sec-cgi-bin/cul/forms/itemfeedback?'
+    else
+      valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+      return "#{valet_url}/item_feedback/"
+    end
+  end
+
   def recall_hold_link
     # Valet Hold/Recall isn't ready
     return 'http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId='
