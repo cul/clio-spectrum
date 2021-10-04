@@ -99,10 +99,9 @@ each_record do |record, context|
                 (record[see_also_tag].present? && record[see_also_tag]['a'].present?)
 
     # And make sure this isn't an NLM/MESH record marked for suppression (NEXT-1734)
-if Rails.env != 'clio_prod'
     next if cataloging_source == 'DNLM' && record[see_from_tag].present? &&
             record[see_from_tag]['w'].present? && record[see_from_tag]['w'] == 'nnna'
-end
+
     # ------------------------------------------------------------------------------
     # ... if we've reached here, then we found a variant we want - KEEP THIS RECORD!
     # DEBUG
@@ -210,10 +209,8 @@ to_field 'variant_t' do |record, accumulator, _context|
     # We need a name/term field
     next unless field['a']
 
-if Rails.env != 'clio_prod'
     # make sure this isn't an NLM/MESH record marked for suppression (NEXT-1734)
     next if cataloging_source == 'DNLM' && field['w'].present? && field['w'] == 'nnna'
-end
 
     # Ignore tracings that aren't the same 'kind' as the authorized form
     # e.g., here's a Personal Name with a See Also Corporate Name
