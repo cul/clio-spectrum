@@ -808,25 +808,14 @@ module HoldingsHelper
   end
 
   def precat_link
-    # NEXT-1551 - cutover to Valet precat in all environments
-    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
-    return "#{valet_url}/precat/"
-    # if Rails.env == 'clio_prod'
     #   'https://www1.columbia.edu/sec-cgi-bin/cul/forms/precat?'
-    # else
-    #   valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
-    #   return "#{valet_url}/precat/"
-    # end
+    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+    precat_link = APP_CONFIG['precat_link'] || "#{valet_url}/precat/"
   end
 
   def item_feedback_link
-    # NEXT-1551 - cutover to Valet precat in all environments
-    if Rails.env == 'clio_prod'
-      'https://www1.columbia.edu/sec-cgi-bin/cul/forms/itemfeedback?'
-    else
-      valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
-      return "#{valet_url}/item_feedback/"
-    end
+    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+    item_feedback_link = APP_CONFIG['item_feedback_link'] || "#{valet_url}/item_feedback/"
   end
 
   def recall_hold_link
