@@ -145,7 +145,10 @@ class LogsController < ApplicationController
       where_clause = 'strftime("%Y", created_at)'
     end
 
-    Log.where(set: @set).order(:created_at).group(where_clause).count
+    counts = Log.where(set: @set).group(where_clause).count
+
+    # return counts, sorted by hash key (year)
+    return counts.sort.to_h
   end
 
   def get_month_counts
@@ -158,7 +161,10 @@ class LogsController < ApplicationController
       where_clause = 'replace( strftime("%Y-%m", created_at), "-0", "-")'
     end
 
-    Log.where(set: @set).order(:created_at).group(where_clause).count
+    counts = Log.where(set: @set).group(where_clause).count
+
+    # return counts, sorted by hash key (year-month)
+    return counts.sort.to_h
   end
 
   # @rows = log_by_download(download)
