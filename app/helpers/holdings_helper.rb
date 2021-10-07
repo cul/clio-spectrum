@@ -841,12 +841,17 @@ module HoldingsHelper
     end
   end
 
+  # "On Order" is handled identically to "In Process"
   def on_order_link
-    'https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess?'
+    # 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess?'
+    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+    in_process_link = APP_CONFIG['in_process_link'] || "#{valet_url}/in_process/"
   end
   
   def in_process_link
-    'https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess?'
+    # 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess?'
+    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+    in_process_link = APP_CONFIG['in_process_link'] || "#{valet_url}/in_process/"
   end
 
 
