@@ -22,6 +22,7 @@ class AdminController < ApplicationController
       'ill_scan',
       # ### "Pick-Up" Services ###
       'campus_paging',
+      'campus_paging_pilot',
       'flip_paging',
       'recap_loan',
       'borrow_direct',
