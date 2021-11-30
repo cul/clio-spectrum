@@ -22,7 +22,7 @@ module Holdings
       end
 
       # Looking over all holdings copies may affect offered services
-      adjust_services_across_holdings(@holdings_records) if @holdings_records.length > 1
+      adjust_services_across_holdings(document, @holdings_records) if @holdings_records.length > 1
 
       # Some qualities of the bib record affect services offered on the holdings records
       adjust_services_for_bib(document, @holdings_records)
@@ -112,7 +112,7 @@ module Holdings
     # For records with multiple holdings, based on the overall content, adjust as follows:
     # -- remove document delivery options if there is an available offsite copy
     # -- remove borrowdirect and ill options if there is an available non-reserve, circulating copy
-    def adjust_services_across_holdings(holdings_records)
+    def adjust_services_across_holdings(document, holdings_records)
       # set flags
       offsite_copy = 'N'
       available_copy = 'N'
@@ -143,15 +143,15 @@ module Holdings
         record.services.delete('borrow_direct') if pickup_available
       end
       
-      # adjust services
       holdings_records.each do |record|
-
-        # replace with service-based logic above
-        # record.services.delete('borrow_direct') if available_copy == 'Y'
-
-        # NEXT-1559 - don't display bearstor request link if copy is available
-        record.services.delete('barnard_remote') if available_copy == 'Y'
+        # LIBSYS-4423 - For serials, different holdings may offer different issues,
+        # don't suppress parallel pickup options
+        unless document['format'].any? { |format| format.match?(/journal/i) }
+          # NEXT-1559 - don't display bearstor request link if copy is available
+          record.services.delete('barnard_remote') if available_copy == 'Y'
+        end
       end
+
     end
 
 
