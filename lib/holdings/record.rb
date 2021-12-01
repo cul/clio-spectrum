@@ -613,10 +613,10 @@ Library.</a>'
         campus_paging_pilot_locations = SERVICE_LOCATIONS['campus_paging_pilot_locations'] || []
         services << 'campus_paging_pilot' if campus_paging_pilot_locations.include?(location_code)
 
-        # ------ FLIP PAGING ------
-        # LIBSYS-3775 - FLIP material is only available to SAC patrons
-        flip_paging_locations = SERVICE_LOCATIONS['flip_paging_locations'] || []
-        services << 'flip_paging' if flip_paging_locations.include?(location_code)
+        # ------ FLI PAGING ------
+        # LIBSYS-3775 - FLI material is only available to SAC patrons
+        fli_paging_locations = SERVICE_LOCATIONS['fli_paging_locations'] || []
+        services << 'fli_paging' if fli_paging_locations.include?(location_code)
 
         # ------ BARNARD ALUM PICKUP ------
         # LIBSYS-4084 - add simple link to form for barnard alum access
@@ -676,7 +676,7 @@ Library.</a>'
       #
       #   # --  Pick-Up services  --
       #   services.delete('campus_paging')
-      #   services.delete('flip_paging')
+      #   services.delete('fli_paging')
       #   services.delete('recap_loan')
       #   # Can't offer our book, but can offer book via Borrow Direct
       #   services << 'borrow_direct'
@@ -729,7 +729,7 @@ Library.</a>'
       services.delete('ill_scan') if services.include?('recap_scan')
       # We can only ever have ONE "Pickup" service 
       services.delete('borrow_direct') if services.include?('campus_paging')
-      services.delete('borrow_direct') if services.include?('flip_paging')
+      services.delete('borrow_direct') if services.include?('fli_paging')
       services.delete('borrow_direct') if services.include?('recap_loan')
       
 

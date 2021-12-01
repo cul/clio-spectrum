@@ -23,7 +23,7 @@ class AdminController < ApplicationController
       # ### "Pick-Up" Services ###
       'campus_paging',
       'campus_paging_pilot',
-      'flip_paging',
+      'fli_paging',
       'recap_loan',
       'borrow_direct',
       # ### Other Services ###
