@@ -410,13 +410,16 @@ end
 
 
 #  If this is a ReCAP Partner record, use the pre-contructed ReCAP Location Name.
-#  Otherwise - use the 992$a local field, which should hold a clean facet-ready Location value
+#  Otherwise - use the repeating 992$a local field
+#  which should hold a clean facet-ready Location value
 to_field 'location_facet' do |record, accumulator|
   recap_location_name = TrajectUtility.recap_location_name(record)
   if recap_location_name.present?
     accumulator << recap_location_name 
   else
-    accumulator << Marc21.extract_marc_from(record, '992a', trim_punctuation: true).first
+    Marc21.extract_marc_from(record, '992a', trim_punctuation: true).each do |location|
+      accumulator << location
+    end
   end
 end
 
