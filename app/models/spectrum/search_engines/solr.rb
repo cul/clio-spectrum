@@ -180,7 +180,7 @@ module Spectrum
 
           ActiveSupport::Notifications.subscribed(debug_results, 'execute.rsolr_client') do |*_args|
             # @search, @documents = search_results(@params.merge(extra_controller_params), search_params_logic)
-            @search, @documents = search_results(@params.merge(extra_controller_params))
+            @search, @documents = search_results(@params.merge(extra_controller_params).with_indifferent_access)
 
             @debug_entries['solr'] = [] if @debug_entries['solr'] == {}
 
