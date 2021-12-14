@@ -67,4 +67,4 @@
   = add_row("Standard No.", display_marc_field(marc, 'standard_no'))
   = add_row('Related To', display_marc_field(marc, 'related_to'))
   = add_row('Format', formats_with_icons(document))
-  = add_row('Acquired On', Date.parse(document.fetch('acq_dt', nil)).to_formatted_s(:long)) if document.fetch('acq_dt', nil)
+  = add_row('Added to CLIO On', Date.parse(document.fetch('acq_dt', nil)).to_formatted_s(:long)) if document.fetch('acq_dt', nil)

@@ -450,7 +450,9 @@ module Spectrum
                                  label: 'Country of Publication', limit: 5
 
           config.add_facet_field 'acq_dt',
-                                 label: 'Acquisition Date',
+                                 # NEXT-1736 - change "Acquired on" labels
+                                 # label: 'Acquisition Date',
+                                 label: 'Recently Added',
                                  query: {
                                    week_1: { label: 'within 1 Week', fq: "acq_dt:[#{(Date.today - 1.weeks).to_datetime.utc.strftime('%Y-%m-%dT%H:%M:%SZ')} TO *]" },
                                    month_1: { label: 'within 1 Month', fq: "acq_dt:[#{(Date.today - 1.months).to_datetime.utc.strftime('%Y-%m-%dT%H:%M:%SZ')} TO *]" },
@@ -486,9 +488,9 @@ module Spectrum
           config.add_sort_field 'score desc, pub_date_sort desc, title_sort asc',
                                 label: 'Relevance'
           config.add_sort_field 'acq_dt asc, title_sort asc',
-                                label: 'Acquired Earliest'
+                                label: 'Added Earliest'
           config.add_sort_field 'acq_dt desc, title_sort asc',
-                                label: 'Acquired Latest'
+                                label: 'Added Latest'
           config.add_sort_field 'pub_date_sort asc, title_sort asc',
                                 label: 'Published Earliest'
           config.add_sort_field 'pub_date_sort desc, title_sort asc',
@@ -631,9 +633,9 @@ module Spectrum
                                     label: 'Title Z-A'
               # NEXT-1046 - Sort databases by acquisition date
               config.add_sort_field 'acq_dt asc, title_sort asc',
-                                    label: 'Acquired Earliest'
+                                    label: 'Added Earliest'
               config.add_sort_field 'acq_dt desc, title_sort asc',
-                                    label: 'Acquired Latest'
+                                    label: 'Added Latest'
 
               add_search_fields(config, 'title',  'author', 'subject')
 
@@ -729,8 +731,9 @@ module Spectrum
               default_catalog_config(config, :display_fields, :search_fields, :sorts)
 
               config.add_facet_field 'acq_dt',
-                                     # label: 'Acquisition Date', open: true,
-                                     label: 'Acquisition Date', collapse: false,
+                                     # NEXT-1736 - change "Acquired on" labels
+                                     # label: 'Acquisition Date', collapse: false,
+                                     label: 'Recently Added', collapse: false,
                                      query: {
                                        week_1: { label: 'within 1 Week', fq: "acq_dt:[#{(Date.today - 1.weeks).to_datetime.utc.strftime('%Y-%m-%dT%H:%M:%SZ')} TO *]" },
                                        month_1: { label: 'within 1 Month', fq: "acq_dt:[#{(Date.today - 1.months).to_datetime.utc.strftime('%Y-%m-%dT%H:%M:%SZ')} TO *]" },

@@ -294,7 +294,7 @@ to_field 'lc_subclass_facet', extract_marc('990a', translation_map: 'callnumber_
 
 to_field 'acq_dt' do |record, accumulator|
   tag997a = Marc21.extract_marc_from(record, '997a', first: true, trim_punctuation: true).first
-  # Acquisition Date should look like:  2017-08-20T00:00:00.000Z
+  # Acquisition Date ("Recently Added") should look like:  2017-08-20T00:00:00.000Z
   accumulator << tag997a if tag997a =~ /[\d\-]+T[\d\:\.]+Z/
 end
 

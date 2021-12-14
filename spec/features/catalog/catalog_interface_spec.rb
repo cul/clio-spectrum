@@ -503,13 +503,15 @@ describe 'Catalog Interface' do
   # For this one, both "facet.query=acq_dt" and "fq=acq_dt" need
   # to be ignored by the VCR cassette matcher.
   # it 'allows acquisition date to be negated', vcr: { match_requests_on: [:method, VCR.request_matchers.uri_without_params('facet.query', 'fq')] } do
-  it 'allows acquisition date to be negated' do
+  # it 'allows acquisition date to be negated' do
+  it 'allows recently added to be negated' do
     visit catalog_index_path(q: 'text', 'f[acq_dt][]' => 'years_1')
     expect(page).to have_css('#documents .document.result')
     recent_title = all('#documents .document.result .row .title').first.text
 
     # Now, inverse "Is" to "Is Not" (acquired within 1 year of today)
-    within find('.constraint-box', text: 'Acquisition Date') do
+    # within find('.constraint-box', text: 'Acquisition Date') do
+    within find('.constraint-box', text: 'Recently Added') do
       find('.dropdown', text: 'Is').click
       find('a', text: 'Is Not').click
     end
