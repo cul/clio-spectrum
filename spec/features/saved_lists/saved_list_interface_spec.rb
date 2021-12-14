@@ -12,7 +12,7 @@ describe 'Saved List Interface' do
   it 'Capybara should let us login and logout and login again' do
     # Not yet logged in - navbar shows un-authenticated message
     visit catalog_index_path
-    expect(find('#topnavbar')).to have_text 'My Library Account'
+    expect(find('#topnavbar')).to have_text 'My Borrowing Account'
 
     # Login as the first user, verify the name shows in the nav bar
     feature_login @autodidact
@@ -23,7 +23,7 @@ describe 'Saved List Interface' do
     # Logout - navbar shows un-authenticated message
     feature_logout
     visit catalog_index_path
-    expect(find('#topnavbar')).to have_text 'My Library Account'
+    expect(find('#topnavbar')).to have_text 'My Borrowing Account'
 
     # Login as the second user, verify the (second user's) name shows in the nav bar
     feature_login @blatteroon
@@ -33,7 +33,7 @@ describe 'Saved List Interface' do
     # Logout - navbar shows un-authenticated message
     feature_logout
     visit catalog_index_path
-    expect(find('#topnavbar')).to have_text 'My Library Account'
+    expect(find('#topnavbar')).to have_text 'My Borrowing Account'
   end
 
   it 'should give no access to anonymous users' do
