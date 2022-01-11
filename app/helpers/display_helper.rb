@@ -233,7 +233,8 @@ module DisplayHelper
     site_url = 'https://pegasus.law.columbia.edu'
     if document && document.id
       # Law records ids are given a "b" prefix during CLIO ingest
-      law_record_id = document.id.gsub(/^b/, '')
+      # law_record_id = document.id.gsub(/^b/, '')
+      law_record_id = document.id.gsub(/^law/, '')
       law_url = site_url + '/record/' + law_record_id
       
       # NEXT-996 - Rename "Pegasus" link
