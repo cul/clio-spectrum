@@ -58,7 +58,7 @@ describe 'CLIO support for Law records' do
       expect(page).to_not have_text law_text
     end
 
-    visit solr_document_path('b573211')
+    visit solr_document_path('law573211')
     find('#show_toolbar .navbar-nav', text: 'Requests').click
     within('li.dropdown', text: 'Requests') do
       expect(page).to have_text law_text

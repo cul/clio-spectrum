@@ -77,7 +77,7 @@ describe 'Item Locations should show correct library hours', :skip_travis do
   end
 
   it 'for Law' do
-    visit solr_document_path('b402660')
+    visit solr_document_path('law402660')
     expect(page).to have_text('Law Library')
     click_link('Law Library')
     expect(page).to have_text('Law Library')
