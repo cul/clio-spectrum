@@ -355,7 +355,9 @@ class CatalogController < ApplicationController
     if params[:range] && params[:range][:pub_date_sort]
       if (range_begin = params[:range][:pub_date_sort][:begin]) &&
          (range_end   = params[:range][:pub_date_sort][:end])
-         if range_begin.to_i > range_end.to_i
+         if range_begin.present? && 
+            range_end.present? &&
+            range_begin.to_i > range_end.to_i
            params[:range][:pub_date_sort][:begin] = range_end
            params[:range][:pub_date_sort][:end]   = range_begin
          end
