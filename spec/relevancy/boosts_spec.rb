@@ -61,11 +61,6 @@ describe 'Boosts', :skip_travis do
     expect(rank(resp, 3327567)).to be <= 1
   end
 
-  it 'thomson' do
-    resp = solr_resp_doc_ids_only('q' => 'thomson')
-    expect(rank(resp, 5410648)).to be <= 1
-  end
-
   it 'naxos' do
     resp = solr_resp_doc_ids_only('q' => 'naxos')
     expect(rank(resp, 4793226)).to be <= 3
