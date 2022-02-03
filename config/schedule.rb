@@ -12,18 +12,17 @@ set :recipient, 'clio-dev@library.columbia.edu'
 set :job_template, "/usr/local/bin/mailifoutput -s ':subject (:environment)' :recipient  /bin/bash -c ':job'"
 
 
-# TODO
-# We need to do some time offsets, so that our three server environments
-# don't fire off the same job at the same moment
 
 
 # Our batch processing environments
 if %w(clio_app_dev clio_app_test clio_prod).include?(@environment)
 
-  # == AUTHORITIES ==
-  # Run all daily ingest tasks, together within one rake task
+  # == BIBLIOGRAPHIC ==
+  # Run all daily ingest tasks, together within one rake task.
+  # The daily clio-extract needs to complete before this.
+  # That begins at 10pm and usually completes by midnight.
   every :day, at: '1am' do
-    rake 'authorities:daily', subject: 'authorities:daily'
+    rake 'bibliographic:daily', subject: 'bibliographic:daily'
   end
 
   # == DATABASE MAINTENANCE ==
@@ -37,25 +36,23 @@ if %w(clio_app_dev clio_app_test clio_prod).include?(@environment)
     rake 'hours:update_all', subject: 'hours:update_all'
   end
 
-  # == BIBLIOGRAPHIC ==
-  # Run all daily ingest tasks, together within one rake task.
-  # The daily clio-extract needs to complete before this - and 
-  # that runs from 10pm until, on bad days, 2:30am or so.
-  every :day, at: '4am' do
-    rake 'bibliographic:daily', subject: 'bibliographic:daily'
-  end
-
   # == RECAP ==
-  every :day, at: '5am' do
+  every :day, at: '7am' do
     rake 'recap:delete_new[2]', subject: 'recap:delete_new'
   end
-  every :day, at: '6am' do
+  every :day, at: '8am' do
     rake 'recap:ingest_new[2]', subject: 'recap:ingest_new'
+  end
+
+  # == AUTHORITIES ==
+  # Run all daily ingest tasks, together within one rake task
+  every :day, at: '9am' do
+    rake 'authorities:daily', subject: 'authorities:daily'
   end
 
   # == LAW ==
   # Weekly full load of all Law records
-  every :sunday, at: '8am' do
+  every :sunday, at: '10am' do
     rake 'bibliographic:extract:process EXTRACT=law', subject: 'law load'
   end
 
