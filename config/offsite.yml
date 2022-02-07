@@ -26,6 +26,7 @@ offsite_locations:
   - off,fax
   - off,glg
   - off,glx
+  - off,gnc
   - off,gsc
   - off,hsl
   - off,hsr
