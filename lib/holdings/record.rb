@@ -571,7 +571,8 @@ Library.</a>'
       end
 
 
-      # Scan for things like "Recall", "Hold", etc.
+      # Scan display labels for things like "Recall", "Hold", etc.
+      # (_probably_ obsolete, but we'd need to check carefully)
       services << scan_message( location_name )
       services << scan_messages( item_status[:messages] )
 
@@ -583,6 +584,7 @@ Library.</a>'
         services << 'in_process' if call_number =~ /in process/i
       end
 
+
       # ====== NO COPY AVAILABLE ======
       # - Something that we have, but which is currently not available (checked-out, etc.)
       if item_status[:status] == 'not_available'
@@ -590,26 +592,30 @@ Library.</a>'
         services << 'borrow_direct' 
       end
 
+
       # ====== COPY AVAILABLE ======
-      # - LOTS of different services are possible when we have an available copy
+      # - LOTS of different services are possible when we have an available copy,
+      #   depending on the item's location, 
       if item_status[:status] == 'available' || item_status[:status] == 'some_available'
 
         # ------ CAMPUS SCAN ------
         # If campus-scanning is only offered for certain locations....
         campus_scan_locations = SERVICE_LOCATIONS['campus_scan_locations'] || []
-        if campus_scan_locations.present?
-          services << 'campus_scan' if campus_scan_locations.include?(location_code)
-        else
-          # Otherwise, offer campus scanning for any non-offsite location
-          offsite_locations = OFFSITE_CONFIG['offsite_locations'] || []
-          services << 'campus_scan' unless offsite_locations.include?(location_code)
-        end
+        services << 'campus_scan' if campus_scan_locations.include?(location_code)
+        # OLD campus-scan logic, included fall-back approach
+        # if campus_scan_locations.present?
+        #   services << 'campus_scan' if campus_scan_locations.include?(location_code)
+        # else
+        #   # Otherwise, offer campus scanning for any non-offsite location
+        #   offsite_locations = OFFSITE_CONFIG['offsite_locations'] || []
+        #   services << 'campus_scan' unless offsite_locations.include?(location_code)
+        # end
         
-        # ------ CAMPUS PAGING ------
+        # ------ CAMPUS PAGING / CAMPUS PAGING PILOT ------
         # NEXT-1664 / NEXT-1666 - new Paging/Pickup service for available on-campus material
         campus_paging_locations = SERVICE_LOCATIONS['campus_paging_locations'] || []
         services << 'campus_paging' if campus_paging_locations.include?(location_code)
-        # NEXT-1753 - Campus Paging Pilot (??)
+        # NEXT-1753 - Campus Paging Pilot (???)
         campus_paging_pilot_locations = SERVICE_LOCATIONS['campus_paging_pilot_locations'] || []
         services << 'campus_paging_pilot' if campus_paging_pilot_locations.include?(location_code)
 
@@ -623,39 +629,55 @@ Library.</a>'
         barnard_alum_locations = SERVICE_LOCATIONS['barnard_alum_locations'] || []
         services << 'barnard_alum' if barnard_alum_locations.include?(location_code)
 
-        # ------ RECAP / OFFSITE ------
-        offsite_locations = OFFSITE_CONFIG['offsite_locations'] || []
-        if offsite_locations.include?(location_code)
-          # -- recap_loan --
-          recap_loan_locations = SERVICE_LOCATIONS['recap_loan_locations'] || []
-          services << 'recap_loan' if recap_loan_locations.include?(location_code)
-          # -- recap_scan --  (but not for MICROFORM, CD-ROM, etc.)
-          unscannable = APP_CONFIG['unscannable_offsite_call_numbers'] || []
-          services << 'recap_scan' unless unscannable.any? { |bad| call_number.starts_with?(bad) }
-
-          # LIBSYS-3996	- End ETAS service
-          # # Physical loans of Princeton ETAS titles is not allowed
-          # # (but may be available via the Borrow Direct network)
-          # if location_code == 'scsbpul' && Covid.lookup_db_etas_status_princeton(bibid_pul) == 'deny'
-          #   services.delete('recap_loan')
-          #   services << 'borrow_direct'
-          # end
-        end
-
         # ------ BEAR-STOR ------
         # If this is a BearStor holding and some items are available,
         # enable the BearStor request link (barnard_remote)
         bearstor_locations = SERVICE_LOCATIONS['barnard_remote_locations'] || ['none']
         services << 'barnard_remote' if bearstor_locations.include?(location_code)
 
+        # -- RECAP_LOAN --
+        recap_loan_locations = SERVICE_LOCATIONS['recap_loan_locations'] || []
+        services << 'recap_loan' if recap_loan_locations.include?(location_code)
+
+        # -- RECAP_SCAN --  (but not for MICROFORM, CD-ROM, etc.)
+        # LIBSYS-4629 - configure ReCAP Scan via location list, like recap_loan
+        recap_scan_locations = SERVICE_LOCATIONS['recap_scan_locations'] || []
+        if recap_scan_locations.include?(location_code)
+          unscannable = APP_CONFIG['unscannable_offsite_call_numbers'] || []
+          services << 'recap_scan' unless unscannable.any? { |bad| call_number.starts_with?(bad) }
+        end
+
+        # ------ PRE-CAT ------
+        services << 'precat' if location_name =~ /^Precat/
+        
+
+        # OLD offsite logic checked both OFFSITE_CONFIG and SERVICE_LOCATIONS
+        # # ------ RECAP / OFFSITE ------
+        # offsite_locations = OFFSITE_CONFIG['offsite_locations'] || []
+        # if offsite_locations.include?(location_code)
+        #
+        #   # -- RECAP_LOAN --
+        #   recap_loan_locations = SERVICE_LOCATIONS['recap_loan_locations'] || []
+        #   services << 'recap_loan' if recap_loan_locations.include?(location_code)
+        #
+        #   # -- RECAP_SCAN --  (but not for MICROFORM, CD-ROM, etc.)
+        #   unscannable = APP_CONFIG['unscannable_offsite_call_numbers'] || []
+        #   services << 'recap_scan' unless unscannable.any? { |bad| call_number.starts_with?(bad) }
+        #
+        #   # LIBSYS-3996  - End ETAS service
+        #   # # Physical loans of Princeton ETAS titles is not allowed
+        #   # # (but may be available via the Borrow Direct network)
+        #   # if location_code == 'scsbpul' && Covid.lookup_db_etas_status_princeton(bibid_pul) == 'deny'
+        #   #   services.delete('recap_loan')
+        #   #   services << 'borrow_direct'
+        #   # end
+        # end
+
         # LIBSYS-3200 - 8/2021, turn off Avery Onsite
         # # ------ AVERY ONSITE MEDIATED REQUEST ------
         # # LIBSYS-3200 - Access to some non-circ Avery locations requires mediated access
         # avery_onsite_locations = SERVICE_LOCATIONS['avery_onsite_locations'] || []
         # services << 'avery_onsite' if avery_onsite_locations.include?(location_code)
-        
-        # ------ PRE-CAT ------
-        services << 'precat' if location_name =~ /^Precat/
         
       end
 
