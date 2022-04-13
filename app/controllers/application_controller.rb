@@ -687,6 +687,7 @@ class ApplicationController < ActionController::Base
         raw_content += alert['html']
       end
       # Rails.logger.debug "set_top_banner_content() - raw_content=#{raw_content}"
+      raw_content.strip!
       fixed_content = fix_banner_relative_links(raw_content)
       $top_bannner_content = fixed_content
     rescue => ex
@@ -704,7 +705,7 @@ class ApplicationController < ActionController::Base
         link.attributes["href"].value = lweb + href
       end
     end    
-    return doc.to_s
+    return doc.to_s.strip
   end
   
   # # UNIX-5942 - work around spotty CUIT DNS
