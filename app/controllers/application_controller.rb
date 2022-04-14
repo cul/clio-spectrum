@@ -698,7 +698,9 @@ class ApplicationController < ActionController::Base
   
   def fix_banner_relative_links(raw_content)
     lweb = 'https://library.columbia.edu'
-    doc = Nokogiri::HTML.parse(raw_content)
+    # doc = Nokogiri::HTML.parse(raw_content)
+    # This avoids the Nokogiri-inserted DOCTYPE tag - but will it still work w/Lweb?
+    doc = Nokogiri::HTML.fragment(raw_content)
     doc.css("a").each do |link|
       href = link.attributes["href"].value
       if href.starts_with?('/')
