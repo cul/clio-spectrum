@@ -98,7 +98,7 @@
       -# unless (svc_links = service_links(entry['services'], @document.id)).empty?
       - unless (svc_links = service_links(entry['services'], @document.id, entry['holding_id'])).empty?
         .services
-          %span.holdings_label= "#{'Request'.pluralize(svc_links.size)}: "
+          %span.holdings_label= 'Request: '
           - svc_links.each do |link|
             .service= link
       -# %font{color: 'darkred', weight: 'bold'}
