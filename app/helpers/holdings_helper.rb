@@ -911,6 +911,7 @@ module HoldingsHelper
   def get_worldcat_url(key, id)
     return unless key && id
     return unless ['oclc', 'isbn', 'issn'].include? key
+    id.gsub!(/\D/, '') if key == 'oclc'
     return "https://www.worldcat.org/#{key}/#{id}"
   end
 
