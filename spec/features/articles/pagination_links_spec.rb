@@ -33,8 +33,10 @@ describe 'An articles search' do
     expect(page).to have_text('« Previous | 951 - 1000 of ')
     expect(page).to_not have_text('There was an error searching this datasource')
 
-    visit articles_index_path('q' => 'Aardvark', 's.pn' => 21, 's.ps' => 50)
-    expect(page).to have_text('There was an error searching this datasource. (Maximum supported returned results set size is 1000 (provided size is 1050).)')
+    # visit articles_index_path('q' => 'Aardvark', 's.pn' => 21, 's.ps' => 50)
+    # 2022 - Limit has been doubled!!
+    visit articles_index_path('q' => 'Aardvark', 's.pn' => 41, 's.ps' => 50)
+    expect(page).to have_text('There was an error searching this datasource. (Maximum supported returned results set size is 2000 (provided size is 2050).)')
 
     visit articles_index_path('q' => 'Aardvark', 's.pn' => 20, 's.ps' => 51)
     expect(page).to have_text('There was an error searching this datasource. (Maximum supported page size is 50 (provided size is 51).)')

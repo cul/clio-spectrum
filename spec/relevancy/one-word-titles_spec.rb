@@ -7,18 +7,20 @@ require 'spec_helper'
 # NEXT-867 - The journal reproduction is not retrieved when searching for reproduction
 # and also:  Gut, Nature, Heart, Science, Neurology, Circulation
 describe 'Searching for one-word titles: ', :skip_travis do
-  it 'Reproduction' do
-    resp = solr_resp_ids_from_query('Reproduction')
-    # expect(resp.get_first_doc_index({"id" => "4843265"})).to be < 1
-    # expect(resp.has_document?({"id" => "4843265"}) ).to eq true
-    # puts "RANK:" + rank(resp, 48432659).to_s
-    # expect(resp.get_first_doc_index('4843265')).to be < 1
-    # expect(resp.has_document?('4843265') ).to eq true
-    # expect(rank(resp, 4843265)).to be <= 1
-    # the old bib id was dropped, no one answered when I asked 
-    # the new bib id, I'm going to guess it's now 14867155
-    expect(rank(resp, 14867155)).to be <= 1
-  end
+
+  # LIBSYS-5286 - Journal "Reproduction" dropped out of CLIO
+  # it 'Reproduction' do
+  #   resp = solr_resp_ids_from_query('Reproduction')
+  #   # expect(resp.get_first_doc_index({"id" => "4843265"})).to be < 1
+  #   # expect(resp.has_document?({"id" => "4843265"}) ).to eq true
+  #   # puts "RANK:" + rank(resp, 48432659).to_s
+  #   # expect(resp.get_first_doc_index('4843265')).to be < 1
+  #   # expect(resp.has_document?('4843265') ).to eq true
+  #   # expect(rank(resp, 4843265)).to be <= 1
+  #   # the old bib id was dropped, no one answered when I asked
+  #   # the new bib id, I'm going to guess it's now 14867155
+  #   expect(rank(resp, 14867155)).to be <= 1
+  # end
 
   it 'Gut' do
     resp = solr_resp_ids_from_query('Gut')
@@ -104,10 +106,10 @@ describe 'Searching for one-word titles: ', :skip_travis do
     expect(rank(resp, 14947553)).to be <= 5
 
     resp = solr_resp_ids_from_journal_title_query('Brain')
-    expect(rank(resp, 14947553)).to be <= 1
+    expect(rank(resp, 14947553)).to be <= 2
 
     resp = solr_resp_ejournal_ids_only('q' => 'Brain')
-    expect(rank(resp, 14947553)).to be <= 1
+    expect(rank(resp, 14947553)).to be <= 2
   end
 
   it 'Lancet' do

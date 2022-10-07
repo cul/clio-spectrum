@@ -303,7 +303,7 @@ describe 'Catalog Interface' do
   it 'should show menu-option "Request(s)"', :js do
     visit solr_document_path('10905238')
     # Should use consistent language
-    expect(find('#show_toolbar')).to have_text 'Requests'
+    expect(find('#show_toolbar')).to have_text 'Request'
     expect(find('#clio_holdings')).to have_text 'Request'
   end
 

@@ -48,7 +48,7 @@ describe 'Boosts', :skip_travis do
 
   it 'wall street journal' do
     resp = solr_resp_doc_ids_only('q' => 'wall street journal')
-    expect(rank(resp, 3385614)).to be <= 1
+    expect(rank(resp, 3385614)).to be <= 2
   end
 
   it 'science' do

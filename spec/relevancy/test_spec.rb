@@ -5,7 +5,7 @@ describe 'Testing rsolr-rspec support', :skip_travis do
     resp = solr_resp_doc_ids_only('q' => 'Buddhism')
 
     expect(resp.size).to be > 20000
-    expect(resp.size).to be < 40000
+    expect(resp.size).to be < 50000
   end
 
   # utility, for spitting out the bib keys that match a given query
