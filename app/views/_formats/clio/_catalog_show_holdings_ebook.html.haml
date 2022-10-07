@@ -1,0 +1,21 @@
+
+- content_for :jstemplates do
+  :javascript
+    $(document).ready(function() {
+      load_ebook_holdings('#{clio_id}');
+    });
+
+- if APP_CONFIG['show_ebook_links'] && (ebook_base_url = APP_CONFIG['ebook_base_url']).present?
+
+  #ebook_holdings.holdings_section{ data: {ebook_base_url: ebook_base_url} }
+    .holdings_title Mobile (API)
+    #ebook_holdings_links
+    
+
+
+
+
+
+
+
+

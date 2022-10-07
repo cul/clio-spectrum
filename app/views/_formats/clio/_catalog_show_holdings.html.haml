@@ -33,6 +33,10 @@
   - if document.simplye_link
     = render "/_formats/clio/catalog_show_holdings_simplye", document: document
 
+  -# EBOOK HOLDINGS
+  - if APP_CONFIG['show_ebook_links']
+    = render "/_formats/clio/catalog_show_holdings_ebook", clio_id: clio_id
+
   -# GOOGLE HOLDINGS
   = render "/_formats/clio/catalog_show_holdings_google", document: document
 

@@ -33,9 +33,12 @@ $ ->
       # (but leave them in standard_id_set_csv, for Google, et.al.)
       # if $.isNumeric(item_id)
       if item_id.charAt(0) != 'b'
+        
       # A bib item may have BOTH onsite and offsite holdings
         if (onsite)
-          onsite_catalog_items.push(item_id)
+          # skip non-Voyager onsite material (e.g., Law)
+          if $.isNumeric(item_id)
+            onsite_catalog_items.push(item_id)
         if (offsite)
           offsite_catalog_items.push(item_id)
       # a set of zero or more IDs (ISBN, OCLC, or LCCN)
@@ -97,6 +100,49 @@ $ ->
         $(".hathi_holdings_check").hide()
         $('.hathi_holdings_error').show()
         $('#hathi_holdings').show()
+
+@load_ebook_holdings = (id) ->
+  # alert('AAA')
+  $('#ebook_holdings_links').html('Loading...')
+  ebook_base_url = #ebook_holdings.
+  ebook_base_url = $('#ebook_holdings').data('ebook-base-url');
+  # alert('ebook_base_url=' + ebook_base_url)
+  
+  $('#ebook_holdings').hide()
+
+  $.ajax
+    url: ebook_base_url + id + '.json'
+
+    success: (data) ->
+        link_html = ''
+        simplye_url_list = data['holdings']['simplye']
+        palace_url_list  = data['holdings']['palace']
+      
+        # alert('simplye_url_list=' + simplye_url_list)
+        # alert('instanceof Array=' + (simplye_url_list instanceof Array) )
+      
+        for url in simplye_url_list
+          # alert('url=' + url)
+          link_html = link_html + "<a class='ebook_link' href='" + url + "'>Read on SimplyE</a>\n<br>\n"
+        for url in palace_url_list
+          link_html = link_html + "<a class='ebook_link' href='" + url + "'>Read on Palace</a>\n<br>\n"
+
+        $('#ebook_holdings_links').html(link_html)
+
+        $('#ebook_holdings').show()
+
+        # $('#ebook_data_wrapper').html(data)
+        # $('#ebook_holdings').show()
+        # # If we have a long list of holdings,
+        # # they'll be rendered with collapse/expand.
+        # $(".expander").click ->
+        #   $('#ebook_holdings').find(".expander").hide()
+        #   $('#ebook_holdings').find(".expander_more").removeClass('expander_more')
+
+    error: (data) ->
+        # $(".ebook_holdings_check").hide()
+        # $('.ebook_holdings_error').show()
+        # $('#ebook_holdings').show()
 
 # Nope - no more real-time lookup of fedora attached assets
 # @retrieve_fedora_resources = (fedora_ids) ->
