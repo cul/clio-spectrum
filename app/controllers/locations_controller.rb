@@ -80,6 +80,12 @@ class LocationsController < ApplicationController
         marker.json(location_code: location['locationID'])
       end
       @current_marker_index = markers.find_index { |mark| mark[:location_code] == @location.location_code }
+
+      ### DEBUGGING
+      # puts ">>>>>>>>>>>>>>>>>  markers.class=" + markers.class.to_s
+      # puts ">>>>>>>>>>>>>>>>>  markers.length=" + markers.length.to_s
+      # markers.each { |marker| puts ">>>>>>>> ---- " + marker[:location_code]}
+
       markers.to_json
     end
   end

@@ -17,15 +17,16 @@ describe LocationsController do
         controller.build_markers
       end
 
-      it 'assigns current marker' do
-        controller.build_markers
-        # What's the numeric position of "avery" in an
-        # alphabetical list of markers?
-        # expect(assigns(:current_marker_index)).to eq(0)
-        # Now that "art-properties" has been added,
-        # "avery" is bumped to array index position 1
-        expect(assigns(:current_marker_index)).to eq(1)
-      end
+      # Bogus test - there's no guarantee of the order of locations in the array of location-markers
+      # it 'assigns current marker' do
+      #   controller.build_markers
+      #   # What's the numeric position of "avery" in an
+      #   # alphabetical list of markers?
+      #   # expect(assigns(:current_marker_index)).to eq(0)
+      #   # Now that "art-properties" has been added,
+      #   # "avery" is bumped to array index position 1
+      #   expect(assigns(:current_marker_index)).to eq(1)
+      # end
 
       it 'should not have a marker for location that does not have a map' do
         markers = controller.build_markers

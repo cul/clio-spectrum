@@ -101,6 +101,8 @@ describe 'Catalog Interface' do
   end
 
   # NEXT-931 - Online Links in Holdings (not in the Bib) should display
+  # 10/2022 - The example bib here has been recataloged.  
+  # I don't know know another example bib which was cataloged in this anomalous way.
   it 'Online links from Bib or Holdings should show up within correct block', :js do
     # visit this specific item
     visit solr_document_path('382300')
