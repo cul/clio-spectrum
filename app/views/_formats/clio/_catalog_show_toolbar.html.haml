@@ -108,7 +108,9 @@
               -# NEXT-1746 - libraries are figuring out post-COVID access rules...
               -# %li= link_to "Place a Recall / Hold", "#{recall_hold_link}#{clio_id}", target: "_blank"
               %li= link_to "Place a Recall", "#{recall_hold_link}#{clio_id}", target: "_blank"
-              %li= link_to "ILL", "#{ill_link}#{clio_id}", target: "_blank"
+              -# NEXT-1819 - replace ill_link with ill_scan_link
+              -# %li= link_to "ILL", "#{ill_link}#{clio_id}", target: "_blank"
+              %li= link_to "ILL", "#{ill_scan_link}#{clio_id}", target: "_blank"
               %li= link_to "Scan & Deliver", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?#{clio_id}", target: "_blank"
               %li= link_to "Inter-Campus Delivery", "#{intercampus_link}#{clio_id}", target: "_blank"
               -# %li= link_to "In-Process / On Order", "#", onclick: "OpenInprocessRequest('#{clio_id}'); return false;"

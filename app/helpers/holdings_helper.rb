@@ -141,8 +141,9 @@ module HoldingsHelper
                            tooltip:    'ReCAP Scan',    js_function: 'OpenWindow'},
       'offsite'        => {link_label: 'Scan',          service_url: offsite_link, 
                            tooltip:    'Offsite',       js_function: 'OpenWindow'},
-      'ill'            => {link_label: 'Scan',          service_url: ill_link,
-                           tooltip:    'Illiad Book/Article Scan'},
+      # NEXT-1819 - replace ill_link with ill_scan_link
+      # 'ill'            => {link_label: 'Scan',          service_url: ill_link,
+      #                      tooltip:    'Illiad Book/Article Scan'},
       'ill_scan'       => {link_label: 'Scan',          service_url: ill_scan_link,
                            tooltip:    'Illiad Book/Article Scan'},
       # ====  PICK-UP SERVICES  ====
@@ -756,11 +757,12 @@ module HoldingsHelper
     valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
     "#{valet_url}/ill_scan/"
   end
-  
-  def ill_link
-    return APP_CONFIG['ill_link'] if APP_CONFIG['ill_link']
-    'https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?'
-  end
+
+  # NEXT-1819 - replace ill_link with ill_scan_link
+  # def ill_link
+  #   return APP_CONFIG['ill_link'] if APP_CONFIG['ill_link']
+  #   'https://www1.columbia.edu/sec-cgi-bin/cul/forms/illiad?'
+  # end
   
   # ====  PICK-UP SERVICES  ====
 
