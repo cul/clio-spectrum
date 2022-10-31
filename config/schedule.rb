@@ -68,10 +68,11 @@ if ['clio_prod'].include?(@environment)
     rake 'recap:download', subject: 'recap download'
   end
 
-  # == SIMPLYE ==
-  # Daily reload of SimplyE links
-  every :day, at: '2am' do
-    rake 'simplye:process', subject: 'simplye:process'
-  end
+  # NEXT-1822 - SimplyE ETL workflow replaced with API lookup
+  # # == SIMPLYE ==
+  # # Daily reload of SimplyE links
+  # every :day, at: '2am' do
+  #   rake 'simplye:process', subject: 'simplye:process'
+  # end
 
 end
