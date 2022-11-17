@@ -21,6 +21,13 @@ Rack::Attack.safelist('allow from CLIO') do |req|
   '128.59.222.208' == req.ip
 end
 
+# FULLY WHITELISTED IPS/CIDRS - no throttling, no blocking, unlimited access
+# - only add very specific trusted IPs/Subnets
+APP_CONFIG['RACK_ATTACK_SAFE_LIST'].each do |goodguy|
+  Rack::Attack.safelist_ip(goodguy)
+end
+
+
 # # Deny all access to IP Addresses in our bad-address list
 # Rack::Attack.blocklist('block bad IPs') do |req|
 #   APP_CONFIG['BAD_IP_LIST'].include? req.ip
@@ -55,6 +62,14 @@ Rack::Attack.throttle('req/minute', limit: APP_CONFIG['THROTTLE_LIMIT_PER_MINUTE
 
 # Rate-Limit to a certain number of requests per hour
 Rack::Attack.throttle('req/hour', limit: APP_CONFIG['THROTTLE_LIMIT_PER_HOUR'], period: 1.hour, &:ip)
+
+# Special tighter throttle rules for MARC XML requests, to dissuade bulk downloads
+Rack::Attack.throttle('marcxml/hour', limit: 10, period: 1.hour) do |req|
+  if req.path =~ /xml$/ and not req.ip =~ /128.59/
+    req.ip
+  end
+end
+
 
 # Use Fail2Ban to lock out penetration-testers based on defined rules.
 #
