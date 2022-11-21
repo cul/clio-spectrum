@@ -191,8 +191,10 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
-    faraday (1.0.0)
-      multipart-post (>= 1.2, < 3)
+    faraday (2.7.1)
+      faraday-net_http (>= 2.0, < 3.1)
+      ruby2_keywords (>= 0.0.4)
+    faraday-net_http (3.0.2)
     ffi (1.15.5)
     gems (1.2.0)
     globalid (1.0.0)
@@ -289,7 +291,6 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.16.3)
     multi_json (1.15.0)
-    multipart-post (2.2.3)
     mysql2 (0.5.4)
     net-ldap (0.17.1)
     net-scp (3.0.0)
@@ -405,6 +406,7 @@ GEM
       rspec (~> 3.5)
       rspec-collection_matchers
     rspec-support (3.12.0)
+    ruby2_keywords (0.0.5)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -513,7 +515,7 @@ DEPENDENCIES
   devise
   exception_notification
   factory_bot_rails
-  faraday (= 1.0.0)
+  faraday
   gmaps4rails
   google-api-client
   haml
