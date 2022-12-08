@@ -314,7 +314,7 @@
 - :library_code: dhc
   :location_code: dhc
   :links: 
-    Home Page: https://library.columbia.edu/locations/dhc.html
+    Home Page: https://library.columbia.edu/services/digital-scholarship.html
   :category: physical
   :location: Electronic Text Service
   :found_in: |-
@@ -326,7 +326,6 @@
   :location_code: health-sciences
   :links: 
     Home Page: https://library.cumc.columbia.edu/
-    Stacks Floorplan: https://library.cumc.columbia.edu/lower-level-2-floorplan
   :category: physical
   :location: Health Sciences
   :found_in: |-
@@ -338,7 +337,6 @@
   :location_code: health-sciences
   :links: 
     Home Page: https://library.cumc.columbia.edu/
-    Library Floorplan: https://library.cumc.columbia.edu/library-floorplan
   :category: physical
   :location: Health Sciences Reserve
   :found_in: |-
@@ -349,7 +347,6 @@
   :location_code: health-sciences
   :links: 
     Home Page: https://www.library-archives.cumc.columbia.edu
-    Library Floorplan: https://library.cumc.columbia.edu/lower-level-1-floorplan
   :category: physical
   :location: Health Sciences Spec Coll
   :found_in: |-
@@ -394,7 +391,6 @@
   :location_code: lehman
   :links: 
     Home Page: https://library.columbia.edu/locations/lehman.html
-    Floorplans: https://library.columbia.edu/locations/lehman/floorplan.html
   :category: physical
   :location: Lehman
   :found_in: |-
@@ -406,7 +402,6 @@
   :location_code: lehman
   :links: 
     Home Page: https://library.columbia.edu/locations/lehman.html
-    Floorplans: https://library.columbia.edu/locations/lehman/floorplan.html
   :category: physical
   :location: Business Collection, Lehman
   :found_in: |-
@@ -417,7 +412,7 @@
 - :library_code: dssc-data
   :location_code: dssc-data
   :links: 
-    Home Page: https://library.columbia.edu/locations/dssc/data/service.html
+    Home Page: https://library.columbia.edu/services/research-data-services.html
   :category: physical
   :location: Lehman Data Service
   :found_in: |-
@@ -543,7 +538,7 @@
 - :library_code: science-engineering
   :location_code: science-engineering
   :links: 
-    Home Page: https://library.columbia.edu/locations/science-library.html
+    Home Page: https://library.columbia.edu/locations/science-engineering.html
   :category: physical
   :location: Science
   :found_in: |-
@@ -589,7 +584,7 @@
 - :library_code: law
   :location_code: law
   :links: 
-    Home Page: https://web.law.columbia.edu/library
+    Home Page: https://www.law.columbia.edu/library
   :category: physical
   :location: Law
   :found_in: |-
@@ -600,7 +595,7 @@
 - :library_code: dhc
   :location_code: digital-scholarship
   :links: 
-    Home Page: http://library.columbia.edu/locations/dhc.html
+    Home Page: https://library.columbia.edu/services/digital-scholarship.html
   :category: physical
   :location: Digital Scholarship Services
   :found_in: |-
@@ -611,8 +606,8 @@
 - :library_code: science-engineering
   :location_code: science-engineering
   :links: 
-    Home Page: https://library.columbia.edu/locations/dsc.html
-    Directions: https://library.columbia.edu/locations/science-library/directions.html
+    Home Page: https://library.columbia.edu/libraries/science-engineering.html
+    Directions: https://library.columbia.edu/locations/science-engineering/directions.html
   :category: physical
   :location: Digital Science Center
   :found_in: |-
@@ -634,7 +629,7 @@
 - :library_code: music
   :location_code: music
   :links: 
-    Home Page: https://library.columbia.edu/locations/music/music_lab.html
+    Home Page: https://library.columbia.edu/locations/music/music-lab.html
   :category: physical
   :location: Digital Music Lab
   :found_in: |-
