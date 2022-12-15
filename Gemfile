@@ -111,9 +111,11 @@ gem 'net-scp'
 
 # Talk to SCSB REST API
 # pin faraday (LIBSYS-2941)
-gem 'faraday', '1.0.0'
+# gem 'faraday', '1.0.0'
 # Updated to 1.4 on July 1, revered to 1.0 on August 18th, 2021
 # gem 'faraday'
+# 11/21/2022 - try to unpin, Faraday is well past 1.x.x
+gem 'faraday'
 
 # For, e.g., Google Custom Search API
 # Our code seems to break beyond 0.36?

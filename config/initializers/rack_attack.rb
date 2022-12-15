@@ -23,7 +23,8 @@ end
 
 # FULLY WHITELISTED IPS/CIDRS - no throttling, no blocking, unlimited access
 # - only add very specific trusted IPs/Subnets
-APP_CONFIG['RACK_ATTACK_SAFE_LIST'].each do |goodguy|
+rack_attack_safe_list = APP_CONFIG['RACK_ATTACK_SAFE_LIST'] || []
+rack_attack_safe_list.each do |goodguy|
   Rack::Attack.safelist_ip(goodguy)
 end
 
@@ -34,18 +35,20 @@ end
 # end
 
 # New, simpler way to block, supports CIDR with no extra code
-APP_CONFIG['BAD_IP_LIST'].each do |badguy|
+bad_ip_list = APP_CONFIG['BAD_IP_LIST'] || []
+bad_ip_list.each do |badguy|
   Rack::Attack.blocklist_ip(badguy)
 end
 
 # Deny all access to User Agents in our bad-agent list
+bad_user_agent_list = APP_CONFIG['BAD_USER_AGENT_LIST'] || []
 Rack::Attack.blocklist('block bad User Agents') do |req|
-  APP_CONFIG['BAD_USER_AGENT_LIST'].include? req.user_agent
+  bad_user_agent_list.include? req.user_agent
 end
 
 # Filter by URL - specific params or path components may identify bad guys
+bad_url_substrings = APP_CONFIG['BAD_URL_SUBSTRING_LIST'] || []
 Rack::Attack.blocklist('block bad URL substring') do |req|
-  bad_url_substrings = APP_CONFIG['BAD_URL_SUBSTRING_LIST'] || []
   bad_url_substrings.any? { |bad_substring| req.url.match(bad_substring) }
 end
 
@@ -58,10 +61,12 @@ Rack::Attack.blocklist('block all Java User Agents') do |req|
 end
 
 # Rate-Limit to a certain number of requests per minute
-Rack::Attack.throttle('req/minute', limit: APP_CONFIG['THROTTLE_LIMIT_PER_MINUTE'], period: 1.minute, &:ip)
+throttle_limit_per_minute = APP_CONFIG['THROTTLE_LIMIT_PER_MINUTE'] || 300
+Rack::Attack.throttle('req/minute', limit: throttle_limit_per_minute, period: 1.minute, &:ip)
 
 # Rate-Limit to a certain number of requests per hour
-Rack::Attack.throttle('req/hour', limit: APP_CONFIG['THROTTLE_LIMIT_PER_HOUR'], period: 1.hour, &:ip)
+throttle_limit_per_hour = APP_CONFIG['THROTTLE_LIMIT_PER_HOUR'] || 3000
+Rack::Attack.throttle('req/hour', limit: throttle_limit_per_hour, period: 1.hour, &:ip)
 
 # Special tighter throttle rules for MARC XML requests, to dissuade bulk downloads
 Rack::Attack.throttle('marcxml/hour', limit: 10, period: 1.hour) do |req|

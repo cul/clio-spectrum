@@ -142,6 +142,14 @@ module FormatMacro
           formats << :news if type == 'n'
         end
       end
+      
+      ## LIBSYS-5367 - still no format?  
+      ## Assign 'serial' to "Language Material / Serial" when there's no 006 or 008 
+      if formats.empty? && leader06 == 'a' && leader07 == 's'
+        if f006.blank? && f008.blank?
+          formats << :serial
+        end
+      end
 
       ## set online / microformats
       f007.each do |this007|
