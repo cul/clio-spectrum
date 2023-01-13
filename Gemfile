@@ -72,8 +72,9 @@ group :development, :clio_dev do
   # gem 'rack-mini-profiler'
 end
 
-# include JS runtime via bundler - server environment is unreliable
-gem 'therubyracer'
+# No - rely on server environment
+# # include JS runtime via bundler - server environment is unreliable
+# gem 'therubyracer'
 
 gem 'httpclient'
 
@@ -220,6 +221,12 @@ group :development do
   # Just add it to your Gemfile and require it in your Capfile.
   gem 'capistrano-passenger', require: false
 
+
+  # Capistrano now needs these two on newer desktops???
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
+  
+
   # browser-based live debugger and REPL
   # HAML REPL breaks in 2.7.0/2.7.1 ???
   # gem 'better_errors', '~> 2.6.0'
@@ -258,11 +265,13 @@ group :test do
   # Copy Stanford's approach to Solr relevancy testing
   gem 'rspec-solr'
 
-  # pin to 2.x to avoid having to install/use puma
-  gem 'capybara', '~>2.0'
-
-  # Which Capybara driver for JS support?
-  gem 'capybara-webkit'
+  #  REMOVE capybara for now - we want to move to Selenium
+  #
+  # # pin to 2.x to avoid having to install/use puma
+  # gem 'capybara', '~>2.0'
+  #
+  # # Which Capybara driver for JS support?
+  # gem 'capybara-webkit'
 
   # Used for some Javascript testing that fails w/WebKit
   # but... we don't care much about those bits actually.
