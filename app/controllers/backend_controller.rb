@@ -101,6 +101,9 @@ class BackendController < ApplicationController
       institutionId, dash, bibliographicId = bibliographicId.partition('-')
     end
 
+    # LIBSYS-5508 - EMERGENCY - MARK ALL PARTNER MATERIAL AS UNAVAILABLE
+    # return [] unless institutionId == 'CUL'
+    
     cache_minutes = APP_CONFIG['scsb']['cache_minutes'] || 0
     expiry = cache_minutes * 60
 
