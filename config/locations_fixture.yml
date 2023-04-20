@@ -246,7 +246,7 @@
 - :library_code: butler-reference
   :location_code: butler-reference
   :links: 
-    Call Number Guide: https://library.columbia.edu/content/dam/libraryweb/locations/butler/Butler%20Reference/301%26310.pdf
+    Call Number Guide: https://library.columbia.edu/libraries/butler/floorplan.html
     Home Page: https://library.columbia.edu/locations/butler-reference.html
   :category: physical
   :location: Butler Reference Desk
@@ -258,7 +258,7 @@
 - :library_code: butler-24 
   :location_code: butler 
   :links: 
-    Call Number Guide: https://library.columbia.edu/content/dam/libraryweb/locations/butler/Butler%20Reference/301%26310.pdf
+    Call Number Guide: https://library.columbia.edu/libraries/butler/floorplan.html
     Home Page: https://library.columbia.edu/locations/butler-reference.html
   :category: physical
   :location: Butler Reference
@@ -279,7 +279,7 @@
   :location_code: butler
   :links: 
     Home Page: https://library.columbia.edu/locations/butler-circulation.html
-    Call Number Guide: https://library.columbia.edu/content/dam/libraryweb/locations/butler/Butler_Stacks_Guide_2016.pdf
+    Call Number Guide: https://library.columbia.edu/libraries/butler/floorplan.html
   :category: physical
   :location: Butler Stacks
   :found_in: |-
@@ -471,7 +471,7 @@
   :location_code: butler
   :links: 
     Home Page: https://library.columbia.edu/locations/undergraduate.html
-    Shelving Guide: https://library.columbia.edu/content/dam/libraryweb/locations/butler/Mistein-Call-Number%20guide.pdf
+    Call Number Guide: https://library.columbia.edu/libraries/butler/floorplan.html
   :category: physical
   :location: Milstein
   :found_in: |-
