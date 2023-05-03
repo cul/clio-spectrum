@@ -3,3 +3,6 @@
 # a Rails server has been running for?
 
 BOOTED_AT = Time.now
+
+LAST_DEPLOYED = File.atime(Dir.pwd).to_s(:long)
+

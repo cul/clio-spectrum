@@ -6,7 +6,8 @@
   System Details
 
 %table.table.table-bordered
-  - ['CLIO_VERSION',
+  - ['LAST_DEPLOYED',
+     'CLIO_VERSION',
      'RUBY_VERSION', 'Rails.version', 'Blacklight.version',
      'Rails.env',
      'request.protocol', 'request.fullpath', 
@@ -14,6 +15,7 @@
      'Process.pid', 'Process.uid',
      'time_ago_in_words(BOOTED_AT)',
      'Etc.getpwuid(Process.uid).name',
+     'Dir.pwd',
      'database_configuration["adapter"]',
      'database_configuration["host"]',
      'database_configuration["database"]',
