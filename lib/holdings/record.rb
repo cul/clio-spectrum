@@ -135,6 +135,46 @@ module Holdings
         end
       end
 
+      # BearStor and StarrStor are both housed at Clancy, and sometimes the
+      # Clancy inventory system (CaiaSoft) knows that the items are not-on-shelf,
+      # even when Voyager thinks they are.
+      if @item_status[:status] == 'available'
+      
+        bearstor_locations = SERVICE_LOCATIONS['barnard_remote_locations'] || ['none']
+
+        starrstor_locations = SERVICE_LOCATIONS['starrstor_locations'] || ['none']
+        # Only respect the StarrStor local list while the service is active
+        if APP_CONFIG['starrstor_active'].blank?
+          starrstor_locations = ['none']
+        end
+
+        # Is this a BearStor/StarrStor item?
+        if bearstor_locations.include?(@location_code) || starrstor_locations.include?(@location_code)
+
+          # Loop over all barcodes, count up how many items are available.  All, some or none?
+          available_count = 0
+          holdings_marc.each_by_tag('876') do |this876|
+            if barcode = this876['p']
+              caiasoft_itemstatus = BackendController::caiasoft_itemstatus(barcode)
+              Rails.logger.debug "- caiasoft_itemstatus=[#{caiasoft_itemstatus}]"
+              if caiasoft_itemstatus.present? && status_string = caiasoft_itemstatus[:status]
+                if status_string == "Item In at Rest"
+                  available_count = available_count + 1
+                end
+              end
+            end
+          end
+        
+          # Determine overall holding availability status.
+          # If CaiaSoft reports all or some items are unavailable, override Voyager item status.
+          if available_count == 0
+            @item_status = { status: 'not_available', messages: [{ status_code: 'sp', short_message: 'Unavailable' }] }
+          elsif available_count < @item_count
+            @item_status = { status: 'some_available', messages: [{ status_code: 'sp', short_message: 'Some Available' }] }
+          end
+
+        end
+      end
 
       # flag for services processing (doc_delivery assignment)
       # NEXT-1234: revised logic
@@ -530,6 +570,7 @@ module Holdings
     def determine_services(location_name, location_code, temp_loc_flag, call_number, item_status, orders, bibid, fmt, bibid_pul)
       services = []
 
+
       # ====== SPECIAL COLLECTIONS ======
       # NEXT-1229 - make this the first test
       # special collections request service [only service available for items from these locations]
@@ -633,6 +674,14 @@ module Holdings
         # enable the BearStor request link (barnard_remote)
         bearstor_locations = SERVICE_LOCATIONS['barnard_remote_locations'] || ['none']
         services << 'barnard_remote' if bearstor_locations.include?(location_code)
+
+        # ------ STARRSTOR ------
+        # If this is a StarrStor holding and some items are available,
+        # (AND StarrStor is in effect) then enable the StarStor request link. 
+        if APP_CONFIG['starrstor_active'].present?
+          starrstor_locations = SERVICE_LOCATIONS['starrstor_locations'] || ['none']
+          services << 'starrstor' if starrstor_locations.include?(location_code)
+        end
 
         # -- RECAP_LOAN --
         recap_loan_locations = SERVICE_LOCATIONS['recap_loan_locations'] || []

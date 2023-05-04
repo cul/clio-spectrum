@@ -31,7 +31,8 @@ class AdminController < ApplicationController
       'barnard_remote',
       'avery_onsite',
       'aeon',
-      'microform'
+      'microform',
+      'starrstor'
     ]
     
     @all_locations = []

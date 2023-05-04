@@ -325,4 +325,29 @@ class BackendController < ApplicationController
   #
   #     end
   #
+  
+  ###
+  ###   CAIASOFT
+  ###
+  def self.caiasoft_itemstatus(barcode)
+
+    if barcode.empty?
+      logger.error 'BackendController#caiasoft_itemstatus passed empty id'
+      return nil
+    end
+
+    cache_minutes = APP_CONFIG['caiasoft']['cache_minutes'] || 0
+    expiry = cache_minutes * 60
+
+    caiasoft_itemstatus = Rails.cache.fetch("caiasoft_itemstatus:#{barcode}", expires_in: expiry) do
+      Clancy::CaiaSoft.get_itemstatus(barcode) || []
+    end
+
+    # caiasoft_itemstatus JSON:
+    #   { "success":true, "error":"", "barcode":"0071298436",
+    #     "status":"Out on Physical Retrieval on 08-27-2021" }
+    caiasoft_itemstatus
+  
+  end
+  
 end
