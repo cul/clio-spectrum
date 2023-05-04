@@ -268,10 +268,10 @@ group :test do
   #  REMOVE capybara for now - we want to move to Selenium
   #
   # # pin to 2.x to avoid having to install/use puma
-  # gem 'capybara', '~>2.0'
+  gem 'capybara', '~>2.0'
   #
   # # Which Capybara driver for JS support?
-  # gem 'capybara-webkit'
+  gem 'capybara-webkit'
 
   # Used for some Javascript testing that fails w/WebKit
   # but... we don't care much about those bits actually.
