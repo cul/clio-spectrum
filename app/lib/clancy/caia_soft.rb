@@ -67,8 +67,8 @@ module Clancy
         # parse returned array of item-info hashes into simple barcode->status hash
         caiasoft_itemstatus = JSON.parse(response.body).with_indifferent_access
 
-        # TESTING
-        caiasoft_itemstatus[:status] = 'Item In at Rest' if barcode == '0071799010'
+        # # TESTING
+        # caiasoft_itemstatus[:status] = 'Item In at Rest' if barcode == '0071799010'
 
         caiasoft_itemstatus
       end
