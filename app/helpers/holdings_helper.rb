@@ -160,7 +160,7 @@ module HoldingsHelper
       # ====  OTHER SERVICES  ====
       'barnard_remote' => {link_label: 'BearStor',         service_url: barnard_remote_link, 
                            tooltip:    'Barnard Remote',   js_function: 'OpenWindow'},
-      'starrstor'      => {link_label: 'StarrStor',         service_url: starrstor_link, 
+      'starrstor'      => {link_label: 'Pick-Up (Temporary Storage)', service_url: starrstor_link, 
                            tooltip:    'East Asian Remote Storage',   js_function: 'OpenWindow'},
       'barnard_alum'   => {link_label: 'Barnard Alum Pick-Up', 
                            service_url: 'https://library.columbia.edu/resolve/barlib0001#'},
