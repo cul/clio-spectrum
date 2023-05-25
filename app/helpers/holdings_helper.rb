@@ -90,6 +90,10 @@ module HoldingsHelper
                 ' (version of resource)'
               when '2'
                 ' (related resource)'
+              when '3'    
+                ''
+              when '4'
+                ' (related resource)'
               else '' # omit note for ind2 == 0, the actual resource
       end
       url = subfieldU
