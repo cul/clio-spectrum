@@ -441,7 +441,15 @@ end
 to_field 'url_munged_display' do |record, accumulator|
   record.fields('856').each do |field856|
     next unless field856.indicator1 == '4'
-    accumulator << [field856.indicator2, field856['3'], field856['u'], field856['z']].join('|||')
+    
+    # accumulator << [field856.indicator2, field856['3'], field856['u'], field856['z']].join('|||')
+
+    field856.subfields.each do |subfield|
+      if subfield.code.in?('u','g')
+        accumulator << [field856.indicator2, field856['3'], subfield.value, field856['z']].join('|||')
+      end
+    end
+
   end
 end
 
