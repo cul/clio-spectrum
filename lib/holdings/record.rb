@@ -149,7 +149,11 @@ module Holdings
         end
 
         # Is this a BearStor/StarrStor item?
-        if bearstor_locations.include?(@location_code) || starrstor_locations.include?(@location_code)
+        # LIBSYS-6014 - to get this done immediately,
+        # just revert BearStor to using Voyager status,
+        # only to CaiaSoft lookup for StarrStor
+        # if bearstor_locations.include?(@location_code) || starrstor_locations.include?(@location_code)
+        if starrstor_locations.include?(@location_code)
 
           # Loop over all barcodes, count up how many items are available.  All, some or none?
           available_count = 0
