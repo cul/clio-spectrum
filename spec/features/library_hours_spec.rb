@@ -84,7 +84,7 @@ describe 'Item Locations should show correct library hours', :skip_travis do
     expect(page).to have_text('Arthur W. Diamond')
     expect(page).to have_text('Jerome Greene Hall')
     # page.save_and_open_page # debug
-    expect(page).to have_link('Home Page', href: 'https://web.law.columbia.edu/library')
+    expect(page).to have_link('Home Page', href: 'https://www.law.columbia.edu/library')
     expect(page).to have_link('Full Hours Info', href: 'https://hours.library.columbia.edu/locations/law')
   end
 end

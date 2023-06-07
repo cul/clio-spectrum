@@ -53,7 +53,8 @@ describe 'Linked field-values in single-item display' do
   it "should work for RDA roles, such as 'author' (Morson)" do
     test_bib = '9398081'
     test_title = 'The long and short of it'
-    test_link = 'Morson, Gary Saul, 1948-, author.'
+    # test_link = 'Morson, Gary Saul, 1948-, author.'
+    test_link = 'Morson, Gary Saul, 1948- author.'
 
     # pull up the specific record, by bib key
     visit solr_document_path(test_bib)
@@ -110,6 +111,10 @@ describe 'Linked field-values in single-item display' do
     test_link_array.each do |test_link|
       # follow the "Also Listed Under" hyperlinked field value
       click_link(test_link)
+
+      # More results per page so that below tests works
+      click_link 'Display Options'
+      click_link '50 per page'
 
       # Should be on the item-results page, which should include at least the item just visited
       expect(page).to have_css('#documents')
