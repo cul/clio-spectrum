@@ -13,7 +13,7 @@
 server 'clio-dev.cul.columbia.edu', user: 'clioserv', roles: %w(app db web)
 
 # set :deploy_to, '/var/www/my_app_name'
-set :deploy_to, '/opt/passenger/clio/clio_dev'
+set :deploy_to, '/opt/passenger/clio_dev'
 
 # https://github.com/capistrano/rvm
 # set :rvm_type, :user                     # Defaults to: :auto
