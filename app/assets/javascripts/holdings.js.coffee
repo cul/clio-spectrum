@@ -115,15 +115,15 @@ $ ->
 
     success: (data) ->
         link_html = ''
-        simplye_url_list = data['holdings']['simplye']
+        # simplye_url_list = data['holdings']['simplye']
         palace_url_list  = data['holdings']['palace']
       
         # alert('simplye_url_list=' + simplye_url_list)
         # alert('instanceof Array=' + (simplye_url_list instanceof Array) )
       
-        for url in simplye_url_list
-          # alert('url=' + url)
-          link_html = link_html + "<a class='ebook_link' href='" + url + "'>Read on SimplyE</a>\n<br>\n"
+        # for url in simplye_url_list
+        #   # alert('url=' + url)
+        #   link_html = link_html + "<a class='ebook_link' href='" + url + "'>Read on SimplyE</a>\n<br>\n"
         for url in palace_url_list
           link_html = link_html + "<a class='ebook_link' href='" + url + "'>Read on Palace</a>\n<br>\n"
 
