@@ -68,6 +68,7 @@
 //= require ldpd_feedback
 //= require log
 //= require nearby
+//= require resolver
 //= require saved_lists
 //= require scroll_memory
 //= require preferences

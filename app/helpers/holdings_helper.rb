@@ -97,6 +97,11 @@ module HoldingsHelper
               else '' # omit note for ind2 == 0, the actual resource
       end
       url = subfieldU
+      
+      # NEXT-1852 - new resolver links in CLIO test
+      if (APP_CONFIG['resolver_rewrite_856'] || false)
+        url = rewrite_resolver_url(url)
+      end
 
       # links << [title, note, url]   # as ARRAY
       links << { title: title, note: note, url: url } # as HASH
@@ -127,6 +132,24 @@ module HoldingsHelper
     links
     #    links.sort { |x,y| x.first <=> y.first }
   end
+
+  # NEXT-1852 - new resolver links in CLIO test
+  def rewrite_resolver_url(url)
+    # Only rewrite URLs to the legacy HTTP resolver CGI
+    old_url = 'http://www.columbia.edu/cgi-bin/cul/resolve?'
+    return url unless url.start_with?(old_url)
+
+    # Only rewrite if we have a new resolver URL configured
+    return url unless new_url = APP_CONFIG['resolver_base_url']
+    
+    # Isolate the resolver key from the full URL
+    key = url.delete_prefix(old_url)
+
+    # Rewritten URL is the new base url and the key, no delimiter
+    return new_url + key
+  end
+
+
 
   SERVICE_ORDER = %w(campus_scan recap_scan offsite ill_scan ill campus_paging campus_paging_pilot fli_paging recap_loan barnard_remote starrstor barnard_alum avery_onsite aeon microform precat on_order borrow_direct recall_hold in_process doc_delivery ).freeze
 
