@@ -100,31 +100,31 @@ describe 'Catalog Interface' do
     # expect(find('#hathi_holdings #hathi_data')).to_not have_content('Limited (search-only)')
   end
 
-  # NEXT-931 - Online Links in Holdings (not in the Bib) should display
   # 10/2022 - The example bib here has been recataloged.  
   # I don't know know another example bib which was cataloged in this anomalous way.
-  it 'Online links from Bib or Holdings should show up within correct block', :js do
-    # visit this specific item
-    visit solr_document_path('382300')
-    expect(page).to have_css('#clio_holdings .holding')
-
-    # within CLIO HOLDINGS, not the regular Online div...
-    # ...want to see an 'Online' block
-    expect(find('div#clio_holdings')).to have_content('Online')
-    # ...also want to see the specific URL...
-    expect(find('div#clio_holdings')).to have_content('http://www.neighborhoodpreservationcenter.org/')
-
-    # And, contrariwise, other Avery Online material, which does not have
-    # an 856 URL in the Holdings record, should display 'Online' within the
-    # visit this specific item
-    visit solr_document_path('10099362')
-
-    # within ONLINE HOLDINGS, SHOULD see an 'Online' block
-    expect(find('div#online_holdings')).to have_content('Online')
-
-    # within CLIO HOLDINGS, should NOT see an 'Online' block
-    expect(find('div#clio_holdings')).not_to have_content('Online')
-  end
+  # # NEXT-931 - Online Links in Holdings (not in the Bib) should display
+  # it 'Online links from Bib or Holdings should show up within correct block', :js do
+  #   # visit this specific item
+  #   visit solr_document_path('382300')
+  #   expect(page).to have_css('#clio_holdings .holding')
+  #
+  #   # within CLIO HOLDINGS, not the regular Online div...
+  #   # ...want to see an 'Online' block
+  #   expect(find('div#clio_holdings')).to have_content('Online')
+  #   # ...also want to see the specific URL...
+  #   expect(find('div#clio_holdings')).to have_content('http://www.neighborhoodpreservationcenter.org/')
+  #
+  #   # And, contrariwise, other Avery Online material, which does not have
+  #   # an 856 URL in the Holdings record, should display 'Online' within the
+  #   # visit this specific item
+  #   visit solr_document_path('10099362')
+  #
+  #   # within ONLINE HOLDINGS, SHOULD see an 'Online' block
+  #   expect(find('div#online_holdings')).to have_content('Online')
+  #
+  #   # within CLIO HOLDINGS, should NOT see an 'Online' block
+  #   expect(find('div#clio_holdings')).not_to have_content('Online')
+  # end
 
   # Valid Voyager locations include angle-brackets.
   # CLIO should escape these (NOT treat them like markup)
