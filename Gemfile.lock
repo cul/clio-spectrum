@@ -528,6 +528,7 @@ DEPENDENCIES
   launchy
   lcsort
   library_stdnums
+  loofah (~> 2.19.1)
   marc
   mysql2
   net-ldap
