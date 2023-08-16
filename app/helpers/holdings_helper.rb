@@ -101,6 +101,8 @@ module HoldingsHelper
       # NEXT-1852 - new resolver links in CLIO test
       if (APP_CONFIG['resolver_rewrite_856'] || false)
         url = rewrite_resolver_url(url)
+        # NEXT-1854 - If URL is used as link text, it should be rewritten
+        title = rewrite_resolver_url(title)
       end
 
       # links << [title, note, url]   # as ARRAY
