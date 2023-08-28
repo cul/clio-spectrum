@@ -10,8 +10,9 @@ extend Traject::Macros::MarcFormats
 # Columbia's local format classification rules
 extend FormatMacro
 
-# Local code to lookup Hathi access status
-extend HathiMacro
+###LIBSYS-3996 - End ETAS
+# # Local code to lookup Hathi access status
+# extend HathiMacro
 
 # require 'traject/macros/marc21'
 # extend  Traject::Macros::Marc21
