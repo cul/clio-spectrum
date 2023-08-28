@@ -23,8 +23,9 @@
 - unless (locations = document["location_call_number_id_display"].listify.reject { |l| l.match(/^Online/) }).empty?
   = add_row("Location", format_brief_location_results(locations, document))
 
-- if APP_CONFIG['hathi_search_results_links']
-  = add_row('HathiTrust', format_hathi_search_result_link(document))
+-# LIBSYS-3996 - End ETAS
+-# if APP_CONFIG['hathi_search_results_links']
+-#  = add_row('HathiTrust', format_hathi_search_result_link(document))
 
 -# - raise
 = add_row('Format', formats_with_icons(document))

@@ -453,11 +453,12 @@ to_field 'url_munged_display' do |record, accumulator|
   end
 end
 
-# Add Hathi access status directly to Solr record
-# - possible values:  'allow' or 'deny'
-# - ETAS gives limited access to 'deny' items
-# - lookup by bib id and OCLC number
-to_field 'hathi_access_s', hathi_access
+### LIBSYS-3996 - End ETAS
+# # Add Hathi access status directly to Solr record
+# # - possible values:  'allow' or 'deny'
+# # - ETAS gives limited access to 'deny' items
+# # - lookup by bib id and OCLC number
+# to_field 'hathi_access_s', hathi_access
 
 # to_field 'hathi_access' do |record, accumulator|
 #   local_id = extract_marc('001', first: true)

@@ -504,13 +504,14 @@ module HoldingsHelper
       id_type, id_value = bibkey.split(':')
       next unless id_type && id_value
       
-      # NEXT-1633, NEXT-1635 - COVID
-      # If this record is in our holdings-overlap report
-      # (as Limited-View but ETAS-accessible OR as full-view)
-      # then we ONLY want to do lookups by OCLC number
-      if (document['hathi_access_s'].present?)
-        next unless id_type == 'oclc'
-      end
+      ### LIBSYS-3996 - End ETAS
+      # # NEXT-1633, NEXT-1635 - COVID
+      # # If this record is in our holdings-overlap report
+      # # (as Limited-View but ETAS-accessible OR as full-view)
+      # # then we ONLY want to do lookups by OCLC number
+      # if (document['hathi_access_s'].present?)
+      #   next unless id_type == 'oclc'
+      # end
 
       hathi_holdings_data = fetch_hathi_brief(id_type, id_value)
       break unless hathi_holdings_data.nil?
@@ -524,23 +525,33 @@ module HoldingsHelper
     # - "allow" means Full-View
     # - "deny" means Limited View, but temporary ETAS access
     
-    # If either Hathi Access code is FOUND, return full hathi holdings data
-    if (document['hathi_access_s'].present?)
-      return hathi_holdings_data
-    end
+    ### LIBSYS-3996 - End ETAS
+    # # If either Hathi Access code is FOUND, return full hathi holdings data
+    # if (document['hathi_access_s'].present?)
+    #   return hathi_holdings_data
+    # end
 
-    # If NO HATHI ACCESS FOUND...
-    # - "Full view" means we have access, allow it
-    # - "Limited" or Blank means we don't have full-access - suppress it
-    # - blank means NO holdings overlap: pass-thru "Full View", suppress "Limited"
-    if (document['hathi_access_s'].blank?)
-      # Look at the Rights of each Item in the Hathi API response,
-      # If the item has limited-view, we'll suppress it from patron display,
-      #   because search-only access to a Hathi pageturner is useless.
-      # (Otherwise, the item has full-view and we'll leave it in for patrons)
-      hathi_holdings_data['items'].delete_if do |item|
-        item['usRightsString'].downcase.include?('limited')
-      end
+    ### LIBSYS-3996 - End ETAS
+    # # If NO HATHI ACCESS FOUND...
+    # # - "Full view" means we have access, allow it
+    # # - "Limited" or Blank means we don't have full-access - suppress it
+    # # - blank means NO holdings overlap: pass-thru "Full View", suppress "Limited"
+    # if (document['hathi_access_s'].blank?)
+    #   # Look at the Rights of each Item in the Hathi API response,
+    #   # If the item has limited-view, we'll suppress it from patron display,
+    #   #   because search-only access to a Hathi pageturner is useless.
+    #   # (Otherwise, the item has full-view and we'll leave it in for patrons)
+    #   hathi_holdings_data['items'].delete_if do |item|
+    #     item['usRightsString'].downcase.include?('limited')
+    #   end
+    # end
+
+    # Look at the Rights of each Item in the Hathi API response,
+    # If the item has limited-view, we'll suppress it from patron display,
+    #   because search-only access to a Hathi pageturner is useless.
+    # (Otherwise, the item has full-view and we'll leave it in for patrons)
+    hathi_holdings_data['items'].delete_if do |item|
+      item['usRightsString'].downcase.include?('limited')
     end
     
     # Did we strip away the last item?
@@ -584,7 +595,7 @@ module HoldingsHelper
   def fetch_hathi_brief(id_type, id_value)
     return nil unless id_type && id_value
 
-    hathi_brief_url = 'http://catalog.hathitrust.org/api/volumes' \
+    hathi_brief_url = 'https://catalog.hathitrust.org/api/volumes' \
                       "/brief/#{id_type}/#{id_value}.json"
     # Rails.logger.debug "hathi_brief_url=#{hathi_brief_url}"
     http_client = HTTPClient.new
