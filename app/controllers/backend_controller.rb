@@ -20,6 +20,7 @@ class BackendController < ApplicationController
 
   def self.backend_httpclient
     hc = HTTPClient.new
+    hc.ssl_config.set_default_paths
     # The default is to wait 60/120 seconds - but we expect an instant response,
     # anything else means trouble, and we should give up immediately so as not
     # to not sit on resources.

@@ -658,6 +658,7 @@ class ApplicationController < ActionController::Base
     return unless top_banner_config['url'].present?
 
     hc = HTTPClient.new
+    hc.ssl_config.set_default_paths
     # Expect instant response.  Anything else, don't stall CLIO.
     hc.connect_timeout = 1 # default 60
     hc.send_timeout    = 1 # default 120

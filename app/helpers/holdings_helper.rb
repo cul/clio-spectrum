@@ -599,6 +599,7 @@ module HoldingsHelper
                       "/brief/#{id_type}/#{id_value}.json"
     # Rails.logger.debug "hathi_brief_url=#{hathi_brief_url}"
     http_client = HTTPClient.new
+    http_client.ssl_config.set_default_paths
     http_client.connect_timeout = 10 # default 60
     http_client.send_timeout    = 10 # default 120
     http_client.receive_timeout = 10 # default 60

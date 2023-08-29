@@ -114,6 +114,7 @@ end
 # details here:   https://github.com/cul/ldpd-hours
 def call_hours_api(library_code, start_date, end_date)
   client = HTTPClient.new
+  client.ssl_config.set_default_paths
   client.connect_timeout = 5 # default 60
   client.send_timeout    = 5 # default 120
   client.receive_timeout = 5 # default 60

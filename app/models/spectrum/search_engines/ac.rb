@@ -24,6 +24,7 @@ module Spectrum
         begin
           search_url = build_search_url(options)
           client = HTTPClient.new
+          client.ssl_config.set_default_paths
           client.connect_timeout = 10 # default 60
           client.send_timeout    = 10 # default 120
           client.receive_timeout = 10 # default 60
