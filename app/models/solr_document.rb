@@ -446,6 +446,7 @@ class SolrDocument
   end
 
   # NEXT-2219 - Lehman Mold Bloom!
+  # LIBSYS-6253 - Lehman 2023, Return of the Mold
   def moldy?
     return false unless location_call_number_id = self[:location_call_number_id_display]
     
@@ -462,7 +463,8 @@ class SolrDocument
 
       next unless portmanteau.match(/ >> /)
       call_number = portmanteau.partition(' >> ').last
-      return true if call_number.first.match(/[A-E]/)
+      # return true if call_number.first.match(/[A-E]/)
+      return true if call_number.first.match(/[A-G]/)
     end
 
     # If it's Lehman and the call-number doesn't start with A through E, it's NOT moldy

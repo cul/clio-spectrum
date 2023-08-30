@@ -113,6 +113,7 @@ module Holdings
       end
 
       # LIBSYS-2219 - Lehman Mold Bloom!
+      # LIBSYS-6253 - Lehman 2023, Return of the Mold
       # If the app-config key is set, do some overrides to display of item status
       if APP_CONFIG['lehman_mold'].present? && @location_name.match(/^Lehman/)
         # Only do overrides for 'Available' items.
