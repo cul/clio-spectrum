@@ -456,10 +456,10 @@ class SolrDocument
     Array.wrap(location_call_number_id).each do |portmanteau|
 
       # All non-Lehman are NOT moldy
-      return false unless portmanteau.match(/^Lehman/i)
+      next unless portmanteau.match(/^Lehman/i)
 
-      # All Lehman Reference are moldy
-      return true if portmanteau.match(/^Lehman Ref/i)
+      # # All Lehman Reference are moldy
+      # return true if portmanteau.match(/^Lehman Ref/i)
 
       next unless portmanteau.match(/ >> /)
       call_number = portmanteau.partition(' >> ').last
