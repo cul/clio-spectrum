@@ -8,11 +8,9 @@ describe 'Solr sort order', :skip_travis do
 
     # The bib for "Asia Pacific Forum" should be before
     # any of the "Asian ..." records
-    rank7038675 = rank(resp, 7038675)
-    expect(rank(resp, 7038673)).to be > rank7038675
-    expect(rank(resp, 7886427)).to be > rank7038675
-    expect(rank(resp, 7038672)).to be > rank7038675
-    expect(rank(resp, 7038674)).to be > rank7038675
-    expect(rank(resp, 7038747)).to be > rank7038675
+    rank14577634 = rank(resp, 14577634)
+    expect(rank(resp, 7886427)).to be > rank14577634
+    expect(rank(resp, 6488401)).to be > rank14577634
+    expect(rank(resp, 7038747)).to be > rank14577634
   end
 end
