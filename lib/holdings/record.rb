@@ -914,7 +914,7 @@ module Holdings
       # ALL items in these locations are NOT moldy
       return false if @location_code == 'leh,res'
       return false if @location_code == 'leh,hraf'
-      return false if @location_code == 'leh,atlas'
+      return false if @location_code == 'leh,atls'
 
       # Remaining Lehman items are Moldy or Not-Moldy, depending on Call Number
       return false unless @call_number
