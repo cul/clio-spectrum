@@ -905,14 +905,18 @@ module Holdings
     # "Materials in the leh,ref and parts of leh (call numbers A* – E*) will be unavailable"
     # see also SolrDocument::moldy?()  
     def moldy?
-      # return false unless @location_code
+      return false unless @location_code
+      return false unless @location_code.starts_with?('leh')
+      
+      # ALL items in these locations ARE moldy
+      return true if @location_code == 'leh,ref'
 
-      # Special rules for Lehman Reference
-      # return false if @location_code == 'leh,ref'
-
-      # Special rules for Lehman Reserves
+      # ALL items in these locations are NOT moldy
       return false if @location_code == 'leh,res'
+      return false if @location_code == 'leh,hraf'
+      return false if @location_code == 'leh,atlas'
 
+      # Remaining Lehman items are Moldy or Not-Moldy, depending on Call Number
       return false unless @call_number
       # return true if @location_code == 'leh' && @call_number.first.match(/[A-E]/)
       return true if @call_number.first.match(/[A-G]/)

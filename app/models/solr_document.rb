@@ -456,15 +456,18 @@ class SolrDocument
     # => ["Lehman >> DA28.1 .L642 1993|DELIM|1687713"]
     Array.wrap(location_call_number_id).each do |portmanteau|
 
-      # All non-Lehman are NOT moldy
+      # Only Lehman is affected - ignore anything else
       next unless portmanteau.match(/^Lehman/i)
 
-      # All Lehman Reference are moldy
-      # return true if portmanteau.match(/^Lehman Ref/i)
+      # ALL items in these locations are NOT moldy - loop past this item
+      next if portmanteau.match(/^Lehman Reference HRAF Table/i)
+      next if portmanteau.match(/^Lehman Atlas Collection/i)
+      next if portmanteau.match(/^Lehman Reserves/i)
 
-      # All Lehman Reserves are non-moldy
-      return false if portmanteau.match(/^Lehman Reserves/i)
+      # ALL items in these locations ARE moldy
+      return true if portmanteau.match(/^Lehman Reference/i)
 
+      # Remaining Lehman items are Moldy or Not-Moldy, depending on Call Number
       next unless portmanteau.match(/ >> /)
       call_number = portmanteau.partition(' >> ').last
       # return true if call_number.first.match(/[A-E]/)
