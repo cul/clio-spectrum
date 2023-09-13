@@ -38,7 +38,7 @@ describe 'Databases' do
     expect(page).to have_text 'Previous title: DigitalCommons'
     # NEXT-983 - Improvements to database discovery interface (styles, language)
     # Databases have custom label, "Search Database", instead of just "Online"
-    expect(page).to have_text 'Search Database: http://www.columbia.edu/cgi-bin/cul/resolve?clio6662174'
+    expect(page).to have_text 'Search Database: https://resolver.library.columbia.edu/clio6662174'
 
     within '#search_info' do
       click_link 'Previous'
