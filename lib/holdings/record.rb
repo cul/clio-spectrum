@@ -907,7 +907,11 @@ module Holdings
     def moldy?
       # return false unless @location_code
 
-      return false if @location_code == 'leh,ref'
+      # Special rules for Lehman Reference
+      # return false if @location_code == 'leh,ref'
+
+      # Special rules for Lehman Reserves
+      return false if @location_code == 'leh,res'
 
       return false unless @call_number
       # return true if @location_code == 'leh' && @call_number.first.match(/[A-E]/)

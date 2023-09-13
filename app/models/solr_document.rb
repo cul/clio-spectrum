@@ -459,8 +459,11 @@ class SolrDocument
       # All non-Lehman are NOT moldy
       next unless portmanteau.match(/^Lehman/i)
 
-      # # All Lehman Reference are non-moldy
-      return false if portmanteau.match(/^Lehman Ref/i)
+      # All Lehman Reference are moldy
+      # return true if portmanteau.match(/^Lehman Ref/i)
+
+      # All Lehman Reserves are non-moldy
+      return false if portmanteau.match(/^Lehman Reserves/i)
 
       next unless portmanteau.match(/ >> /)
       call_number = portmanteau.partition(' >> ').last
