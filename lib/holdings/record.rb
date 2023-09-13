@@ -903,10 +903,11 @@ module Holdings
     # LIBSYS-6253 - Lehman 2023, Return of the Mold
     # LIBSYS-2219
     # "Materials in the leh,ref and parts of leh (call numbers A* – E*) will be unavailable"
+    # see also SolrDocument::moldy?()  
     def moldy?
       # return false unless @location_code
 
-      # return true if @location_code == 'leh,ref'
+      return false if @location_code == 'leh,ref'
 
       return false unless @call_number
       # return true if @location_code == 'leh' && @call_number.first.match(/[A-E]/)

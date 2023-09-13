@@ -447,6 +447,7 @@ class SolrDocument
 
   # NEXT-2219 - Lehman Mold Bloom!
   # LIBSYS-6253 - Lehman 2023, Return of the Mold
+  # See also Holdings::Record::moldy()
   def moldy?
     return false unless location_call_number_id = self[:location_call_number_id_display]
     
@@ -458,8 +459,8 @@ class SolrDocument
       # All non-Lehman are NOT moldy
       next unless portmanteau.match(/^Lehman/i)
 
-      # # All Lehman Reference are moldy
-      # return true if portmanteau.match(/^Lehman Ref/i)
+      # # All Lehman Reference are non-moldy
+      return false if portmanteau.match(/^Lehman Ref/i)
 
       next unless portmanteau.match(/ >> /)
       call_number = portmanteau.partition(' >> ').last
