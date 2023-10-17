@@ -25,4 +25,19 @@ module ApplicationHelper
   def clio_sidebar_items
     @clio_sidebar_items ||= []
   end
+  
+  def confetti?
+    return false unless confetti_config = APP_CONFIG['confetti']
+    if confetti_ips = confetti_config['ips']
+      return true if confetti_ips.include? request.remote_addr
+    end
+    if confetti_unis = confetti_config['unis']
+      return true if confetti_unis.include? current_user.uid
+    end
+    return false
+  end
+  
+  def yes_button
+    link_to "YES", "javascript:toggleConfetti()", class: 'btn btn-success btn-lg center-block'
+  end
 end

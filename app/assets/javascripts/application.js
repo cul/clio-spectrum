@@ -55,6 +55,7 @@
 //= require async-search
 //= require best_bets
 //= require catalog
+//= require confetti
 //= require datasources
 //= require dropdown_select
 //= require google_analytics

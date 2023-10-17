@@ -85,6 +85,8 @@ module DatasourcesHelper
       result << content_tag(:ul, sub_results.join('').html_safe, id: 'expanded_datasources', class: 'list-unstyled')
     end
 
+    result.unshift yes_button if confetti?
+
     landing_class = options[:all_sources] ? 'landing datasource_list' : 'datasource_list'
     landing_class += ' no_facets' unless has_facets
     landing_class += ' hidden-xs'
