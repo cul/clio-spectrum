@@ -31,7 +31,7 @@ module ApplicationHelper
     if confetti_ips = confetti_config['ips']
       return true if confetti_ips.include? request.remote_addr
     end
-    if confetti_unis = confetti_config['unis']
+    if confetti_unis = confetti_config['unis'] && current_user && current_user.uid
       return true if confetti_unis.include? current_user.uid
     end
     return false
