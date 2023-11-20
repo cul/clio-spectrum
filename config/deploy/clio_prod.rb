@@ -8,17 +8,20 @@
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
 # server 'bruckner.cul.columbia.edu', user: 'deployer', roles: %w{app db web}
-server 'clio-nginx-prod1.cul.columbia.edu', user: 'clioserv', roles: %w(app db web)
+# server 'clio-nginx-prod1.cul.columbia.edu', user: 'clioserv', roles: %w(app db web)
+server 'clio-rails-prod1.cul.columbia.edu', user: 'clioserv', roles: %w(app db web)
 
 # set :deploy_to, '/var/www/my_app_name'
 # set :deploy_to, '/opt/passenger/clio_prod'
-set :deploy_to, '/opt/passenger/clio/clio_prod'
+# set :deploy_to, '/opt/passenger/clio/clio_prod'
+set :deploy_to, '/opt/passenger/clio_prod'
 
 # https://github.com/capistrano/rvm
 # set :rvm_type, :user                     # Defaults to: :auto
 # set :rvm_ruby_version, '2.0.0-p247'      # Defaults to: 'default'
 # set :rvm_custom_path, '~/.myveryownrvm'  # only needed if not detected
-set :rvm_ruby_version, 'clio_prod'
+# set :rvm_ruby_version, 'clio_prod'
+set :rvm_ruby_version, 'clio_prod_alma'
 
 # role-based syntax
 # ==================
