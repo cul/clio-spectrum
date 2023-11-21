@@ -112,7 +112,6 @@
               -# %li= link_to "ILL", "#{ill_link}#{clio_id}", target: "_blank"
               %li= link_to "ILL", "#{ill_scan_link}#{clio_id}", target: "_blank"
               %li= link_to "Scan & Deliver", "https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?#{clio_id}", target: "_blank"
-              %li= link_to "Inter-Campus Delivery", "#{intercampus_link}#{clio_id}", target: "_blank"
               -# %li= link_to "In-Process / On Order", "#", onclick: "OpenInprocessRequest('#{clio_id}'); return false;"
               %li= link_to "In-Process / On Order", "#", onclick: "OpenURLinWindow('#{clio_id}', '#{in_process_link()}'); return false;"
               %li= link_to 'Precataloging', '#', onclick: "OpenURLinWindow('#{clio_id}', '#{precat_link()}'); return false;"

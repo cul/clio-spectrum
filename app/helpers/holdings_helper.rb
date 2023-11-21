@@ -902,15 +902,6 @@ module HoldingsHelper
 
   # ====  SERVICES NOT MANAGED BY determine_services()/service_links()  ====
   
-  def intercampus_link
-    if Rails.env == 'clio_prod' 
-      'https://resolver.library.columbia.edu/lweb0013#'
-    else
-      valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
-      return "#{valet_url}/intercampus/"
-    end
-  end
-
   def offsite_bound_with_url(title, enum_chron, barcode)
     return unless title.present? && barcode.present?
 
