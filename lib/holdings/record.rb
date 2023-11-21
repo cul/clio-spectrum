@@ -905,6 +905,9 @@ module Holdings
     # "Materials in the leh,ref and parts of leh (call numbers A* – E*) will be unavailable"
     # see also SolrDocument::moldy?()  
     def moldy?
+      # 11/2023 - Mold is Gone!  Nothing is moldy anymore.
+      return false
+
       return false unless @location_code
       return false unless @location_code.starts_with?('leh')
       

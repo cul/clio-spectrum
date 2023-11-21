@@ -449,6 +449,9 @@ class SolrDocument
   # LIBSYS-6253 - Lehman 2023, Return of the Mold
   # See also Holdings::Record::moldy()
   def moldy?
+    # 11/2023 - Mold is Gone!  Nothing is moldy anymore.
+    return false
+    
     return false unless location_call_number_id = self[:location_call_number_id_display]
     
     # And non-Reference Lehman?  Determine by call-number...
