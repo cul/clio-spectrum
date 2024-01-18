@@ -68,6 +68,7 @@
 //= require konami
 //= require ldpd_feedback
 //= require log
+//= require matomo
 //= require nearby
 //= require resolver
 //= require saved_lists
