@@ -79,8 +79,8 @@ end
 gem 'httpclient'
 
 # pin to 1.10.x, newer versions require glibc 2.14, which our CentOS 6 servers don't have
-# gem 'nokogiri'
-gem 'nokogiri', '~>1.10.0'
+# gem 'nokogiri', '~>1.10.0'
+gem 'nokogiri'
 
 # "I had to lock the Loofah gem. It appears they released a version requiring a newer version of Nokogiri, but didn’t update the dependency requirement."
  # https://www.ruby-forum.com/t/i-am-using-ruby-version-2-3-8-and-rails-version-5-2-6-to-develop-my-application-since-yesterday-i-am-getting-the-error-i-tried-to-find-the-occurrence-of-this-nokogiri-html4-in-my-application-but-i-didnt-find-any-of-the-occurrence-like-this/263852/4
@@ -152,7 +152,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'coffee-rails'
 gem 'uglifier'
 # pin to 3.3, because 3.4 requires sassc, which won't build on our CenTOS 6 VMs
-gem 'bootstrap-sass', '~> 3.3.0'
+# gem 'bootstrap-sass', '~> 3.3.0'
+gem 'bootstrap-sass', '~> 3.0'
 
 # Best Bets CRUD externalized
 # # JSON APIs, for Best Bets, etc.
