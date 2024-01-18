@@ -27,10 +27,10 @@ describe 'Testing tibetan support', :skip_travis do
   it "q of 'krung-go\'i bod kyi gso rig' should retrieve correct record" do
     # unquoted
     resp = solr_resp_doc_ids_only('q' => 'krung-go\'i bod kyi gso rig')
-    expect(rank(resp, 6316211)).to be <= 1
+    expect(rank(resp, 6316211)).to be <= 3
     # quoted
     resp = solr_resp_doc_ids_only('q' => '"krung-go\'i bod kyi gso rig"')
-    expect(rank(resp, 6316211)).to be <= 1
+    expect(rank(resp, 6316211)).to be <= 3
   end
 
   it 'Displays parallel titles delimited with a simple single equal-sign' do

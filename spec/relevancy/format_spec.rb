@@ -14,7 +14,7 @@ describe 'Format assignments for types of "Computer Files"', :skip_travis do
     end
   end
 
-  bibList = [8617143]
+  bibList = [2525964]
   bibList.each do |bib|
     it "bib #{bib} should have two formats: 'Computer File' && US Gov.Doc." do
       resp = solr_response('q' => "id:#{bib}", 'fl' => 'id,format', 'facet' => false)
