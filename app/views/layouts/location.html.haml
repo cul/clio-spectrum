@@ -5,8 +5,7 @@
     = render :partial => "/layouts/common_head"
     = stylesheet_link_tag "application"
 
-
-  %body.blank_layout
+  %body{class: 'blank_layout', data: {'environment' => "#{ENV['RAILS_ENV']}"} }
     = render partial: '/top_banner'
     = render "/top_navigation_bar"
 

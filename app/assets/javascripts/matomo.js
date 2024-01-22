@@ -4,13 +4,14 @@ var _paq = window._paq = window._paq || [];
 _paq.push(['trackPageView']);
 _paq.push(['enableLinkTracking']);
 (function() {
-  var u="https://columbia-libraries.matomo.cloud/";
-  _paq.push(['setTrackerUrl', u+'matomo.php']);
+  // Matomo only in prod - there is no SiteId for testing
   if ($("body").data('environment') == 'clio_prod') {
+    var u="https://columbia-libraries.matomo.cloud/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
     _paq.push(['setSiteId', '9']);
-  } else {
-    _paq.push(['setSiteId', '10']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; 
+    g.src='//cdn.matomo.cloud/columbia-libraries.matomo.cloud/matomo.js'; 
+    s.parentNode.insertBefore(g,s);
   }
-  var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-  g.async=true; g.src='//cdn.matomo.cloud/columbia-libraries.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
 })();
