@@ -59,7 +59,7 @@ gem 'json'
 # gem 'listen'
 
 # Only in server environments - not localhost desktop
-group :clio_dev, :clio_app_dev, :clio_test, :clio_app_test, :clio_prod do
+group :clio_dev, :clio_batch_dev, :clio_test, :clio_app_test, :clio_prod do
   gem 'mysql2'
 end
 

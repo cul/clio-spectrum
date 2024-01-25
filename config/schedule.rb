@@ -15,7 +15,7 @@ set :job_template, "/usr/local/bin/mailifoutput -s ':subject (:environment)' :re
 
 
 # Our batch processing environments
-if %w(clio_app_dev clio_app_test clio_prod).include?(@environment)
+if %w(clio_batch_dev clio_app_test clio_prod).include?(@environment)
 
   # == BIBLIOGRAPHIC ==
   # Run all daily ingest tasks, together within one rake task.
