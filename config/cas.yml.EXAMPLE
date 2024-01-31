@@ -18,11 +18,11 @@ saml: &SAML
 development: *SAML
 test: *SAML
 
-clio_dev: *SAML
-clio_test: *SAML
-clio_prod: *SAML
-
-clio_app_dev: *SAML
-clio_app_test: *SAML
-clio_app_prod: *SAML
+# clio_dev: *SAML
+# clio_test: *SAML
+# clio_prod: *SAML
+#
+# clio_batch_dev: *SAML
+# clio_batch_test: *SAML
+# clio_batch_prod: *SAML
 
