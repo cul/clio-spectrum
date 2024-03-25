@@ -39,6 +39,9 @@ module Holdings
         @location_name = TrajectUtility.recap_location_code_to_name(@location_name)
       end
 
+      # Drop potentially misleading SCSB status for material that's not offsite
+      scsb_status = {} unless @location_code =~ /^off,/;
+
       @call_number      = parse_call_number(tag852)           # string
       @summary_holdings = parse_summary_holdings(tag866list)  # array
       @public_notes     = parse_public_notes(tag890list)      # array
