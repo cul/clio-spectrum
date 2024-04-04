@@ -168,8 +168,9 @@ gem 'twitter-typeahead-rails'
 # To build slugs for saved-list URLs
 gem 'stringex'
 
-# Allow recovery for deleted Saved Lists
-gem 'paper_trail'
+# Never used, not needed
+# # Allow recovery for deleted Saved Lists
+# gem 'paper_trail'
 
 # I seriously have to do this?
 gem 'rack'

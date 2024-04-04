@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
   before_action :condense_advanced_search_params
 
   # https://github.com/airblade/paper_trail/#4a-finding-out-who-was-responsible-for-a-change
-  before_action :set_paper_trail_whodunnit
+  # before_action :set_paper_trail_whodunnit
 
   before_action :set_top_banner_content
 

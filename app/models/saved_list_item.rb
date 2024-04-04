@@ -1,5 +1,5 @@
 class SavedListItem < ApplicationRecord
   # attr_accessible :item_key, :saved_list_id, :sort_order
   belongs_to :saved_list
-  has_paper_trail
+  # has_paper_trail
 end
