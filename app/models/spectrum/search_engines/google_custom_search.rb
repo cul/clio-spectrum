@@ -11,11 +11,19 @@ module Spectrum
       def initialize(options = {})
         raise('No query string specified') unless options['q']
 
+        # Initialize object instance variables
+        @documents = []
+        @count = 0
+        @errors = nil
+        
         # We don't support web searches of over X characters
         options['q'] = options['q'].truncate(200)
 
         @params = options
         @q = options['q']
+
+        # Skip search for certain queries
+        return if @q.match(/^\d+$/);  # Skip all-numeric queries
 
         # NEXT-1587 - support sitesearch for LWeb
         site_search = options['site_search'] || ''
@@ -37,7 +45,6 @@ module Spectrum
           service_params[:site_search_filter] = site_search_filter
         end
 
-        @errors = nil
         Rails.logger.debug "[Spectrum][GoogleCustomSearch] service_params: #{service_params}"
 
         # service = Customsearch::CustomsearchService.new
