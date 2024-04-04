@@ -12,9 +12,11 @@
     = render partial: "/spectrum/aggregate/result_header_async", locals: {source: 'lweb', result: {}, title: source['title'], description: source['description'], right_result_header_content: right_result_header_content}
 
     = render partial: '/datasource_warning', locals: {warning: warning}
-  
-    - cs_id  = APP_CONFIG['google']['custom_search_id'] || ''
-    %script{async: true, src: "https://cse.google.com/cse.js?cx=#{cs_id}"}
+
+    - if params['q'] and not params['q'].match(/^\d+$/)
+      - cs_id  = APP_CONFIG['google']['custom_search_id'] || ''
+      %script{async: true, src: "https://cse.google.com/cse.js?cx=#{cs_id}"}
+
     .gcse-searchresults-only{data: {resultSetSize: 3, enableOrderBy: 'false'}}
   
     / :javascript
