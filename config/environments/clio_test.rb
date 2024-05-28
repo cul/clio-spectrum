@@ -104,14 +104,16 @@ Rails.application.configure do
   config.cache_store = :memory_store, { size: 32.megabytes }
 end
 
-Rails.application.config.middleware.use ExceptionNotification::Rack,
-                                        ignore_exceptions: ['Errno::EHOSTUNREACH'] + ExceptionNotifier.ignored_exceptions,
-                                        ignore_crawlers: %w(Googlebot bingbot archive.org_bot),
-                                        email: {
-                                          email_prefix: '[Clio Test] ',
-                                          sender_address: %("notifier" <spectrum-tech@libraries.cul.columbia.edu>),
-                                          exception_recipients: %w(spectrum-tech@libraries.cul.columbia.edu)
-                                        }
+# Turn off ExceptionNotification - no longer useful
+#
+# Rails.application.config.middleware.use ExceptionNotification::Rack,
+#                                         ignore_exceptions: ['Errno::EHOSTUNREACH'] + ExceptionNotifier.ignored_exceptions,
+#                                         ignore_crawlers: %w(Googlebot bingbot archive.org_bot),
+#                                         email: {
+#                                           email_prefix: '[Clio Test] ',
+#                                           sender_address: %("notifier" <spectrum-tech@libraries.cul.columbia.edu>),
+#                                           exception_recipients: %w(spectrum-tech@libraries.cul.columbia.edu)
+#                                         }
 
 #
 # Clio::Application.configure do

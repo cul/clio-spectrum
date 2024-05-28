@@ -104,15 +104,17 @@ Rails.application.configure do
   config.cache_store = :memory_store, { size: 32.megabytes }
 end
 
-#   https://github.com/smartinez87/exception_notification
-Rails.application.config.middleware.use ExceptionNotification::Rack,
-                                        ignore_exceptions: ['Errno::EHOSTUNREACH', 'Mail::Field::ParseError', 'Mail::Field::IncompleteParseError', 'ActionController::BadRequest'] + ExceptionNotifier.ignored_exceptions,
-                                        ignore_crawlers: %w(Googlebot bingbot archive.org_bot Blogtrottr Sogou Baidu Yandex),
-                                        email: {
-                                          email_prefix: '[Clio Prod] ',
-                                          sender_address: %("notifier" <spectrum-tech@libraries.cul.columbia.edu>),
-                                          exception_recipients: %w(spectrum-tech@libraries.cul.columbia.edu)
-                                        }
+# Turn off ExceptionNotification - no longer useful
+#
+# #   https://github.com/smartinez87/exception_notification
+# Rails.application.config.middleware.use ExceptionNotification::Rack,
+#                                         ignore_exceptions: ['Errno::EHOSTUNREACH', 'Mail::Field::ParseError', 'Mail::Field::IncompleteParseError', 'ActionController::BadRequest'] + ExceptionNotifier.ignored_exceptions,
+#                                         ignore_crawlers: %w(Googlebot bingbot archive.org_bot Blogtrottr Sogou Baidu Yandex),
+#                                         email: {
+#                                           email_prefix: '[Clio Prod] ',
+#                                           sender_address: %("notifier" <spectrum-tech@libraries.cul.columbia.edu>),
+#                                           exception_recipients: %w(spectrum-tech@libraries.cul.columbia.edu)
+#                                         }
 
 # Clio::Application.configure do
 #   # Settings specified here will take precedence over those in config/application.rb
