@@ -133,8 +133,7 @@ class SpectrumController < ApplicationController
     # end
 
     respond_to do |format|
-      # regular full-page view
-      format.html
+      format.html { render layout: false }
       # for the "more" facet modal window:
       format.js { render layout: false }
     end
