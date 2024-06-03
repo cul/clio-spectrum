@@ -5,14 +5,14 @@
 .result{source: 'geo', item_id: document.id, class: alternating_line('geo')}
 
   -# https://dlc.library.columbia.edu/catalog/ldpd:166321
-  .result_title= link_to document.fetch('dc_title_s'), APP_CONFIG['geo_catalog_url'] + document.id
+  .result_title= link_to document.fetch('dct_title_s'), APP_CONFIG['geo_catalog_url'] + document.id
 
 
   / main container for doc partial view
 
   -# What do we want in QuickSearch panel?
-  = add_row('Description', document['dc_description_s'].to_s.abbreviate(120))
-  = add_row('Publisher', document['dc_publisher_s'])
+  = add_row('Description', document['dct_description_sm'].join('').to_s.abbreviate(120))
+  = add_row('Publisher', document['dct_publisher_sm'])
   
   -# = add_row('Library Location', document['lib_repo_short_ssim'])
   -# = add_row('Name', document['lib_name_ssm'])

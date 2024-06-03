@@ -12,22 +12,22 @@
         = render '/item_number', :counter => counter
 
       .item_number_allowance
-        = link_to document.fetch('dc_title_s'), APP_CONFIG['geo_catalog_url'] + document.id
+        = link_to document.fetch('dct_title_s'), APP_CONFIG['geo_catalog_url'] + document.id
 
 
   / main container for doc partial view
 
   .details
     -# - raise
-    = add_row('Author(s)', document['dc_creator_sm'])
-    = add_row('Description', document['dc_description_s'])
-    = add_row('Publisher', document['dc_publisher_s'])
-    = add_row('Collection', document['dct_isPartOf_sm'])
+    = add_row('Author(s)', document['dct_creator_sm'])
+    = add_row('Description', document['dct_description_sm'])
+    = add_row('Publisher', document['dct_publisher_sm'])
+    / = add_row('Collection', document['dct_isPartOf_sm'])
     = add_row('Place(s)', document['dct_spatial_sm'])
-    = add_row('Subject(s)', document['dc_subject_sm'])
+    = add_row('Subject(s)', document['dct_subject_sm'])
     = add_row('Year', document['dct_temporal_sm'])
-    = add_row('Layer Geometry', document['layer_geom_type_s'])
-    = add_row('Held By', document['dct_provenance_s'])
+    = add_row('Resource Type', document['gbl_resourceType_sm'])
+    / = add_row('Held By', document['dct_provenance_s'])
 
 
 
