@@ -5,10 +5,9 @@ require 'spec_helper'
 # NEXT-1079 - Articles searches from landing-page not receiving default params
 describe 'Summon Search Option Filter Settings' do
   # Summon will give different total-result values upon re-querying with the same
-  # parameters (server pool not in sync?).  For stable specs, pick a search term
+  # parameters (?).  For stable specs, pick a search term
   # that's not that common, hoping for more search-results stability.
-  # e.g., a mis-spelling, giving around 4 results.
-  $q = 'whitch engish'
+  $q = 'aardvark contrails'
   @result_count = ''
 
   def confirm_default_filter_settings
