@@ -454,7 +454,7 @@ namespace :recap do
     full_path = extract_dir + '/' + filename
 
     abort('recap:ingest_file[:filename] not passed filename!') unless filename
-    abort("recap:ingest_file[:filename] cannot fine filename #{filename} within #{extract_dir}") unless File.exist?(full_path)
+    abort("recap:ingest_file[:filename] cannot find filename #{filename} within #{extract_dir}") unless File.exist?(full_path)
     abort('recap:ingest_file[:filename] not a ReCAP .zip extract file!') unless filename.ends_with?('.zip')
 
     Rails.logger.info("- ingesting ReCAP file #{filename}")
