@@ -21,7 +21,7 @@ set :deploy_to, '/opt/passenger/clio_prod'
 # set :rvm_ruby_version, '2.0.0-p247'      # Defaults to: 'default'
 # set :rvm_custom_path, '~/.myveryownrvm'  # only needed if not detected
 # set :rvm_ruby_version, 'clio_prod'
-set :rvm_ruby_version, 'clio_prod_alma'
+set :rvm_ruby_version, 'clio_prod'
 
 # role-based syntax
 # ==================
