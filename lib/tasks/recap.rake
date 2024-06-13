@@ -22,32 +22,37 @@ namespace :recap do
   desc 'list files available for download from recap'
   task :list do
     setup_ingest_logger
-    storage_service = APP_CONFIG['recap']['storage_service'] || ''
-    Rails.logger.info("- recap storage service set to: #{storage_service}")
+
+    Rake::Task['recap:list_aws'].invoke
     
-    if storage_service == 'sftp'
-      Rake::Task['recap:list_sftp'].invoke
-    elsif storage_service == 'aws'
-      Rake::Task['recap:list_aws'].invoke
-    else
-      abort("ERROR: unknown/undefined recap storage_service [#{storage_service}]")
-    end
+    # SFTP is gone forever
+    # storage_service = APP_CONFIG['recap']['storage_service'] || ''
+    # Rails.logger.info("- recap storage service set to: #{storage_service}")
+    #
+    # if storage_service == 'sftp'
+    #   Rake::Task['recap:list_sftp'].invoke
+    # elsif storage_service == 'aws'
+    #   Rake::Task['recap:list_aws'].invoke
+    # else
+    #   abort("ERROR: unknown/undefined recap storage_service [#{storage_service}]")
+    # end
   end
 
   ##############################################################
-  task :list_sftp do
-    setup_ingest_logger
-    Rails.logger.info('- listing remote files on ReCAP SFTP server')
-    sftp = get_recap_sftp
-    # list the entries in a directory
-    count = 0
-    files = sftp.dir.entries(APP_CONFIG['recap']['sftp_path'])
-    files.sort { |f1, f2| f1.attributes.mtime <=> f2.attributes.mtime }.each do |file|
-      puts file.longname
-      count += 1
-    end
-    Rails.logger.info("- done.  #{files.size} files found.")
-  end
+  # SFTP is gone forever
+  # task :list_sftp do
+  #   setup_ingest_logger
+  #   Rails.logger.info('- listing remote files on ReCAP SFTP server')
+  #   sftp = get_recap_sftp
+  #   # list the entries in a directory
+  #   count = 0
+  #   files = sftp.dir.entries(APP_CONFIG['recap']['sftp_path'])
+  #   files.sort { |f1, f2| f1.attributes.mtime <=> f2.attributes.mtime }.each do |file|
+  #     puts file.longname
+  #     count += 1
+  #   end
+  #   Rails.logger.info("- done.  #{files.size} files found.")
+  # end
 
   ##############################################################
   task :list_aws do
@@ -87,20 +92,25 @@ namespace :recap do
     Rails.logger.info("- saving files beneath #{extract_dir}")
 
 
-    # HTC puts update files in one directory, delete files in another.
-    # And the directories are named after file-formats, not functions...
-    storage_service = APP_CONFIG['recap']['storage_service'] || ''
-    # Rails.logger.info("- recap storage service set to: #{storage_service}")
-    if storage_service == 'sftp'
-      incremental_dir = APP_CONFIG['recap']['sftp_incremental_dir']
-      full_dir = APP_CONFIG['recap']['sftp_full_dir']
-      deletes_dir = APP_CONFIG['recap']['sftp_deletes_dir']
-    end
-    if storage_service == 'aws'
-      incremental_dir = APP_CONFIG['recap']['aws_incremental_dir']
-      full_dir = APP_CONFIG['recap']['aws_full_dir']
-      deletes_dir = APP_CONFIG['recap']['aws_deletes_dir']
-    end
+    # SFTP is gone forever
+    # # HTC puts update files in one directory, delete files in another.
+    # # And the directories are named after file-formats, not functions...
+    # storage_service = APP_CONFIG['recap']['storage_service'] || ''
+    # # Rails.logger.info("- recap storage service set to: #{storage_service}")
+    # if storage_service == 'sftp'
+    #   incremental_dir = APP_CONFIG['recap']['sftp_incremental_dir']
+    #   full_dir = APP_CONFIG['recap']['sftp_full_dir']
+    #   deletes_dir = APP_CONFIG['recap']['sftp_deletes_dir']
+    # end
+    # if storage_service == 'aws'
+    #   incremental_dir = APP_CONFIG['recap']['aws_incremental_dir']
+    #   full_dir = APP_CONFIG['recap']['aws_full_dir']
+    #   deletes_dir = APP_CONFIG['recap']['aws_deletes_dir']
+    # end
+
+    incremental_dir = APP_CONFIG['recap']['aws_incremental_dir']
+    full_dir = APP_CONFIG['recap']['aws_full_dir']
+    deletes_dir = APP_CONFIG['recap']['aws_deletes_dir']
 
     unless extract_dir && incremental_dir && full_dir && deletes_dir
       abort("ERROR: app_config 'recap' section missing sftp params!")
@@ -129,63 +139,69 @@ namespace :recap do
 
     Rails.logger.info("-- downloading #{label} files (from '#{directory}') dir...")
 
-    storage_service = APP_CONFIG['recap']['storage_service'] || ''
-    Rails.logger.info("- recap storage service set to: #{storage_service}")
+    Rake::Task['recap:download_dir_aws'].reenable
+    Rake::Task['recap:download_dir_aws'].invoke(label, directory)
     
-    if storage_service == 'sftp'
-      Rake::Task['recap:download_dir_sftp'].reenable
-      Rake::Task['recap:download_dir_sftp'].invoke(label, directory)
-    elsif storage_service == 'aws'
-      Rake::Task['recap:download_dir_aws'].reenable
-      Rake::Task['recap:download_dir_aws'].invoke(label, directory)
-    else
-      abort("ERROR: unknown/undefined recap storage_service [#{storage_service}]")
-    end
+    # SFTP is gone forever
+    #
+    # storage_service = APP_CONFIG['recap']['storage_service'] || ''
+    # Rails.logger.info("- recap storage service set to: #{storage_service}")
+    #
+    # if storage_service == 'sftp'
+    #   Rake::Task['recap:download_dir_sftp'].reenable
+    #   Rake::Task['recap:download_dir_sftp'].invoke(label, directory)
+    # elsif storage_service == 'aws'
+    #   Rake::Task['recap:download_dir_aws'].reenable
+    #   Rake::Task['recap:download_dir_aws'].invoke(label, directory)
+    # else
+    #   abort("ERROR: unknown/undefined recap storage_service [#{storage_service}]")
+    # end
     
   end
   
 
   ##############################################################
-  desc 'download all new files from a specific remote SFTP directory'
-  task :download_dir_sftp, [:label, :directory] do |_t, args|
-    setup_ingest_logger
-
-    label = args[:label]
-    directory = args[:directory]
-
-    sftp_path = APP_CONFIG['recap']['sftp_path']
-    recap_extract_home = APP_CONFIG['extract_home'] + '/recap'
-
-    full_sftp_path = sftp_path + '/' + directory
-    full_local_path = recap_extract_home + '/' + directory
-    puts "DEBUG full_sftp_path=[#{full_sftp_path}]" if ENV['DEBUG']
-    puts "DEBUG full_local_path=[#{full_local_path}]" if ENV['DEBUG']
-    Rails.logger.info("-- saving to local dir #{full_local_path}")
-
-    sftp = get_recap_sftp
-    already_have = []
-    need_to_download = []
-
-    files = sftp.dir.entries(full_sftp_path)
-    files.each do |file|
-      if File.exist?("#{full_local_path}/#{file.name}")
-        already_have << file.name
-      else
-        need_to_download << file.name
-      end
-    end
-
-    Rails.logger.info("--- found #{already_have.size + need_to_download.size} files")
-    Rails.logger.info("--- already have #{already_have.size} files")
-    Rails.logger.info("--- need to download #{need_to_download.size} files")
-
-    need_to_download.sort.each do |filename|
-      Rails.logger.info("--- fetching #{filename}...")
-      sftp.download!("#{full_sftp_path}/#{filename}", "#{full_local_path}/#{filename}")
-    end
-
-    Rails.logger.info("-- done.  downloaded #{need_to_download.size} new files.")
-  end
+  # SFTP is gone forever
+  # desc 'download all new files from a specific remote SFTP directory'
+  # task :download_dir_sftp, [:label, :directory] do |_t, args|
+  #   setup_ingest_logger
+  #
+  #   label = args[:label]
+  #   directory = args[:directory]
+  #
+  #   sftp_path = APP_CONFIG['recap']['sftp_path']
+  #   recap_extract_home = APP_CONFIG['extract_home'] + '/recap'
+  #
+  #   full_sftp_path = sftp_path + '/' + directory
+  #   full_local_path = recap_extract_home + '/' + directory
+  #   puts "DEBUG full_sftp_path=[#{full_sftp_path}]" if ENV['DEBUG']
+  #   puts "DEBUG full_local_path=[#{full_local_path}]" if ENV['DEBUG']
+  #   Rails.logger.info("-- saving to local dir #{full_local_path}")
+  #
+  #   sftp = get_recap_sftp
+  #   already_have = []
+  #   need_to_download = []
+  #
+  #   files = sftp.dir.entries(full_sftp_path)
+  #   files.each do |file|
+  #     if File.exist?("#{full_local_path}/#{file.name}")
+  #       already_have << file.name
+  #     else
+  #       need_to_download << file.name
+  #     end
+  #   end
+  #
+  #   Rails.logger.info("--- found #{already_have.size + need_to_download.size} files")
+  #   Rails.logger.info("--- already have #{already_have.size} files")
+  #   Rails.logger.info("--- need to download #{need_to_download.size} files")
+  #
+  #   need_to_download.sort.each do |filename|
+  #     Rails.logger.info("--- fetching #{filename}...")
+  #     sftp.download!("#{full_sftp_path}/#{filename}", "#{full_local_path}/#{filename}")
+  #   end
+  #
+  #   Rails.logger.info("-- done.  downloaded #{need_to_download.size} new files.")
+  # end
 
   ##############################################################
   desc 'download all new files from a specific remote AWS S3 directory'
@@ -429,16 +445,16 @@ namespace :recap do
 
     filename = args[:filename]
 
-    sftp_incremental_dir = APP_CONFIG['recap']['sftp_incremental_dir']
-    abort('ERROR: app_config missing recap/sftp_incremental_dir!') unless sftp_incremental_dir
+    aws_incremental_dir = APP_CONFIG['recap']['aws_incremental_dir']
+    abort('ERROR: app_config missing recap/aws_incremental_dir!') unless aws_incremental_dir
     extract_home = APP_CONFIG['extract_home']
     abort('ERROR: app_config missing extract_home!') unless extract_home
 
-    extract_dir = APP_CONFIG['extract_home'] + '/recap/' + sftp_incremental_dir
+    extract_dir = APP_CONFIG['extract_home'] + '/recap/' + aws_incremental_dir
     full_path = extract_dir + '/' + filename
 
     abort('recap:ingest_file[:filename] not passed filename!') unless filename
-    abort("recap:ingest_file[:filename] passed non-existant filename #{filename}") unless File.exist?(full_path)
+    abort("recap:ingest_file[:filename] cannot fine filename #{filename} within #{extract_dir}") unless File.exist?(full_path)
     abort('recap:ingest_file[:filename] not a ReCAP .zip extract file!') unless filename.ends_with?('.zip')
 
     Rails.logger.info("- ingesting ReCAP file #{filename}")
@@ -476,12 +492,12 @@ namespace :recap do
     count = (args[:count] || '1').to_i
     Rails.logger.info("- ingest_new - ingesting up to #{count} new files.")
 
-    sftp_incremental_dir = APP_CONFIG['recap']['sftp_incremental_dir']
-    abort('ERROR: app_config missing recap/sftp_incremental_dir!') unless sftp_incremental_dir
+    aws_incremental_dir = APP_CONFIG['recap']['aws_incremental_dir']
+    abort('ERROR: app_config missing recap/aws_incremental_dir!') unless aws_incremental_dir
     extract_home = APP_CONFIG['extract_home']
     abort('ERROR: app_config missing extract_home!') unless extract_home
 
-    extract_dir = extract_home + '/recap/' + sftp_incremental_dir
+    extract_dir = extract_home + '/recap/' + aws_incremental_dir
 
     # read in our 'last-*-file' file - or abort if not found.
     # this file tells us the last file that was ingested.
@@ -587,18 +603,19 @@ end
 ##############################################################
 ####  recap-specific support methods
 ##############################################################
-def get_recap_sftp
-  sftp_host = APP_CONFIG['recap']['sftp_host']
-  sftp_user = APP_CONFIG['recap']['sftp_user']
-  sftp_port = APP_CONFIG['recap']['sftp_port']
-  sftp_keyfile = APP_CONFIG['recap']['sftp_keyfile']
-
-  Rails.logger.info("--- opening SFTP connection to #{sftp_user}@#{sftp_host}:#{sftp_port}")
-  sftp = Net::SFTP.start(sftp_host, sftp_user, port: sftp_port, keys: [sftp_keyfile])
-  abort('get_recap_sftp() failed!') unless sftp
-
-  sftp
-end
+# SFTP is gone forever
+# def get_recap_sftp
+#   sftp_host = APP_CONFIG['recap']['sftp_host']
+#   sftp_user = APP_CONFIG['recap']['sftp_user']
+#   sftp_port = APP_CONFIG['recap']['sftp_port']
+#   sftp_keyfile = APP_CONFIG['recap']['sftp_keyfile']
+#
+#   Rails.logger.info("--- opening SFTP connection to #{sftp_user}@#{sftp_host}:#{sftp_port}")
+#   sftp = Net::SFTP.start(sftp_host, sftp_user, port: sftp_port, keys: [sftp_keyfile])
+#   abort('get_recap_sftp() failed!') unless sftp
+#
+#   sftp
+# end
 
 ##############################################################
 def get_recap_s3

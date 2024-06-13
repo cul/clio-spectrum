@@ -302,6 +302,8 @@ namespace :bibliographic do
     desc 'download and ingest latest files'
     task process: :environment do
       setup_ingest_logger
+      Rails.logger.info('Begin task bibliographic:extract:process for ' + ENV['EXTRACT'])
+
       Rake::Task['bibliographic:extract:fetch'].execute
       Rails.logger.info('Downloading successful.')
 
