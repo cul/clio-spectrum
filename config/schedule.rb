@@ -30,7 +30,7 @@ if %w(clio_batch_dev clio_batch_test clio_batch_prod).include?(@environment)
   end
   if @environment.eql?('clio_batch_test')
     set :path, '/opt/clio/batch_test/current'
-    offset = 'one hour after'
+    offset = 'one hour after '
   end
   if @environment.eql?('clio_batch_prod')
     set :path, '/opt/clio/batch_prod/current'
