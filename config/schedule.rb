@@ -6,10 +6,14 @@ require File.expand_path('../config/environment', __dir__)
 # Set environment to current environment.
 set :environment, Rails.env
 
+# We're going to assume that the cron environment has PATH setup correctly
+# - including /usr/local/bin, for mailifoutput
+# - including the correct RVM wrapper directory, for 'bundle exec'
+
 # Give our jobs nice subject lines
 set :subject, 'cron output'
 set :recipient, 'clio-dev@library.columbia.edu'
-set :job_template, "/usr/local/bin/mailifoutput -s ':subject (:environment)' :recipient  /bin/bash -c ':job'"
+set :job_template, "mailifoutput -s ':subject (:environment)' :recipient  /bin/bash -c ':job'"
 
 # default job_type definition for "rake"
 # job_type :rake,    "cd :path && :environment_variable=:environment bundle exec rake :task --silent :output"
