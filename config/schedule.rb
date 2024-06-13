@@ -20,9 +20,9 @@ set :job_template, "/usr/local/bin/mailifoutput -s ':subject (:environment)' :re
 # Our batch processing environments
 if %w(clio_batch_dev clio_batch_test clio_batch_prod).include?(@environment)
 
-  set :path, '/opt/clio/batch_dev/current'    if @environment.eq?('clio_batch_dev')
-  set :path, '/opt/clio/batch_test/current'   if @environment.eq?('clio_batch_test')
-  set :path, '/opt/clio/batch_prod/current'   if @environment.eq?('clio_batch_prod')
+  set :path, '/opt/clio/batch_dev/current'    if @environment.eql?('clio_batch_dev')
+  set :path, '/opt/clio/batch_test/current'   if @environment.eql?('clio_batch_test')
+  set :path, '/opt/clio/batch_prod/current'   if @environment.eql?('clio_batch_prod')
 
 
   # == BIBLIOGRAPHIC ==
