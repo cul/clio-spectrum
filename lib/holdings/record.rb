@@ -543,7 +543,7 @@ module Holdings
       end
 
       # Barnard Archives
-      if ['bar,bda', 'bara'].include?(location_code)
+      if ['bar,bda', 'bara', 'bar,rare'].include?(location_code)
         location_note = 'Available by appointment. <a href="https://archives.barnard.edu/about-us/contact-us">Contact Barnard Archives.</a>'
         return location_note
       end
