@@ -79,8 +79,8 @@ if %w(clio_batch_dev clio_batch_test clio_batch_prod).include?(@environment)
 
 end
 
-# Anything for PROD only?
-if ['clio_prod'].include?(@environment)
+# Anything for PROD-BATCH only?
+if ['clio_batch_prod'].include?(@environment)
 
   # == RECAP ==
   # Only download ReCAP extract files from SCSB once.
