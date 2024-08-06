@@ -139,12 +139,12 @@ module Holdings
         end
       end
 
-      # BearStor and StarrStor are both housed at Clancy, and sometimes the
+      # Barnard-Remote and StarrStor are both housed at Clancy, and sometimes the
       # Clancy inventory system (CaiaSoft) knows that the items are not-on-shelf,
       # even when Voyager thinks they are.
       if @item_status[:status] == 'available'
       
-        bearstor_locations = SERVICE_LOCATIONS['barnard_remote_locations'] || ['none']
+        # barnard_remote_locations = SERVICE_LOCATIONS['barnard_remote_locations'] || ['none']
 
         starrstor_locations = SERVICE_LOCATIONS['starrstor_locations'] || ['none']
         # Only respect the StarrStor local list while the service is active
@@ -152,11 +152,13 @@ module Holdings
           starrstor_locations = ['none']
         end
 
-        # Is this a BearStor/StarrStor item?
+        # Is this a Barnard-Remote/StarrStor item?
+
         # LIBSYS-6014 - to get this done immediately,
-        # just revert BearStor to using Voyager status,
-        # only to CaiaSoft lookup for StarrStor
-        # if bearstor_locations.include?(@location_code) || starrstor_locations.include?(@location_code)
+        # just revert Barnard-Remote to using Voyager status,
+        # only do CaiaSoft lookup for StarrStor
+
+        # if barnard_remote_locations.include?(@location_code) || starrstor_locations.include?(@location_code)
         if starrstor_locations.include?(@location_code)
 
           # Loop over all barcodes, count up how many items are available.  All, some or none?
@@ -676,11 +678,11 @@ module Holdings
         barnard_alum_locations = SERVICE_LOCATIONS['barnard_alum_locations'] || []
         services << 'barnard_alum' if barnard_alum_locations.include?(location_code)
 
-        # ------ BEAR-STOR ------
-        # If this is a BearStor holding and some items are available,
-        # enable the BearStor request link (barnard_remote)
-        bearstor_locations = SERVICE_LOCATIONS['barnard_remote_locations'] || ['none']
-        services << 'barnard_remote' if bearstor_locations.include?(location_code)
+        # ------ BARNARD-REMOTE ------
+        # If this is a Barnard-Remote holding and some items are available,
+        # enable the Barnard-Remote request link
+        barnard_remote_locations = SERVICE_LOCATIONS['barnard_remote_locations'] || ['none']
+        services << 'barnard_remote' if barnard_remote_locations.include?(location_code)
 
         # ------ STARRSTOR ------
         # If this is a StarrStor holding and some items are available,

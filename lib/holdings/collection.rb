@@ -119,7 +119,7 @@ module Holdings
       holdings_records.each do |record|
         offsite_copy = 'Y' if record.services.include?('offsite')
         if record.item_status[:status] == 'available'
-          available_copy = 'Y' unless record.location_name =~ /Reserve|Non\-Circ/ || record.location_name =~ /BearStor/
+          available_copy = 'Y' unless record.location_name =~ /Reserve|Non\-Circ/ || record.location_name =~ /Barnard Storage/ || record.location_name =~ /Barnard Remote/
         end
       end
       
@@ -147,7 +147,7 @@ module Holdings
         # LIBSYS-4423 - For serials, different holdings may offer different issues,
         # don't suppress parallel pickup options
         unless document['format'].any? { |format| format.match?(/journal/i) }
-          # NEXT-1559 - don't display bearstor request link if copy is available
+          # NEXT-1559 - don't display Barnard-Remote request link if copy is available
           record.services.delete('barnard_remote') if available_copy == 'Y'
         end
       end

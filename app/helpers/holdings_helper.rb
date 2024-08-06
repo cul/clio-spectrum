@@ -185,7 +185,7 @@ module HoldingsHelper
       'borrow_direct'  => {link_label: 'Pick-Up (Borrow Direct)', service_url: borrow_direct_link,
                            tooltip:    'Borrow Direct' },
       # ====  OTHER SERVICES  ====
-      'barnard_remote' => {link_label: 'BearStor',         service_url: barnard_remote_link, 
+      'barnard_remote' => {link_label: 'Pick-Up (at Barnard Library)', service_url: barnard_remote_link, 
                            tooltip:    'Barnard Remote',   js_function: 'OpenWindow'},
       'starrstor'      => {link_label: 'Pick-Up (Temporary Storage)', service_url: starrstor_link, 
                            tooltip:    'East Asian Remote Storage',   js_function: 'OpenWindow'},
