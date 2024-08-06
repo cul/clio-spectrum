@@ -153,7 +153,7 @@ module HoldingsHelper
 
 
 
-  SERVICE_ORDER = %w(campus_scan recap_scan offsite ill_scan ill campus_paging campus_paging_pilot fli_paging recap_loan barnard_remote starrstor barnard_alum avery_onsite aeon microform precat on_order borrow_direct recall_hold in_process doc_delivery ).freeze
+  SERVICE_ORDER = %w(campus_scan recap_scan offsite ill_scan ill campus_paging fli_paging recap_loan barnard_remote starrstor barnard_alum avery_onsite aeon microform precat on_order borrow_direct recall_hold in_process doc_delivery ).freeze
 
   # parameters: title, link (url or javascript), optional extra param
   # When 2nd param is a JS function,
@@ -178,8 +178,6 @@ module HoldingsHelper
       # ====  PICK-UP SERVICES  ====
       'campus_paging'  => {link_label: 'Pick-Up',       service_url: campus_paging_link, 
                            tooltip:    'Campus Paging', js_function: 'OpenWindow'},
-      'campus_paging_pilot'  => {link_label: 'Pick-Up (Pilot)',       service_url: campus_paging_pilot_link, 
-                           tooltip:    'Campus Paging Pilot', js_function: 'OpenWindow'},
       'fli_paging'     => {link_label: 'FLI Pick-Up',   service_url: fli_paging_link, 
                            tooltip:    'FLI Paging',    js_function: 'OpenWindow'},
       'recap_loan'     => {link_label: 'Pick-Up',       service_url: recap_loan_link, 
@@ -812,11 +810,6 @@ module HoldingsHelper
   def campus_paging_link
     valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
     "#{valet_url}/campus_paging/"
-  end
-
-  def campus_paging_pilot_link
-    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
-    "#{valet_url}/campus_paging_pilot/"
   end
 
   def fli_paging_link

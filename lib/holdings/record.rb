@@ -665,9 +665,6 @@ module Holdings
         # NEXT-1664 / NEXT-1666 - new Paging/Pickup service for available on-campus material
         campus_paging_locations = SERVICE_LOCATIONS['campus_paging_locations'] || []
         services << 'campus_paging' if campus_paging_locations.include?(location_code)
-        # NEXT-1753 - Campus Paging Pilot (???)
-        campus_paging_pilot_locations = SERVICE_LOCATIONS['campus_paging_pilot_locations'] || []
-        services << 'campus_paging_pilot' if campus_paging_pilot_locations.include?(location_code)
 
         # ------ FLI PAGING ------
         # LIBSYS-3775 - FLI material is only available to SAC patrons
