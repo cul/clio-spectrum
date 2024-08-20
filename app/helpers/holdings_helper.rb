@@ -837,8 +837,7 @@ module HoldingsHelper
   # ====  OTHER SERVICES  ====
   def barnard_remote_link
     valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
-    # return "#{valet_url}/barnard_remote_requests/bib?bib_id="
-    "#{valet_url}/bearstor/"
+    "#{valet_url}/barnard_remote/"
   end
 
   def starrstor_link
