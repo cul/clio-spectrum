@@ -1,0 +1,433 @@
+# Long hardcoded lists of which locations are allowed for our various services.
+# Organized by alphabetical Service names.
+
+aeon_locations:
+  # RBML - Rare Books and Manuscripts Library
+  - clm
+  - dic
+  - dic4off
+  - gax
+  - off,dic
+  - off,oral
+  - off,rbms
+  - off,rbx
+  - off,uacl
+  - oral
+  - rbi
+  - rbms
+  - rbx
+  - rbx4off
+  - uacl
+  - uacl,low
+  ## Burke Union Theological Seminary (UT)
+  - uts,arc
+  - off,uta
+  - uts,unnr
+  - uts,unnrxp
+  - uts,unnrxf
+  - uts,essxx1
+  - uts,essxx2
+  - uts,essxx3
+  - uts,mac
+  - uts,macxxf
+  - uts,macxxp
+  - uts,macxfp
+  - uts,gil
+  - uts,tms
+  - uts,twr
+  - uts,twrxxf
+  - uts,mss
+  - uts,perr
+  - uts,perrxf
+  - uts,map
+  - uts,mrldr
+  - uts,mrldxf
+  - uts,mrlo
+  - uts,mrlor
+  - uts,mrls
+  - uts,mrlxxp
+  ## Avery Library / Avery Classics
+  - avr
+  - avr,cage
+  - avr,stor
+  - avr,rrm
+  - far,rrm
+  - off,avr
+  - off,far
+  - far
+  - far,cage
+  - far,stor
+  ## Avery Library / Drawings & Archives
+  - avda
+  - off,avda
+  ## Starr East Asian (EA)
+  - eal,rare
+  - eax,rare
+  - eal,spec
+  - eax,spec
+  - ean
+  - off,ean
+
+# Material from these locations are available
+# only via on-site mediated requests
+avery_onsite_locations:
+  # LIBSYS-3200 - disable as-of 8/16/2021
+  #- ave
+  #- off,ave
+  #- ave,ref
+  #- avelc,ref
+  #- fax
+  #- fax,ref
+  #- off,fax
+  - xxx,xxx
+
+
+barnard_remote_locations:
+  - bar,stor
+
+barnard_alum_locations:
+  - bar
+  - bar,alum
+  - bar,dhc
+  - bar,medi
+  - bar,new
+  - bar,over
+  - bar,two
+  - bar,three
+  - bar,four
+  - bar,znz
+
+
+previous_campus_paging_locations:
+  - avelc
+  # --- LIBSYS-3775 - Barnard locations eligible for pick-up 
+  - bar
+  - bar,alum
+  - bar,over
+  # - bar,fli
+  - bar,four
+  - bar,medi
+  - bar,new
+  - bar,three
+  - bar,two
+  - bmc
+  - bmc,res
+  - bus
+  - eal
+  - eax
+  - faxlc
+  - glx
+  - gnc
+  - hsl,stx
+  - jou
+  - leh
+  - mat
+  - mil
+  #- mrr,fli
+  - msc
+  - msc,fol
+  - msr
+  - mus
+  - mus,fol
+  - mvr
+  - pat
+  - sci
+  - swx
+  - uts
+  - uts,unn
+
+# LIBSYS-4191 - fully update campus-paging list
+campus_paging_locations:
+  - bar
+  - bar,alum
+  - bar,four
+  - bar,medi
+  - bar,new
+  - bar,over
+  - bar,three
+  - bar,two
+  - bus
+  - glg
+  - glg,fol
+  - glg,gsci
+  - glg,ind
+  - glg,keyj
+  - glg,medi
+  - jou
+  - mat
+  - msc
+  - msc,fol
+  - mus
+  - mus,fol
+  - mvr
+  - sci
+  - swx
+
+campus_scan_locations:
+  - afst
+  - ave
+  - ave,ref
+  - avelc
+  - avelc,ref
+  # --- LIBSYS-3775 - Barnard locations eligible for scanning 
+  - bar
+  - bar,alum
+  - bar,dhc
+  # include both codes during transition from "flip" to "fli"
+  - bar,fli
+  - bar,flip
+  - bar,four
+  - bar,new
+  - bar,over
+  - bar,per
+  - bar,ref
+  - bar,three
+  - bar,two
+  - bar,znz
+  # ---
+  - bus
+  - bus,dis
+  - bus,enc
+  - bus,new
+  - bus,ratl
+  - bus,rcar
+  - bus,rdic
+  - bus,rdir
+  - bus,rdsk
+  - bus,ref
+  - bus,rfin
+  - bus,rind
+  - busn
+  - comp
+  - docs
+  - docs,ind
+  - docs,map
+  - docs,ref
+  - docs,rref
+  - dsc
+  - eal
+  - eal,fol
+  - eal,ref
+  - eal,sky
+  - ean
+  - eax
+  - eax,fol
+  - eax,ref
+  - eax,ref2
+  - eax,sem
+  - eax,sky
+  - eax,tib
+  - euro
+  - fax
+  - fax,ref
+  - faxlc
+  - faxlc,ref
+  - glg
+  - glg,fol
+  - glg,gsci
+  - glg,ind
+  - glg,keyj
+  - glg,medi
+  - glg,ref
+  - glx
+  - glx,fol
+  - glx,ltd
+  - glx,pre
+  - glxn
+  - gnc
+  - gnc,fol
+  - hsl
+  - hsl,leir
+  - hsl,over
+  - hsl,ref
+  - hsl,stdy
+  - hsl,str
+  - hsl,stx
+  - islm
+  - jou
+  - jou,over
+  - jou,ref
+  - lata
+  - leh
+  - leh,atls
+  - leh,bdis
+  - leh,eds
+  - leh,hraf
+  - leh,pl
+  - leh,ratl
+  - leh,rdsk
+  - leh,ref
+  - leh,rind
+  - leh,slav
+  - leh,snc
+  - leh,tib
+  - lehn
+  - lsp
+  - manc
+  - manc,dic
+  - map
+  - mat
+  - mat,over
+  - mat,ref
+  - mat,ser
+  - mil
+  - mil,over
+  - mil,stdy
+  - morl
+  # include both codes during transition from "flip" to "fli"
+  - mil,fli
+  - mrr,fli
+  - mrr,flip
+  - msc
+  - msc,case
+  - msc,fol
+  - msc,ref
+  - msci,ref
+  - msr
+  - msr,case
+  - mus
+  - mus,case
+  - mus,fol
+  - mus,lib
+  - mus,ref
+  - mvr
+  - mvr,case
+  - pap
+  - pat
+  - ref
+  - ref,ac10
+  - ref,atl
+  - ref,book
+  - ref,case
+  - ref,col
+  - ref,dic
+  - ref,ind
+  - ref,mez
+  - ref,off
+  - ref,over
+  - said
+  - sasi
+  - sci
+  - sci,ref
+  - sci,tech
+  - swx
+  - swx,agcy
+  - swx,dis
+  - swx,rdsk
+  - swx,ref
+  - swx,rind
+  - ushi
+  - uts
+  - uts,loc
+  - uts,locxxf
+  - uts,per
+  - uts,perxxf
+  - uts,ref
+  - uts,refr
+  - uts,refx3a
+  - uts,refxs1
+  - uts,refxs2
+  - uts,refxxa
+  - uts,unn
+  - uts,unnxxf
+  - war
+  - war,ref
+
+
+fli_paging_locations:
+  - bar,flip
+  - mrr,flip
+  # LIBSYS-4003 - updated FLI locations
+  - bar,fli
+  - mil,fli
+  - mrr,fli
+
+
+recap_loan_locations:
+  # ReCAP Partners
+  - scsbhl
+  - scsbnypl
+  - scsbpul
+  # Columbia Offsite Location Codes
+  - off,ave
+  - off,bio
+  - off,bmc
+  - off,bus
+  - off,che
+  - off,eal
+  - off,eax
+  - off,eng
+  - off,fax
+  - off,glg
+  - off,glx
+  - off,gnc
+  - off,gsc
+  - off,hsl
+  - off,jou
+  - off,leh
+  - off,mat
+  - off,msc
+  - off,msr
+  - off,mus
+  - off,mvr
+  - off,phy
+  - off,psy
+  - off,ref
+  - off,sci
+  - off,sls
+  - off,swx
+  - off,uts
+  - off,war
+
+
+recap_scan_locations:
+  # ReCAP Partners
+  - scsbhl
+  - scsbnypl
+  - scsbpul
+  # Columbia Offsite Location Codes
+  - off,ave
+  - off,bio
+  - off,bus
+  - off,che
+  - off,eal
+  - off,eax
+  - off,eng
+  - off,fax
+  - off,glg
+  - off,glx
+  - off,gnc
+  - off,gsc
+  - off,hsl
+  - off,hsr
+  - off,jou
+  - off,leh
+  - off,mat
+  - off,mrr
+  - off,msc
+  - off,msr
+  - off,mus
+  - off,phy
+  - off,psy
+  - off,ref
+  - off,sci
+  - off,sls
+  - off,swx
+  - off,uts
+  - off,war
+
+starrstor_locations:
+  - eal
+  - eal,ref
+  - eal,sky
+  # - eax
+  - eax,sky
+  - eax,tib
+  - eax,ref
+
+
+
+  
+  
+  
+  

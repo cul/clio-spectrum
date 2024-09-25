@@ -373,13 +373,14 @@ module HoldingsHelper
       # add status icons
       entry['copies'].each do |copy|
         copy['items'].each_pair do |_message, details|
-          # NEXT-1745 - turn them back on
-          # # NEXT-1668 - turn off colored indicators
-          # ### status_image = 'icons/' + 'none' + '.png'
-          status_image = 'icons/' + details['status'] + '.png'
-          status_label = details['status'].humanize
-          # details['image_link'] = image_tag('icons/' + details['status'] + '.png')
-          details['image_link'] = image_tag(status_image, title: status_label, alt: status_label)
+          # # NEXT-1745 - turn them back on
+          # # # NEXT-1668 - turn off colored indicators
+          # # ### status_image = 'icons/' + 'none' + '.png'
+          # status_image = 'icons/' + details['status'] + '.png'
+          # status_label = details['status'].humanize
+          # # details['image_link'] = image_tag('icons/' + details['status'] + '.png')
+          # details['image_link'] = image_tag(status_image, title: status_label, alt: status_label)
+          details['image_link'] = status_image_tag(details['status'])
         end
       end
     end
@@ -388,6 +389,14 @@ module HoldingsHelper
 
     entries
   end
+
+  
+  def status_image_tag(status)
+    status_image = 'icons/' + status.downcase + '.png'
+    status_label = status.humanize
+    image_tag(status_image, title: status_label, alt: status_label)
+  end
+
 
   ITEM_STATUS_RANKING = %w(available some_available not_available none online).freeze
 

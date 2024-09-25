@@ -20,6 +20,11 @@
         .call_number
           %span.holdings_label Call Number: 
           = holding['callNumber']
+        .copy
+          .status
+            = status_image_tag(holding['status'])
+            = holding['status'].humanize
+        
 
       - service_links = service_links(holding['services'], document.id)
       - if service_links.present?
