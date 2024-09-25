@@ -56,6 +56,7 @@ class Location < ApplicationRecord
     nil
   end
 
+
   def self.clear_and_load_fixtures!
     # Use "destroy" instead of delete, so that it'll
     # also clear out associated 'has_options' rows

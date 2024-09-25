@@ -1,0 +1,35 @@
+// _formats/clio/_catalog_show_holdings_folio.html.haml
+
+-# The @holdings array should already have pre-processed
+-# holdings hashes, with all data fields ready for display
+
+#folio_holdings
+  - @holdings.each do |holding|    
+    
+    .holding{:class => alternating_line}
+
+      .location_box
+        .location
+          = format_location_link(holding['location'])
+        .location_notes
+          - holding['location_notes'].each do |location_note|
+            .location_note
+              = location_note
+
+      - if holding['callNumber'].present?
+        .call_number
+          %span.holdings_label Call Number: 
+          = holding['callNumber']
+
+      - service_links = service_links(holding['services'], document.id)
+      - if service_links.present?
+        .services
+        %span.holdings_label
+          = 'Request: '
+          - service_links.each do |service_link|
+            .service
+              = service_link
+        
+            
+  
+  

@@ -582,3 +582,13 @@ end
 # to_field 'geo_variants_i' do |_record, accumulator|
 #   accumulator << geo_variant_count
 # end
+
+# ======  FOLIO  ======
+# FOLIO Instance UUID - only one per MARC record
+to_field 'instance_uuid_s', extract_marc('999i', trim_punctuation: false)
+# FOLIO MARC Bib SRS UUID - only one per MARC record
+to_field 'marc_uuid_s', extract_marc('999s', trim_punctuation: false)
+
+
+
+

@@ -38,6 +38,12 @@ class SolrDocument
     !id.start_with?('SCSB')
   end
 
+  # Did this record come out of our FOLIO tenant?
+  def folio?
+    # Is there an inventory UUID, populated from the 999$i during Solr ingest?
+    return self['instance_uuid_s'].present?
+  end
+  
   # Detect Law records, cataloged in Pegasus (https://pegasus.law.columbia.edu/)
   def in_pegasus?
     key?('source_display') &&

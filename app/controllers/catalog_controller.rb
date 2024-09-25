@@ -152,11 +152,24 @@ class CatalogController < ApplicationController
 
   def show
     @response, @document = fetch params[:id]
+    
+    # FOLIO - real-time availability check
+    # returns both status and holding/item details
+    if @document.folio?
+      # Call out to FOLIO LSP to fetch raw data
+      rtac_xml = Folio.get_rtac_xml(@document['instance_uuid_s'])
 
+      # Parse RTAC data into complex holdings objects for CLIO display
+      @holdings = Folio.rtac_to_holdings(rtac_xml)
+
+      # rtac_nokogiri_doc = Nokogiri::XML(rtac_xml)
+      # @holdings = rtac_nokogiri_doc.xpath('//instances/holdings/holding')
+    end
+
+    # VOYAGER ONLY:
     # If the Solr document contains holdings fields,
     # - fetch real-time circulation status
     # - build Holdings data structure
-
     if @document.has_marc_holdings?
       circ_status = nil
       # Don't check Voyager circ status for non-Columbia records
@@ -178,15 +191,6 @@ class CatalogController < ApplicationController
       @collection = Holdings::Collection.new(@document, circ_status, scsb_status)
 
       @holdings = @collection.to_holdings
-
-    else
-      # This is obsolete - CLIO now aggregates MARC data from
-      # many sources, only some of whihc have MARC holdings.
-      # # Pegasus (Law) documents have no MARC holdings.
-      # # Everything else is supposed to.
-      # unless @document.in_pegasus?
-      #   Rails.logger.error "Document #{@document.id} has no MARC holdings!"
-      # end
     end
 
     # In support of "nearby" / "virtual shelf browse", remember this bib
