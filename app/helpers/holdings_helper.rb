@@ -392,8 +392,13 @@ module HoldingsHelper
 
   
   def status_image_tag(status)
-    status_image = 'icons/' + status.downcase + '.png'
+    status.gsub!(' ', '_')
     status_label = status.humanize
+    status_image = 'icons/' + status.downcase + '.png'
+    
+    # TODO:  FOLIO gives unexpected item statuses.  Use "?" until we figure out something better
+    FileTest.exist?("#{Rails.root}/app/assets/images/#{status_image}") or status_image = 'icons/non_circulating.png'
+    
     image_tag(status_image, title: status_label, alt: status_label)
   end
 

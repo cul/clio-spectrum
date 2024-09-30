@@ -29,11 +29,11 @@
       - service_links = service_links(holding['services'], document.id)
       - if service_links.present?
         .services
-        %span.holdings_label
-          = 'Request: '
-          - service_links.each do |service_link|
-            .service
-              = service_link
+          %span.holdings_label
+            = 'Request: '
+            - service_links.each do |service_link|
+              .service
+                = service_link
         
             
   

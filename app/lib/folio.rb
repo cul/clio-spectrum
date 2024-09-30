@@ -47,7 +47,7 @@ class Folio
     #  ...edge-url.../rtac?instanceIds=00000c2d-2e55-537a-bc18-6da97af23e8f
 
     instance_ids_param = instance_ids.join(',')
-    path = '/rtac?instanceIds=' + instance_ids_param
+    path = '/rtac?instanceIds=' + instance_ids_param + '&fullPeriodicals=false'
 
     # Rails.logger.debug "- conn=(#{conn})"
     # Rails.logger.debug "- path=(#{path})"
@@ -90,6 +90,9 @@ class Folio
       # Add this holdings hash to accumulator 
       @holdings.push( holding )
     end
+
+    # Sort Holdings alphabetically by location - to match current CLIO
+    @holdings.sort_by! { |holding| holding['location'] }
 
     return @holdings
   end
