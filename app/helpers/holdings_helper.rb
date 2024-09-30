@@ -296,6 +296,7 @@ module HoldingsHelper
         show_tooltips = false
         show_tooltips = true if current_user && current_user.has_role?('site', 'pilot')
         show_tooltips = true if APP_CONFIG['admin_ips'] && APP_CONFIG['admin_ips'].include?(request.remote_ip)
+        show_tooltips = true if Rails.env == 'clio_dev'  # Turn ON for ANYONE on CLIO-DEV
         if show_tooltips
           link_options['data-toggle'] = 'tooltip'
           link_options['data-placement'] = 'right'
