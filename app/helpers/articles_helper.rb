@@ -5,8 +5,13 @@ module ArticlesHelper
   # ]
 
   def link_to_article(article, link_title = nil)
+    article_link = article.link
+    # NEXT-1874 - rewrite summon http links to https
+    if article_link.starts_with?('http://columbia.summon.serialssolutions.com')
+      article_link.sub!(/^http:/, 'https:')
+    end
     link_title ||= article.title.html_safe
-    link_to(link_title, article.link)
+    link_to(link_title, article_link)
   end
 
   def get_article_type(doc)
