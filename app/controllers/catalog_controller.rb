@@ -160,7 +160,32 @@ class CatalogController < ApplicationController
       rtac_xml = Folio.get_rtac_xml(@document['instance_uuid_s'])
 
       # Parse RTAC data into complex holdings objects for CLIO display
-      @holdings = Folio.rtac_to_holdings(rtac_xml)
+      @holdings, @errors = Folio.rtac_xml_to_holdings(rtac_xml)
+      
+      # If retrieval of holdings via RTAC generated errors, display them
+      if not @errors.empty?
+        flash.now[:alert] = @errors.join(' / ')
+      end
+        
+      # TODO - Does this need to be done?
+      # # Fetch FOLIO Item-level data for each holding
+      # # (FRGL/TIED use-restrictions, "shelved in" temp locations, ...)
+      # @holdings.each do |holding|
+      #   holding, @errors = Folio.add_item_data_to_holding(holding)
+      # end
+
+      if @document.has_offsite_holdings?
+        # Lookup SCSB availability hash (simplification of full status)
+        scsb_status = BackendController.scsb_availabilities(params[:id])
+        Folio.adjust_holdings_status_for_offsite(@holdings, scsb_status)
+      end
+      
+      # Looking over all holdings copies may affect offered services
+      Folio.adjust_services_across_holdings(@document, @holdings) if @holdings.length > 1
+
+      # Some qualities of the bib record affect services offered on the holdings records
+      Folio.adjust_services_for_bib(@document, @holdings)
+
 
       # rtac_nokogiri_doc = Nokogiri::XML(rtac_xml)
       # @holdings = rtac_nokogiri_doc.xpath('//instances/holdings/holding')
@@ -170,7 +195,7 @@ class CatalogController < ApplicationController
     # If the Solr document contains holdings fields,
     # - fetch real-time circulation status
     # - build Holdings data structure
-    if @document.has_marc_holdings?
+    if @document.has_marc_holdings? and not @document.folio?
       circ_status = nil
       # Don't check Voyager circ status for non-Columbia records
       if @document.has_circ_status?

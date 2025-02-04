@@ -3,7 +3,7 @@
 -# The @holdings array should already have pre-processed
 -# holdings hashes, with all data fields ready for display
 
-#folio_holdings
+#folio_holdings.folio
   - @holdings.each do |holding|    
     
     .holding{:class => alternating_line}
@@ -21,9 +21,16 @@
           %span.holdings_label Call Number: 
           = holding['callNumber']
         .copy
+          .messages
+          - if holding['statements'].present?
+            %span.holdings_label Library has: 
+            - holding['statements'].each do |statement|
+              %div
+                = statement
           .status
-            = status_image_tag(holding['status'])
-            = holding['status'].humanize
+            - if holding['status'].present?
+              = status_image_tag(holding['status'])
+              = holding['status'].humanize
         
 
       - service_links = service_links(holding['services'], document.id)

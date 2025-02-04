@@ -395,7 +395,10 @@ module HoldingsHelper
   def status_image_tag(status)
     status.gsub!(' ', '_')
     status_label = status.humanize
-    status_image = 'icons/' + status.downcase + '.png'
+    # status_image = 'icons/' + status.downcase + '.png'
+    icon_filename = status.downcase
+    icon_filename = 'unavailable' unless ['available', 'some_available'].include?(icon_filename)
+    status_image = 'icons/' + icon_filename + '.png'
     
     # TODO:  FOLIO gives unexpected item statuses.  Use "?" until we figure out something better
     FileTest.exist?("#{Rails.root}/app/assets/images/#{status_image}") or status_image = 'icons/non_circulating.png'
@@ -788,6 +791,47 @@ module HoldingsHelper
 
     location_link
   end
+  
+  # # FOLIO RTAC Holdings Statements are structured like so:
+  # #     <holdingsStatements>
+  # #         <holdingsStatements>
+  # #             <statement>1935-1939, 1955</statement>
+  # #             <note></note>
+  # #             <staffNote></staffNote>
+  # #         </holdingsStatements>
+  # #         <holdingsStatements>
+  # #             <statement>LIBRARY LACKS: 1935:A-Bep(5 fiches)</statement>
+  # #             <note></note>
+  # #             <staffNote></staffNote>
+  # #         </holdingsStatements>
+  # #     </holdingsStatements>
+  # #     <holdingsStatementsForIndexes/>
+  # #     <holdingsStatementsForSupplements/>
+  # # And this will be turned into an even more complex nested hash/array ruby structure
+  # #
+  # # Reformat into a simple array of text strings for display in the view
+  # def format_folio_holdings_statements(holding)
+  #   statements = []
+  #   return statements unless holding
+  #
+  #   for field in ['holdingsStatements', 'holdingsStatementsForIndexes', 'holdingsStatementsForSupplements'] do
+  #     next unless holding[field] && holding[field][field]
+  #
+  #     # If single-hash, convert to array. If array, leave as array.
+  #     holdings_fields = holding[field][field]
+  #     holdings_fields = holdings_fields.is_a?(Array) ? holdings_fields : [holdings_fields]
+  #
+  #     for field_iteration in holdings_fields do
+  #       for subfield in ['statement', 'note', 'staffNote'] do
+  #         next unless field_iteration[subfield]
+  #         statements.push field_iteration[subfield]
+  #       end
+  #     end
+  #
+  #
+  #   end
+  #   return statements
+  # end
 
 
   # ====  SCAN SERVICES  ====

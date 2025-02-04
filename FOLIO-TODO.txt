@@ -1,0 +1,90 @@
+
+Scrath pad for things I need to do for CLIO FOLIO
+
+
+TODO: field 999 is claimed by folio - move boosts to another field
+
+TODO: solr indexing logic update for tracking fields items_i, holdings_i, etc.
+
+TODO: broken shelf-view
+
+TODO: Item-Note of FRGL or TIED should assign use-restriction "In Library Use Only"
+
+
+# -------------------------------------------------- #
+
+
+
+MISSING IN FOLIO:
+
+example record:
+  <controlfield tag="001">15836754</controlfield>
+
+### ALL THESE 99X FIELDS ARE NOT IN VOYAGER - AND SO NOT IN FOLIO
+
+  <datafield tag="990" ind1=" " ind2=" ">
+    <subfield code="a">HG</subfield>
+  </datafield>
+  <datafield tag="991" ind1=" " ind2=" ">
+    <subfield code="a">HG1 .W59</subfield>
+    <subfield code="b">loc+HG-+0001+00000000+W5900000</subfield>
+  </datafield>
+  <datafield tag="992" ind1=" " ind2=" ">
+    <subfield code="a">Online</subfield>
+    <subfield code="b">Online &gt;&gt; ERESOURCES|DELIM|18558661</subfield>
+  </datafield>
+  <datafield tag="995" ind1=" " ind2=" ">
+    <subfield code="a">database</subfield>
+  </datafield>
+  <datafield tag="995" ind1=" " ind2=" ">
+    <subfield code="a">catalog</subfield>
+  </datafield>
+  <datafield tag="997" ind1=" " ind2=" ">
+    <subfield code="a">2022-01-07T00:00:00.000Z</subfield>
+  </datafield>
+  <datafield tag="999" ind1=" " ind2=" ">
+    <subfield code="a">wall street journal</subfield>
+  </datafield>
+  <datafield tag="999" ind1=" " ind2=" ">
+    <subfield code="a">wsj</subfield>
+  </datafield>
+
+
+ALSO MISSING:
+
+Acq. System  --  894$a  --  Acquisitions information (orders)
+
+Acq. System  --  895$a  --  Current issues  --  One 895 field per check-in line; sorted in desired display order (reverse chronological)
+ 	
+  
+    def parse_current_issues(marc)
+      return [] unless marc
+
+      current_issues = []
+      marc.each_by_tag('895') do |t895|
+        current_issues << t895['a']
+      end
+
+      current_issues
+    end
+
+    def parse_orders(marc)
+      return [] unless marc
+
+      orders = []
+      marc.each_by_tag('894') do |t894|
+        orders << t894['a']
+      end
+
+      orders
+    end
+
+# -------------------------------------------------- #
+
+
+
+instance_uuid_s:*
+12_860_102
+
+reverse_shelfkey:*
+numFound":246_805,

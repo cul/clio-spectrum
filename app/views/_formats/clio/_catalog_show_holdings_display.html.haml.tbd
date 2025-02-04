@@ -1,3 +1,6 @@
+
+// _formats/clio/_catalog_show_holdings_display.html.haml
+
 - content_for :jstemplates do
   :javascript
     $(document).ready(function() {

@@ -111,7 +111,7 @@ class BackendController < ApplicationController
     scsb_status = Rails.cache.fetch("scsb_status:#{id}", expires_in: expiry) do
       Recap::ScsbRest.get_bib_availability(bibliographicId, institutionId) || []
     end
-
+    
     scsb_status
   end
 
@@ -154,6 +154,7 @@ class BackendController < ApplicationController
       availabilities[item['itemBarcode']] = item['itemAvailabilityStatus']
       # for testing...
       # availabilities[ item['itemBarcode'] ] = 'Unavailable'
+      # availabilities[ 'CU63453070' ] = 'Unavailable'
     end
     availabilities
   end

@@ -14,16 +14,10 @@
   -# ONLINE HOLDINGS
   = render "/_formats/clio/catalog_show_holdings_online", online_links: online_link_hash(document), is_database: document.is_database?
 
-  -# PHYSICAL HOLDINGS
-  - if @document.has_marc_holdings? && @holdings
+  -# PHYSICAL HOLDINGS - VOYAGER
+  - if @document.has_marc_holdings? && @holdings and not @document.folio?
     -# Render holdings based on hash built from Solr MARC
     = render "/_formats/clio/catalog_show_holdings_clio", document: document, holdings: @holdings
-    -# = render '/backend/holdings', holdings: @holdings
-  - else
-    -# LEGACY - call CLIO Backend via AJAX for holdings
-    -# (only if 'loadable' - skip Law, skip Online-only)
-    - if has_loadable_holdings?(document)
-      = render "/_formats/clio/catalog_show_holdings_display", clio_id: clio_id
 
   -# FOLIO
   - if document.folio?
