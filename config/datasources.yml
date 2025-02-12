@@ -43,6 +43,20 @@ datasources:
         s.fq[ISBN]: ISBN
         s.fq[ISSN]: ISSN
 
+  eds:
+    name: EDS Article Search
+    title: EDS Article Search
+    description: EDS Article Search 
+    render_options:
+      format: eds
+    # no_facets: true
+    search_box:
+      route: eds_index_path
+      placeholder: Articles
+      search_fields:
+        keyword: All Fields
+
+
   summon_dissertations:
     supersource: articles
     name: Articles

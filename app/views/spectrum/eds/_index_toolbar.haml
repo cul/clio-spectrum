@@ -1,0 +1,52 @@
+
+-# EDS (ARTICLES) SEARCH RESULTS CONTROLS
+
+%nav.index_toolbar.navbar.navbar-default
+
+  .container-fluid
+
+    .navbar-header
+      %button.navbar-toggle{type: 'button', data: {toggle: 'collapse', target: '.index-toolbar-collapse'}}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+
+
+      .navbar-text
+        - previous_string = "\u00ab Previous"
+        - if result.previous_page?
+          =link_to previous_string, result.previous_page_path
+        - else
+          %span.disabled= previous_string
+      
+        %span#current_item_info= " | #{result.start_item} - #{result.end_item} of #{number_with_delimiter(result.total_items)} | "
+      
+        - next_string = "Next \u00bb"
+        - if result.next_page?
+          =link_to next_string, result.next_page_path
+        - else
+          %span.disabled= next_string
+      
+
+
+
+    .index-toolbar-collapse.navbar-collapse.collapse
+
+      %ul.nav.navbar-nav.navbar-right
+      
+        %li.dropdown
+      
+          %a.dropdown-toggle{:href=>"#", :data=>{:toggle => "dropdown"}}
+            Display Options
+            %b.caret
+      
+      
+        %li.dropdown
+      
+          %a.dropdown-toggle{:href=>"#", :data=>{:toggle => "dropdown"}}
+            Sort by ...
+            %b.caret
+      
+      
+        = render '/catalog/selections_widget'
+

@@ -1,0 +1,39 @@
+/ SUMMON - ARTICLES
+/ container for a single doc
+- # bookmark = Array(document.src['BookMark']).first
+- bookmark = 'foo'
+.result.document.article_list{item_id: bookmark}
+
+  .row
+    .title.col-sm-12
+      .item_anchor
+        = render partial: '/saved_lists/item_select_checkbox', locals: {item_id: bookmark, counter: counter ||= 0}
+      .item_select_allowance= eds_link_to_article document
+
+
+  .details
+    -# - raise
+    - if document.eds_authors.any?
+      = add_row('Author', document.eds_authors(), html_safe: true)
+    = add_row('Citation', eds_get_article_citation(document))
+    = #add_row('Format', get_article_type(document))
+
+
+    - if @debug_mode && Rails.env == 'development'
+      =add_row("*DEV* Bookmark *DEV*", document.src['BookMark'])
+    -# =add_row("methods", document.interesting_methods.inspect)
+    -#   =add_row("* URI *", link_to(document.uri, document.uri))
+    -#   =add_row("* SRC-ID *", document.src['ID'], :html_safe => true)
+    -#   =add_row("* URL *", link_to(document.url, document.url)) unless document.url.to_s.empty?
+    -#   =add_row("* Link *", link_to(document.link, document.link))
+
+  / main container for doc partial view
+
+-# An example Summon document:
+
+-# >> document.interesting_methods
+-# => [:abstract, :authors, :availability_id, :call_number, :call_numbers, :content_type, :content_types, :copyright, :corporate_authors, :database_title, :dbid, :deweys, :dissertation_advisors, :dissertation_categories, :dissertation_degrees, :dissertation_degrees_dates, :dissertation_schools, :doi, :edition, :eisbns, :eissns, :end_page, :eric, :from_library?, :fulltext, :fulltext?, :fulltext_hit, :genres, :gov_doc_class_num, :gov_doc_class_nums, :id, :in_holdings, :in_holdings?, :is_a_i?, :isbn, :isbns, :isi_cited_references_count, :isi_cited_references_uri, :issns, :issue, :languages, :lib_guide_tab, :lib_guide_tabs, :library, :link, :meeting_name, :open_url, :page_count, :pages?, :patent_number, :peer_documents, :print, :print?, :publication_date, :publication_place, :publication_series_title, :publication_title, :publisher, :publishers, :related_records, :snippet, :source, :source_types, :src, :start_page, :subject_terms, :subtitle, :thumbnail_large, :thumbnail_medium, :thumbnail_small, :title, :uri, :url, :volume]
+
+-# >> document.src.keys.sort
+-# => ["Author", "Author_xml", "BookMark", "ContentType", "Copyright", "Copyright_xml", "Discipline", "EISBN", "ExternalDocumentID", "ID", "ISBN", "IngestDate", "IsPeerReviewed", "IsScholarly", "Language", "LinkModel", "MergedId", "ProviderPackageCode", "PublicationCentury", "PublicationDate", "PublicationDate_xml", "PublicationDecade", "PublicationTitle", "PublicationYear", "Publisher", "Publisher_xml", "SSID", "Score", "SourceID", "SourceType", "StartPage", "Title", "URI", "hasFullText", "inHoldings", "isFullTextHit", "isPrint", "link", "openUrl", "thumbnail_l", "thumbnail_m", "thumbnail_s"]
+

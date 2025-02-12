@@ -1,0 +1,37 @@
+-# spectrum/_eds.html.haml
+-# Search-Results page for EDS searches (Articles)
+
+
+-# .row
+
+-# This partial is only for EDS/Articles Search, with a layout defined in
+-# searches.yml that'll never have more than a single column.
+- @search_layout['columns'].each do |column|
+  -# %div.result_column
+  - column['searches'].each do |search|
+    - result = @results[search['source']]
+    - if result.successful?
+      - source = DATASOURCES_CONFIG['datasources'][search['source']]
+      - warning = source ? source['warning'] : nil;
+      = render partial: '/datasource_warning', locals: {warning: warning}
+  
+      %span{id: 'hits', class: active_source, data: {total: "#{number_with_delimiter(result.total_items)}"}}
+  
+      -# .result_set
+      = render partial: '/spectrum/eds/constraints', locals: {result: result}
+      
+      - if result.total_items == 0
+        = render partial: '/spectrum/eds/no_results_blurb', locals: {result: result}
+      - else
+        = render partial: '/spectrum/eds/index_toolbar', locals: {result: result}
+        = render partial: '/eds_warning'
+        #documents{:data => {'ga-action' => 'Search Results Click'} }
+          = render partial: "/spectrum/eds/result_docs", locals: {result: result, render_opts: search_render_options(search, source)}
+        = render partial: '/spectrum/eds/index_toolbar', locals: {result: result}
+      
+      - #clio_sidebar_items << render(partial: "/spectrum/eds/facets", locals: {result: result})
+    - else
+      .result_error
+        %h5 There was an error searching this datasource. (#{result.errors})
+  
+

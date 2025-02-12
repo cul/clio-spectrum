@@ -1,0 +1,89 @@
+
+-# EDS ADVANCED SEARCH PANEL (ARTICLES)
+
+.search_box{ :class => ("selected" if has_advanced_params?) }
+
+  .col-sm-12
+    -# Adding this magic <span> makes advanced_search show and basic_search hide
+    - if params[:form] == 'advanced'
+      %span.show_advanced_search
+
+    = form_tag path, :class => "form-horizontal", :method => "GET" do
+      -# Pass through EDS facets, checkboxes, sort, paging, as hidden form variables
+      -# This needs to work for any data-source which is an instance of EDS:  Articles only, currently
+      -# We're in ADV search here, so we know @results will have only a single result set
+      -# - if @results.kind_of?(Hash) && @results['articles'] && @results['articles'].search
+      -#   - eds_query_as_hash = @results['articles'].search.query.to_hash
+      -# - raise
+      - eds_query_as_hash = {}
+      - if @results.kind_of?(Hash) && @results.values.first.instance_of?(Spectrum::SearchEngines::Eds)
+        -# But don't put s.fq/s.q as hidden fields, since they'll be in the below form.
+        -# when eds fails, these may be nil
+        - if @results.values.first.search && @results.values.first.search.query
+          - eds_query_as_hash = @results.values.first.search.query.to_hash
+
+        = eds_hidden_keys_for_search(eds_query_as_hash)
+
+      -# # If we're at the Quicksearch landing page, building search-forms that will be
+      -# # shown to the user via Javascript datasource switching, mark as "new_search"
+      - if active_source == 'quicksearch'
+        = hidden_field_tag 'new_search', 'true'
+
+      -# Map Eds Query Params to default field values for form fields, below.
+      -# (Not based on CGI params: they don't consider constraint "remove" cmds)
+      - field_values = build_articles_advanced_field_values_hash(eds_query_as_hash)
+
+      .search_title
+        Match all
+        of the following criteria:
+        %button.btn.advanced_search_button.btn-primary{:name => "commit", :type => "submit", :value => "Search"}
+          %span.glyphicon.glyphicon-search.icon-white
+          %span.hidden-xs Search
+        =link_to "Basic Search", "#", class: "btn btn-link advanced_search_toggle"
+
+      = hidden_field_tag 'form', 'advanced'
+      = hidden_field_tag 'source', source || 'articles'
+
+      .advanced_search_row.form_group.row
+        %label.control-label.col-sm-4 
+          Keywords:
+        .col-sm-8
+          = text_field_tag 'q', field_values['q'], :title => "Query", :id => "query", :class => 'form-control'
+
+
+      // THIS IS ALL SUMMON-SPECIFIC - FIX FOR EDS
+      
+      .advanced_search_row.form_group.row
+        %label.control-label.col-sm-4 Author:
+        .col-sm-8
+          = text_field_tag "s.fq[AuthorCombined]", field_values['AuthorCombined'],  :title => "Author", :id => "author", :class => 'form-control'
+
+      .advanced_search_row.form_group.row
+        %label.control-label.col-sm-4 Title:
+        .col-sm-8
+          = text_field_tag "s.fq[TitleCombined]", field_values['TitleCombined'], :title => "Title", :id => "title", :class => 'form-control'
+
+      -# NEXT-581 - articles search by publication title
+      .advanced_search_row.form_group.row
+        %label.control-label.col-sm-4 Publication Title:
+        .col-sm-8
+          = text_field_tag "s.fq[PublicationTitle]",  field_values['PublicationTitle'], :title => "Publication Title", :id => "publicationtitle", :class => 'form-control'
+
+      .advanced_search_row.form_group.row
+        %label.control-label.col-sm-4 ISBN:
+        .col-sm-8
+          = text_field_tag "s.fq[ISBN]", field_values['ISBN'],  :title => "ISBN", :id => "isbn", :class => 'form-control'
+
+      .advanced_search_row.form_group.row
+        %label.control-label.col-sm-4 ISSN:
+        .col-sm-8
+          = text_field_tag "s.fq[ISSN]", field_values['ISSN'],  :title => "ISSN", :id => "issn", :class => 'form-control'
+
+
+      -# .advanced_search_row
+      -#   .controls
+      -#     %button.btn.advanced_search_button.btn-primary{:name => "commit", :type => "submit", :value => "Search"}
+      -#       %span.glyphicon.glyphicon-search.icon-white
+      -#       %span.visible-lg Search
+
+

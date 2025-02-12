@@ -102,6 +102,10 @@ gem 'summon', git: 'https://github.com/cul/summon.git'
 # Point to local copy during development...
 # gem 'summon', :path => "/Users/marquis/src/summon"
 
+
+#  EBSCO Article Search
+gem 'ebsco-eds'
+
 # Turn off - no longer useful
 # # used to email exceptions to developers
 # gem 'exception_notification'

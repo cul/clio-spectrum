@@ -6,6 +6,12 @@ default_search_layouts:
       - searches:
           - source: articles 
 
+  eds:
+    style: eds
+    columns:
+      - searches:
+          - source: eds 
+
   library_web:
     style: lweb
     columns:

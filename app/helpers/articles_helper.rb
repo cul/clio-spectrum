@@ -4,6 +4,33 @@ module ArticlesHelper
   #   'hathitrust.org'
   # ]
 
+  # ----------------------------------------------------------------#
+  # EDS-Specific methods...
+  # ----------------------------------------------------------------#
+
+  def eds_link_to_article(article, link_title = nil)
+    link_title ||= article.title.html_safe
+    link_to(link_title, article.eds_plink)
+  end
+
+  def eds_get_article_citation(doc)
+    results = []
+    results << doc.source_title.to_s if doc.source_title
+    results << doc.eds_publication_date.to_s if doc.eds_publication_date
+    results << "ISSN: #{doc.eds_issns.first}" unless doc.eds_issns.empty?
+    results << "Volume #{doc.eds_volume}" if doc.eds_volume
+    results << "Issue #{doc.eds_issue}" if doc.eds_issue
+    results << "p. #{doc.eds_page_start}" if doc.eds_page_start
+
+    result = results.join(', ')
+    result.empty? ? nil : result
+  end
+
+  # ----------------------------------------------------------------#
+  # Much of the below helper logic is Summon-specific.
+  # Methods are replaced with "eds" specific methods as needed.
+  # ----------------------------------------------------------------#
+
   def link_to_article(article, link_title = nil)
     link_title ||= article.title.html_safe
     link_to(link_title, article.link)
