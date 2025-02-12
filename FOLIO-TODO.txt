@@ -2,13 +2,49 @@
 Scrath pad for things I need to do for CLIO FOLIO
 
 
-TODO: field 999 is claimed by folio - move boosts to another field
+FOLIO is showing suppressed holdings.
+- because they are in the Data Export
+- and I need to consider holdings in the data-export since they'll be suppressed in RTAC
+- so - can data-export rules for holdings either indicate or suppress suppressed records?
 
-TODO: solr indexing logic update for tracking fields items_i, holdings_i, etc.
+BUT:  BIB 448931 has two holdings, one w/items and one without items
+ - Data Export includes BOTH
+ - RTAC includes only ONE
 
-TODO: broken shelf-view
+
+TODO: bib 10602068, Holding Note "Signed by contributor" missing in FOLIO?
+* Kyle needs to load notes.
+
+TODO: bib 5328618, FOLIO has no holding?  With note "Notes: Bound with other titles..."
+* Kyle needs to load bound-withs
+
+
+TODO:  bib 368445 
+    - needs call-number prefix/suffix
+    - needs RTAC+BIB holdings merge
+
+TODO: bib 400494 - VERY LOT OF HOLDINGS DIFFERENCES ?????
+
+TODO: bib 575933, located off,glx, Butler Offsite, location-prefix-match is finding "Butler"
+
+TODO: bib 402384, Offsite, not available in FOLIO?
+
+TODO: bib 8623713, data from acquisitions:  "Order Information: Received 2011-04-26" 
+
+
+TODO: bib 470323 / 12950010 -  "Available (2 copies)" - when do we count copies?
+
+TODO: bib 9041682 / 12950010 - "Returned 2025-02-04" - as green available status, not as note?
+
 
 TODO: Item-Note of FRGL or TIED should assign use-restriction "In Library Use Only"
+
+
+X TODO: Shelf-View - can I reconstruct the necessary magic fields?  Will it Work?
+
+X TODO: Boosts - implement field 999$a boosts
+
+
 
 
 # -------------------------------------------------- #

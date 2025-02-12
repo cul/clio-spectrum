@@ -4,43 +4,65 @@
 -# holdings hashes, with all data fields ready for display
 
 #folio_holdings.folio
-  - @holdings.each do |holding|    
+  - @holdings.each do |holding|
+    -# lweb (Online) holdings are rendered in another partial (show-holdings-online)
+    -# next if holding['locationCode'] == 'lweb'
+    -# raise
     
     .holding{:class => alternating_line}
 
+      // Each Holding has a single Location and single Call-Number
       .location_box
         .location
           = format_location_link(holding['location'])
         .location_notes
-          - holding['location_notes'].each do |location_note|
-            .location_note
-              = location_note
+          - if holding['location_notes'].present?
+            - holding['location_notes'].each do |location_note|
+              .location_note
+                = location_note
 
       - if holding['callNumber'].present?
         .call_number
           %span.holdings_label Call Number: 
           = holding['callNumber']
-        .copy
-          .messages
+
+
+        // Each Holding may have multiple items,
+        // which may mean multiple Statements, Statuses, etc.
+        .statements
           - if holding['statements'].present?
             %span.holdings_label Library has: 
+            = holding['statements'].shift()
             - holding['statements'].each do |statement|
-              %div
+              .statement
                 = statement
-          .status
-            - if holding['status'].present?
-              = status_image_tag(holding['status'])
-              = holding['status'].humanize
-        
+
+        .status
+          - if holding['statuses'].present?
+            - holding['statuses'].each do |status|
+              = status_image_tag(status['label'])
+              = status['label'].humanize
+              - if status['copy_count'] > 1
+                (#{status['copy_count']} copies)
 
       - service_links = service_links(holding['services'], document.id)
       - if service_links.present?
         .services
           %span.holdings_label
-            = 'Request: '
-            - service_links.each do |service_link|
-              .service
-                = service_link
+            Request:
+          - service_links.each do |service_link|
+            .service
+              = service_link
+
+      -# DEVELOPER DEBUGGING
+      - if APP_CONFIG['admin_ips'] && APP_CONFIG['admin_ips'].include?(request.remote_ip)
+        .alert.alert-danger
+          %strong
+            Instance UUID: &nbsp;
+            = document['instance_uuid_s']
+            <br> Holding UUID: &nbsp; 
+            = holding['id']
+
         
             
   

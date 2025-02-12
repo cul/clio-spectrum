@@ -56,6 +56,18 @@ class Location < ApplicationRecord
     nil
   end
 
+  # Fetch a single string location-note from app_config, lookup by location-code
+  def self.get_location_note_by_code(location_code = nil)
+    return nil unless location_code
+
+    location_notes = APP_CONFIG['location_notes'] || {}
+    location_notes.keys.each do |location_note_key|
+      return location_notes[location_note_key].html_safe if location_code ==  location_note_key
+    end
+
+    return ''
+  end
+
 
   def self.clear_and_load_fixtures!
     # Use "destroy" instead of delete, so that it'll

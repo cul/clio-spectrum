@@ -59,12 +59,12 @@ class User < ApplicationRecord
     uid.in?(PERMISSIONS_CONFIG['site']['manage'])
   end
 
-  # application-level admin permissions
-  def valet_admin?
-    return true if admin?
-    valet_admins = Array(APP_CONFIG['valet_admins']) || []
-    return valet_admins.include? uid
-  end
+  # # application-level admin permissions
+  # def valet_admin?
+  #   return true if admin?
+  #   valet_admins = Array(APP_CONFIG['valet_admins']) || []
+  #   return valet_admins.include? uid
+  # end
 
   def best_bets_admin?
     # NEXT-1584 - Best Best admins goes of app_config

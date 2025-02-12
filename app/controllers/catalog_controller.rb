@@ -156,17 +156,30 @@ class CatalogController < ApplicationController
     # FOLIO - real-time availability check
     # returns both status and holding/item details
     if @document.folio?
+      # Some basic holdings data can come out of the Solr document
+      # CAREFUL - DATA EXPORT INCLUDES SUPPRESSED
+      # @holdings = Folio.document_to_holdings(@document)
+      @holdings = []
+
       # Call out to FOLIO LSP to fetch raw data
       rtac_xml = Folio.get_rtac_xml(@document['instance_uuid_s'])
 
       # Parse RTAC data into complex holdings objects for CLIO display
-      @holdings, @errors = Folio.rtac_xml_to_holdings(rtac_xml)
-      
+      rtac_holdings, @errors = Folio.rtac_xml_to_holdings(rtac_xml)
+ 
       # If retrieval of holdings via RTAC generated errors, display them
       if not @errors.empty?
         flash.now[:alert] = @errors.join(' / ')
       end
-        
+
+      # Add the RTAC holdings in with the Solr holdings
+      @holdings.concat(rtac_holdings)
+# raise
+      # We now have a list of Holdings from the Solr doc and from RTAC.
+      # Consolidate any redundancies before displaying in CLIO
+      # (Multiple items in a single location should show as ONE holding)
+      @holdings = Folio.consolidate_holdings(@holdings)
+# raise   
       # TODO - Does this need to be done?
       # # Fetch FOLIO Item-level data for each holding
       # # (FRGL/TIED use-restrictions, "shelved in" temp locations, ...)
@@ -179,6 +192,13 @@ class CatalogController < ApplicationController
         scsb_status = BackendController.scsb_availabilities(params[:id])
         Folio.adjust_holdings_status_for_offsite(@holdings, scsb_status)
       end
+raise
+      # Now that we have a clean and complete list of locations and availabilities,
+      # figure out which services to offer for each holding
+      # raise
+      @holdings.each do |holding|
+        holding['services'] = Folio.determine_services(holding)
+      end
       
       # Looking over all holdings copies may affect offered services
       Folio.adjust_services_across_holdings(@document, @holdings) if @holdings.length > 1
@@ -186,9 +206,6 @@ class CatalogController < ApplicationController
       # Some qualities of the bib record affect services offered on the holdings records
       Folio.adjust_services_for_bib(@document, @holdings)
 
-
-      # rtac_nokogiri_doc = Nokogiri::XML(rtac_xml)
-      # @holdings = rtac_nokogiri_doc.xpath('//instances/holdings/holding')
     end
 
     # VOYAGER ONLY:
