@@ -105,6 +105,8 @@ gem 'summon', git: 'https://github.com/cul/summon.git'
 
 #  EBSCO Article Search
 gem 'ebsco-eds'
+gem 'forwardable', '1.3.1'
+
 
 # Turn off - no longer useful
 # # used to email exceptions to developers
