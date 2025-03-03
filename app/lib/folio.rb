@@ -1,33 +1,33 @@
 class Folio
   
-  attr_reader :conn, :folio_config
+  # attr_reader :conn, :folio_config
 
-  def self.get_folio_config
-    folio_config = APP_CONFIG['folio']
-    raise "Cannot find 'folio' config in APP_CONFIG!" if folio_config.blank?
-    # folio_config = HashWithIndifferentAccess.new(folio_config)
+  # def self.get_folio_config
+  #   folio_config = APP_CONFIG['folio']
+  #   raise "Cannot find 'folio' config in APP_CONFIG!" if folio_config.blank?
+  #   # folio_config = HashWithIndifferentAccess.new(folio_config)
+  #
+  #   @folio_config = folio_config
+  # end
 
-    @folio_config = folio_config
-  end
-
-  def self.open_edge_connection(url = nil)
-    # Re-use an existing connection?
-    # How do we detect if this connection object has gone invalid for any reason?
-    if @conn
-      return @conn if url.nil? || (@conn.url_prefix.to_s == url)
-    end
-
-    get_folio_config
-    edge_url ||= @folio_config['edge_url']
-    Rails.logger.debug "- opening new connection to #{edge_url}"
-    @conn = Faraday.new(url: edge_url)
-    raise "Faraday.new(#{edge_url}) failed!" unless @conn
-
-    @conn.headers['Content-Type'] = 'application/json'
-    @conn.headers['Authorization'] = @folio_config['edge_authorization']
-
-    @conn
-  end
+  # def self.open_edge_connection(url = nil)
+  #   # Re-use an existing connection?
+  #   # How do we detect if this connection object has gone invalid for any reason?
+  #   if @conn
+  #     return @conn if url.nil? || (@conn.url_prefix.to_s == url)
+  #   end
+  #
+  #   get_folio_config
+  #   edge_url ||= @folio_config['edge_url']
+  #   Rails.logger.debug "- opening new connection to #{edge_url}"
+  #   @conn = Faraday.new(url: edge_url)
+  #   raise "Faraday.new(#{edge_url}) failed!" unless @conn
+  #
+  #   @conn.headers['Content-Type'] = 'application/json'
+  #   @conn.headers['Authorization'] = @folio_config['edge_authorization']
+  #
+  #   @conn
+  # end
   
   # Parse MARC-based Solr holdings into complete holdings data structure for CLIO display
   # with fields:  "id", "location", "locationCode", "callNumber"
@@ -39,8 +39,10 @@ class Folio
       holding['location']     = marc_holding['a']
       holding['locationCode'] = marc_holding['b']
       holding['callNumber']   = marc_holding['h']
+      # We need to treat Solr data differently from RTAC data
+      holding['source']       = 'solr'
       holdings << holding
-    end
+    end    
     return holdings
   end
 
@@ -52,16 +54,18 @@ class Folio
     # Can be called with either an array or a single instance-id string
     instance_ids = [instance_ids] if instance_ids.is_a?(String)
     
-    conn ||= open_edge_connection
+    conn ||= Folio::Edge.open_connection()
     raise "Folio.get_rtac() bad connection [#{conn.inspect}]" unless conn
     
     #  ...edge-url.../rtac?instanceIds=00000c2d-2e55-537a-bc18-6da97af23e8f
     instance_ids_param = instance_ids.join(',')
 
-    # path = '/rtac?instanceIds=' + instance_ids_param + '&fullPeriodicals=true'
+    # The documentation around the "fullPeriodicals" flag is opaque.
+    # Maybe "true" means "give me all data" - which is of course what we would want
+    path = '/rtac?instanceIds=' + instance_ids_param + '&fullPeriodicals=true'
     # path = '/rtac?instanceIds=' + instance_ids_param + '&fullPeriodicals=false'
     # Or let FOLIO return what it thinks we should get back, based on Instance?
-    path = '/rtac?instanceIds=' + instance_ids_param
+    # path = '/rtac?instanceIds=' + instance_ids_param
 
     # Rails.logger.debug "- conn=(#{conn})"
     Rails.logger.debug "- path=(#{path})"
@@ -127,7 +131,7 @@ class Folio
         status = { 'label' => clean_status, 'copy_count' => 1 }
         holding['statuses'] << status
       end
-      raise
+      # raise
       Rails.logger.debug("rtac_xml_to_holdings:  holding['statuses']=#{holding['statuses']}")
       
 
@@ -136,6 +140,8 @@ class Folio
       # Why do we support multiple location-notes?
       holding['location_notes'] = [ Location.get_location_note_by_code(holding['locationCode']) ]
 
+      # We need to treat Solr data differently from RTAC data
+      holding['source'] = 'rtac'
       
       # Add this holdings hash to accumulator 
       rtac_holdings.push( holding )
@@ -431,7 +437,7 @@ class Folio
   #     </holdingsStatements>
   #     <holdingsStatementsForIndexes/>
   #     <holdingsStatementsForSupplements/>
-  # And this will be turned into an even more complex nested hash/array ruby structure
+  # And this will be turned into an even more complex nested hash/array ruby structure.
   #
   # Reformat into a simple array of text strings for display in the view 
   def self.build_holdings_statements_list(holding)    
@@ -446,13 +452,16 @@ class Folio
       holdings_fields = holdings_fields.is_a?(Array) ? holdings_fields : [holdings_fields] 
       
       for field_iteration in holdings_fields do
-        for subfield in ['statement', 'note', 'staffNote'] do
+        # don't show staff-note in catalog (e.g. bib 400494)
+        # for subfield in ['statement', 'note', 'staffNote'] do
+        for subfield in ['statement', 'note'] do
           next unless field_iteration[subfield]
           statements.push field_iteration[subfield]
         end
       end
 
     end
+    
     return statements
   end
  
@@ -482,27 +491,64 @@ class Folio
     input_holdings_list.each do |input_holding|
       Rails.logger.debug("considering new input holding #{input_holding['location']}...")
       
-      # Is the next holding for a DIFFERENT Location/Call-Number?
-      if (output_holding['locationCode'] != input_holding['locationCode']) || 
-         (output_holding['callNumber']   != input_holding['callNumber'])
-        # If so, we're done with our current "output-holding", and this 
-        # new holding becomes the one to compare against...
-        output_holding = input_holding
-        # And also we want to add this new holding into our output list
-        output_holdings_list << input_holding
-        Rails.logger.debug("adding input holding #{input_holding['location']} to output-holdings-list")
+
+# =========== FIRST 
+      # # Is the next holding for a DIFFERENT Location/Call-Number?
+      # if (output_holding['locationCode'] != input_holding['locationCode']) ||
+      #    (output_holding['callNumber']   != input_holding['callNumber'])
+      #   # If so, we're done with our current "output-holding", and this
+      #   # new holding becomes the one to compare against...
+      #   output_holding = input_holding
+      #   # And also we want to add this new holding into our output list
+      #   output_holdings_list << input_holding
+      #   Rails.logger.debug("adding input holding #{input_holding['location']} to output-holdings-list")
+      #   next
+      # end
+      #
+      # # If we've dropped to here then the new input-holding we're considering
+      # # is another item in for the same location as our current output-holding.
+      # # We need to merge the data.
+      # self.merge_holdings_data(output_holding, input_holding)
+
+# =========== SECOND
+      # If the next input-holding is another item in the same location
+      # as our current output-holding, merge the data.
+      if self.same_holding(output_holding, input_holding) 
+        self.merge_holdings_data(output_holding, input_holding)
         next
       end
-      
-      # If we've dropped to here then the new input-holding we're considering
-      # is another item in for the same location as our current output-holding.
-      # We need to merge the data.
-      self.merge_holdings_data(output_holding, input_holding)
-    end
 
+      # The next input-holding is for a NEW location? 
+
+      # If so, we're done with our current "output-holding", 
+      # and this new input-holding becomes the one to compare against...
+      output_holding = input_holding
+
+      # And also we want to add this new holding into our output list
+      output_holdings_list << input_holding
+    end
+    
     # We've looped over all input holdings, merging same-location data.
     # Return the resulting consolidated list.
     return output_holdings_list
+  end
+  
+  def self.same_holding(holding1, holding2)
+
+    # No no no - the "id" within an RTAC holdings is an ITEM ID!!
+    # # Matching Holdings UUIDs?
+    # return true if holding1['id'] == holding2['id']
+    
+    # No - offsite codes (e.g, off,glx and off,pys) should merge 
+    # # Matching Location-Code/Call-Number?
+    # return true if ( holding1['locationCode'] == holding2['locationCode'] and
+    #                  holding1['callNumber'] == holding2['callNumber'] )
+
+    # Matching Location-Display-Name/Call-Number?
+    return true if ( holding1['location'] == holding2['location'] and
+                     holding1['callNumber'] == holding2['callNumber'] )
+    # No match.
+    return false
   end
   
   def self.assert_default_fields(holdings_list)
@@ -515,10 +561,10 @@ class Folio
   # Merge the data from "input" INTO the "output" data structure
   def self.merge_holdings_data(output_holding, input_holding)
 
-    # Does the Input holding have any statements that are not already in the output holding?
-    # If we find something new, add it.
+    # Does the Input holding have any statements that are not already 
+    # in the output holding? If we find something new, add it.
     input_holding['statements'].each do |statement|
-      if output_holding['statements'].include?(statement)
+      if not output_holding['statements'].include?(statement)
         output_holding['statements'] << statement
       end
     end
@@ -537,17 +583,106 @@ class Folio
           found = true
         end
       end
-      
+
       # No match found - this is a NEW status for this holding
       if found == false
         output_holding['statuses'] << input_status
       end
     end
 
+    # We've copied over Statements and Statuses,
+    # now copy over any other important holdings-level fields.
+    
+    # Pull in some fields from "input" if they are absent in "output"
+    # (Usually fields which are present in RTAC but not in Solr)
+    copy_fields = [ 'locationId', 'materialType' ]
+    copy_fields.each do |copy_field|
+      if output_holding[copy_field].blank? and input_holding[copy_field].present?
+        output_holding[copy_field] = input_holding[copy_field]
+      end
+    end
+
+    # prefer Solr call-numbers (they include prefix and suffix)
+    if output_holding['source'] == 'rtac' and input_holding['source'] == 'solr'
+      output_holding['callNumber'] = input_holding['callNumber']
+    end      
+
     # Done.  The output-holding was modified in-place.
   end
+
+
+  # @holdings = Folio.drop_suppressed_holdings(@holdings)
+  # 
+  def self.drop_suppressed_holdings(folio_client, all_holdings)
+    unsuppressed_holdings = []
+    all_holdings.each do |holding|
+      unsuppressed_holdings.push(holding) unless Folio.holding_suppressed?(folio_client, holding)
+    end
+    return unsuppressed_holdings
+  end
+  
+  def self.holding_suppressed?(folio_client, holding)
+    # Rails.logger.debug("")
+    # raise
+
+    # okapi_client = Folio::Okapi.open_connection()
+    # # this will configure the client and request an access token
+    # client = Folio::Okapi.configure(
+    #     url: 'https://okapi-columbia.folio.ebsco.com',
+    #     login_params: { username: 'cul-service-readonly', password: 'Luck-Plan-Write-Trunk-4' },
+    #     # okapi_headers: { 'X-Okapi-Tenant': 'fs00001216', 'User-Agent': 'FolioApiClient' }
+    #     okapi_headers: { 'X-Okapi-Tenant': 'fs00001216' }
+    # )
+    #
+    response = folio_client.get('/holdings-storage/holdings/14316528-250f-5e4b-a53e-2c1bcd343711')
+
+    return response['discoverySuppress']
+
+  end
      
+     
+  def self.cleanup_holdings(folio_client, raw_holdings)
+    clean_holdings = []
+    raw_holdings.each do |holding|
+      
+      # Fetch the discoveryDisplayName 
+      holding['location'] = self.get_holding_location(folio_client, holding)
+
+      clean_holdings.push(holding)
+    end
+    # raise
+    return clean_holdings
+  end
+
+  
+  def self.get_holding_location(folio_client, holding)
+    location = holding['location'] || ''
+    
+    # Sometimes we have a Location UUID - look up directly
+    if holding['locationId'].present?
+      response = folio_client.get('/locations/' + holding['locationId'])
+      return response['discoveryDisplayName'] if response['discoveryDisplayName'].present?
+    end
+    
+    # Sometimes we need to do a query-by-Location-Code
+    if holding['locationCode'].present?
+      query = 'code == "' + holding['locationCode'] + '"'
+      response = folio_client.get('/locations?query=' + query)
+      # error-checking...
+      return location unless response.has_key?('totalRecords')
+      return location unless response['totalRecords'] == 1
+      # fish out the discovery-display-name....
+      found = response['locations'].first
+      return found['discoveryDisplayName'] if found['discoveryDisplayName'].present?
+    end
+    
+    return location
+  end
   
 end
+
+
+
+
 
 

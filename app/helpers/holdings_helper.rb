@@ -406,6 +406,20 @@ module HoldingsHelper
     image_tag(status_image, title: status_label, alt: status_label)
   end
 
+  # For some material types we have a copies note, e.g.: "(2 copies)"
+  def status_copies_note(holding, status)
+    return '' unless holding.has_key?('materialType')
+    return '' unless holding['materialType'].has_key?('name')
+    
+    # Update whitelist as needed
+    whitelist = [ 'Book' ]
+    return '' unless holding['materialType']['name'].in?(whitelist)
+    
+    # If we have a copy-count > 2, return a message
+    return '' unless status.has_key?('copy_count')
+    return '' if status['copy_count'] < 2
+    return "(#{status['copy_count']} copies)"
+  end
 
   ITEM_STATUS_RANKING = %w(available some_available not_available none online).freeze
 

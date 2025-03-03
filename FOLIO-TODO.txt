@@ -2,6 +2,26 @@
 Scrath pad for things I need to do for CLIO FOLIO
 
 
+
+3/3/2025 - still outstanding...
+
+(1) Bound-Withs are not supported
+
+(2) No significant testing of checked-out logic
+
+(3) Failure of call-number merging due to call-number prefix/suffix
+bib 424293
+Need to:  Solr record needs to have both""
+- base call-number (for merging)
+- full call-number (for display)
+So - how to get both fields into the Solr record?  Schema change?
+ 
+
+
+
+==========
+
+
 FOLIO is showing suppressed holdings.
 - because they are in the Data Export
 - and I need to consider holdings in the data-export since they'll be suppressed in RTAC
@@ -18,21 +38,11 @@ TODO: bib 10602068, Holding Note "Signed by contributor" missing in FOLIO?
 TODO: bib 5328618, FOLIO has no holding?  With note "Notes: Bound with other titles..."
 * Kyle needs to load bound-withs
 
+X TODO:  bib 368445 - needs call-number prefix/suffix ("MICROFLM")
 
-TODO:  bib 368445 
-    - needs call-number prefix/suffix
-    - needs RTAC+BIB holdings merge
-
-TODO: bib 400494 - VERY LOT OF HOLDINGS DIFFERENCES ?????
-
-TODO: bib 575933, located off,glx, Butler Offsite, location-prefix-match is finding "Butler"
-
-TODO: bib 402384, Offsite, not available in FOLIO?
+X TODO: bib 575933, located off,glx, Butler Offsite, location-prefix-match is finding "Butler"
 
 TODO: bib 8623713, data from acquisitions:  "Order Information: Received 2011-04-26" 
-
-
-TODO: bib 470323 / 12950010 -  "Available (2 copies)" - when do we count copies?
 
 TODO: bib 9041682 / 12950010 - "Returned 2025-02-04" - as green available status, not as note?
 
@@ -44,6 +54,11 @@ X TODO: Shelf-View - can I reconstruct the necessary magic fields?  Will it Work
 
 X TODO: Boosts - implement field 999$a boosts
 
+X TODO: bib 400494 - suppress staff-notes from display
+
+X TODO: bib 470323 / 12950010 -  "Available (2 copies)" - when do we count copies?
+
+X TODO: bib 402384, Offsite, not available in FOLIO?
 
 
 

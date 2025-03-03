@@ -3,6 +3,8 @@
 # (plus AcademicCommons - which uses Blacklight against a diff. Solr)
 # This was originally based on the Blacklight CatalogController.
 
+require 'folio_client'
+
 class CatalogController < ApplicationController
   include ActionController::Live
 
@@ -156,15 +158,34 @@ class CatalogController < ApplicationController
     # FOLIO - real-time availability check
     # returns both status and holding/item details
     if @document.folio?
-      # Some basic holdings data can come out of the Solr document
-      # CAREFUL - DATA EXPORT INCLUDES SUPPRESSED
-      # @holdings = Folio.document_to_holdings(@document)
-      @holdings = []
 
-      # Call out to FOLIO LSP to fetch raw data
+      # We're going to need to make Okapi API calls - build the client here
+      folio_config = Folio::Config.get_folio_config
+      folio_client = FolioClient.configure(
+          url: folio_config['okapi_url'],
+          login_params: { username: folio_config['okapi_username'], password: folio_config['okapi_password'] },
+          okapi_headers: { 'X-Okapi-Tenant': folio_config['okapi_tenant'], 'User-Agent': 'FolioApiClient' }
+      )
+      # Later versions of folio_client:
+      # FolioClient.force_token_refresh!
+      # Our 0.15.0 version of folio_client:
+      folio_client.config.token = FolioClient::Authenticator.token(folio_client.config.login_params, folio_client.connection)
+
+      # FIRST, get holdings out of the Solr document
+      # which is built from FOLIO Data Export, but be careful:
+      # *** FOLIO Data Export unavoidably includes suppressed records! ***
+      solr_holdings = Folio.document_to_holdings(@document)
+      # @holdings = []
+      # raise
+      # We need to make separate FOLIO API calls to determine
+      # suppression status!  (And remove those records)
+      @holdings = Folio.drop_suppressed_holdings(folio_client, solr_holdings)
+
+      # Now use FOLIO RTAC to get XML with Available/Unavailable status
+      # (But RTAC doesn't work for holdings without any associated items)
       rtac_xml = Folio.get_rtac_xml(@document['instance_uuid_s'])
 
-      # Parse RTAC data into complex holdings objects for CLIO display
+      # Parse RTAC XML data into holdings objects for CLIO display
       rtac_holdings, @errors = Folio.rtac_xml_to_holdings(rtac_xml)
  
       # If retrieval of holdings via RTAC generated errors, display them
@@ -172,8 +193,14 @@ class CatalogController < ApplicationController
         flash.now[:alert] = @errors.join(' / ')
       end
 
-      # Add the RTAC holdings in with the Solr holdings
+      # Add the RTAC holdings in with the Solr-index holdings
       @holdings.concat(rtac_holdings)
+
+
+      # Some of the holdings data (from Data Export and RTAC)
+      # needs to be cleaned up by making FOLIO API calls
+      @holdings = Folio.cleanup_holdings(folio_client, @holdings)
+
 # raise
       # We now have a list of Holdings from the Solr doc and from RTAC.
       # Consolidate any redundancies before displaying in CLIO
@@ -186,13 +213,17 @@ class CatalogController < ApplicationController
       # @holdings.each do |holding|
       #   holding, @errors = Folio.add_item_data_to_holding(holding)
       # end
+    
+      # Some of the holdings data (from Data Export and RTAC)
+      # needs to be cleaned up by making FOLIO API calls
+      @holdings = Folio.cleanup_holdings(folio_client, @holdings)
 
       if @document.has_offsite_holdings?
         # Lookup SCSB availability hash (simplification of full status)
         scsb_status = BackendController.scsb_availabilities(params[:id])
         Folio.adjust_holdings_status_for_offsite(@holdings, scsb_status)
       end
-raise
+# raise
       # Now that we have a clean and complete list of locations and availabilities,
       # figure out which services to offer for each holding
       # raise

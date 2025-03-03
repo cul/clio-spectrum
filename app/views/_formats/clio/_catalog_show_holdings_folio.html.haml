@@ -42,8 +42,7 @@
             - holding['statuses'].each do |status|
               = status_image_tag(status['label'])
               = status['label'].humanize
-              - if status['copy_count'] > 1
-                (#{status['copy_count']} copies)
+              = status_copies_note(holding, status)
 
       - service_links = service_links(holding['services'], document.id)
       - if service_links.present?

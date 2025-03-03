@@ -123,6 +123,10 @@ gem 'net-scp'
 # 11/21/2022 - try to unpin, Faraday is well past 1.x.x
 gem 'faraday'
 
+# FOLIO Okapi connectivity using Stanford's gem
+# https://github.com/sul-dlss/folio_client
+gem 'folio_client', '0.15.0'
+
 # For, e.g., Google Custom Search API
 # Our code seems to break beyond 0.36?
 # gem 'google-api-client', '0.36'

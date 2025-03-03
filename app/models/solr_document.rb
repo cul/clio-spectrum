@@ -46,6 +46,9 @@ class SolrDocument
   
   # Detect Law records, cataloged in Pegasus (https://pegasus.law.columbia.edu/)
   def in_pegasus?
+    # Law records in FOLIO are no longer in Pegasus 
+    return false if self.folio?
+
     key?('source_display') &&
       Array(self['source_display']).include?('law')
 
