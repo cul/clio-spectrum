@@ -3,7 +3,8 @@
 -# The @holdings array should already have pre-processed
 -# holdings hashes, with all data fields ready for display
 
-#folio_holdings.folio
+-# Turn on debug styling during localhost development
+#folio_holdings{:class => (Rails.env == 'development' ? 'folio-debug' : nil) }
   - @holdings.each do |holding|
     -# lweb (Online) holdings are rendered in another partial (show-holdings-online)
     -# next if holding['locationCode'] == 'lweb'
