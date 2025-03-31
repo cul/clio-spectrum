@@ -191,9 +191,6 @@ Rails.application.routes.draw do
 
   # there's no 'articles' controller, and no item-detail page for articles
   # get 'articles/show', :to => "articles#show", :as => :articles_show
-
-  # EBSCO EDS
-  match 'eds', to: 'spectrum#search', as: :eds_index, via: [:get, :post], defaults: { layout: 'eds' }
   
   get 'ebooks', to: 'spectrum#search', as: :ebooks_index, defaults: { layout: 'ebooks' }
   get 'dissertations', to: 'spectrum#search', as: :dissertations_index, defaults: { layout: 'dissertations' }

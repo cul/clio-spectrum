@@ -16,9 +16,9 @@
       = add_row('Author', get_article_authors(document), html_safe: true)
     = add_row('Citation', get_article_citation(document))
     = add_row('Format', get_article_type(document))
-    - if Rails.env != 'clio_prod'
-      = add_row('Abstract', document.abstract, teaser: 400)
-      = add_row('Subject Terms', document.subject_terms, expand: true)
+    / - if Rails.env != 'clio_prod'
+    /   = add_row('Abstract', document.abstract, teaser: 400)
+    /   = add_row('Subject Terms', document.subject_terms, expand: true)
 
     %span.coins_wrapper
       / COinS

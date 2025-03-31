@@ -104,9 +104,12 @@ class SpectrumController < ApplicationController
               when 'catalog', 'academic_commons', 'geo', 'dlc'
                 blacklight_search(hit_params)
               when 'articles'
-                fixed_params = fix_summon_params(hit_params)
+                # fixed_params = fix_summon_params(hit_params)
+                # fixed_params['new_search'] = 'true'
+                # Spectrum::SearchEngines::Summon.new(fixed_params, get_summon_facets)
+                fixed_params = fix_eds_params(hit_params)
                 fixed_params['new_search'] = 'true'
-                Spectrum::SearchEngines::Summon.new(fixed_params, get_summon_facets)
+                Spectrum::SearchEngines::Eds.new(fixed_params, get_eds_facets)
               when 'lweb'
                 Spectrum::SearchEngines::GoogleCustomSearch.new(hit_params)
               when 'ac'
@@ -120,8 +123,9 @@ class SpectrumController < ApplicationController
   end
 
   def facet
+    raise
     # render values of a facet, nothing else.
-    # This is only used for Summon article facets
+    # This is only used for Article facets
     @results = get_results('articles')
 
     # NEXT-1620 - this broke Summon facets!  Find another way.
@@ -235,6 +239,7 @@ class SpectrumController < ApplicationController
       end
     end
 
+
     # If we're coming from the LWeb Search Widget - or any other external
     # source - mark it as a New Search for the Summon search engine.
     # (fixes NEXT-948 Article searches from LWeb do not exclude newspapers)
@@ -274,6 +279,16 @@ class SpectrumController < ApplicationController
 
     # Rails.logger.debug "fix_summon_params() out params=#{params.inspect}"
     params
+  end
+
+  def fix_eds_params(params)
+
+    # Default to guest-level query - unless logged-in, or on-campus
+    params['guest'] = true
+    params['guest'] = false if current_user.present?
+    params['guest'] = false if @user_characteristics[:on_campus]
+    
+    return params
   end
 
   def parse_pub_date(pub_date)
@@ -325,12 +340,14 @@ class SpectrumController < ApplicationController
     results = case source
               when 'articles', 'summon_dissertations', 'summon_ebooks'
                 # puts "BBB#{Thread.current.object_id}  source #{source} - summon 'when' branch"
-                fixed_params = fix_summon_params(fixed_params)
+                # fixed_params = fix_summon_params(fixed_params)
+                fixed_params = fix_eds_params(fixed_params)
                 fixed_params['new_search'] = true if params['layout'] == 'quicksearch'
-                Spectrum::SearchEngines::Summon.new(fixed_params, get_summon_facets)
+                Spectrum::SearchEngines::Eds.new(fixed_params, get_eds_facets)
 
-              when 'eds'
-                Spectrum::SearchEngines::Eds.new(fixed_params)
+              # when 'eds'
+              #   fixed_params = fix_eds_params(fixed_params)
+              #   Spectrum::SearchEngines::Eds.new(fixed_params)
 
               when 'catalog', 'databases', 'journals', 'catalog_ebooks', 'catalog_dissertations', 'catalog_data', 'XXacademic_commons', 'XXac_dissertations', 'XXac_data', 'geo', 'geo_cul', 'dlc'
                 # puts "BBB#{Thread.current.object_id}  source #{source} - blacklight_search 'when' branch"

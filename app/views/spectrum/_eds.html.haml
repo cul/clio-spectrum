@@ -29,7 +29,7 @@
           = render partial: "/spectrum/eds/result_docs", locals: {result: result, render_opts: search_render_options(search, source)}
         = render partial: '/spectrum/eds/index_toolbar', locals: {result: result}
       
-      - #clio_sidebar_items << render(partial: "/spectrum/eds/facets", locals: {result: result})
+      - clio_sidebar_items << render(partial: "/spectrum/eds/facets", locals: {result: result})
     - else
       .result_error
         %h5 There was an error searching this datasource. (#{result.errors})

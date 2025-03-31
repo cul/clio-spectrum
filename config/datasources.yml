@@ -36,25 +36,33 @@ datasources:
       # search_category: articles
       search_fields:
         q: Keywords
-        s.fq[AuthorCombined]: Author
-        s.fq[TitleCombined]: Title
+        author: Author
+        title: Title
         # NEXT-581 - articles search by publication title
-        s.fq[PublicationTitle]: Publication Title
-        s.fq[ISBN]: ISBN
-        s.fq[ISSN]: ISSN
+        source: Publication Title
+        isbn: ISBN
+        issn: ISSN
+        # q: Keywords
+        # s.fq[AuthorCombined]: Author
+        # s.fq[TitleCombined]: Title
+        # # NEXT-581 - articles search by publication title
+        # s.fq[PublicationTitle]: Publication Title
+        # s.fq[ISBN]: ISBN
+        # s.fq[ISSN]: ISSN
 
-  eds:
-    name: EDS Article Search
-    title: EDS Article Search
-    description: EDS Article Search 
-    render_options:
-      format: eds
-    # no_facets: true
-    search_box:
-      route: eds_index_path
-      placeholder: Articles
-      search_fields:
-        keyword: All Fields
+  # Our regular Articles datasource should be EDS-based
+  # eds:
+  #   name: EDS Article Search
+  #   title: EDS Article Search
+  #   description: EDS Article Search
+  #   render_options:
+  #     format: eds
+  #   # no_facets: true
+  #   search_box:
+  #     route: eds_index_path
+  #     placeholder: Articles
+  #     search_fields:
+  #       keyword: All Fields
 
 
   summon_dissertations:

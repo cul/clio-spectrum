@@ -81,6 +81,8 @@ module CulFacetsHelper
                           facet_field.display_name
                         elsif facet_field.respond_to?(:field_name)
                           facet_field.field_name
+                        elsif facet_field.key?(:label)
+                          facet_field[:label]
                         else
                           ''
                           raise

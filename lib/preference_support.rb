@@ -26,6 +26,19 @@ module PreferenceSupport
       []
   end
 
+
+  # Application defaults with user overrides
+  def get_eds_facets
+    facets = {
+      'SourceType' => 10,
+      'SubjectEDS' => 10,
+      'Language'   => 10
+    }
+    return facets
+  end
+
+
+
   # list of all datasources known to work within bentos
   BENTO_DATASOURCES = %w(
     catalog articles academic_commons lweb

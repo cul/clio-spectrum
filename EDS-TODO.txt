@@ -1,0 +1,16 @@
+
+
+EDS - THINGS TO DO
+
+- Unauth results show in list with title replaced, but with result_id counted in.
+How to omit unauth records from results altogether?
+
+- Unauth results still offer link - but direct link, not FTF link
+
+
+
+
+
+
+
+
