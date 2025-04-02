@@ -104,8 +104,9 @@ gem 'summon', git: 'https://github.com/cul/summon.git'
 
 
 #  EBSCO Article Search
-# gem 'ebsco-eds'
-gem 'ebsco-eds', path: '/Users/marquis/src/edsapi-ruby'
+gem 'ebsco-eds'
+# for local debugging:
+# gem 'ebsco-eds', path: '/Users/marquis/src/edsapi-ruby'
 
 
 # EDS gem dependencies, pin to versions availalbe on servers
