@@ -31,7 +31,7 @@ datasources:
     search_box:
       route: articles_index_path
       placeholder: Articles
-      search_type: summon
+      # search_type: summon
       advanced: true
       # search_category: articles
       search_fields:

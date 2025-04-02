@@ -25,6 +25,19 @@ module Spectrum
 
       include Rails.application.routes.url_helpers
 
+      # The EDS API (gem 'ebsco-eds') knows the EDS facets by nicer names
+      FACET_NAME_MAP = {
+        'SourceType' =>  'eds_publication_type_facet',
+        'SubjectEDS' =>  'eds_subject_topic_facet',
+        'Language'   =>  'eds_language_facet'
+      }
+      FACET_LABEL_MAP = {
+        'SourceType' =>  'Source Type',
+        'SubjectEDS' =>  'Subject',
+        'Language'   =>  'Language'
+      }
+
+
       attr_reader :source, :errors, :search
 #       attr_accessor :params
 
@@ -62,11 +75,15 @@ module Spectrum
             query:  @q,
             "page" =>  options['pagenumber'] || 1
           }
-          # add additional options only when they're present
+          # add additional options only when they're present.
+          # some search keys exactly match params - some do not.
           search_options['results_per_page'] = options['resultsperpage'] if options.key?('resultsperpage')
           search_options['sort'] = options['sort'] if options.key?('sort')
           search_options['search_field'] = options['search_field'] if options.key?('search_field')
           search_options[:actions] = options['actions'] if options.key?('actions')
+
+          search_options['f'] = options['f'] if options.key?('f')
+
 
           start_time = Time.now
           @search = eds_session.search(search_options)
@@ -90,20 +107,84 @@ module Spectrum
 
 #       # FACET_ORDER = %w(ContentType SubjectTerms Language)
 #
+# >> @search.applied_facets
+# => [{"FacetValue"=>{"Id"=>"Language", "Value"=>"spanish"}, "RemoveAction"=>"removefacetfiltervalue(1,Language:spanish)"}]
+# 
+
+      # The facets that we want to show are in @eds_facets (populated from app_config).
+      # We need to collect facet-values for each of these facets, pulled out of the
+      # search results (@search), from both @search.applied_facets and @search.facets
       def facets
         facets = []
-        # loop over our configured list of facets to show...
-        @eds_facets.keys.each do |configured_facet_id|
-          # locate the configured facet in the full list of facets
-          # returned by the EDS search
-          @search.facets.each do |search_results_facet|
-            facets << search_results_facet if search_results_facet[:id] == configured_facet_id
+
+        # loop over our configured list of facets
+        @eds_facets.each do |configured_facet|
+          configured_facet_id, configured_facet_count = configured_facet
+          
+          # Create a facet structure...
+          facet = { id: configured_facet_id, label: '', values: [], applied_values: [] }
+          
+          # If we have any applied facet-value filter for THIS facet, 
+          # add that value, first, to the facet (with the "remove" action)
+          @search.applied_facets.to_a.each do |applied_facet|
+            id     = applied_facet['FacetValue']['Id']
+            value  = applied_facet['FacetValue']['Value']
+            action = applied_facet['RemoveAction']
+            if id == configured_facet_id
+              applied_facet_filter_value = { 
+                value:     value,
+                hitcount:  @search.stat_total_hits,
+                action:    action
+              }
+              facet[:applied_values] << applied_facet_filter_value
+            end
           end
+
+          # raise if configured_facet_id == 'Language'   # DEBUG
+
+          # locate the configured facet in the full list of search-results facets
+          @search.facets.each do |search_results_facet|
+            # We've found the facet - now trim the value list to show only the first N values
+            if search_results_facet[:id] == configured_facet_id
+              # Use EDS internal "label" field, or use a local configuration?
+              # These are initially identical - but we might modify our local labels.
+              # facet[:label] = search_results_facet[:label]
+              facet[:label] = FACET_LABEL_MAP[configured_facet_id]
+              
+              
+              count_so_far = facet[:values].size
+              count_needed = configured_facet_count - count_so_far
+              # concatenate an array on the end of another array
+              facet[:values] += search_results_facet[:values].first(count_needed)
+            end
+          end
+          
+          facets << facet
+          
         end
         return facets
           
         # @search.facets.sort_by { |facet| (ind = Spectrum::SearchEngines::Summon.get_summon_facets.keys.index(facet.display_name)) ? ind : 999 }
       end
+
+
+      # THIS WORKS:
+      # http://cliobeta.columbia.edu:3001/articles?q=smith&f[eds_language_facet][]=French
+      #
+      # THIS WORKS:
+      # http://cliobeta.columbia.edu:3001/articles?q=smith&f[eds_language_facet][]=French&f[eds_language_facet][]=Spanish
+      # 2025-04-01 18:24:02 [DEBUG] ===========================  OPTIONS  {:query=>"smith", "page"=>1, "f"=>{"eds_language_facet"=>["French", "Spanish"]}}
+      # 2025-04-01 18:24:04 [DEBUG] [Spectrum][Eds] search_options: {:query=>"smith", "page"=>1, "f"=>{"eds_language_facet"=>["French", "Spanish"]}}
+
+      
+      def eds_add_facet_filter(facet_id, facet_value)
+        facet_name = FACET_NAME_MAP[facet_id]
+        facet_param = { "f[#{facet_name}][]" => facet_value }
+
+        return eds_search_modify( facet_param )
+      end
+
+
 
 #       # The "pre-facet-options" are the four checkboxes which precede the facets.
 #       # Return array of ad-hoc structures, parsed by summon's facets partial
@@ -227,6 +308,15 @@ module Spectrum
           remove_action = query_with_action['RemoveAction']
           remove_link = eds_search_modify('actions' => remove_action)
 
+          constraints << [query_text, remove_link]
+        end
+        
+        @search.applied_facets.each do |applied_facet|
+          id     = applied_facet['FacetValue']['Id']
+          value  = applied_facet['FacetValue']['Value']
+          remove_action = applied_facet['RemoveAction']
+          query_text = "#{FACET_LABEL_MAP[id]}: #{value.humanize}"
+          remove_link = eds_search_modify('actions' => remove_action)
           constraints << [query_text, remove_link]
         end
         
@@ -359,7 +449,56 @@ module Spectrum
       # and by possible advanced-search indicator
       def eds_params_modify(extra_params = {})
         params = @search.raw_options.dup
+        
+        # don't persist the "actions" params that landed on this page
+        params.delete(:actions)
+        
+        # We need to drop any "f" facet filters that are in the 
+        # URL - because they may be the target of a RemoveAction.
+        # Instead, rebuild "f" from @search.applied_filters
+        params.delete('f')
+        @search.applied_facets.each do |applied_facet|
+          # { "FacetValue"   => { "Id" => "Language", "Value" => "spanish" },
+          #   "RemoveAction" => "removefacetfiltervalue(1,Language:spanish)" }
+          facet_id    = applied_facet["FacetValue"]["Id"]
+          facet_value = applied_facet["FacetValue"]["Value"]
+          facet_name = FACET_NAME_MAP[facet_id]
+          # careful - the value of this params key needs to be an array...
+          # params["f[#{facet_name}][]"] ||= []
+          # params["f[#{facet_name}][]"] << facet_value
+          params["f[#{facet_name}]"] ||= []
+          params["f[#{facet_name}]"] << facet_value
+        end
+        
+        
+        Rails.logger.debug "***************  eds_params_modify() MIDWAY params = #{params}"
+        
+        # raise if extra_params.to_s.match(/creole/)
+        
+        
 # Rails.logger.debug "=== RAW === " + search.raw_options.to_s
+
+#  FACETS
+# they will be in the params as an action:
+# >> @search.raw_options
+# => {:query=>"smith", "page"=>1, "search_field"=>"q", :actions=>"addfacetfilter(Language:spanish)"}
+
+# We need to rewrite these as a facet param:
+#  f: { eds_language_facet: [spanish, french]}
+
+# Or rewrite like this:
+# facetfilter=1,Language:english
+# facetfilter=2,Language:french
+# 
+#  (But not as an ongoing series of actions!)
+# 
+# >> @search.raw_options
+# => {:query=>"smith", "page"=>1, "search_field"=>"q", :actions=>"addfacetfilter(Language:spanish)"}
+# >> @search.applied_facets
+# => [{"FacetValue"=>{"Id"=>"Language", "Value"=>"spanish"}, "RemoveAction"=>"removefacetfiltervalue(1,Language:spanish)"}]
+# >> @search.facets.first[:values].first
+# => {:value=>"Academic Journals", :hitcount=>75333, :action=>"addfacetfilter(SourceType:Academic Journals)"}
+# 
 
         # NEXT-903 - ALWAYS reset to seeing page number 1.
         params.delete('page')
@@ -372,8 +511,24 @@ module Spectrum
         # # Move query term from "query" to "q" to make CLIO work!
         params['q'] = params.delete(:query)
         
-        params.merge!(extra_params)
+        # No - this merge will overwrite "f" facet-filters
+        # params.merge!(extra_params)
+        # Instead do this - if key exists as array, append new value
+        extra_params.each do |key, value|
+          if params.key?(key) and params[key].is_a?(Array)
+            # If the key already exists and its value is an array, append the new values
+            params[key] += Array(value)  # Ensure 'value' is treated as an array (in case it's not)
+          else
+            # Otherwise, just use the new key/value pair from "extra_params"
+            params[key] = value
+          end
+        end
+        
+        
+        
+        
 
+        Rails.logger.debug "***************  eds_params_modify() FINAL params = #{params}"
         params
       end
 
@@ -453,6 +608,15 @@ module Spectrum
 #           "#{facet_name},and,1,#{facet_count}"
 #         end
 #       end
+
+
+
+
     end
+
   end
+
 end
+
+
+

@@ -27,14 +27,12 @@ module PreferenceSupport
   end
 
 
-  # Application defaults with user overrides
+  # Application defaults - if not specified in app_config
+  DEFAULT_EDS_FACETS = { 'SourceType' => 10, 'SubjectEDS' => 10, 'Language' => 10 }
   def get_eds_facets
-    facets = {
-      'SourceType' => 10,
-      'SubjectEDS' => 10,
-      'Language'   => 10
-    }
-    return facets
+    APP_CONFIG['eds_facets'] ||
+      DEFAULT_EDS_FACETS ||
+      []
   end
 
 

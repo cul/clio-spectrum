@@ -24,6 +24,7 @@
         = render partial: '/spectrum/eds/no_results_blurb', locals: {result: result}
       - else
         = render partial: '/spectrum/eds/index_toolbar', locals: {result: result}
+        = render partial: '/eds_referral'
         = render partial: '/eds_warning'
         #documents{:data => {'ga-action' => 'Search Results Click'} }
           = render partial: "/spectrum/eds/result_docs", locals: {result: result, render_opts: search_render_options(search, source)}

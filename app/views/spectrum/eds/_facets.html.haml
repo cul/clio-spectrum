@@ -57,23 +57,22 @@
           .panel-body
       
             %ul.facet-values.list-unstyled
+
+              - facet[:applied_values].each do |item|
+                %li
+                  %span.facet-label
+                    %span.selected
+                      #{item[:value].humanize}
+                  %span.facet-count
+                    %a.remove{:href => result.eds_search_action(item[:action])}
+                      %span.glyphicon.glyphicon-remove
+
               - facet[:values].each do |item|
                 %li
                   %span.facet-label
-                    - if false #item.applied?
-                      - if false #item.negated?
-                        %span.selected
-                          Not #{item[:value]}
-                        %a.remove{:href => result.eds_search_action(item[:action])}
-                          %span.glyphicon.glyphicon-remove
-                      - else
-                        %span.selected
-                          #{item[:value]}
-                        %a.remove{:href => result.eds_search_action(item[:action])}
-                          %span.glyphicon.glyphicon-remove
-                    -else
-                      %a.facet_select{:href => result.eds_search_action(item[:action])} #{item[:value]}
+                    %a.facet_select{href: result.eds_add_facet_filter(facet[:id], item[:value])} #{item[:value].humanize}
                   %span.facet-count #{number_with_delimiter(item[:hitcount])}
+
               -# Only show the "more..." link if we think there may be more.
               - if facet[:values].size >= 10 # facet.src['pageSize']
                 %li.more_facets_link
