@@ -9,8 +9,15 @@
   .row
     .title.col-sm-12
       .item_anchor
-        = render partial: '/saved_lists/item_select_checkbox', locals: {item_id: bookmark, counter: counter ||= 0}
-      .item_select_allowance= eds_link_to_article document
+        / TODO - no selection support yet for EDS 
+        / = render partial: '/saved_lists/item_select_checkbox', locals: {item_id: bookmark, counter: counter ||= 0}
+        
+        %label{ class: 'no-bottom-space' }
+          - if local_assigns[:counter]
+            %small.text-muted= "#{counter ||= ''}."
+        
+      / TODO - no selection support yet for EDS
+      .item_select_allowanceNOT= eds_link_to_article document
 
 
   .details

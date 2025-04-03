@@ -56,39 +56,54 @@ module Spectrum
         guest = true   # default
         guest = options.delete('guest') if options.has_key?('guest')
 
+        eds_config = APP_CONFIG['eds']
+        session_params = {
+          user:    eds_config['username'],
+          pass:    eds_config['password'],
+          profile: eds_config['profile_id'],
+          guest:   guest
+        }
+        eds_session = EBSCO::EDS::Session.new(session_params)
+
+        # Something's funky here.  
+        #   :query needs to be a symbol,
+        #   "page" needs to be a string
+        # Options processing logic (edsapi-ruby options.rb) is very inconsistent 
+        # with regard to the key values (string v.s. symbol, lower-case v.s. snake-case, etc.)
+        search_options = {
+          query:  @q,
+          "page" =>  options['pagenumber'] || 1
+        }
+        # add additional options only when they're present.
+        # some search keys exactly match params - some do not.
+        search_options['results_per_page'] = options['resultsperpage'] if options.key?('resultsperpage')
+        search_options['sort'] = options['sort'] if options.key?('sort')
+        search_options['search_field'] = options['search_field'] if options.key?('search_field')
+        search_options[:actions] = options['actions'] if options.key?('actions')
+
+        search_options['f'] = options['f'] if options.key?('f')
+        
+        
+        
+
+        ## ## ## DEBUG ## ## ## 
+        ####  Speaking EDS API - does not work
+        # search_options['limiter'] =  'DT1:1920-01/1940-01'
+        # GET http://eds-api.ebscohost.com/edsapi/rest/search?query=boston&includefacets=y&
+        # limiter=DT1:1980-01%2f2015-12
+        ####  Speaking Blacklight - works
+        # blacklight year range slider input
+        # "range"=>{"pub_year_tisim"=>{"begin"=>"1970", "end"=>"1980"}}
+        # search_options["range"] = {"pub_year_tisim"=>{"begin"=>"1970", "end"=>"1980"}}
+      
+        # All I have to do here is send it along to the gem library if it's in the URL
+        search_options['range'] = options['range'] if options.key?('range')
+        
         begin
-          eds_config = APP_CONFIG['eds']
-          session_params = {
-            user:    eds_config['username'],
-            pass:    eds_config['password'],
-            profile: eds_config['profile_id'],
-            guest:   guest
-          }
-          eds_session = EBSCO::EDS::Session.new(session_params)
-
-          # Something's funky here.  
-          #   :query needs to be a symbol,
-          #   "page" needs to be a string
-          # Options processing logic (edsapi-ruby options.rb) is very inconsistent 
-          # with regard to the key values (string v.s. symbol, lower-case v.s. snake-case, etc.)
-          search_options = {
-            query:  @q,
-            "page" =>  options['pagenumber'] || 1
-          }
-          # add additional options only when they're present.
-          # some search keys exactly match params - some do not.
-          search_options['results_per_page'] = options['resultsperpage'] if options.key?('resultsperpage')
-          search_options['sort'] = options['sort'] if options.key?('sort')
-          search_options['search_field'] = options['search_field'] if options.key?('search_field')
-          search_options[:actions] = options['actions'] if options.key?('actions')
-
-          search_options['f'] = options['f'] if options.key?('f')
-
-
+          Rails.logger.debug "[Spectrum][Eds] search_options: #{search_options}"
           start_time = Time.now
           @search = eds_session.search(search_options)
           end_time = Time.now
-          Rails.logger.debug "[Spectrum][Eds] search_options: #{search_options}"
           Rails.logger.debug "[Spectrum][Eds] search took: #{(end_time - start_time).round(2)} sec"
 
         rescue => ex
@@ -179,7 +194,7 @@ module Spectrum
       
       def eds_add_facet_filter(facet_id, facet_value)
         facet_name = FACET_NAME_MAP[facet_id]
-        facet_param = { "f[#{facet_name}][]" => facet_value }
+        facet_param = { "f[#{facet_name}][]": facet_value }
 
         return eds_search_modify( facet_param )
       end
@@ -319,6 +334,18 @@ module Spectrum
           remove_link = eds_search_modify('actions' => remove_action)
           constraints << [query_text, remove_link]
         end
+        
+        # The only limiter we support currently is a date-limiter, 
+        # which lets us take some shortcuts here
+        # @search.applied_limiters.each do |applied_limiter|
+        # end
+        date_range = date_limit_to_date_range(@search.applied_limiters)
+        if date_range
+          query_text = "Publication Date: #{date_range["begin_year"]} to #{date_range["end_year"]}"
+          remove_link = eds_search_modify('actions' => date_range["remove_action"])
+          constraints << [query_text, remove_link]
+        end
+        
         
         constraints
       end
@@ -470,10 +497,23 @@ module Spectrum
           params["f[#{facet_name}]"] << facet_value
         end
         
+        # Same logic - remove the date-range, because it may have been 
+        # nullified by an Action.  Then re-add a date range, based on 
+        # applied_limiters - which shows actual in-effect limits
+        params.delete('range')
+        @search.applied_limiters.each do |applied_limit|
+          limit_id = applied_limit["Id"]
+          if limit_id.starts_with?('DT')
+            date_range = date_limit_to_date_range(@search.applied_limiters)
+            if date_range
+              params["range"] = { "pub_year_tisim": 
+                                  { "begin": date_range["begin_year"], 
+                                      "end": date_range["end_year"]   } }
+            end
+          end
+        end
         
-        Rails.logger.debug "***************  eds_params_modify() MIDWAY params = #{params}"
-        
-        # raise if extra_params.to_s.match(/creole/)
+         # raise if extra_params.to_s.match(/creole/)
         
         
 # Rails.logger.debug "=== RAW === " + search.raw_options.to_s
@@ -524,13 +564,50 @@ module Spectrum
           end
         end
         
-        
-        
-        
-
-        Rails.logger.debug "***************  eds_params_modify() FINAL params = #{params}"
         params
       end
+      
+      
+      # - Given an EDS date-limit in format:
+      # { "Id"=>"DT1", 
+      #   "LimiterValuesWithAction" => [
+      #       { "Value" => "1970-01/1980-01", 
+      #         "RemoveAction"=>"removelimitervalue(DT1:1970-01/1980-01)" }
+      #   ],
+      #   "RemoveAction" => "removelimiter(DT1)"
+      # }
+      # Return a simple two-element array of year strings:
+      #   [ "1970", "1980" ]
+      def date_limit_to_date_range(applied_limiters)
+        return nil unless applied_limiters and applied_limiters.is_a?(Array)
+
+        applied_limiters.each do |applied_limit|
+          return nil unless applied_limit.is_a?(Hash) and applied_limit.has_key?("Id") and applied_limit["Id"] == 'DT1'
+
+          remove_action = applied_limit["RemoveAction"]
+
+          applied_limit['LimiterValuesWithAction'].each do |value_with_action|
+            # "Value"=>"1970-01/1980-01"
+            value = value_with_action["Value"]
+            # Look for 4-digit substrings
+            year_substrings = value.scan(/\b\d{4}\b/)
+            # Fail unless we found exactly two 4-digit strings
+            return nil unless year_substrings.length == 2
+            # Return the data...
+            date_range = {
+              "begin_year"     => year_substrings[0],
+              "end_year"       => year_substrings[1],
+              "remove_action"  => remove_action,
+            }
+            return date_range
+          end
+        end
+
+        # if we didn't manage to find a begin & end date range, return nil
+        return nil
+      end
+      
+      
 
 #       AVAILABLE_SUMMON_FACETS = [
 #         'SubjectTerms',
@@ -609,6 +686,40 @@ module Spectrum
 #         end
 #       end
 
+
+
+#  DATE RANGE - INFORMATION
+# >> @search.applied_limiters
+# => [{"Id"=>"DT1", "LimiterValuesWithAction"=>[{"Value"=>"1970-01/1980-01", "RemoveAction"=>"removelimitervalue(DT1:1970-01/1980-01)"}], "RemoveAction"=>"removelimiter(DT1)"}]
+# >> l1 = @search.applied_limiters.first
+# => {"Id"=>"DT1", "LimiterValuesWithAction"=>[{"Value"=>"1970-01/1980-01", "RemoveAction"=>"removelimitervalue(DT1:1970-01/1980-01)"}], "RemoveAction"=>"removelimiter(DT1)"}
+# >> l1.keys
+# => ["Id", "LimiterValuesWithAction", "RemoveAction"]
+# >> l1['LimiterValuesWithAction']['Value']
+# !! #<TypeError: no implicit conversion of String into Integer>
+# >> l1['LimiterValuesWithAction'].keys
+# !! #<NoMethodError: undefined method `keys' for #<Array:0x00007fa7407969d8>>
+# >> l1['LimiterValuesWithAction']
+# => [{"Value"=>"1970-01/1980-01", "RemoveAction"=>"removelimitervalue(DT1:1970-01/1980-01)"}]
+# >> lv1 = l1['LimiterValuesWithAction'].first
+# => {"Value"=>"1970-01/1980-01", "RemoveAction"=>"removelimitervalue(DT1:1970-01/1980-01)"}
+# >> lv1
+# => {"Value"=>"1970-01/1980-01", "RemoveAction"=>"removelimitervalue(DT1:1970-01/1980-01)"}
+# >> lv1['Value']
+# => "1970-01/1980-01"
+# >>
+#
+# >> @search.raw_options
+# => {:query=>"dogs", "page"=>1, "search_field"=>"q", "range"=>{"pub_year_tisim"=>{"begin"=>"1970", "end"=>"1980"}}}
+# ####  Speaking EDS API - does not work
+# # search_options['limiter'] =  'DT1:1920-01/1940-01'
+# # GET http://eds-api.ebscohost.com/edsapi/rest/search?query=boston&includefacets=y&
+# # limiter=DT1:1980-01%2f2015-12
+# ####  Speaking Blacklight - works
+# # blacklight year range slider input
+# # "range"=>{"pub_year_tisim"=>{"begin"=>"1970", "end"=>"1980"}}
+# search_options["range"] = {"pub_year_tisim"=>{"begin"=>"1970", "end"=>"1980"}}
+# 
 
 
 

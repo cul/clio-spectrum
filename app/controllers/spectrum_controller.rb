@@ -44,8 +44,9 @@ class SpectrumController < ApplicationController
     # (Compare logic from SearchHelper#has_search_parameters?)
     if params['q'].nil? && params['s.q'].nil? &&
        params['s.fq'].nil? && params['s.ff'].nil? ||
-       (params['q'].to_s.empty? && ['library_web', 'lweb'].include?(active_source))
-      flash[:error] = 'You cannot search with an empty string.' if params['commit']
+       (params['q'].to_s.empty? && 
+       ['library_web', 'lweb', 'articles'].include?(active_source))
+      flash.now[:error] = 'You cannot search with an empty string.' if params['commit']
     elsif @search_layout.nil?
       flash[:error] = 'No search layout specified'
       redirect_to root_path
@@ -287,6 +288,18 @@ class SpectrumController < ApplicationController
     params['guest'] = true
     params['guest'] = false if current_user.present?
     params['guest'] = false if @user_characteristics[:on_campus]
+    
+    # Date range is tricky - new values are submitted as POST parameters,
+    # but the previous values are possibly present in the POST target URL.
+    if params['date_range']
+      begin_year = params['date_range']["begin_year"]
+      begin_year = '0000' unless begin_year.present?
+
+      end_year = params['date_range']["end_year"]
+      end_year = '2100' unless end_year.present?
+
+      params["range"] = { "pub_year_tisim": { "begin": begin_year, "end": end_year   } }
+    end
     
     return params
   end

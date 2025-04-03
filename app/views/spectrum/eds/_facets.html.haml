@@ -15,10 +15,6 @@
     -# PUBLICATION DATE FACET HANDLED SEPARATELY
     -# (it's actually a range-filter, not a facet)
 
-    -# for initial EDS rollout, always show pub-date (no collapsing)
-    - date_range = result.search.date_range
-    - min = date_range[:minyear]
-    - max = date_range[:maxyear]
     .panel.panel-default.facet_limit{class: "facet_limit-active"}
       .collapse-toggle.panel-heading{class: "", data: {toggle: "collapse", target: "#facet-pub_range_filter", 'facet-tag' => build_facet_tag("date_range")}}
 
@@ -27,15 +23,20 @@
 
       .panel-collapse.facet-content{id: "facet-date_range", class: "in"}
         .panel-body
-          %span.selected
-            Publication Date: #{min} to #{max}
-          %a.remove{ href: result.eds_search_modify({}) }
-            %span.glyphicon.glyphicon-remove
+          - begin_year, end_year = ['', '']
+          - date_range = result.date_limit_to_date_range(result.search.applied_limiters)
+          - if date_range
+            - begin_year = date_range['begin_year']
+            - end_year   = date_range['end_year']
+            %span.selected
+              Publication Date: #{begin_year} to #{end_year}
+            %a.remove{:href => result.eds_search_action( date_range['remove_action'] )}
+              %span.glyphicon.glyphicon-remove
 
           = form_tag result.eds_search_modify(), :class => 'form-inline date_range_form' do
-            = text_field_tag 'range[pub_year_tisim][begin]', min, class: "form-control input-mini validate-date-format", maxlength: '4', size: '8', placeholder: 'YYYY'
+            = text_field_tag 'date_range[begin_year]', begin_year, class: "form-control input-mini validate-date-format", maxlength: '4', size: '8', placeholder: 'YYYY'
             #{"-"}
-            = text_field_tag 'range[pub_year_tisim][end]', max, class: "form-control input-mini validate-date-format", maxlength: '4', size: '8', placeholder: 'YYYY'
+            = text_field_tag 'date_range[end_year]', end_year, class: "form-control input-mini validate-date-format", maxlength: '4', size: '8', placeholder: 'YYYY'
             %button.btn.btn-submit{:name => 'submit', :value => 'commit', :type => 'submit'} Limit
 
 
@@ -44,7 +45,7 @@
     -# LOOP OVER ALL EXPOSED FACETS...
 
     -# "facet" is Summon::Facet from the response object
-    - result.facets.reject { |ft| ft.empty?}.each do |facet|
+    - result.facets.reject { |ft| ft[:values].empty?}.each do |facet|
 
       .panel.panel-default.facet_limit{class: "facet_limit-active"}
       

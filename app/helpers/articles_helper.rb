@@ -246,6 +246,24 @@ module ArticlesHelper
     hidden_fields.join("\n").html_safe
   end
 
+
+  def eds_hidden_keys_for_search(query_as_hash)
+    # based on Blacklight::HashAsHiddenFieldsHelperBehavior
+    hidden_fields = []
+    query_as_hash.each do |name, value|
+      if value.is_a?(Array)
+        value.each do |value_element|
+          hidden_fields << hidden_field_tag("#{name}[]", value_element.to_json, id: nil)
+        end
+      else
+        hidden_fields << hidden_field_tag(name, value.to_json, id: nil)
+      end
+      raise if name == 'f'
+    end
+
+    hidden_fields.join("\n").html_safe
+  end
+  
   #  SIMPLE SEARCH:
   #   "q"=>"nature"
   #   "search_field"=>"s.fq[PublicationTitle]"
