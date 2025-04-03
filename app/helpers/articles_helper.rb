@@ -42,29 +42,32 @@ module ArticlesHelper
 
   def eds_get_article_type(document)
     type = document.eds_publication_type
+    best_link = eds_best_link(document)
     
-    type += ': ' + eds_link_to_article(document, 'Citation Online')
+    type += ': ' + link_to( best_link[:label], best_link[:url] )
     
     return type
   end
 
-  # EDS documents can have several different kinds of links.
-  # Which do we want to use?
-  # For now, always return the link to "Full Text Finder"
-  def eds_link_to_article(document, link_title = nil)
-    link_title ||= document.title.html_safe
+  def eds_title_link(document)
+    best_link = eds_best_link(document)
+    return link_to( document.title.html_safe, best_link[:url] )
+  end
+
+  # Try to find the single best link
+  def eds_best_link(document)
+    best_link_url   = ''
+    best_link_label = ''
     
     document.eds_fulltext_links.each do |link|
       if link[:label] == 'Full Text Finder'
-        return link_to(link_title, link[:url])
+        return { url: link[:url], label: link[:label] }
       end
     end
     
-    # fallback if "Full Text Finder" not found?
-    # return our proxied link to an ebscohost search
-    return link_to(link_title, document.eds_plink) if document.eds_plink.present?
+    # fallback, return our proxied link to an ebscohost search
+    return { url: document.eds_plink, label: 'Citation Online' }
   end
-
 
 
   def eds_dump(document)

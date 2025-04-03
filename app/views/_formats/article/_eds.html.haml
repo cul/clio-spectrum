@@ -17,7 +17,7 @@
             %small.text-muted= "#{counter ||= ''}."
         
       / TODO - no selection support yet for EDS
-      .item_select_allowanceNOT= eds_link_to_article document
+      .item_select_allowanceNOT= eds_title_link(document)
 
 
   .details
@@ -25,7 +25,8 @@
       = add_row('Author', eds_get_article_authors(document), html_safe: true)
     = add_row('Citation', eds_get_article_citation(document))
     = add_row('Format', eds_get_article_type(document))
-    - if Rails.env == 'xdevelopment'
+
+    - if Rails.env == 'development'
       = eds_dump(document).html_safe
     
 
