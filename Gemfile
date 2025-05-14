@@ -252,6 +252,10 @@ group :development do
   # gem 'request_profiler', :git => "git://github.com/justinweiss/request_profiler.git"
 end
 
+# During FOLIO development, I need these on the server too!
+gem 'better_errors'
+gem 'binding_of_caller'
+
 
 group :test, :development do
   gem 'thin'
