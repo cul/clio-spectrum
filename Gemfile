@@ -234,12 +234,13 @@ group :development do
   gem 'bcrypt_pbkdf'
   
 
-  # browser-based live debugger and REPL
-  # HAML REPL breaks in 2.7.0/2.7.1 ???
-  # gem 'better_errors', '~> 2.6.0'
-  # maybe fixed now...
-  gem 'better_errors'
-  gem 'binding_of_caller'
+  # Moved just below, outside of "development"
+  # # browser-based live debugger and REPL
+  # # HAML REPL breaks in 2.7.0/2.7.1 ???
+  # # gem 'better_errors', '~> 2.6.0'
+  # # maybe fixed now...
+  # gem 'better_errors'
+  # gem 'binding_of_caller'
 
   # For code-level debugging in console
   gem 'byebug'

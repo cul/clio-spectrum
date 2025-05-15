@@ -1,0 +1,20 @@
+
+Question about staffOnly flag on notes.
+
+This note shows up in CLIO - it is public
+
+https://clio.columbia.edu/catalog/1171398/librarian_view
+
+890      |0 1461234 |a For circ info, search author or title of individual volumes.
+
+BUT in FOLIO this note is marked as staff-only:
+
+  "notes": [
+    {
+      "holdingsNoteTypeId": "b160f13a-ddba-4053-b9c4-60ec5ea45d56",
+      "note": "For circ info, search author or title of individual volumes.",
+      "staffOnly": true
+    }
+  ],
+
+
