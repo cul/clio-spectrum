@@ -1,0 +1,56 @@
+
+// views/my_account/index.html.haml
+
+
+.jumpotron.alert.alert-info
+  %h3
+    My Borrowing Account
+
+  %p= "Logged in as: #{current_user.name} (#{current_user.uid}) -- #{link_to "logout", destroy_user_session_path}"
+
+  %p= "Barcode: #{@user['barcode']}"
+  
+
+%h3
+  Open Loans
+  
+%table.table-striped.table-bordered.table-condensed
+  %thead
+    %tr
+      %th
+        Title
+      %th
+        Status
+      %th
+        Due Date
+
+  - @loans.each do |loan|
+    %tr
+      %td= loan['item']['title']
+      %td= loan['item']['status']['name']
+      %td= loan['dueDate']
+
+
+%h3
+  Open Requests
+  
+%table.table-striped.table-bordered.table-condensed
+  %thead
+    %tr
+      %th
+        Title
+      %th
+        Request Type
+      %th
+        Status
+
+  - @requests.each do |request|
+    %tr
+      %td= request['instance']['title']
+      %td= request['requestType']
+      %td= request['status']
+
+
+
+
+

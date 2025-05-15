@@ -260,4 +260,7 @@ Rails.application.routes.draw do
       get 'sets'
     end
   end
+
+  resources :my_account
+  
 end

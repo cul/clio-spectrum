@@ -8,22 +8,17 @@
 
     / Layout:  no_sidebar_no_search
 
-    -# BLACKLIGHT 4
-    -# -# Used by Blacklight's lightbox dialog
-    -# #ajax-modal.modal.hide.fade{:tabindex => -1}
-    - add_datasources
     #trigger
+
     = render :partial => "/top_navigation_bar"
+
     #outer-container.container
-      -# #page.container
-      -# = render :partial => "/header"
-      #bd.row
-        .row
+
+      .row
+        = render :partial=>'/layouts/messages'
+      = yield
       
-          = render :partial=>'/layouts/messages'
-          = yield
-      
-        .clear-both
+      .clear-both
       = render :partial => "/footer"
 
     -# BLACKLIGHT 5

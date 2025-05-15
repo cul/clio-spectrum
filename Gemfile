@@ -31,6 +31,12 @@ gem 'traject'
 # # Try U.Mich's more detailed format classifier
 # gem 'traject_umich_format'
 
+
+# FOLIO Okapi connectivity using Stanford's gem
+# https://github.com/sul-dlss/folio_client
+gem 'folio_client', '0.15.0'
+
+
 # Only used for Google Maps location pages
 gem 'rest-client'
 gem 'gmaps4rails'
