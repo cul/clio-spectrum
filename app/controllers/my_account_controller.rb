@@ -9,8 +9,13 @@
 # - place hold/recall
 # - saved lists
 #
+# What about?
+# - seeing any fines
+# - seeing any blocks
+# 
 class MyAccountController < ApplicationController
-  layout 'no_sidebar_no_search'
+  # layout 'no_sidebar_no_search'
+  layout 'no_sidebar'
 
   before_action :authenticate_user!
 
