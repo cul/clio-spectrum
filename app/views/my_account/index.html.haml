@@ -8,7 +8,15 @@
 
   %p= "Logged in as: #{current_user.name} (#{current_user.uid}) -- #{link_to "logout", destroy_user_session_path}"
 
-  %p= "Barcode: #{@user['barcode']}"
+  // %p= "Barcode: #{@user['barcode']}"
+  %br
+  
+  %li Place Hold or Recall requests from the CLIO Item page
+  
+  %li 
+    Find your lists at 
+    = link_to "My Saved Lists", lists_path
+  
   
 
 %h3
@@ -23,12 +31,16 @@
         Status
       %th
         Due Date
+      %th
+        Actions
 
   - @loans.each do |loan|
     %tr
       %td= loan['item']['title']
       %td= loan['item']['status']['name']
-      %td= loan['dueDate']
+      - due_date_formatted = Time.iso8601(loan['dueDate']).strftime("%Y-%m-%d %-l:%M %p")
+      %td= due_date_formatted
+      %td= renew_link(loan)
 
 
 %h3

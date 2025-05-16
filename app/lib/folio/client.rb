@@ -1,11 +1,23 @@
+#
 # Wrapper around Stanford FolioClient
+# 
+# Get a FolioClient with either of:
+#   folio_client = Folio::Client.new()
+#   folio_client = Folio::Client.folio_client
+# 
+# Call the helper methods defined below:
+#   Folio::Client.get_user_by_username('sam119')
+# 
+# Or make direct FOLIO API calls yourself:
+#   location_json = Folio::Client.folio_client.get('/locations')
+# 
 module Folio
   class Client
     
-    attr_reader :conn
+    attr_reader :folio_client
     
     def initialize
-      @conn ||= Culfolio::Client.open_connection
+      @folio_client ||= Culfolio::Client.folio_client
     end
   
     def self.get_folio_config
@@ -17,9 +29,9 @@ module Folio
       return folio_config
     end
   
-    def self.open_connection
+    def self.folio_client
       folio_config = get_folio_config
-      @conn = FolioClient.configure(
+      @folio_client = FolioClient.configure(
         url: folio_config['okapi_url'],
         login_params: { 
           username: folio_config['okapi_username'], 
@@ -30,33 +42,33 @@ module Folio
           'User-Agent': 'FolioApiClient'
         }
       )
-      return @conn
+      return @folio_client
     end
     
     # Mimic postman:
     #   {{baseUrl}}/users?query=(username=="sam119*" )
     def self.get_user_by_username(username)
-      @conn ||= open_connection
+      @folio_client ||= folio_client
       query = '(username == "' + username + '")'
-      json_response = @conn.get("/users?query=#{query}")
+      json_response = @folio_client.get("/users?query=#{query}")
       first_user = json_response["users"].first
       return first_user
     end
 
     # /circulation/loans?query=(userId==5a05ac92-5512-5f1e-8198-31bcb9bf3397) sortby id
-    def self.get_loans_by_user_uuid(user_uuid)
-      @conn ||= open_connection
-      query = '(status="Open") and (userId == ' + user_uuid + ')'
-      json_response = @conn.get("/circulation/loans?query=#{query}")
+    def self.get_loans_by_user_id(user_id)
+      @folio_client ||= folio_client
+      query = '(status="Open") and (userId == ' + user_id + ')'
+      json_response = @folio_client.get("/circulation/loans?query=#{query}")
       all_open_loans = json_response["loans"]
       return all_open_loans
     end
     
     # /circulation/loans?query=(userId==5a05ac92-5512-5f1e-8198-31bcb9bf3397) sortby id
-    def self.get_requests_by_user_uuid(user_uuid)
-      @conn ||= open_connection
-      query = '(status="Open - Not yet filled") and (requesterId == ' + user_uuid + ')'
-      json_response = @conn.get("/circulation/requests?query=#{query}")
+    def self.get_requests_by_user_id(user_id)
+      @folio_client ||= folio_client
+      query = '(status="Open - Not yet filled") and (requesterId == ' + user_id + ')'
+      json_response = @folio_client.get("/circulation/requests?query=#{query}")
       all_open_requests = json_response["requests"]
       return all_open_requests
     end
