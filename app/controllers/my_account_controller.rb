@@ -20,7 +20,7 @@ class MyAccountController < ApplicationController
     @user = Folio::Client.get_user_by_username(current_user.uid)
 
     # hardcode for demonstration
-    # @user = Folio::Client.get_user_by_username( 'sam119' )
+    @user = Folio::Client.get_user_by_username( 'sam119' )
 
     user_id = @user['id']
     @loans = Folio::Client.get_loans_by_user_id(user_id)
