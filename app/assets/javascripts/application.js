@@ -42,6 +42,9 @@
 //= require bootstrap/popover
 //= require bootstrap/button
 
+// Add 'tab', for navigation tab panels (My Borrowing Account)
+//= require bootstrap/tab
+
 // And, one specific Bootstrap-based add-on, installed locally
 //= require bootstrap-datepicker
 

@@ -17,52 +17,53 @@
     Find your lists at 
     = link_to "My Saved Lists", lists_path
   
-  
 
-%h3
-  Open Loans
-  
-%table.table-striped.table-bordered.table-condensed
-  %thead
-    %tr
-      %th
-        Title
-      %th
-        Status
-      %th
-        Due Date
-      %th
-        Actions
+.container
+  %ul.nav.nav-pills
+    %li.active
+      %a{"data-toggle" => "tab", href: "#home"}
+        Open Loans
+        %span.badge=@loans.length()
+    %li
+      %a{"data-toggle" => "tab", href: "#menu1"}
+        Open Requests
+        %span.badge=@requests.length()
+      
 
-  - @loans.each do |loan|
-    %tr
-      %td= loan['item']['title']
-      %td= loan['item']['status']['name']
-      - due_date_formatted = Time.iso8601(loan['dueDate']).strftime("%Y-%m-%d %-l:%M %p")
-      %td= due_date_formatted
-      %td= renew_link(loan)
+  .tab-content
+    #home.tab-pane.fade.in.active
+      %h3 
+        Open Loans
+        
+      %table.table-striped.table-bordered.table-condensed
+        %thead
+          %tr
+            %th Title
+            %th Status
+            %th Due Date
+            %th Actions
 
+        - @loans.each do |loan|
+          %tr
+            %td= loan['item']['title']
+            %td= loan['item']['status']['name']
+            - due_date_formatted = Time.iso8601(loan['dueDate']).strftime("%Y-%m-%d %-l:%M %p")
+            %td= due_date_formatted
+            %td= renew_link(loan)
 
-%h3
-  Open Requests
-  
-%table.table-striped.table-bordered.table-condensed
-  %thead
-    %tr
-      %th
-        Title
-      %th
-        Request Type
-      %th
-        Status
+    #menu1.tab-pane.fade
+      %h3 Open Requests
+      %table.table-striped.table-bordered.table-condensed
+        %thead
+          %tr
+            %th Title
+            %th Request Type
+            %th Status
 
-  - @requests.each do |request|
-    %tr
-      %td= request['instance']['title']
-      %td= request['requestType']
-      %td= request['status']
-
-
-
-
+        - @requests.each do |request|
+          %tr
+            %td= request['instance']['title']
+            %td= request['requestType']
+            %td= request['status']
+      
 
