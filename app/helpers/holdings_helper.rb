@@ -153,7 +153,7 @@ module HoldingsHelper
 
 
 
-  SERVICE_ORDER = %w(campus_scan recap_scan offsite ill_scan ill campus_paging fli_paging recap_loan barnard_remote starrstor barnard_alum avery_onsite aeon microform precat on_order borrow_direct recall_hold in_process doc_delivery ).freeze
+  SERVICE_ORDER = %w(campus_scan recap_scan offsite ill_scan ill campus_paging fli_paging recap_loan barnard_remote starrstor barnard_alum avery_onsite aeon microform precat on_order borrow_direct in_process doc_delivery ).freeze
 
   # parameters: title, link (url or javascript), optional extra param
   # When 2nd param is a JS function,
@@ -199,7 +199,7 @@ module HoldingsHelper
                            service_url: 'https://library.columbia.edu/libraries/pmrr/services.html?'},
       'precat'         => {link_label: 'Precataloging', service_url: precat_link, 
                            js_function: 'OpenWindow'},
-      'recall_hold'    => {link_label: 'Recall / Hold', service_url: recall_hold_link},
+      # 'recall_hold'    => {link_label: 'Recall / Hold', service_url: recall_hold_link},
       'on_order'       => {link_label: 'On Order',      service_url: on_order_link,
                            js_function: 'OpenWindow'},
       'in_process'     => {link_label: 'In Process',    service_url: in_process_link,
@@ -866,16 +866,9 @@ module HoldingsHelper
     item_feedback_link = APP_CONFIG['item_feedback_link'] || "#{valet_url}/item_feedback/"
   end
 
-  def recall_hold_link
-    # Valet Hold/Recall isn't ready
-    return 'http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId='
-
-    if Rails.env == 'clio_prod'
-      'http://clio.cul.columbia.edu:7018/vwebv/patronRequests?sk=patron&bibId='
-    else
-      valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
-      return "#{valet_url}/recall_hold/"
-    end
+  def recall_link
+    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+    recall_link = APP_CONFIG['recall_link'] || "#{valet_url}/recall/"
   end
 
   # "On Order" is handled identically to "In Process"

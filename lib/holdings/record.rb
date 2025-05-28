@@ -888,18 +888,15 @@ module Holdings
     end
 
     # Scan item message string for things like "Recall", "Hold", etc.
+    # (Is this even doing anything anymore?)
     def scan_message(message = '')
       return [] unless message
       out = []
-      out << 'recall_hold'    if message =~ /Recall/i
-      out << 'recall_hold'    if message =~ /hold /
+      # We don't offer Recall/Hold in the holdings request area
+      # out << 'recall_hold'    if message =~ /Recall/i
+      # out << 'recall_hold'    if message =~ /hold /
       out << 'borrow_direct'  if message =~ /Borrow/
       out << 'in_process'     if message =~ /In Process/
-      # LIBSYS-3435 - service logic no longer based on string scanning
-      # out << 'ill'            if message =~ /ILL/
-      # out << 'ill'            if message =~ /Interlibrary Loan/
-      # out << 'ill_scan'       if message =~ /ILL/
-      # out << 'ill_scan'       if message =~ /Interlibrary Loan/
       out
     end
 
