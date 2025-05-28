@@ -32,70 +32,95 @@ class MyAccountController < ApplicationController
     @requests = Folio::Client.get_requests_by_user_id(user_id)
   end
   
-  # Any action, which makes "new" things happen, lands here
-  def new
-    loan_id = my_account_params['loan_id']
-    request  = my_account_params['request']
+  # # Any action, which makes "new" things happen, lands here
+  # def new
+  #   request    = my_account_params['request']
+  #   loan_id    = my_account_params['loan_id']
+  #   request_id = my_account_params['request_id']
+  #
+  #   # flash[:alert] = "alert"       # yellow
+  #   # flash[:warning] = "warning"   # yellow
+  #   # flash[:danger] = "danger"     # red
+  #
+  #   # What requests do we support?
+  #   # unless ['renew', 'hold', 'recall'].include?(request)
+  #   unless ['renew', 'recall', 'cancel'].include?(request)
+  #     flash[:error] = "Unknown action: '#{request}'"
+  #     redirect_to action: :index
+  #     return
+  #   end
+  #
+  #   return renew(loan_id) if request == 'renew'
+  #   return renew(loan_id) if request == 'renew'
+  #
+  #   flash[:danger] = "failed to return from renew()"
+  #   redirect_to action: :index
+  # end
+  
+  
 
-    # flash[:alert] = "alert"       # yellow
-    # flash[:warning] = "warning"   # yellow
-    # flash[:danger] = "danger"     # red
+  def renew
+    loan_id    = my_account_params['loan_id']
+
+    begin
+      loan = Folio::Client.folio_client.get("/circulation/loans/#{loan_id}")
+    rescue => ex
+      flash[:danger] = "Renewal Error:  #{ex.message}"
+      redirect_to action: :index
+      return
+    end
     
-    # What requests do we support?
-    unless ['renew', 'hold', 'recall'].include?(request)
-      flash[:error] = "Unknown action: '#{request}'"
+    begin
+      renewal = Folio::Client.renew_by_id(user_id: loan['userId'], item_id: loan['itemId'])
+    rescue => ex
+      flash[:danger] = "Renewal Error:  #{ex.message}"
+      redirect_to action: :index
+      return
+    end
+    
+    flash[:success] = "Renew Successful for: #{loan['item']['title']}"
+    redirect_to action: :index
+  end
+
+
+
+  def cancel
+    request_id    = my_account_params['request_id']
+
+    begin
+      request = Folio::Client.folio_client.get("/circulation/requests/#{request_id}")
+    rescue => ex
+      flash[:danger] = "Error cancelling request:  #{ex.message}"
       redirect_to action: :index
       return
     end
 
-    # flash[:info] = "about to call renew()"
-   
-    return renew(loan_id) if request == 'renew'
+    begin
+      cancellation  = Folio::Client.delete_request(request_id: request_id)
+    rescue => ex
+      flash[:danger] = "Error cancelling request:  #{ex.message}"
+      redirect_to action: :index
+      return
+    end
     
-    flash[:danger] = "failed to return from renew()"
+    flash[:success] = "Successfully cancelled your #{request['requestType']} for:  #{request['instance']['title']}."
     redirect_to action: :index
-  end  
-  
-  
+  end
+
+
   private
 
   def my_account_params
-    params.permit(:user_id, :item_id, :loan_id, :request)
+    params.permit(:user_id, :item_id, :loan_id, :request_id)
   end
 
-  def renew(loan_id)
-    loan = Folio::Client.folio_client.get("/circulation/loans/#{loan_id}")
-    user_id = loan['userId']
-    item_id = loan['itemId']
-
-    # It's important to keep these as string keys, not symbol keys,
-    # or FolioClient will misinterpret them as keyword arguments
-    params = { "itemId" => item_id, "userId" => user_id } 
-
-    begin
-      renewal_status = Folio::Client.folio_client.post(
-        "/circulation/renew-by-id", 
-         params
-      )
-    rescue FolioClient::ValidationError => ex
-      message = ex.message
-      message = message.sub(/There was a validation problem with the request: /, '')
-      json = JSON.parse(message)
-      if json and json["errors"]
-        error_message = json["errors"].first["message"]
-        flash[:danger] = "Renewal Error:  #{error_message}"
-        return redirect_to action: :index
-      end
-    end
-
-    redirect_to action: :index
-  end
-
-  def safe_json_parse(str)
-    JSON.parse(str)
-  rescue JSON::ParserError
-    nil
-  end
+  # Use something like this if we need to be more 
+  # careful with the responses from the FOLIO API
+  # def safe_json_parse(str)
+  #   JSON.parse(str)
+  # rescue JSON::ParserError
+  #   nil
+  # end
   
 end
 

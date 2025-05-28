@@ -261,6 +261,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :my_account
+  # My Borrowing Account - explicit routes for each command
+  # resources :my_account
+  get 'my_account', to: 'my_account#index', as: :my_account_index
+  get 'my_account/renew', to: 'my_account#renew', as: :my_account_renew
+  get 'my_account/cancel', to: 'my_account#cancel', as: :my_account_cancel
+  
   
 end

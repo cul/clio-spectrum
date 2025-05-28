@@ -17,7 +17,7 @@ module Folio
     attr_reader :folio_client
     
     def initialize
-      @folio_client ||= Culfolio::Client.folio_client
+      @folio_client ||= Folio::Client.folio_client
     end
   
     def self.get_folio_config
@@ -73,7 +73,51 @@ module Folio
       return all_open_requests
     end
     
-    
+    def self.renew_by_id(user_id:, item_id:)
+      @folio_client ||= folio_client
+      # It's important to keep these as string keys, not symbol keys,
+      # or FolioClient will misinterpret them as keyword arguments
+      params = { "itemId" => item_id, "userId" => user_id }
+
+      # the error message, if any, is found in different places for different problems
+      error_message = nil
+      
+      begin
+        renewal_status = @folio_client.post("/circulation/renew-by-id", params)
+      rescue FolioClient::ValidationError => ex
+        message = ex.message.sub(/There was a validation problem with the request: /, '')
+        json = JSON.parse(message)
+        if json and json["errors"]
+          error_message = json["errors"].first["message"]
+        else
+          error_message = ex.message
+        end
+      rescue => ex
+        error_message = ex.message
+      end
+      
+      # If any error-message was set in the rescues above, raise an exception for the caller
+      raise error_message if error_message
+      
+      # A quiet return is a successful renewal
+      return
+    end
+
+
+    def self.delete_request(request_id:)
+      @folio_client ||= folio_client
+
+      path = "/circulation/requests/#{request_id}"
+
+      # Deletes aren't yet handled natively by SUL folio_client gem.
+      # And, with_token_refresh_when_unauthorized() is a private method.
+      # Do everything ourselves, step by step, using the Faraday connection.
+      login_params = FolioClient.config.login_params
+      connection = FolioClient.connection
+      token = FolioClient::Authenticator.token(login_params, connection)
+      response = connection.delete(path, nil, { 'x-okapi-token': token })
+    end
+
     
   end
 

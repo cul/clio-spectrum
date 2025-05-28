@@ -571,6 +571,30 @@ to_field 'authorities_dt' do |_record, accumulator|
   accumulator << Time.now.utc.iso8601
 end
 
+
+#  TODO
+# ======  FOLIO  ======
+# # FOLIO Instance UUID - only one per MARC record
+# to_field 'instance_uuid_s', extract_marc('999i', trim_punctuation: false)
+# # FOLIO MARC Bib SRS UUID - only one per MARC record
+# to_field 'marc_uuid_s', extract_marc('999s', trim_punctuation: false)
+# *** BUT ***
+# *** from Valet...  ***
+# # The FOLIO Instance ID is in the 999$i
+# # BUT - we have bad data, with bogus occsional bogus 999 or even 999$i values.
+# # Examine every 999$i that we find, to see if it looks like a UUID
+# instance_uuid = nil
+# @marc_record.each_by_tag('999')  do |field_999|
+#   field_999.subfields.select { |sf| sf.code == 'i' }.each do |subfield|
+#     uuid_regex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/
+#     if uuid_regex.match?(field_999['i'].downcase)
+#       instance_uuid = field_999['i']
+#     end
+#   end
+# end
+
+
+
 # Broken during multi-threaded indexing
 # # Authority Counts
 # to_field 'author_variants_i' do |_record, accumulator|

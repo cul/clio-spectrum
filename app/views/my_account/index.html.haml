@@ -46,9 +46,11 @@
         - @loans.each do |loan|
           %tr
             %td= loan['item']['title']
-            %td= loan['item']['status']['name']
+            %td
+              %span.text-nowrap= loan['item']['status']['name']
             - due_date_formatted = Time.iso8601(loan['dueDate']).strftime("%Y-%m-%d %-l:%M %p")
-            %td= due_date_formatted
+            %td
+              %span.text-nowrap= due_date_formatted
             %td= renew_link(loan)
 
     #menu1.tab-pane.fade
@@ -59,11 +61,14 @@
             %th Title
             %th Request Type
             %th Status
+            %th Actions
 
         - @requests.each do |request|
           %tr
             %td= request['instance']['title']
             %td= request['requestType']
-            %td= request['status']
+            %td
+              %span.text-nowrap= request['status']
+            %td= cancel_link(request)
       
 
