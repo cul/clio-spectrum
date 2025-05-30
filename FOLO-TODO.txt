@@ -1,4 +1,99 @@
 
+
+
+
+
+Availability.
+
+(1) SEARCH RESULTS
+
+holdings.js.coffee:
+  url = clio_backend_url + '/holdings/status/' + bibids.join('/');
+
+This, for a bib, gives a simple "avaiable" - is the 
+
+# takes a _list_ of bibs and returns
+# corresponding item-statuses, in a CLIO-specific formatted structure.
+e.g.:
+   https://clio-backend.cul.columbia.edu/holdings/status/3081106
+
+Used ONLY in Javascript, to put indicators on search-results screens
+(where there are a lot of bibs to lookup, each with many holdings 
+to display with Available/Unavailable indicators)
+
+Steamboat Bill, Jr
+Published: New York, N.Y : Kino International Corp., [1999], ©1999.
+Location:
+  Available Butler Media (Circulating), Butler Circulation Desk DVD9332
+  Available Butler Media Research Coll., Butler Circulation (Non-Circ) DVD0834
+  Available Butler Media Research Coll., Butler Circulation (Non-Circ) DVD1243
+  Available Butler Media Research Coll., Butler Circulation (Non-Circ) DVD1354
+Format:  Video
+
+(2) ITEM DETAIL
+
+
+Catalog Controller:
+    if @document.has_marc_holdings?
+      circ_status = nil
+      # Don't check Voyager circ status for non-Columbia records
+      if @document.has_circ_status?
+        circ_status = BackendController.circ_status(params[:id])
+      end
+
+Calls BackendController, which calls separate app, reformats Voyage SQL to JSAON
+
+  class BackendController < ApplicationController
+    ...
+    def self.circ_status(id)
+      ...
+      backend_url = url_for_id(id, 'holdings/circ_status')
+
+
+And Circ Status returns:
+  "3081106": {
+    "3597567": {
+      "3275703": {
+        "holdLocation": "",
+        "itemLabel": "",
+        "requestCount": 0,
+        "statusCode": 1,
+        "statusDate": "2008-09-15 2:37pm",
+        "statusPatronMessage": "",
+      }
+    },
+
+Bib-id / Holdings-id / Item-id / data
+  where most of the data is invalid in FOLIO
+
+
+How about just:
+  folio_availability = Folio::Client.get_item_status(bib_id) ???
+  folio_availability = Folio::Client.get_all_item_statuses(bib_id) ???
+  folio_availability = Folio::Client.get_item_statuses_by_bib_key(bib_id) ???
+  folio_availability = Folio::Client.get_availability(bib_id) ???
+
+  (don't keep the term "circ" - not all statuses are circulation-related)
+
+return:   bib-id / holding-id / item-id / folio-item-status
+
+FOLIO:  where folio-item-status is:
+            "status": {
+                "name": "Available",
+                "date": "2025-05-15T06:45:11.188+00:00"
+            },
+            
+And, if there are no items, don't fake it, just omit.
+            
+Try this, see how far it gets us...
+
+FOLIO item statuses are documented here:
+  https://docs.folio.org/docs/platform-essentials/item-status/itemstatus/
+
+
+=================
+
+
 Question about staffOnly flag on notes.
 
 This note shows up in CLIO - it is public

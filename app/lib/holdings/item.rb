@@ -49,47 +49,60 @@ module Holdings
 
         # Available, status code 1
         when 'Available'
-          mfhd_status[item_id][:statusCode] = 1
+          # mfhd_status[item_id][:statusCode] = 1
+          mfhd_status[item_id]['itemStatus'] = 'Available'
 
         # NEXT-1447
         # - If it's Unavailable, but Voyager doesn't know it, it's a partner checkout
         # - If it's Unavailable, and Voyager knows it's not available (not status code == 1),
         #   then just defer to Voyager - leave the mfhd status code as-is, don't overwrite.
         when 'Unavailable', 'Not Available'
-          # If Voyager has NO status, or Voyager says "1" (available),
-          # then it's a partner checkout
-          if mfhd_status[item_id][:statusCode].nil? || (mfhd_status[item_id][:statusCode] == 1)
-            # Special "99" status code for ReCAP checkouts
-            mfhd_status[item_id][:statusCode] = 99
-          end
+
+          # Voyager
+          # # If Voyager has NO status, or Voyager says "1" (available),
+          # # then it's a partner checkout
+          # if mfhd_status[item_id][:statusCode].nil? || (mfhd_status[item_id][:statusCode] == 1)
+          #   # Special "99" status code for ReCAP checkouts
+          #   mfhd_status[item_id][:statusCode] = 99
+          # end
+
+          # FOLIO
+          mfhd_status[item_id]['itemStatus'] = 'Checked out'
+
         else
           # Did we get a value back from the SCSB API call other than Available/Unavailable?
           Rails.logger.error "SCSB availability check for barcode #{barcode} returned unexpected status #{scsb_status[barcode]}"
         end
 
-        # Finally, if the statusCode could not be determined through any of the above logic,
-        #  fill in a default of Unavailable - status code 13.
-        # Not sure why this would happen.
-        if mfhd_status[item_id][:statusCode].blank?
-          mfhd_status[item_id][:statusCode] = 13
-          Rails.logger.debug "No mfhd status code for holding_id #{mfhd_id}, item_id #{item_id}, barcode #{barcode} - defaulting to 'Unavailable'"
-        end
+        # Voyager used numeric status codes.  All that logic is defunct with FOLIO.
+ 
+        # # Finally, if the statusCode could not be determined through any of the above logic,
+        # #  fill in a default of Unavailable - status code 13.
+        # # Not sure why this would happen.
+        # if mfhd_status[item_id][:statusCode].blank?
+        #   mfhd_status[item_id][:statusCode] = 13
+        #   Rails.logger.debug "No mfhd status code for holding_id #{mfhd_id}, item_id #{item_id}, barcode #{barcode} - defaulting to 'Unavailable'"
+        # end
+
       end
 
-      # items with particular statuses aren't supposed to be in the OPAC,
-      # and should be suppressed by both extract and clio_backend.
-      # But if they pass through, delete them here.
-      bad_statuses = [15, 16, 17, 19, 20, 21]
-      # bad_statuses = [22] # for testing.  22 == In Process
-      # Old logic - but this hid our non-MARC in-process circ statuses, 
-      # which we want, to turn on the "in process" message.
-      # # Sometimes circ_status (mfhd_status) includes status for
-      # # items not in the MARC (e.g., Withdrawn items).
-      # # Remove any unwanted status details
-      mfhd_status.each do |item_id, item_status|
-        # mfhd_status.delete(item_id) unless item_id_list.include?(item_id)
-        mfhd_status.delete(item_id) if bad_statuses.include?(item_status['statusCode'])
-      end
+
+      # Voyager used numeric status codes.  All that logic is defunct with FOLIO.
+
+      # # items with particular statuses aren't supposed to be in the OPAC,
+      # # and should be suppressed by both extract and clio_backend.
+      # # But if they pass through, delete them here.
+      # bad_statuses = [15, 16, 17, 19, 20, 21]
+      # # bad_statuses = [22] # for testing.  22 == In Process
+      # # Old logic - but this hid our non-MARC in-process circ statuses,
+      # # which we want, to turn on the "in process" message.
+      # # # Sometimes circ_status (mfhd_status) includes status for
+      # # # items not in the MARC (e.g., Withdrawn items).
+      # # # Remove any unwanted status details
+      # mfhd_status.each do |item_id, item_status|
+      #   # mfhd_status.delete(item_id) unless item_id_list.include?(item_id)
+      #   mfhd_status.delete(item_id) if bad_statuses.include?(item_status['statusCode'])
+      # end
 
       @temp_locations = parse_for_temp_locations(holdings_marc) # array
       @use_restrictions = parse_for_use_restrictions(holdings_marc) # array
@@ -204,6 +217,7 @@ module Holdings
 
       # determine overall status
       status = determine_overall_status(mfhd_status)
+
       # generate messages
       messages = generate_messages(mfhd_status)
 
@@ -221,8 +235,9 @@ module Holdings
     def determine_overall_status(mfhd_status)
       unavailable_count = 0
       mfhd_status.each do |_item_id, item|
-        statusCode = item[:statusCode].to_i
-        unavailable_count += 1 if statusCode > 1 && statusCode != 11
+        unavailable_count += 1 unless item['itemStatus'] == 'Available'
+        # statusCode = item[:statusCode].to_i
+        # unavailable_count += 1 if statusCode > 1 && statusCode != 11
       end
 
       if unavailable_count.zero?
@@ -235,12 +250,12 @@ module Holdings
     end
 
     # Generate circulation messages
-    #
     # * *Returns* :
     #   - Array of circulation messages
     #
     def generate_messages(mfhd_status)
       messages = []
+
       mfhd_status.each do |_item_id, item|
         messages << generate_message(item)
       end
@@ -258,6 +273,15 @@ module Holdings
     #     :long_message => long version of message
     #
     def generate_message(item)
+
+      # For FOLIO, our item looks like this:
+      #   {"itemStatus"=>"Available", "itemStatusDate"=>"2025-05-15T05:14:32.890+00:00"}
+      # Ignore the code, and just use the itemStatus as the short message?
+      # (and long message isn't used anymore, so leave that out)
+      return { short_message: item['itemStatus'] }
+      
+
+      # Voyager code below
       short_message = ''
       long_message = ''
       code = ''

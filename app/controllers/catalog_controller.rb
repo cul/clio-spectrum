@@ -158,10 +158,13 @@ class CatalogController < ApplicationController
     # - build Holdings data structure
 
     if @document.has_marc_holdings?
-      circ_status = nil
+      folio_availability = nil
       # Don't check Voyager circ status for non-Columbia records
       if @document.has_circ_status?
-        circ_status = BackendController.circ_status(params[:id])
+        # Voyager
+        # circ_status = BackendController.circ_status(params[:id])
+        # FOLIO
+        folio_availability = Folio::Client.get_availability(params[:id])
       end
 
       # TODO:  What about bound-withs?  The blind barcode is usually that of
@@ -175,18 +178,12 @@ class CatalogController < ApplicationController
         # }
       end
 
-      @collection = Holdings::Collection.new(@document, circ_status, scsb_status)
+      # Voyager
+      # @collection = Holdings::Collection.new(@document, circ_status, scsb_status)
+      # FOLIO
+      @collection = Holdings::Collection.new(@document, folio_availability, scsb_status)
 
       @holdings = @collection.to_holdings
-
-    else
-      # This is obsolete - CLIO now aggregates MARC data from
-      # many sources, only some of whihc have MARC holdings.
-      # # Pegasus (Law) documents have no MARC holdings.
-      # # Everything else is supposed to.
-      # unless @document.in_pegasus?
-      #   Rails.logger.error "Document #{@document.id} has no MARC holdings!"
-      # end
     end
 
     # In support of "nearby" / "virtual shelf browse", remember this bib

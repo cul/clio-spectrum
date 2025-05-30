@@ -117,7 +117,100 @@ module Folio
       token = FolioClient::Authenticator.token(login_params, connection)
       response = connection.delete(path, nil, { 'x-okapi-token': token })
     end
+  
+    # Retrieve a single FOLIO Instance JSON record for a given Voyager Bib ID
+    #   {{baseUrl}}/search/instances?query=(hrid="123")&limit=1
+    def self.get_instance_by_hrid(hrid)
+      query = '(hrid="' + hrid + '")'
+      path = "/search/instances?query=#{query}&limit=1"
+      @folio_client ||= folio_client
+      folio_response = @folio_client.get(path)
+      instances = folio_response['instances']
+      if instances.present?
+        return instances.first
+      else
+        return {}
+      end
+    end
+    
+    
+    # Retrieve a list of FOLIO Holdings JSON records for a given FOLIO Instance UUID
+    #   {{baseUrl}}/holdings-storage/holdings?query=(instanceId == "c3cf979d-3562-5cce-b130-88d36f4a99c6")
+    def self.get_holdings_by_instance(instance_uuid)
+      query = '(instanceId=="' + instance_uuid + '")'
+      path = "/holdings-storage/holdings?query=#{query}"
+      @folio_client ||= folio_client
+      folio_response = @folio_client.get(path)
+      holdings = folio_response['holdingsRecords']
+      # error?
+      return {} unless holdings
+      # success!
+      return holdings
+    end
 
+    # Retrieve a list of all FOLIO Item JSON records for a given FOLIO Holding UUID
+    #   {{baseUrl}}/inventory/items-by-holdings-id?query=(holdingsRecordId=="d91b5d2a-d4f6-57f6-9108-35965f9fbf32")
+    def self.get_items_by_holding(holding_uuid)
+      query = '(holdingsRecordId=="' + holding_uuid + '")'
+      path = "/inventory/items-by-holdings-id?query=#{query}"
+      @folio_client ||= folio_client
+      folio_response = @folio_client.get(path)
+      items = folio_response['items']
+      # error?
+      return {} unless items
+      # success!
+      return items
+    end
+
+
+
+
+    # Replacement for Voyager-based circ_status
+    # Given a bib id (e.g., 123),
+    # Return a structure of availability statuses,
+    #   bib-id (NOT uuid) / holdings-uuid / item-uuid / status-data
+    # status-data so far is the item-status and date - but this can 
+    # be expanded as needed
+    # { 123: {
+    #     456: {
+    #       789: {
+    #         "itemStatus":     "Available",
+    #         "itemStatusDate": "2025-05-15T06:45:11.188+00:00"
+    #       }
+    #   }
+    # }
+    # We'll build this up in a series of item-specific API calls, because 
+    # FOLIO shortcut API endpoints often don't return clean raw data,
+    # only pre-processed opinionated display-oriented fields.
+    def self.get_availability(bib_id)
+      availability = {}
+
+      # First, fetch the FOLIO Instance
+      instance = self.get_instance_by_hrid(bib_id)
+      # Our instance-level key will be the MARC 001 Bib ID - NOT the FOLIO UUID
+      availability[bib_id] = {}
+
+      # Next, get the list of holdings
+      holdings = self.get_holdings_by_instance(instance['id'])
+      
+      holdings.each do |holding|
+        holding_id = holding['id']
+        availability[bib_id][holding_id] = {}
+        
+        items = self.get_items_by_holding(holding_id)
+        items.each do |item|
+          item_id = item['id']
+          availability[bib_id][holding_id][item_id] = {}
+
+          # Now, finally, gather the data elements we care about
+          availability[bib_id][holding_id][item_id]['itemStatus'] = item['status']['name']
+          availability[bib_id][holding_id][item_id]['itemStatusDate'] = item['status']['date']
+        end
+
+      end
+      
+      return availability
+    end
     
   end
 

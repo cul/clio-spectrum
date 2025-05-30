@@ -582,7 +582,6 @@ module Holdings
     def determine_services(location_name, location_code, temp_loc_flag, call_number, item_status, orders, bibid, fmt, bibid_pul)
       services = []
 
-
       # ====== SPECIAL COLLECTIONS ======
       # NEXT-1229 - make this the first test
       # special collections request service [only service available for items from these locations]
@@ -623,10 +622,11 @@ module Holdings
       end
 
 
-      # Scan display labels for things like "Recall", "Hold", etc.
-      # (_probably_ obsolete, but we'd need to check carefully)
-      services << scan_message( location_name )
-      services << scan_messages( item_status[:messages] )
+      # FOLIO - don't do this anymore - services are determined more directly.
+      # # Scan display labels for things like "Recall", "Hold", etc.
+      # # (_probably_ obsolete, but we'd need to check carefully)
+      # services << scan_message( location_name )
+      # services << scan_messages( item_status[:messages] )
 
 
       # ====== ITEM STATUS "NONE"?? ======
