@@ -56,6 +56,9 @@ class User < ApplicationRecord
 
   # developers and sysadmins
   def admin?
+    # Anyone in the cunix dpts-dev group is considered an admin
+    return true if self.has_affil('CUL_dpts-dev')
+    # But, we can also add extra unis as needed via permissions.yml
     uid.in?(PERMISSIONS_CONFIG['site']['manage'])
   end
 

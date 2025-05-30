@@ -13,6 +13,25 @@ module MyAccountHelper
     confirm_message = "Are you sure you want to cancel your #{request['requestType']} for the following item:   &#13;&#13;#{request['instance']['title']}"
     link_to "Cancel", my_account_cancel_path(request_id: request['id']), data: { confirm: confirm_message.html_safe }
   end
+  
+  def user_display_name(folio_user)
+    display_name = 'unknown'
+    return display_name unless folio_user
+    
+    name_parts = Array.new()
+    name_parts << (folio_user['personal']['firstName'] || '')
+    name_parts << (folio_user['personal']['middleName'] || '')
+    name_parts << (folio_user['personal']['lastName'] || '')
+    name_parts << "(#{folio_user['username']})"
+    display_name = name_parts.reject(&:empty?).join(' ')
+  end
+  
+  def barcode_search_link(barcode)
+    link_to barcode, catalog_index_path(q: barcode)
+    
+  end
+  
+  
 
 end
 

@@ -20,14 +20,27 @@ class MyAccountController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @debug_mode = false   # debug is turned on somehow somewhwere - disable for now
-    
+    @debug_mode = false   # debug is turned on somehow somewhere - disable for now
+
+    # Fetch user details for the current user
     @user = Folio::Client.get_user_by_username(current_user.uid)
-
-    # # hardcode for demonstration
-    # @user = Folio::Client.get_user_by_username( 'sam119' )
-
     user_id = @user['id']
+    
+    # But wait - are they trying to snoop on another user?
+    if params[:uni]
+      # snooping on themselves?  Why would they do this?
+      return redirect_to my_account_index_path if params[:uni] == user_id
+      # Only admins are allowed to snoop
+      return redirect_to my_account_index_path unless current_user.admin?
+      # OK, we have an approved snoop.
+      # Try to retrieve the snoopee...
+      @user = Folio::Client.get_user_by_username(params[:uni])
+      return redirect_to my_account_index_path unless @user
+      # It worked?  Ok, then proceed.
+      @snooping = true
+      user_id = @user['id']
+    end
+
     @loans = Folio::Client.get_loans_by_user_id(user_id)
     @requests = Folio::Client.get_requests_by_user_id(user_id)
   end
