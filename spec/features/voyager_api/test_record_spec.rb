@@ -84,7 +84,7 @@ describe 'record tests' do
     visit solr_document_path('10104738')
     expect(page).to have_css('#clio_holdings .holding')
     within ('div#clio_holdings') do
-      expect(page).to have_link('Special Collections', href: 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey=10104738')
+      expect(page).to have_link('Special Collections', href: 'https://systems.library.columbia.edu/cul/aeon/request.pl?bibkey=10104738')
     end
   end
 
@@ -92,7 +92,7 @@ describe 'record tests' do
     visit solr_document_path('12954047')
     expect(page).to have_css('#clio_holdings .holding')
     within ('div#clio_holdings') do
-      expect(page).to have_link('Special Collections', href: 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey=12954047')
+      expect(page).to have_link('Special Collections', href: 'https://systems.library.columbia.edu/cul/aeon/request.pl?bibkey=12954047')
     end
   end
 

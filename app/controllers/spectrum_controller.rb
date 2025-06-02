@@ -366,12 +366,13 @@ class SpectrumController < ApplicationController
                 # puts "BBB#{Thread.current.object_id}  source #{source} - blacklight_search 'when' branch"
                 blacklight_search(fixed_params)
 
-              when 'library_web'
-                # puts "BBB#{Thread.current.object_id}  source #{source} - library_web 'when' branch"
-                # GoogleAppliance search engine can't handle absent q param
-                fixed_params['q'] ||= ''
-                fixed_params = fix_ga_params(fixed_params)
-                Spectrum::SearchEngines::GoogleAppliance.new(fixed_params)
+              # GONE - replaced by lweb
+              # when 'library_web'
+              #   # puts "BBB#{Thread.current.object_id}  source #{source} - library_web 'when' branch"
+              #   # GoogleAppliance search engine can't handle absent q param
+              #   fixed_params['q'] ||= ''
+              #   fixed_params = fix_ga_params(fixed_params)
+              #   Spectrum::SearchEngines::GoogleAppliance.new(fixed_params)
 
               when 'lweb'
                 Spectrum::SearchEngines::GoogleCustomSearch.new(fixed_params)

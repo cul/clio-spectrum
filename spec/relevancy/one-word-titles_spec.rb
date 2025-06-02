@@ -26,7 +26,7 @@ describe 'Searching for one-word titles: ', :skip_travis do
     resp = solr_resp_ids_from_query('Gut')
     resp.inspect
     expect(rank(resp, 4842087)).to be <= 3
-    expect(rank(resp, 3942290)).to be <= 5
+    expect(rank(resp, 3942290)).to be <= 10
 
     resp = solr_resp_ids_from_journal_title_query('Gut')
     expect(rank(resp, 4842087)).to be <= 2

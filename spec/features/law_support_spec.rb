@@ -50,18 +50,20 @@ describe 'CLIO support for Law records' do
     
   end
 
-  it 'should replace "Requests" menu with link to Law Library' do
-    law_text = 'Requests serviced by the Arthur W. Diamond Law Library'
-    visit solr_document_path(32468)
-    find('#show_toolbar .navbar-nav', text: 'Request').click
-    within('li.dropdown', text: 'Request') do
-      expect(page).to_not have_text law_text
-    end
-
-    visit solr_document_path('law573211')
-    find('#show_toolbar .navbar-nav', text: 'Request').click
-    within('li.dropdown', text: 'Request') do
-      expect(page).to have_text law_text
-    end
-  end
+  # FOLIO - not anymore!
+  # it 'should replace "Requests" menu with link to Law Library' do
+  #   law_text = 'Requests serviced by the Arthur W. Diamond Law Library'
+  #   visit solr_document_path(32468)
+  #   find('#show_toolbar .navbar-nav', text: 'Request').click
+  #   within('li.dropdown', text: 'Request') do
+  #     expect(page).to_not have_text law_text
+  #   end
+  #
+  #   visit solr_document_path('law573211')
+  #   find('#show_toolbar .navbar-nav', text: 'Request').click
+  #   within('li.dropdown', text: 'Request') do
+  #     expect(page).to have_text law_text
+  #   end
+  # end
+  
 end
