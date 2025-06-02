@@ -179,6 +179,9 @@ Rails.application.routes.draw do
   get 'backend/holdings/:id' => 'backend#holdings', :as => 'backend_holdings'
   get 'backend/offsite/:id' => 'backend#offsite', :as => 'backend_offsite', constraints: { id: /.+/ }
 
+  # FOLIO holdings_availability() - replaced calls to CLIO Backend for /holdings/status
+  get 'backend/holdings_availability/:id' => 'backend#holdings_availability', :as => 'backend_holdings_availability', constraints: { id: /.+/ }
+
   get 'catalog/hathi_holdings/:id' => 'catalog#hathi_holdings', :as => 'hathi_holdings'
 
   get 'spectrum/hits/:datasource', to: 'spectrum#hits', as: 'spectrum_hits'
@@ -262,10 +265,10 @@ Rails.application.routes.draw do
   end
 
   # My Borrowing Account - explicit routes for each command
-  # resources :my_account
-  get 'my_account(/:uni)', to: 'my_account#index', as: :my_account_index
+  # The 'uni' path needs to come last - or '/renew' will be interpreted a a uni
   get 'my_account/renew', to: 'my_account#renew', as: :my_account_renew
   get 'my_account/cancel', to: 'my_account#cancel', as: :my_account_cancel
+  get 'my_account(/:uni)', to: 'my_account#index', as: :my_account_index
   
   
 end

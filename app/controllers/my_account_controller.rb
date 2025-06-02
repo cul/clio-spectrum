@@ -45,32 +45,6 @@ class MyAccountController < ApplicationController
     @requests = Folio::Client.get_requests_by_user_id(user_id)
   end
   
-  # # Any action, which makes "new" things happen, lands here
-  # def new
-  #   request    = my_account_params['request']
-  #   loan_id    = my_account_params['loan_id']
-  #   request_id = my_account_params['request_id']
-  #
-  #   # flash[:alert] = "alert"       # yellow
-  #   # flash[:warning] = "warning"   # yellow
-  #   # flash[:danger] = "danger"     # red
-  #
-  #   # What requests do we support?
-  #   # unless ['renew', 'hold', 'recall'].include?(request)
-  #   unless ['renew', 'recall', 'cancel'].include?(request)
-  #     flash[:error] = "Unknown action: '#{request}'"
-  #     redirect_to action: :index
-  #     return
-  #   end
-  #
-  #   return renew(loan_id) if request == 'renew'
-  #   return renew(loan_id) if request == 'renew'
-  #
-  #   flash[:danger] = "failed to return from renew()"
-  #   redirect_to action: :index
-  # end
-  
-  
 
   def renew
     loan_id    = my_account_params['loan_id']

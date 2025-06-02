@@ -30,6 +30,86 @@ class BackendController < ApplicationController
     hc
   end
 
+
+  # The front-end Javascript is calling like this:
+  #     /backend/holdings_availabilty/123/1234
+  # And expects a return structure like this:
+  #    {
+  #      "123": {
+  #        "statuses": {
+  #          "144": "available"
+  #        }
+  #      },
+  #      "1234": {
+  #        "statuses": {
+  #          "1934": "available",
+  #          "1936": "available"
+  #        }
+  #      }
+  #    }
+  # With holding-level status code based on availability of items within that holding:
+  #   none (holding with zero items) / available / unavailable / some_available
+  # Docs: https://docs.folio.org/docs/platform-essentials/item-status/itemstatus/
+  def holdings_availability
+    bibids = params['id'].to_s.split('/').collect(&:strip)
+    statuses = {}
+
+    # The caller may be asking about several bibs
+    bibids.each do |bib_id|
+
+      # Retrieve bib/holdings/item/status in nested data structure
+      # (see lib/folio/client.rb get_availability() for details)
+      bib_availability = Folio::Client.get_availability(bib_id)
+      
+      # We'll determine a single status for each holding
+      holdings_statuses = {}
+      
+      # Each bib may have multiple holdings (with associated item-status hashes)
+      bib_availability[bib_id].each do |holdings_id, item_status_hash|
+        # For this holdings_id, what is the overall availability status?
+        overall_holdings_availability = determine_overall_holdings_availability(item_status_hash)
+        holdings_statuses[holdings_id] = overall_holdings_availability
+      end
+      
+      # We've now given an overall availability status to each holding within this bib
+      statuses[bib_id] = { 'statuses': holdings_statuses }
+    end
+
+    # We've now looped over all bibs that the caller asked about.
+    # Return the combined status information.
+    render json: statuses
+  end
+  
+  # Given a hash of item availabilities....
+  # {
+  #   123: {
+  #     "itemStatus":     "Checked out",
+  #     "itemStatusDate": "2025-05-15T06:45:11.188+00:00"
+  #   }
+  #   456: {
+  #     "itemStatus":     "Available",
+  #     "itemStatusDate": "2025-05-15T06:45:11.188+00:00"
+  #   }
+  # }
+  # Return a single string for overall availability, one of:
+  #   none (holding with zero items) / available / unavailable / some_available
+  def determine_overall_holdings_availability(item_status_hash)
+    return 'none' unless item_status_hash
+    
+    item_count = 0
+    available_count = 0
+    
+    item_status_hash.each do |item_id, status_hash|
+      item_count += 1
+      available_count += 1 if status_hash['itemStatus'] == 'Available'
+    end
+    
+    return 'unavailable' if available_count == 0
+    return 'available'   if available_count == item_count
+    return 'some_available'
+  end
+  
+  
   # Need to support this kind of call:
   # @circ_status = BackendController.circ_status(params[:id])
   #

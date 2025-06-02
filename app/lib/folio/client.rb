@@ -177,11 +177,12 @@ module Folio
     #         "itemStatus":     "Available",
     #         "itemStatusDate": "2025-05-15T06:45:11.188+00:00"
     #       }
-    #   }
+    #     }
     # }
     # We'll build this up in a series of item-specific API calls, because 
     # FOLIO shortcut API endpoints often don't return clean raw data,
     # only pre-processed opinionated display-oriented fields.
+    # Docs: https://docs.folio.org/docs/platform-essentials/item-status/itemstatus/
     def self.get_availability(bib_id)
       availability = {}
 

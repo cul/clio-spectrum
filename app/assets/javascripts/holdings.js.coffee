@@ -51,7 +51,9 @@ $ ->
   #   retrieve_fedora_resources(fedora_items)
 
   if onsite_catalog_items.length
-    retrieve_holdings(onsite_catalog_items)
+    # alert(onsite_catalog_items)  # debug
+    # retrieve_holdings(onsite_catalog_items)
+    folio_retrieve_holdings_availability(onsite_catalog_items)
 
   if offsite_catalog_items.length
     retrieve_offsite_availability(offsite_catalog_items)
@@ -172,9 +174,33 @@ $ ->
 #         $(fedora_selector).html('No downloads found for this item.')
 
 
-@retrieve_holdings = (bibids) ->
-  url = clio_backend_url + '/holdings/status/' + bibids.join('/');
+# FOLIO
+@folio_retrieve_holdings_availability = (bibids) ->
+  url = '/backend/holdings_availability/' + bibids.join('/');
+  # alert(url) # debug
 
+
+  $.getJSON url, (data) ->
+    for bib, holdings of data
+      for holding_id, status of data[bib].statuses
+        
+        # # LIBSYS-2891 / LIBSYS-2892 - All libraries CLOSED - all items UNAVAILABLE
+        # status = 'unavailable'
+        
+        selector = "img.availability.holding_" + holding_id + ":not(.offsite)"
+        # alert(selector) # debug
+        status_upcase = status.charAt(0).toUpperCase() + status.slice(1)
+        # NEXT-1745 - turn them back on
+        # # NEXT-1668 - turn off colored indicators
+        $(selector).attr("src", "/static-icons/" + status + ".png")
+        $(selector).attr("title", status_upcase)
+        $(selector).attr("alt", status_upcase)
+
+# VOYAGER
+@retrieve_holdings_TURN_THIS_OFF = (bibids) ->
+  url = clio_backend_url + '/holdings/status/' + bibids.join('/');
+  alert(url) # debug
+  
   $.getJSON url, (data) ->
     for bib, holdings of data
       for holding_id, status of data[bib].statuses
@@ -189,6 +215,7 @@ $ ->
         $(selector).attr("src", "/static-icons/" + status + ".png")
         $(selector).attr("title", status_upcase)
         $(selector).attr("alt", status_upcase)
+
 
 # Offsite availability comes from a SCSB API call
 # Return json data is just simple bib-to-status map:
