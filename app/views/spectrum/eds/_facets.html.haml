@@ -1,0 +1,83 @@
+
+-# FACETS FOR ARTICLES DATASOURCE (SUMMON)
+/ spectrum/eds/_facets.html.haml
+
+#facets.facets.sidenav
+
+  .top-panel-heading.panel-heading.clearfix{style: 'border: 0px;'}
+    .visible-xs.facets-toggle{type: 'button', data: {toggle: 'collapse', target: '#facet-panel-collapse'}}
+      Refine your search
+  
+  #facet-panel-collapse.collapse.panel-group
+    
+
+
+    -# PUBLICATION DATE FACET HANDLED SEPARATELY
+    -# (it's actually a range-filter, not a facet)
+
+    .panel.panel-default.facet_limit{class: "facet_limit-active"}
+      .collapse-toggle.panel-heading{class: "", data: {toggle: "collapse", target: "#facet-pub_range_filter", 'facet-tag' => build_facet_tag("date_range")}}
+
+        %h5.panel-title
+          = link_to "Publication Date", "#", :"data-no-turbolink" => true
+
+      .panel-collapse.facet-content{id: "facet-date_range", class: "in"}
+        .panel-body
+          - begin_year, end_year = ['', '']
+          - date_range = result.date_limit_to_date_range(result.search.applied_limiters)
+          - if date_range
+            - begin_year = date_range['begin_year']
+            - end_year   = date_range['end_year']
+            %span.selected
+              Publication Date: #{begin_year} to #{end_year}
+            %a.remove{:href => result.eds_search_action( date_range['remove_action'] )}
+              %span.glyphicon.glyphicon-remove
+
+          = form_tag result.eds_search_modify(), :class => 'form-inline date_range_form' do
+            = text_field_tag 'date_range[begin_year]', begin_year, class: "form-control input-mini validate-date-format", maxlength: '4', size: '8', placeholder: 'YYYY'
+            #{"-"}
+            = text_field_tag 'date_range[end_year]', end_year, class: "form-control input-mini validate-date-format", maxlength: '4', size: '8', placeholder: 'YYYY'
+            %button.btn.btn-submit{:name => 'submit', :value => 'commit', :type => 'submit'} Limit
+
+
+
+
+    -# LOOP OVER ALL EXPOSED FACETS...
+
+    -# "facet" is Summon::Facet from the response object
+    - result.facets.reject { |ft| ft[:values].empty?}.each do |facet|
+
+      .panel.panel-default.facet_limit{class: "facet_limit-active"}
+      
+        .collapse-toggle.panel-heading{class: "", data: {toggle: "collapse", target: "#facet-#{facet[:label].parameterize}", 'facet-tag' => build_facet_tag(facet)}}
+      
+          %h5.panel-title
+            = link_to facet[:label].titleize, "#", :"data-no-turbolink" => true
+      
+        .panel-collapse.facet-content{id: "facet-#{facet[:label].parameterize}", class: "in"}
+          .panel-body
+      
+            %ul.facet-values.list-unstyled
+
+              - facet[:applied_values].each do |item|
+                %li
+                  %span.facet-label
+                    %span.selected
+                      #{item[:value].humanize}
+                  %span.facet-count
+                    %a.remove{:href => result.eds_search_action(item[:action])}
+                      %span.glyphicon.glyphicon-remove
+
+              - facet[:values].each do |item|
+                %li
+                  %span.facet-label
+                    %a.facet_select{href: result.eds_add_facet_filter(facet[:id], item[:value])} #{item[:value].humanize}
+                  %span.facet-count #{number_with_delimiter(item[:hitcount])}
+
+              -# Only show the "more..." link if we think there may be more.
+              - if facet[:values].size >= 10 # facet.src['pageSize']
+                %li.more_facets_link
+                  %a.more_facets_link{:href => result.eds_search_action('TODO')} #{t('blacklight.search.facets.more')}
+
+
+

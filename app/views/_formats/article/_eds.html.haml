@@ -1,0 +1,33 @@
+/ EDS - ARTICLES
+/ container for a single doc
+/ _formats/article/_eds.html.haml
+
+- # bookmark = Array(document.src['BookMark']).first
+- bookmark = 'foo'
+.result.document.article_list{item_id: bookmark}
+
+  .row
+    .title.col-sm-12
+      .item_anchor
+        / TODO - no selection support yet for EDS 
+        / = render partial: '/saved_lists/item_select_checkbox', locals: {item_id: bookmark, counter: counter ||= 0}
+        
+        %label{ class: 'no-bottom-space' }
+          - if local_assigns[:counter]
+            %small.text-muted= "#{counter ||= ''}."
+        
+      / TODO - no selection support yet for EDS
+      .item_select_allowanceNOT= eds_title_link(document)
+
+
+  .details
+    - if document.eds_authors.any?
+      = add_row('Author', eds_get_article_authors(document), html_safe: true)
+    = add_row('Citation', eds_get_article_citation(document))
+    = add_row('Format', eds_get_article_type(document))
+
+    - if Rails.env == 'development'
+      = eds_dump(document).html_safe
+    
+
+

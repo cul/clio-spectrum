@@ -1,10 +1,22 @@
 default_search_layouts:
 
+  # articles:
+  #   style: summon
+  #   columns:
+  #     - searches:
+  #         - source: articles
+
   articles:
-    style: summon
+    style: eds
     columns:
       - searches:
-          - source: articles 
+          - source: articles
+
+  eds:
+    style: eds
+    columns:
+      - searches:
+          - source: eds 
 
   library_web:
     style: lweb
@@ -53,10 +65,15 @@ default_search_layouts:
             count: 10
             display_footer: true
       - searches:
-          - source: summon_dissertations
+          - source: articles_dissertations
             count: 3
           - source: ac_dissertations 
             count: 3
+      # - searches:
+      #     - source: summon_dissertations
+      #       count: 3
+      #     - source: ac_dissertations
+      #       count: 3
 
   ebooks:
     style: aggregate
@@ -66,9 +83,13 @@ default_search_layouts:
             count: 10
             display_footer: true
       - searches:
-          - source: summon_ebooks 
+          - source: articles_ebooks 
             count: 10
             display_footer: true
+      # - searches:
+      #     - source: summon_ebooks
+      #       count: 10
+      #       display_footer: true
 
   research_data:
     style: aggregate

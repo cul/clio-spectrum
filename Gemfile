@@ -108,6 +108,7 @@ gem 'summon', git: 'https://github.com/cul/summon.git'
 # Point to local copy during development...
 # gem 'summon', :path => "/Users/marquis/src/summon"
 
+
 #  EBSCO Article Search
 gem 'ebsco-eds'
 # for local debugging:
@@ -117,7 +118,6 @@ gem 'ebsco-eds'
 # EDS gem dependencies, pin to versions availalbe on servers
 gem 'forwardable', '1.3.1'
 gem 'stringio', '0.1.0'
-
 
 # Turn off - no longer useful
 # # used to email exceptions to developers

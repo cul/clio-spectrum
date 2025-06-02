@@ -93,7 +93,7 @@ GEM
       aws-eventstream (~> 1, >= 1.0.2)
     base64 (0.2.0)
     bcrypt (3.1.20)
-    bcrypt_pbkdf (1.1.1)
+    bcrypt_pbkdf (1.1.1-x86_64-darwin)
     better_errors (2.10.1)
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
@@ -183,7 +183,7 @@ GEM
     csl-styles (1.0.1.11)
       csl (~> 1.0)
     daemons (1.4.1)
-    date (3.3.4)
+    date (3.4.1)
     debug_inspector (1.2.0)
     declarative (0.0.20)
     deprecation (1.1.0)
@@ -238,7 +238,7 @@ GEM
     faraday-net_http_persistent (2.3.0)
       faraday (~> 2.5)
       net-http-persistent (>= 4.0.4, < 5)
-    ffi (1.17.0)
+    ffi (1.17.0-x86_64-darwin)
     folio_client (0.15.0)
       activesupport (>= 4.2, < 8)
       dry-monads
@@ -304,7 +304,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
-    json (2.7.2)
+    json (2.10.1)
     jwt (2.8.2)
       base64
     kaminari (1.2.2)
@@ -369,8 +369,7 @@ GEM
     net-ssh (7.2.3)
     netrc (0.11.0)
     nio4r (2.7.3)
-    nokogiri (1.15.6)
-      mini_portile2 (~> 2.8.2)
+    nokogiri (1.15.6-x86_64-darwin)
       racc (~> 1.4)
     observer (0.1.2)
     omniauth (1.9.2)
@@ -563,7 +562,7 @@ GEM
     zip_tricks (5.6.0)
 
 PLATFORMS
-  ruby
+  x86_64-darwin-21
 
 DEPENDENCIES
   activerecord-session_store

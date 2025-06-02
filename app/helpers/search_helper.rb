@@ -88,6 +88,18 @@ module SearchHelper
         # insert hidden fields
         result += standard_hidden_keys_for_search
 
+      ### for eds (articles)
+      elsif options['search_type'] == 'eds'
+        if @results.is_a?(Hash) && @results.has_key?("articles")
+          # What EDS query values should pass through as hidden inputs?
+          # allowed_keys = ['resultsperpage', 'sort', 'f', 'range']
+          # TODO - 'f' and 'range' are complex structures - need to figure out how to pass them
+          allowed_keys = ['resultsperpage', 'sort']
+          
+          result += eds_hidden_keys_for_search( params.slice(*allowed_keys) )
+        end
+        
+
       ### for summon (articles)
       elsif options['search_type'] == 'summon'
 
