@@ -114,10 +114,11 @@ gem 'ebsco-eds'
 # for local debugging:
 # gem 'ebsco-eds', path: '/Users/marquis/src/edsapi-ruby'
 
-
-# EDS gem dependencies, pin to versions availalbe on servers
-gem 'forwardable', '1.3.1'
-gem 'stringio', '0.1.0'
+#  Causes cross-platform bundle issues?
+#  Try unpinning, to get newest versions?
+# # EDS gem dependencies, pin to versions availalbe on servers
+# gem 'forwardable', '1.3.1'
+# gem 'stringio', '0.1.0'
 
 # Turn off - no longer useful
 # # used to email exceptions to developers
