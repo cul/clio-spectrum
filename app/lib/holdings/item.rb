@@ -123,6 +123,9 @@ module Holdings
     #      [ { itemLabel: 'v.1-v.49', tempLocation: 'West Wing'}, { itemLabel: 'DVD', tempLocation: 'Media Lab' } ]
     #   - An empty array if there are no items in temp locations
     #
+    # N.B. - these are not strictly temp locations.  The 876$l will also
+    # indicate a Split Holding, where the item is not shelved in the same
+    # location as the rest of the Holding.
     def parse_for_temp_locations(holdings_marc)
       tempLocations = []
 
