@@ -21,15 +21,20 @@ class MyAccountController < ApplicationController
 
   def index
     @debug_mode = false   # debug is turned on somehow somewhere - disable for now
-
-    # Fetch user details for the current user
-    @user = Folio::Client.get_user_by_username(current_user.uid)
+ 
+    # Columbia ID system uni
+    uni = current_user.uid
+  
+    # Fetch FOLIO user details for the current user
+    @user = Folio::Client.get_user_by_username(uni)
+    
+    # FOLIO User UUID
     user_id = @user['id']
     
     # But wait - are they trying to snoop on another user?
     if params[:uni]
       # snooping on themselves?  Why would they do this?
-      return redirect_to my_account_index_path if params[:uni] == user_id
+      return redirect_to my_account_index_path if params[:uni] == uni
       # Only admins are allowed to snoop
       return redirect_to my_account_index_path unless current_user.admin?
       # OK, we have an approved snoop.

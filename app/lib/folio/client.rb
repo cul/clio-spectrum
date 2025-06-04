@@ -59,7 +59,7 @@ module Folio
     def self.get_loans_by_user_id(user_id)
       @folio_client ||= folio_client
       query = '(status="Open") and (userId == ' + user_id + ')'
-      json_response = @folio_client.get("/circulation/loans?query=#{query}")
+      json_response = @folio_client.get("/circulation/loans?query=#{query}&limit=500")
       all_open_loans = json_response["loans"]
       return all_open_loans
     end
