@@ -64,6 +64,29 @@ datasources:
   #     search_fields:
   #       keyword: All Fields
 
+  # fcd1, 06/11/25: copied from summon_dissertations; updated title, search_type, search_fields
+  articles_dissertations:
+    supersource: articles
+    name: Articles
+    title: Articles+
+    description: Dissertations and theses from the Articles+ database. Many are full-text.
+    warningXX: We are currently experiencing performance problems with this datasource.  We are working with the vendor to resolve this issue.
+    render_options:
+      format: article
+    search_box:
+      route: articles_index_path
+      placeholder: Articles
+      search_type: eds
+      advanced: true
+      # search_category: articles
+      search_fields:
+        q: Keywords
+        author: Author
+        title: Title
+        # NEXT-581 - articles search by publication title
+        source: Publication Title
+        isbn: ISBN
+        issn: ISSN
 
   summon_dissertations:
     supersource: articles
@@ -87,6 +110,30 @@ datasources:
         s.fq[PublicationTitle]: Publication Title
         s.fq[ISBN]: ISBN
         s.fq[ISSN]: ISSN
+
+  # fcd1, 06/11/25: copied from summon_ebooks, updated title, search_type, search_fields
+  articles_ebooks:
+    supersource: articles
+    name: Articles
+    title: Articles+
+    description: E-books from the Articles+ database
+    warningXX: We are currently experiencing performance problems with this datasource.  We are working with the vendor to resolve this issue.  eboo.
+    render_options:
+      format: article
+    search_box:
+      route: articles_index_path
+      placeholder: Articles
+      search_type: eds
+      advanced: true
+      # search_category: articles
+      search_fields:
+        q: Keywords
+        author: Author
+        title: Title
+        # NEXT-581 - articles search by publication title
+        source: Publication Title
+        isbn: ISBN
+        issn: ISSN
 
   summon_ebooks:
     supersource: articles
