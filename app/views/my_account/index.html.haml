@@ -18,11 +18,13 @@
   // %p= "Barcode: #{@user['barcode']}"
   - if @snooping
     .alert.alert-danger
-      %strong YOU ARE VIEWING BORROWING ACCOUNT FOR ANOTHER USER:
-      %br
       %strong 
+        YOU ARE VIEWING BORROWING ACCOUNT FOR ANOTHER USER:
+        %br
         = user_display_name(@user)
-        = @user['id']
+        = "-- barcode:  " + @user['barcode']
+        %br
+        = "FOLIO ID:  " + @user['id']
 
   - if @blocks.length > 0
     %br
@@ -54,7 +56,7 @@
       %h3 
         Open Loans
         
-      %table.table-striped.table-bordered.table-condensed
+      %table.table.table-striped.table-bordered.table-condensed.table-hover
         %thead
           %tr
             %th Title
@@ -62,17 +64,26 @@
             %th Status
             %th Due Date
             %th Actions
+            %th Fees/Fine
 
         - @loans.each do |loan|
-          %tr
+          - # Highlight rows with any problems (fees, lost, etc.)
+          - item_status = loan['item']['status']['name']
+          - amount_owed = loan["feesAndFines"]["amountRemainingToPay"].round
+          - @row_style = ''
+          - @row_style = 'danger' if item_status != 'Checked out'
+          - @row_style = 'danger' if amount_owed != 0
+          %tr{class: @row_style}
             %td= loan['item']['title']
             %td= barcode_search_link(loan['item']['barcode'])
             %td
-              %span.text-nowrap= loan['item']['status']['name']
-            - due_date_formatted = Time.iso8601(loan['dueDate']).strftime("%Y-%m-%d %-l:%M %p")
+              %span.text-nowrap=item_status
             %td
+              - due_date_formatted = Time.iso8601(loan['dueDate']).strftime("%Y-%m-%d %-l:%M %p")
               %span.text-nowrap= due_date_formatted
             %td= renew_link(loan) unless @snooping
+            %td
+              %strong= "$#{amount_owed}" if (amount_owed > 0) 
 
     #menu1.tab-pane.fade
       %h3 Open Requests
