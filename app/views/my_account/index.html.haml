@@ -2,27 +2,39 @@
 // views/my_account/index.html.haml
 
 
-.jumpotron.alert.alert-info
+.alert.alert-info
   %h3
     My Borrowing Account
 
   %p= "Logged in as: #{current_user.name} (#{current_user.uid}) -- #{link_to "logout", destroy_user_session_path}"
 
-  // %p= "Barcode: #{@user['barcode']}"
-  %br
-  - if @snooping
-    %button.btn.btn-danger
-      YOU ARE VIEWING BORROWING ACCOUNT FOR ANOTHER USER:
-      %br
-      = user_display_name(@user)
-    %br
-    %br
-  
   %li Place Hold or Recall requests from the CLIO Item page
   
   %li 
     Find your lists at 
     = link_to "My Saved Lists", lists_path
+  
+
+  // %p= "Barcode: #{@user['barcode']}"
+  - if @snooping
+    .alert.alert-danger
+      %strong YOU ARE VIEWING BORROWING ACCOUNT FOR ANOTHER USER:
+      %br
+      %strong 
+        = user_display_name(@user)
+        = @user['id']
+
+  - if @blocks.length > 0
+    %br
+    .alert.alert-warning
+      %strong
+        %span.glyphicon.glyphicon-exclamation-sign
+        The following blocks are in effect for
+        = user_display_name(@user)
+        %ul
+          - @blocks.each do |block|
+            %li=block
+      
   
 
 .container
@@ -46,8 +58,8 @@
         %thead
           %tr
             %th Title
-            %th Status
             %th Barcode
+            %th Status
             %th Due Date
             %th Actions
 
@@ -68,6 +80,7 @@
         %thead
           %tr
             %th Title
+            %th Barcode
             %th Request Type
             %th Status
             %th Actions
@@ -75,6 +88,7 @@
         - @requests.each do |request|
           %tr
             %td= request['instance']['title']
+            %td= barcode_search_link(request['item']['barcode'])
             %td= request['requestType']
             %td
               %span.text-nowrap= request['status']

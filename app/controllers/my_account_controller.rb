@@ -45,9 +45,13 @@ class MyAccountController < ApplicationController
       @snooping = true
       user_id = @user['id']
     end
+    
+    # For the given FOLIO user_id (the current user, or a snooped-upon user),
+    # fetch the data that we'll want to display...
 
     @loans = Folio::Client.get_loans_by_user_id(user_id)
     @requests = Folio::Client.get_requests_by_user_id(user_id)
+    @blocks = Folio::Client.get_blocks_by_user_id(user_id)
   end
   
 

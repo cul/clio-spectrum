@@ -72,6 +72,36 @@ module Folio
       all_open_requests = json_response["requests"]
       return all_open_requests
     end
+
+    # FOLIO has two kinds of blocks - automated and manual
+    #  {{baseUrl}}/automated-patron-blocks/04354620-5852-54e7-93e5-67b8d374528c
+    #  {{baseUrl}}/manualblocks?limit=10000&query=(userId==74b140b4-636a-5476-8312-e0d1d4eaaad5)
+    # Fetch both, parse each appropriately, sort/uniq the list, return list of string messages
+    def self.get_blocks_by_user_id(user_id)
+      @folio_client ||= folio_client
+
+      all_blocks = []
+
+      # Automated
+      json_response = @folio_client.get("/automated-patron-blocks/#{user_id}")
+      automated_blocks = json_response["automatedPatronBlocks"]
+      automated_blocks.each do |block|
+        block_message = block["message"]
+        all_blocks << block_message unless all_blocks.include?(block_message)
+      end
+
+      # Manual
+      query = '(userId == ' + user_id + ')'
+      json_response = @folio_client.get("/manualblocks?query=#{query}&limit=500")
+      manual_blocks = json_response["manualblocks"]
+      manual_blocks.each do |block|
+        block_message = block["patronMessage"]
+        all_blocks << block_message unless all_blocks.include?(block_message)
+      end
+
+      return all_blocks
+    end
+
     
     def self.renew_by_id(user_id:, item_id:)
       @folio_client ||= folio_client

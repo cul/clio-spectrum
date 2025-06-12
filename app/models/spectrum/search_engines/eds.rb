@@ -98,11 +98,16 @@ module Spectrum
       
         # All I have to do here is send it along to the gem library if it's in the URL
         search_options['range'] = options['range'] if options.key?('range')
+
+        @search = eds_session.search(search_options)
+        raise
         
         begin
           Rails.logger.debug "[Spectrum][Eds] search_options: #{search_options}"
           start_time = Time.now
           @search = eds_session.search(search_options)
+          Rails.logger.debug(  @search.inspect  )
+
           end_time = Time.now
           Rails.logger.debug "[Spectrum][Eds] search took: #{(end_time - start_time).round(2)} sec"
 
