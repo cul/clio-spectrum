@@ -48,6 +48,7 @@ module Spectrum
         # raise
         Rails.logger.debug "Spectrum::SearchEngines::Eds.initialize() options=#{options.inspect}"
 
+        @source = options.fetch('datasource', nil)
         @q = options.delete('q')
         @errors = nil
 
@@ -81,10 +82,15 @@ module Spectrum
         search_options['search_field'] = options['search_field'] if options.key?('search_field')
         search_options[:actions] = options['actions'] if options.key?('actions')
 
-        search_options['f'] = options['f'] if options.key?('f')
-        
-        
-        
+        if @source == 'articles_dissertations'
+          search_options['f'] = {"eds_publication_type_facet"=>["Dissertations"]}
+        elsif @source == 'articles_ebooks'
+          search_options['f'] = {"eds_publication_type_facet"=>["eBooks"]}
+        else
+          search_options['f'] = options['f'] if options.key?('f')
+        end
+
+        @f = search_options['f']
 
         ## ## ## DEBUG ## ## ## 
         ####  Speaking EDS API - does not work
@@ -257,7 +263,8 @@ module Spectrum
       def search_path
         # try just this - elaborate if we need to
         params = {
-          'q' => @q
+          'q' => @q,
+          'f' => @f
         }
         articles_index_path(params)
         
