@@ -69,6 +69,7 @@
                       %span.glyphicon.glyphicon-remove
 
               - facet[:values].each do |item|
+                - break if facet[:label].downcase == 'source type' and facet[:applied_values].present?
                 %li
                   %span.facet-label
                     %a.facet_select{href: result.eds_add_facet_filter(facet[:id], item[:value])} #{item[:value].humanize}
