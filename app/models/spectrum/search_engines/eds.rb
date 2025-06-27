@@ -100,7 +100,6 @@ module Spectrum
         search_options['range'] = options['range'] if options.key?('range')
 
         @search = eds_session.search(search_options)
-        raise
         
         begin
           Rails.logger.debug "[Spectrum][Eds] search_options: #{search_options}"
