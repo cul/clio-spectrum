@@ -115,7 +115,6 @@
               -# %li= link_to "In-Process / On Order", "#", onclick: "OpenInprocessRequest('#{clio_id}'); return false;"
               %li= link_to "In-Process / On Order", "#", onclick: "OpenURLinWindow('#{clio_id}', '#{in_process_link()}'); return false;"
               %li= link_to 'Precataloging', '#', onclick: "OpenURLinWindow('#{clio_id}', '#{precat_link()}'); return false;"
-              %li= link_to 'Offsite', '#', onclick: "OpenURLinWindow('#{clio_id}', '#{recap_loan_link()}'); return false;"
               -# %li= link_to "Item Feedback", "#", onclick: "OpenItemFeedback('#{clio_id}'); return false;"
               %li= link_to "Item Feedback", "#", onclick: "OpenURLinWindow('#{clio_id}', '#{item_feedback_link()}'); return false;"
               %li= link_to "Item Not On Shelf?", "#", onclick: "OpenSearchRequest('#{clio_id}'); return false;"
