@@ -351,7 +351,7 @@ class SpectrumController < ApplicationController
     # post-search-execution state.
     # TODO: drive this case statement off yml config files
     results = case source
-              when 'articles', 'summon_dissertations', 'summon_ebooks'
+              when 'articles', 'articles_dissertations', 'articles_ebooks'
                 # puts "BBB#{Thread.current.object_id}  source #{source} - summon 'when' branch"
                 # fixed_params = fix_summon_params(fixed_params)
                 fixed_params = fix_eds_params(fixed_params)

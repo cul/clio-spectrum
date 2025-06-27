@@ -54,8 +54,70 @@ module ArticlesHelper
     return link_to( document.title.html_safe, best_link[:url] )
   end
 
-  # Try to find the single best link
+  # This method attemtps to find the FTF link using data in the @record
+  # instance variable. Since the ebsco-eds gem does not supply an attr_accessor
+  # for this instance variable in EBSCO::EDS::Record (the class type for document),
+  # instance_variable_get is used.
+  # Note that this means the developers of the gem do not support direct access
+  # of @record, something to keep in mind.
+  # Below is the pertinent part of an actual @record using document.inspect
+  # Note that, in the value for the Name key, the (SXXXXXX) actually contains numbers
+  # instead of 'X's, not sure if we want this in public repo.
+  #  @record =
+  #    { # [BUNCH OF CODE REMOVED]
+  #      "FullText" => {
+  #        # [BUNCH OF CODE REMOVED]
+  #        "CustomLinks" => [
+  #          # [BUNCH OF CODE REMOVED]
+  #          {
+  #            "Url" => "https://resolver.ebsco.com/c/hvnjcg/result?BLAHBLAHBLAH",
+  #            "Name" => "Full Text Finder (for New FTF UI MAIN) - (sXXXXXXX)",
+  #            "Category" => "fullText",
+  #            "Text" => "Columbia e-link >>",
+  #            "Icon" => "https://toolkit.library.columbia.edu/v2/img/columbia-elink.png",
+  #            "MouseOverText" => "Columbia e-link >>"
+  #          }
+  #        ]
+  # [BUNCH OF CODE REMOVED]
+  def eds_full_text_finder_link_using_name(document)
+    result = nil
+    record = document.instance_variable_get(:@record)
+    custom_links = record.fetch('FullText',{}).fetch('CustomLinks',{})
+    if custom_links.count > 0
+      custom_links.each do |link|
+        # if link['Name'] == 'Full Text Finder (for New FTF UI MAIN) - (sXXXXXX)'
+        if link['Name'].start_with? 'Full Text Finder (for New FTF UI MAIN) - (s'
+          result = { url: link['Url'], label: link['Text'] }
+        end
+      end
+    end
+    result
+  end
+
+  # following method is an update of the original method for finding the FTF link. As the original,
+  # it uses the :label key for each link structure returned by document.eds_fulltext_links
+  def eds_full_text_finder_link_using_label(document)
+    result = nil
+    document.eds_fulltext_links.each do |link|
+      if link[:label] == 'Columbia e-link >>'
+        result = { url: link[:url], label: link[:label] }
+      end
+    end
+    result
+  end
+
   def eds_best_link(document)
+    # Either eds_full_text_finder_link_using_name or eds_full_text_finder_link_using_label
+    # can be used to find the FTF link, depending on which data to search on
+    # Since eds_full_text_finder_link_using_name uses the internal EDS field name, the retrieved value
+    # seems less likely to change than the label value used by eds_full_text_finder_link_using_label
+    eds_full_text_finder_link_using_name(document) || { url: document.eds_plink, label: 'Citation Online' }
+  end
+
+  # fcd1, 06/20/25: Renamed the original eds_best_link,
+  # keep renamed copy for now as reference, can be removed later
+  # Try to find the single best link
+  def eds_best_link_original(document)
     best_link_url   = ''
     best_link_label = ''
     
