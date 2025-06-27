@@ -77,8 +77,8 @@
 
               -# Only show the "more..." link if we think there may be more.
               - if facet[:values].size >= 10 # facet.src['pageSize']
-                %li.more_facets_link
-                  %a.more_facets_link{:href => result.eds_search_action('TODO')} #{t('blacklight.search.facets.more')}
+                -# %li.more_facets_link
+                  -# %a.more_facets_link{:href => result.eds_search_action('TODO')} #{t('blacklight.search.facets.more')}
 
 
 
