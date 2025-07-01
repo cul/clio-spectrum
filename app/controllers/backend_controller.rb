@@ -60,7 +60,7 @@ class BackendController < ApplicationController
       # Retrieve bib/holdings/item/status in nested data structure
       # (see lib/folio/client.rb get_availability() for details)
       bib_availability = Folio::Client.get_availability(bib_id)
-      
+
       # We'll determine a single status for each holding
       holdings_statuses = {}
       
@@ -94,11 +94,11 @@ class BackendController < ApplicationController
   # Return a single string for overall availability, one of:
   #   none (holding with zero items) / available / unavailable / some_available
   def determine_overall_holdings_availability(item_status_hash)
-    return 'none' unless item_status_hash
+    return 'none' unless item_status_hash and item_status_hash.present?
     
     item_count = 0
     available_count = 0
-    
+
     item_status_hash.each do |item_id, status_hash|
       item_count += 1
       available_count += 1 if status_hash['itemStatus'] == 'Available'
