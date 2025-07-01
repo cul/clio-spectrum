@@ -19,8 +19,6 @@ set :job_template, "mailifoutput -s ':subject (:environment)' :recipient  /bin/b
 # job_type :rake,    "cd :path && :environment_variable=:environment bundle exec rake :task --silent :output"
 
 
-
-
 # Our batch processing environments
 if %w(clio_batch_dev clio_batch_test clio_batch_prod).include?(@environment)
 
@@ -65,17 +63,12 @@ if %w(clio_batch_dev clio_batch_test clio_batch_prod).include?(@environment)
     rake 'recap:ingest_new[2]', subject: 'recap:ingest_new'
   end
 
-  # == AUTHORITIES ==
-  # Run all daily ingest tasks, together within one rake task
-  every :day, at: offset + '9am' do
-    rake 'authorities:daily', subject: 'authorities:daily'
-  end
-
-  # == LAW ==
-  # Weekly full load of all Law records
-  every :sunday, at: offset + '10am' do
-    rake 'bibliographic:extract:process EXTRACT=law', subject: 'law load'
-  end
+  # FOLIO - DISABLE AUTHORITY UPDATES UNTIL FOLIO FEED DEVELOPED
+  # # == AUTHORITIES ==
+  # # Run all daily ingest tasks, together within one rake task
+  # every :day, at: offset + '9am' do
+  #   rake 'authorities:daily', subject: 'authorities:daily'
+  # end
 
 end
 
