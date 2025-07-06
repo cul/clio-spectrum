@@ -36,9 +36,7 @@ $ ->
         
       # A bib item may have BOTH onsite and offsite holdings
         if (onsite)
-          # skip non-Voyager onsite material (e.g., Law)
-          if $.isNumeric(item_id)
-            onsite_catalog_items.push(item_id)
+          onsite_catalog_items.push(item_id)
         if (offsite)
           offsite_catalog_items.push(item_id)
       # a set of zero or more IDs (ISBN, OCLC, or LCCN)
