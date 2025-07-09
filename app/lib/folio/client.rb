@@ -240,7 +240,7 @@ module Folio
       # First, fetch the FOLIO Instance
       instance = self.get_instance_by_hrid(bib_id)
       # If not found in FOLIO, return our empty availability data
-      return availability
+      return availability unless instance
       
       # Our instance-level key will be the MARC 001 Bib ID - NOT the FOLIO UUID
       availability[bib_id] = {}
