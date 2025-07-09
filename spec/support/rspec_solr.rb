@@ -95,7 +95,8 @@ end
 #   { 'q' => "{!qf=$author_qf pf=$pf_author pf3=$pf3_author pf2=$pf2_author}#{query_str}", 'qt' => 'search' }
 # end
 def author_search_args(query_str)
-  { 'q' => "{!qf=$author_qf pf=$pf_author}#{query_str}" }
+  # { 'q' => "{!qf=$author_qf pf=$pf_author}#{query_str}" }
+  { 'q' => query_str, 'qf' => 'author_txt author_variant_txt author_addl_txt' }
 end
 
 def title_search_args(query_str)
@@ -104,7 +105,8 @@ end
 
 # fixed for CLIO
 def subject_search_args(query_str)
-  { 'q' => "{!qf=$subject_qf pf=$subject_pf}#{query_str}" }
+  # { 'q' => "{!qf=$subject_qf pf=$subject_pf}#{query_str}" }
+  { 'q' => query_str, 'qf' => 'subject_txt subject_variant_txt geo_variant_txt' }
 end
 
 def series_search_args(query_str)

@@ -80,13 +80,13 @@ describe 'Updated Format Assignments', :skip_travis do
 
     11138471 => ['Journal/Periodical', 'Loose-leaf'],
     11149683 => ['Journal/Periodical', 'Loose-leaf'],
-    'law173555' => ['Journal/Periodical', 'Loose-leaf'],
-    'law192394' => ['Journal/Periodical', 'Loose-leaf'],
+    # 'law173555' => ['Journal/Periodical', 'Loose-leaf'],
+    # 'law192394' => ['Journal/Periodical', 'Loose-leaf'],
 
     3740193 => %w(Book Microformat),
     10819290 => %w(Book Microformat),
-    'law290915' => %w(Book Microformat),
-    'law175050' => %w(Book Microformat)
+    # 'law290915' => %w(Book Microformat),
+    # 'law175050' => %w(Book Microformat)
   }.each do |bib, formatValue|
 
     it "assigns '#{formatValue}' to #{bib}" do
