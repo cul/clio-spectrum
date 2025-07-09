@@ -220,6 +220,12 @@ module Holdings
 
       # determine overall status
       status = determine_overall_status(mfhd_status)
+      if status == 'unknown'
+        return { status: 'none',
+                 messages: [{ status_code: '0',
+                              short_message: 'Status unknown',
+                              long_message: 'No item status available' }] }
+      end
 
       # generate messages
       messages = generate_messages(mfhd_status)
@@ -236,12 +242,19 @@ module Holdings
     #   - Overall circulation status
     #
     def determine_overall_status(mfhd_status)
+      items_without_status = 0  # No status was discovered for the item
       unavailable_count = 0
       mfhd_status.each do |_item_id, item|
-        unavailable_count += 1 unless item['itemStatus'] == 'Available'
-        # statusCode = item[:statusCode].to_i
-        # unavailable_count += 1 if statusCode > 1 && statusCode != 11
+        if item.key?('itemStatus')
+          # Any status EXCEPT 'Available' means the item can't be checked out
+          unavailable_count += 1 unless item['itemStatus'] == 'Available'
+        else
+          # Some items may not have a discoverable status
+          items_without_status += 1 if not item.key?('itemStatus')
+        end
       end
+      
+      return 'unknown' if items_without_status == mfhd_status.size
 
       if unavailable_count.zero?
         return 'available'
