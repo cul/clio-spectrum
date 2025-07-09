@@ -48,6 +48,8 @@ module Folio
     # Mimic postman:
     #   {{baseUrl}}/users?query=(username=="sam119*" )
     def self.get_user_by_username(username)
+      return nil unless username
+      
       @folio_client ||= folio_client
       query = '(username == "' + username + '")'
       json_response = @folio_client.get("/users?query=#{query}")
@@ -57,6 +59,8 @@ module Folio
 
     # /circulation/loans?query=(userId==5a05ac92-5512-5f1e-8198-31bcb9bf3397) sortby id
     def self.get_loans_by_user_id(user_id)
+      return [] unless user_id
+      
       @folio_client ||= folio_client
       query = '(status="Open") and (userId == ' + user_id + ')'
       json_response = @folio_client.get("/circulation/loans?query=#{query}&limit=500")
@@ -66,6 +70,8 @@ module Folio
     
     # /circulation/loans?query=(userId==5a05ac92-5512-5f1e-8198-31bcb9bf3397) sortby id
     def self.get_requests_by_user_id(user_id)
+      return [] unless user_id
+
       @folio_client ||= folio_client
       query = '(status="Open - Not yet filled") and (requesterId == ' + user_id + ')'
       json_response = @folio_client.get("/circulation/requests?query=#{query}")
@@ -78,6 +84,8 @@ module Folio
     #  {{baseUrl}}/manualblocks?limit=10000&query=(userId==74b140b4-636a-5476-8312-e0d1d4eaaad5)
     # Fetch both, parse each appropriately, sort/uniq the list, return list of string messages
     def self.get_blocks_by_user_id(user_id)
+      return [] unless user_id
+
       @folio_client ||= folio_client
 
       all_blocks = []
@@ -104,6 +112,9 @@ module Folio
 
     
     def self.renew_by_id(user_id:, item_id:)
+      raise("Renew Error - missing user id") unless user_id
+      raise("Renew Error - missing item id") unless item_id
+      
       @folio_client ||= folio_client
       # It's important to keep these as string keys, not symbol keys,
       # or FolioClient will misinterpret them as keyword arguments
@@ -135,6 +146,8 @@ module Folio
 
 
     def self.delete_request(request_id:)
+      return nil unless request_id
+
       @folio_client ||= folio_client
 
       path = "/circulation/requests/#{request_id}"
@@ -151,6 +164,8 @@ module Folio
     # Retrieve a single FOLIO Instance JSON record for a given Voyager Bib ID
     #   {{baseUrl}}/search/instances?query=(hrid="123")&limit=1
     def self.get_instance_by_hrid(hrid)
+      return {} unless hrid
+
       query = '(hrid="' + hrid + '")'
       path = "/search/instances?query=#{query}&limit=1"
       @folio_client ||= folio_client
@@ -167,6 +182,8 @@ module Folio
     # Retrieve a list of FOLIO Holdings JSON records for a given FOLIO Instance UUID
     #   {{baseUrl}}/holdings-storage/holdings?query=(instanceId == "c3cf979d-3562-5cce-b130-88d36f4a99c6")
     def self.get_holdings_by_instance(instance_uuid)
+      return nil unless instance_uuid
+      
       query = '(instanceId=="' + instance_uuid + '")'
       path = "/holdings-storage/holdings?query=#{query}"
       @folio_client ||= folio_client
@@ -181,6 +198,8 @@ module Folio
     # Retrieve a list of all FOLIO Item JSON records for a given FOLIO Holding UUID
     #   {{baseUrl}}/inventory/items-by-holdings-id?query=(holdingsRecordId=="d91b5d2a-d4f6-57f6-9108-35965f9fbf32")
     def self.get_items_by_holding(holding_uuid)
+      return nil unless holding_uuid
+
       query = '(holdingsRecordId=="' + holding_uuid + '")'
       path = "/inventory/items-by-holdings-id?query=#{query}"
       @folio_client ||= folio_client
@@ -214,10 +233,15 @@ module Folio
     # only pre-processed opinionated display-oriented fields.
     # Docs: https://docs.folio.org/docs/platform-essentials/item-status/itemstatus/
     def self.get_availability(bib_id)
+      return {} unless bib_id
+      
       availability = {}
 
       # First, fetch the FOLIO Instance
       instance = self.get_instance_by_hrid(bib_id)
+      # If not found in FOLIO, return our empty availability data
+      return availability
+      
       # Our instance-level key will be the MARC 001 Bib ID - NOT the FOLIO UUID
       availability[bib_id] = {}
 
