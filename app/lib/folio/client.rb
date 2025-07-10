@@ -182,7 +182,7 @@ module Folio
     # Retrieve a list of FOLIO Holdings JSON records for a given FOLIO Instance UUID
     #   {{baseUrl}}/holdings-storage/holdings?query=(instanceId == "c3cf979d-3562-5cce-b130-88d36f4a99c6")
     def self.get_holdings_by_instance(instance_uuid)
-      return nil unless instance_uuid
+      return [] unless instance_uuid
       
       query = '(instanceId=="' + instance_uuid + '")'
       path = "/holdings-storage/holdings?query=#{query}"
