@@ -14,9 +14,12 @@ module Holdings
       # collect mfhd records
       @holdings_records = []
       document_marc.each_by_tag('852') do |t852|
-        # NEXT-1899 - Ignore bib-level 852 fields
-        next unless t852['0']  # Skip if subfield '0' is not present
-        next unless t852['a']  # Skip if subfield 'a' is not present
+
+        # NEXT-1899 - Ignore bib-level 852 fields for FOLIO records
+        if folio_availability.present?
+          next unless t852['0']  # Skip if subfield '0' is not present
+          next unless t852['a']  # Skip if subfield 'a' is not present
+        end
 
         # Sequence - MFHD ID used to gather all associated fields
         mfhd_id = t852['0']
