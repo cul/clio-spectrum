@@ -82,6 +82,11 @@ class CatalogController < ApplicationController
       # These will only be set if the search was successful
       @response = search_engine.search
       @document_list = search_engine.documents
+
+      # Needs to be done carefully, so that UI hit counts work correctly
+      # # If the search engine returns documents which shouldn't be displayed...
+      # sanitize_document_list(@document_list)
+      
       # If the search was not successful, there may be errors
       @errors = search_engine.errors
       debug_timestamp('CatalogController#index() end - implicit render to follow')
@@ -726,6 +731,29 @@ EOS
 </collection>
 EOS
     return footer
+  end
+  
+  
+  def sanitize_document_list(document_list)
+    document_list.delete_if do |document|
+      document_should_be_hidden?(document)
+    end
+  end
+  
+  def document_should_be_hidden?(document)
+    # Only apply these rules to valid FOLIO documents, 
+    # with new FOLIO "in" bib ids, found in FOLIO
+    return false unless document and document.id
+    return false unless document.id.starts_with?('in')
+    instance = Folio::Client.get_instance_by_hrid(document.id)
+    return false if instance.empty?
+
+    # If this instance is Suppressed or Staff Suppressed, hide it.
+    return true if instance['staffSuppress'] == true
+    return true if instance['discoverySuppress'] == true
+
+    # Default is false, document should NOT be hidden
+    return false
   end
   
 
