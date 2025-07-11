@@ -15,8 +15,8 @@ module Holdings
       @holdings_records = []
       document_marc.each_by_tag('852') do |t852|
 
-        # NEXT-1899 - Ignore bib-level 852 fields for FOLIO records
-        if folio_availability.present?
+        # NEXT-1898, NEXT-1899 - Ignore bib-level 852 fields for Voyager or FOLIO records
+        if folio_availability.present? or document.id.match?(/^\d/)
           next unless t852['0']  # Skip if subfield '0' is not present
           next unless t852['a']  # Skip if subfield 'a' is not present
         end
