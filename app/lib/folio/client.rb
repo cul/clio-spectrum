@@ -63,7 +63,7 @@ module Folio
       
       @folio_client ||= folio_client
       query = '(status="Open") and (userId == ' + user_id + ')'
-      json_response = @folio_client.get("/circulation/loans?query=#{query}&limit=500")
+      json_response = @folio_client.get("/circulation/loans?query=#{query}&limit=1000")
       all_open_loans = json_response["loans"]
       return all_open_loans
     end
@@ -74,7 +74,7 @@ module Folio
 
       @folio_client ||= folio_client
       query = '(status="Open - Not yet filled") and (requesterId == ' + user_id + ')'
-      json_response = @folio_client.get("/circulation/requests?query=#{query}")
+      json_response = @folio_client.get("/circulation/requests?query=#{query}&limit=100")
       all_open_requests = json_response["requests"]
       return all_open_requests
     end
@@ -100,7 +100,7 @@ module Folio
 
       # Manual
       query = '(userId == ' + user_id + ')'
-      json_response = @folio_client.get("/manualblocks?query=#{query}&limit=500")
+      json_response = @folio_client.get("/manualblocks?query=#{query}&limit=100")
       manual_blocks = json_response["manualblocks"]
       manual_blocks.each do |block|
         block_message = block["patronMessage"]
@@ -185,7 +185,7 @@ module Folio
       return [] unless instance_uuid
       
       query = '(instanceId=="' + instance_uuid + '")'
-      path = "/holdings-storage/holdings?query=#{query}"
+      path = "/holdings-storage/holdings?query=#{query}&limit=1000"
       @folio_client ||= folio_client
       folio_response = @folio_client.get(path)
       holdings = folio_response['holdingsRecords']
@@ -201,7 +201,7 @@ module Folio
       return nil unless holding_uuid
 
       query = '(holdingsRecordId=="' + holding_uuid + '")'
-      path = "/inventory/items-by-holdings-id?query=#{query}"
+      path = "/inventory/items-by-holdings-id?query=#{query}&limit=1000"
       @folio_client ||= folio_client
       folio_response = @folio_client.get(path)
       items = folio_response['items']
@@ -235,6 +235,7 @@ module Folio
     def self.get_availability(bib_id)
       return {} unless bib_id
       
+      Rails.logger.debug("entered get_availability(#{bib_id})")
       availability = {}
 
       # First, fetch the FOLIO Instance
@@ -246,8 +247,11 @@ module Folio
       availability[bib_id] = {}
 
       # Next, get the list of holdings
+      Rails.logger.debug("calling get_holdings_by_instance()...")
       holdings = self.get_holdings_by_instance(instance['id'])
+      Rails.logger.debug("done.  #{holdings.size} total holdings.")
       
+      Rails.logger.debug("calling get_items_by_holding() for each holding...")
       holdings.each do |holding|
         holding_id = holding['id']
         availability[bib_id][holding_id] = {}
@@ -263,7 +267,9 @@ module Folio
         end
 
       end
-      
+      Rails.logger.debug("done.")
+
+      Rails.logger.debug("returning from get_availability(#{bib_id})")
       return availability
     end
     
