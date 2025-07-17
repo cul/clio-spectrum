@@ -1,5 +1,7 @@
 -# SAVED_LISTS/SHOW - build the main display page of Saved Lists
 
+/ saved_lists/show.html.haml
+
 .row
 
   .savedlist_control_panel.col-sm-3
@@ -7,6 +9,7 @@
 
 
   .savedlist_display_list.col-sm-9
+    = no_articles_blurb()
     .savedlist_header
       .row
         .col-sm-2
