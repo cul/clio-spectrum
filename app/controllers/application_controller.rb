@@ -423,7 +423,10 @@ class ApplicationController < ActionController::Base
     # Next, lookup each list in it's own way,
     # to get hashes of key-to-document
     catalog_docs_hash = get_catalog_docs_for_ids(catalog_ids) || {}
-    article_docs_hash = get_summon_docs_for_bookmarks(article_bookmarks) || {}
+    # NEXT-1942 - CUL has migrated Articles from Summon to EBSCO HLM,
+    #  Summon IDs don't work anymore, ignore them
+    # article_docs_hash = get_summon_docs_for_bookmarks(article_bookmarks) || {}
+    article_docs_hash = {}
 
     # Finally, merge the hashes, preserving doc id order,
     # and return the array of documents
