@@ -29,6 +29,11 @@
 
         -# The "Full Screen" link expects session values...
         - if session['browse'] && session['browse']['shelfkey']
+        
+          -# Our new normalized call-numbers may include slashes, which break Rails routing
+          -if slash_position = session['browse']['shelfkey'].index("/")
+            -session['browse']['shelfkey'] = session['browse']['shelfkey'][0...slash_position]
+        
           -# build the path in a helper, to catch routing exceptions
           - full_path = build_browse_shelfkey_full_path(shelfkey: session['browse']['shelfkey'])
           - if full_path && full_path.length > 0
