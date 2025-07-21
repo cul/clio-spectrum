@@ -5,6 +5,7 @@
     = render :partial => "/layouts/common_head"
   %body{onload: "focusIfInViewport('.search_q')", data: {'environment' => "#{ENV['RAILS_ENV']}"} }
     / Layout:  quicksearch
+    = tag.h4 "EDS Profile: #{APP_CONFIG['eds']['profile_id']}" unless Rails.env == 'clio_prod'
     = render partial: '/top_banner'
 
     - add_datasources
