@@ -194,6 +194,21 @@ module Folio
       # success!
       return holdings
     end
+    
+    def self.get_loan_by_item(item_uuid)
+      return [] unless item_uuid
+      
+      query = 'itemId=="' + item_uuid + '" sortby loanDate/sort.descending'
+      path = "/circulation/loans?query=#{query}&limit=1"
+      @folio_client ||= folio_client
+      folio_response = @folio_client.get(path)
+      loan = folio_response['loans'][0]
+      # error?
+      return {} unless loan
+      # success!
+      return loan
+    end
+    
 
     # Retrieve a list of all FOLIO Item JSON records for a given FOLIO Holding UUID
     #   {{baseUrl}}/inventory/items-by-holdings-id?query=(holdingsRecordId=="d91b5d2a-d4f6-57f6-9108-35965f9fbf32")
@@ -205,6 +220,38 @@ module Folio
       @folio_client ||= folio_client
       folio_response = @folio_client.get(path)
       items = folio_response['items']
+      
+      # Replace "Checked Out" with User Last/First Name, if user is a status patron
+      # item uuid:   6eb2cd6d-3224-5493-82af-c142ba3127ee
+      # {{baseUrl}}/circulation/loans?query=itemId = '6eb2cd6d-3224-5493-82af-c142ba3127ee'&limit=1
+      # "loans": [
+      #
+      # "patronGroupAtCheckout": {
+      #     "id": "01fbe6a5-52d3-4229-b856-db418bf192ac",
+      #     "name": "Indefinite"
+      # },
+      # "borrower": {
+      #     "firstName": " at circ desk.",
+      #     "lastName": "In Maintenance. Ask for help",
+      
+      status_patron_patron_groups = [
+        'Avery ILUO',
+        'Indefinite',
+        'Missing',
+        'ReCAP Facility Indefinite',
+        'Resource Sharing'
+      ]
+      
+      # Rewrite status name -- only when item is Checked Out to a Status Patron
+      items.each do |item|
+        next unless item['status']['name'] == 'Checked out'
+        loan = self.get_loan_by_item(item['id'])
+        loan_patron_group = loan['patronGroupAtCheckout']['name']
+        if status_patron_patron_groups.include?(loan_patron_group)
+          item['status']['name'] = loan['borrower']['lastName'] + loan['borrower']['firstName']
+        end
+      end
+      
       # error?
       return {} unless items
       # success!
