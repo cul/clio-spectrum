@@ -568,9 +568,15 @@ module Spectrum
             when 'journals'
               default_catalog_config(config, :display_fields, :sorts)
 
+              # NEXT-1930 - EBSCO HLM records are loaded without the 852$h 'EJOURNALS' value,
+              # as an alternative for now, filter for HLM recordswith formats 'Online' and 'Journal/Periodical'            
+              # config.default_solr_params = {
+              #   qt: 'search',
+              #   fq: ['{!raw f=source_facet}ejournal']
+              # }
               config.default_solr_params = {
                 qt: 'search',
-                fq: ['{!raw f=source_facet}ejournal']
+                fq: ['{!raw f=format}Journal/Periodical', '{!raw f=format}Online', 'id:ebs*']
               }
 
               config.add_facet_field 'language_facet',
