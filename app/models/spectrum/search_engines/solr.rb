@@ -576,7 +576,8 @@ module Spectrum
               # }
               config.default_solr_params = {
                 qt: 'search',
-                fq: ['{!raw f=format}Journal/Periodical', '{!raw f=format}Online', 'id:ebs*']
+                # fq: ['{!raw f=format}Journal/Periodical', '{!raw f=format}Online', 'id:ebs*']
+                fq: ['{!raw f=format}Journal/Periodical', '{!raw f=format}Online']
               }
 
               config.add_facet_field 'language_facet',
