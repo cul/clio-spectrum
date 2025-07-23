@@ -56,15 +56,17 @@
       %h3 
         Open Loans
         
-      %table.table.table-striped.table-bordered.table-condensed.table-hover
+      %table.table.table-striped.table-bordered.table-condensed.table-hover.loans-datatable
         %thead
           %tr
             %th Title
+            %th Call Number
             %th Barcode
+            %th Owning Library
             %th Status
             %th Due Date
             %th Actions
-            %th Fees/Fine
+            %th Fees&nbsp;/ Fines
 
         - @loans.each do |loan|
           - # Highlight rows with any problems (fees, lost, etc.)
@@ -74,8 +76,10 @@
           - @row_style = 'danger' if item_status != 'Checked out'
           - @row_style = 'danger' if amount_owed != 0
           %tr{class: @row_style}
-            %td= loan['item']['title']
-            %td= barcode_search_link(loan['item']['barcode'])
+            %td= loan.dig('item', 'title') || ''
+            %td= loan.dig('item', 'callNumber') || ''
+            %td= barcode_search_link(loan.dig('item', 'barcode'))
+            %td= loan.dig('item', 'location', 'name') || ''
             %td
               %span.text-nowrap=item_status
             %td
@@ -87,22 +91,28 @@
 
     #menu1.tab-pane.fade
       %h3 Open Requests
-      %table.table-striped.table-bordered.table-condensed
+      %table.table-striped.table-bordered.table-condensed.requests-datatable
         %thead
           %tr
             %th Title
+            %th Call Number
             %th Barcode
+            %th Owning Library
             %th Request Type
             %th Status
+            %th Pickup Location
             %th Actions
 
         - @requests.each do |request|
           %tr
-            %td= request['instance']['title']
+            %td= request.dig('instance', 'title') || ''
+            %td= request.dig('item', 'callNumber') || ''
             %td= barcode_search_link(request['item']['barcode'])
+            %td= request.dig('item', 'itemEffectiveLocationName') || ''
             %td= request['requestType']
             %td
               %span.text-nowrap= request['status']
+            %td= request.dig('pickupServicePoint', 'discoveryDisplayName') || ''
             %td= cancel_link(request) unless @snooping
       
 

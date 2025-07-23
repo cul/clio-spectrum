@@ -73,7 +73,7 @@ module Folio
       return [] unless user_id
 
       @folio_client ||= folio_client
-      query = '(status="Open - Not yet filled") and (requesterId == ' + user_id + ')'
+      query = '(status="Open*") and (requesterId == ' + user_id + ')'
       json_response = @folio_client.get("/circulation/requests?query=#{query}&limit=100")
       all_open_requests = json_response["requests"]
       return all_open_requests

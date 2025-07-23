@@ -27,8 +27,8 @@ module MyAccountHelper
   end
   
   def barcode_search_link(barcode)
+    return '' unless barcode.present?
     link_to barcode, catalog_index_path(q: barcode)
-    
   end
   
   
