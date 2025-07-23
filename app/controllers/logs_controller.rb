@@ -3,6 +3,8 @@ class LogsController < ApplicationController
 
   layout 'no_sidebar'
 
+  before_action :authenticate_user!, except: [:bounce]
+
   # /logs/set=XXX
   #  - earliest/latest info
   #  - for each year, record-count, download-link
@@ -11,6 +13,9 @@ class LogsController < ApplicationController
   # ... determined by record-count at that level?  (if < N, link)
 
   def index
+    # Only CUL staff can view logs
+    redirect_to root_path unless current_user && current_user.culstaff?
+
     @set = log_params[:set]
 
     # If no set of logs was specified,
@@ -97,6 +102,8 @@ class LogsController < ApplicationController
   # Display a list of available log sets
   # ('Best Bets', etc.)
   def sets
+    # Only CUL staff can view logs
+    redirect_to root_path unless current_user && current_user.culstaff?
   end
 
   private
