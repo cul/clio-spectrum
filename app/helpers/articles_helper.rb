@@ -85,8 +85,7 @@ module ArticlesHelper
     custom_links = record.fetch('FullText',{}).fetch('CustomLinks',{})
     if custom_links.count > 0
       custom_links.each do |link|
-        # if link['Name'] == 'Full Text Finder (for New FTF UI MAIN) - (sXXXXXX)'
-        if link['Name'].start_with? 'Full Text Finder (for New FTF UI MAIN) - (s'
+        if link['Name'].start_with? 'Full Text Finder (for New FTF UI'
           result = { url: link['Url'], label: link['Text'] }
         end
       end
