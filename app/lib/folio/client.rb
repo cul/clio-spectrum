@@ -221,11 +221,15 @@ module Folio
       folio_response = @folio_client.get(path)
       items = folio_response['items']
       
-      # Replace "Checked Out" with User Last/First Name, if user is a status patron
-      # item uuid:   6eb2cd6d-3224-5493-82af-c142ba3127ee
+      # (1) Sometimes a FOLIO Item Status is just not very clear to patrons,
+      # rewrite to a more understandable label
+      item_status_replacements = {
+        'Aged to lost'  =>  'Unavailable'
+      }
+
+      # (2) Replace "Checked Out" item status with User Last/First Name, if user is a status patron
       # {{baseUrl}}/circulation/loans?query=itemId = '6eb2cd6d-3224-5493-82af-c142ba3127ee'&limit=1
       # "loans": [
-      #
       # "patronGroupAtCheckout": {
       #     "id": "01fbe6a5-52d3-4229-b856-db418bf192ac",
       #     "name": "Indefinite"
@@ -233,7 +237,6 @@ module Folio
       # "borrower": {
       #     "firstName": " at circ desk.",
       #     "lastName": "In Maintenance. Ask for help",
-      
       status_patron_patron_groups = [
         'Avery ILUO',
         'Indefinite',
@@ -241,14 +244,35 @@ module Folio
         'ReCAP Facility Indefinite',
         'Resource Sharing'
       ]
+      # (3) For some item statuses, we want to append the item-status-date to the display string
+      item_status_append_date = [
+        'Aged to lost'
+      ]
       
-      # Rewrite status name -- only when item is Checked Out to a Status Patron
+      # Consider each Item, rewrite item status names if appropriate
       items.each do |item|
-        next unless item['status']['name'] == 'Checked out'
-        loan = self.get_loan_by_item(item['id'])
-        loan_patron_group = loan['patronGroupAtCheckout']['name']
-        if status_patron_patron_groups.include?(loan_patron_group)
-          item['status']['name'] = loan['borrower']['lastName'] + loan['borrower']['firstName']
+        folio_item_status = item['status']['name']
+
+        # (1) simple replacements
+        if item_status_replacements.include?(folio_item_status)
+          item['status']['name'] = item_status_replacements[folio_item_status]
+        end
+        
+        # (2) status patron replacements
+        if folio_item_status == 'Checked out'
+          loan = self.get_loan_by_item(item['id'])
+          loan_patron_group = loan['patronGroupAtCheckout']['name']
+          if status_patron_patron_groups.include?(loan_patron_group)
+            item['status']['name'] = loan['borrower']['lastName'] + loan['borrower']['firstName']
+          end
+        end
+        
+        # (3) append item-status-date, for certain item statuses
+        if item_status_append_date.include?(folio_item_status)
+          item_status_date = item['status']['date']
+          if item_status_date and item_status_date.start_with?(/^\d\d\d\d-\d\d-\d\d/)
+            item['status']['name'] = item['status']['name'] + ' ' + item_status_date.gsub(/T.*/, '')
+          end
         end
       end
       
