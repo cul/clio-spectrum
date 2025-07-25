@@ -18,9 +18,11 @@
     //%li= link_to "My Borrowing Account", "https://resolver.library.columbia.edu/lweb0087", target: "_blank"
     %li= link_to "My Borrowing Account", my_account_index_path
     %li= link_to "My Saved Lists", lists_path
-    - if current_user
-      %li= link_to "My Checked Out Items", checked_out_items_path
-    - else
+    -# NEXT-1895 - "I’m going to ask that that be turned off..."
+    -#- if current_user
+    -#  %li= link_to "My Checked Out Items", checked_out_items_path
+    -#- else
+    - unless current_user.present?
       %li= link_to "My CLIO", user_saml_omniauth_authorize_path
     - if current_user
       %li.nav-divider

@@ -28,7 +28,9 @@ module MyAccountHelper
   
   def barcode_search_link(barcode)
     return '' unless barcode.present?
-    link_to barcode, catalog_index_path(q: barcode)
+    # NEXT-1895 - "I’m going to ask that the clickable barcodes be turned off..."
+    # link_to barcode, catalog_index_path(q: barcode)
+    return barcode
   end
   
   
