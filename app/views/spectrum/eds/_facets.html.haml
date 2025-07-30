@@ -10,7 +10,18 @@
   
   #facet-panel-collapse.collapse.panel-group
     
+    -# EDS "SEARCH OPTIONS", based onSummon true/false "SEARCH OPTIONS" panel
+    .panel.panel-default.facet_limit
+      .panel-heading
+        %h5.panel-title.twiddle.twiddle-open
+          Search Options
 
+      .panel-body
+        %ul.list-unstyled
+          - result.pre_facet_options_with_links.each do |option|
+            %div.search_option
+              = check_box_tag 'option', 'yes', option[:value], :href => request.original_url.remove('&ft1=off') + option[:link_suffix], :class => 'search_option_action'
+              %span.option_name #{option[:name]}
 
     -# PUBLICATION DATE FACET HANDLED SEPARATELY
     -# (it's actually a range-filter, not a facet)
