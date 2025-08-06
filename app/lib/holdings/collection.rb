@@ -191,13 +191,21 @@ module Holdings
 
     # def process_holdings(holdings, complexity)
     def condense_holdings(holdings)
-      # processing varies depending on complexity
-      complexity = determine_complexity(holdings)
+
+      # # processing varies depending on complexity
+      # complexity = determine_complexity(holdings)
 
       entries = []
 
       # Look at each Holding in turn...
       holdings.each do |holding|
+
+        # processing varies depending on complexity
+        complexity = determine_complexity( [holding] )
+
+        # DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG 
+        # next unless holding[:location_code] == 'mil,res'  # DEBUG
+
         # Do we already have an entry for this holding-location and holding-call-number?
         entry = entries.find do |this_entry|
           this_entry[:location_name] == holding[:location_name] &&
