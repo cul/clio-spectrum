@@ -16,13 +16,13 @@ describe 'WorldCat links' do
     end
   end
 
-  # Lost our example bib
-  # it 'should link for prefixed OCLC numbers' do
-  #   visit solr_document_path('12605255')
-  #   within '.holdings' do
-  #     expect(page).to have_link('WorldCat', href: 'https://www.worldcat.org/oclc/133167834')
-  #   end
-  # end
+  it 'should link for prefixed OCLC numbers' do
+    visit solr_document_path('123')
+    within '.holdings' do
+      expect(page).to have_link('WorldCat', href: 'https://www.worldcat.org/oclc/3777209')
+    end
+  end
+
 
   it 'should work with ISBN' do
     visit solr_document_path('14976920')

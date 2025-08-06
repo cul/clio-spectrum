@@ -4,26 +4,26 @@ require 'spec_helper'
 
 describe 'Linked field-values in single-item display' do
   it 'should work for links with diacritics and trailing punctuation' do
-    # setup UTF-8 Decomposed form string constants for our various targets
+    # setup UTF-8 Precomposed form string constants for our various targets
     # the title:
-    mqis_decomposed = 'Mādhā qāla al-Imām al-Shaʻrāwī'.mb_chars.normalize(:d)
+    mqis_precomposed = 'Mādhā qāla al-Imām al-Shaʻrāwī'.mb_chars.normalize(:c)
     # the "also listed under" name:
-    mhmm_decomposed = 'Mazrūʻah, Ḥātim Muḥammad Manṣūr.'.mb_chars.normalize(:d)
+    mhmm_precomposed = 'Mazrūʻah, Ḥātim Muḥammad Manṣūr.'.mb_chars.normalize(:c)
     # the author:
-    smm_decomposed = 'Shaʻrāwī, Muḥammad Mutawallī.'.mb_chars.normalize(:d)
+    smm_precomposed = 'Shaʻrāwī, Muḥammad Mutawallī.'.mb_chars.normalize(:c)
 
     # visit this specific item
     visit solr_document_path('10172954')
 
     # follow the "Also Listed Under" linked name, should get to search results page
-    click_link(mhmm_decomposed)
+    click_link(mhmm_precomposed)
     expect(page).to have_css('.result', count: 2)
 
     # click the title on the search-results page, snoudl get to the item-detail page again
-    click_link(mqis_decomposed)
+    click_link(mqis_precomposed)
 
     # follow the "Author" linked name, should get to search results page, with many items
-    click_link(smm_decomposed)
+    click_link(smm_precomposed)
 
     expect(page).to have_css('.result')
     expect(page).to_not have_text('No results found')
@@ -32,8 +32,8 @@ describe 'Linked field-values in single-item display' do
   # NEXT-526 - clicking on hyperlinked editor's name returns null result
   it "should work for RDA roles, such as 'editor'" do
     test_bib = '9720272'
-    test_title = '50 Jahre Schaubühne 1962-2012'.mb_chars.normalize(:d)
-    test_link = 'Schitthelm, Jürgen, editor.'.mb_chars.normalize(:d)
+    test_title = '50 Jahre Schaubühne 1962-2012'.mb_chars.normalize(:c)
+    test_link = 'Schitthelm, Jürgen, editor.'.mb_chars.normalize(:c)
 
     # pull up the specific record, by bib key
     visit solr_document_path(test_bib)
@@ -97,11 +97,11 @@ describe 'Linked field-values in single-item display' do
     test_bib = '7030828'
     test_title = 'Iranian DVD oral history collection'
     test_link_array = [
-      'Aʻlāmī, Shahnāz.'.mb_chars.normalize(:d),
-      'Darvīshʹpūr, Mihrdād.'.mb_chars.normalize(:d),
-      'Jahānʹshāhlū Afshār, Nuṣrat Allāh.'.mb_chars.normalize(:d),
-      'Banī Ṣadr, Abū al-Ḥasan.'.mb_chars.normalize(:d),
-      'Ibrāhīmʹzādah, Rāz̤iyah.'.mb_chars.normalize(:d)
+      'Aʻlāmī, Shahnāz.'.mb_chars.normalize(:c),
+      'Darvīshʹpūr, Mihrdād.'.mb_chars.normalize(:c),
+      'Jahānʹshāhlū Afshār, Nuṣrat Allāh.'.mb_chars.normalize(:c),
+      'Banī Ṣadr, Abū al-Ḥasan.'.mb_chars.normalize(:c),
+      'Ibrāhīmʹzādah, Rāz̤iyah.'.mb_chars.normalize(:c)
     ]
 
     # pull up the specific record, by bib key
@@ -192,7 +192,7 @@ describe 'Linked field-values in single-item display' do
     expect(page).to have_text 'Jerusalem : Magnes Press, Hebrew University'
 
     # field-label, white-space, field-value
-    series_decomposed = 'Sidrat meḥḳarim ʻal shem Uriʼel Hed.'.mb_chars.normalize(:d)
+    series_decomposed = 'Sidrat meḥḳarim ʻal shem Uriʼel Hed.'.mb_chars.normalize(:c)
     expect(page).to have_text(series_decomposed)
 
     click_link(series_decomposed)
@@ -205,19 +205,22 @@ describe 'Linked field-values in single-item display' do
     expect(find('#documents')).to have_text '1918-1929'
     # title_4 = 'ha-ʻUlama u-veʻayot dat ba-ʻolam ha-Muslemi : meḥḳarim le-zekher Uriʾel Hed'
     title_4 = 'ha-ʻUlama u-veʻayot dat ba-ʻolam ha-Muslemi : meḥḳarim le-zekher Uriʼel Hed' 
-    expect(find('#documents')).to have_text title_4.mb_chars.normalize(:d)
+    expect(find('#documents')).to have_text title_4.mb_chars.normalize(:c)
   end
 
   # NEXT-1107 - Pre-composed characters in facets
   # These two bib records (10322893, 10551688) encode the name Cipa differently,
   # both should link correctly, and "author" facet should be combined.
   it 'should work equivalently with pre-composed or de-composed unicode forms' do
+    
+    cipa_c = 'Çıpa, H. Erdem, 1971'.mb_chars.normalize(:c)
+    
     visit solr_document_path(10322893)
     # "Also Listed Under Çıpa, H. Erdem, 1971-"
     click_link('H. Erdem, 1971')
     expect(find('.index_toolbar')).to have_text('1 - 9  of 9')
     within('#facet-author li', text: 'Erdem') do
-      expect(find('.facet-label')).to have_text 'Çıpa, H. Erdem, 1971'
+      expect(find('.facet-label')).to have_text cipa_c
       expect(find('.facet-count')).to have_text '9'
     end
 
@@ -226,7 +229,7 @@ describe 'Linked field-values in single-item display' do
     click_link('H. Erdem, 1971')
     expect(find('.index_toolbar')).to have_text('1 - 9  of 9')
     within('#facet-author li', text: 'Erdem') do
-      expect(find('.facet-label')).to have_text 'Çıpa, H. Erdem, 1971'
+      expect(find('.facet-label')).to have_text cipa_c
       expect(find('.facet-count')).to have_text '9'
     end
   end

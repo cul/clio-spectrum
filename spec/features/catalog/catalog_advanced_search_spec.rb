@@ -254,6 +254,6 @@ describe 'Catalog Advanced Search' do
     find('span.glyphicon.glyphicon-search').click
 
     expect(find('.constraints-container')).to have_content('ISBN: ' + isbn_z)
-    expect(page).to have_text 'Géographie du Territoire de Belfort'.mb_chars.normalize(:d)
+    expect(page).to have_text 'Géographie du Territoire de Belfort'.mb_chars.normalize(:c)
   end
 end

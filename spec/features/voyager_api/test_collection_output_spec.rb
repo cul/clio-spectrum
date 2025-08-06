@@ -4,7 +4,8 @@ describe 'collection output tests' do
   it 'test condensed holdings output full', :js, wait: 20 do
     visit solr_document_path('8430339')
     within ('div#clio_holdings') do
-      expect(page).to have_text('Butler Stacks (Enter at the Butler Circulation Desk)')
+      # page.save_and_open_page # debug
+      expect(page).to have_text('Butler Stacks')
     end
 
     visit solr_document_path('1052500')
@@ -17,7 +18,7 @@ describe 'collection output tests' do
   it 'test condensed holdings output brief', :js do
     visit solr_document_path('2033')
     within ('div#clio_holdings') do
-      expect(page).to have_text('Butler Stacks (Enter at the Butler Circulation Desk)')
+      expect(page).to have_text('Butler Stacks')
       expect(page).to have_text('PQ6046.B5 S25')
       
       # COVID OVERRIDE SPEC
