@@ -476,8 +476,11 @@ module Holdings
         message = t891.subfields.collect { |s| s.value if 'acd3'.include? s.code }.compact.join(' ').strip
         message_brief = t891.subfields.collect { |s| s.value if 'ad'.include? s.code }.compact.join(' ').strip
 
-        sub3 = t891['3'].strip.sub(/;$/, '')
-        message_brief = "#{message_brief} (#{sub3})" if sub3
+        sub3 = t891['3']
+        if sub3
+          sub3 = sub3.strip.sub(/;$/, '')
+          message_brief = "#{message_brief} (#{sub3})"
+        end
         
         sube = t891['e']
         code = ''
