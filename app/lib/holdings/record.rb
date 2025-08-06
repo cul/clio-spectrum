@@ -475,6 +475,10 @@ module Holdings
         # do not include subfield c and 3 in brief message (use with gift icon)
         message = t891.subfields.collect { |s| s.value if 'acd3'.include? s.code }.compact.join(' ').strip
         message_brief = t891.subfields.collect { |s| s.value if 'ad'.include? s.code }.compact.join(' ').strip
+
+        sub3 = t891['3'].strip.sub(/;$/, '')
+        message_brief = "#{message_brief} (#{sub3})" if sub3
+        
         sube = t891['e']
         code = ''
         code = sube.strip if sube
@@ -490,9 +494,9 @@ module Holdings
             message_brief = entry['txt'] unless entry['txt'].empty?
           end
         end
+
         donor_info << { message: message, message_brief: message_brief, code: code, url: url }
       end
-
       donor_info
     end
 

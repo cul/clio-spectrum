@@ -1,23 +1,25 @@
 /catalog/_donor_info.html.haml
 
 - if copy['donor_info_icon'].present?
-  - message = copy['donor_info_icon'].first['message']
-  - message = message.gsub(/ -- /, '<br/>').html_safe if message.present?
-  - href = copy['donor_info_icon'][0]['url']
-  
-  - if href.present?
-    .donor_info_button
-      %a.btn.donor_info_icon{href: "#{href}"}
-        GIFT
-    .donor_info_message
-      %p
-        =link_to(message, href)
-  - else
-    .donor_info_button
-      %button.donor_info_icon{:disabled => true}
-        GIFT
-    .donor_info_message
-      %p
-        =message
+  - copy['donor_info_icon'].each do |donor_info|
+    - message = donor_info['message']
+    - message = message.gsub(/ -- /, '<br/>').html_safe if message.present?
+    - href = donor_info['url']
+
+    - if href.present?
+      .donor_info_button
+        %a.btn.donor_info_icon{href: "#{href}"}
+          GIFT
+      .donor_info_message
+        %p
+          =link_to(message, href)
+    - else
+      .donor_info_button
+        %button.donor_info_icon{:disabled => true}
+          GIFT
+      .donor_info_message
+        %p
+          =message
+    %br
 
 
