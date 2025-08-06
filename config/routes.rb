@@ -266,7 +266,10 @@ Rails.application.routes.draw do
 
   # My Borrowing Account - explicit routes for each command
   # The 'uni' path needs to come last - or '/renew' will be interpreted a a uni
-  get 'my_account/renew', to: 'my_account#renew', as: :my_account_renew
+  get 'my_account/loans(/:uni)', to: 'my_account#loans', as: :my_account_loans
+  get 'my_account/requests(/:uni)', to: 'my_account#requests', as: :my_account_requests
+  # get 'my_account/renew', to: 'my_account#renew', as: :my_account_renew
+  post 'my_account/renew', to: 'my_account#renew', as: :my_account_renew
   get 'my_account/cancel', to: 'my_account#cancel', as: :my_account_cancel
   get 'my_account(/:uni)', to: 'my_account#index', as: :my_account_index
   

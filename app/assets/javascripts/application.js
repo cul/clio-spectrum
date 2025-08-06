@@ -60,6 +60,7 @@
 //= require catalog
 //= require confetti
 //= require datasources
+//= require datatables
 //= require dropdown_select
 //= require google_analytics
 // UNUSED //= require hathi
@@ -70,8 +71,8 @@
 //= require item_alerts
 //= require konami
 //= require ldpd_feedback
-//= require log
 //= require matomo
+//= require my_account
 //= require nearby
 //= require resolver
 //= require saved_lists
