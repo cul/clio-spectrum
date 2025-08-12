@@ -61,12 +61,6 @@
         %table.table.table-striped.table-bordered.table-condensed.table-hover.loans-datatable
           %thead
             %tr
-              %th Title
-              %th Call Number
-              %th Barcode
-              %th Owning Library
-              %th Status
-              %th Due Date
               %th{ data: { orderable: "false" } }
                 = submit_tag "Renew Selected", class: "btn btn-primary btn-sm", style: "padding: 2px 6px;"
                 %br
@@ -74,6 +68,12 @@
                   %label
                     %input#select-all{ type: "checkbox" }
                     select all
+              %th Title
+              %th Call Number
+              %th Barcode
+              %th Owning Library
+              %th Status
+              %th Due Date
               %th Fees&nbsp;/ Fines
 
           - @loans.each do |loan|
@@ -84,6 +84,11 @@
             - @row_style = 'danger' if item_status != 'Checked out'
             - @row_style = 'danger' if amount_owed != 0
             %tr{class: @row_style}
+              %td
+                .checkbox
+                  %label
+                    = check_box_tag "loan_ids[]", loan['id']
+                    renew item
               %td= loan.dig('item', 'title') || ''
               %td= loan.dig('item', 'callNumber') || ''
               %td= barcode_search_link(loan.dig('item', 'barcode'))
@@ -94,11 +99,6 @@
                 - due_date_formatted = Time.iso8601(loan['dueDate']).strftime("%Y-%m-%d %-l:%M %p")
                 %span.text-nowrap= due_date_formatted
               / %td= renew_link(loan) unless @snooping
-              %td
-                .checkbox
-                  %label
-                    = check_box_tag "loan_ids[]", loan['id']
-                    renew item
               %td
                 %strong= "$#{amount_owed}" if (amount_owed > 0) 
 

@@ -10,9 +10,11 @@ $(document).ready(function() {
 
   // Two tables on the My Borrowing Account page
   $('.loans-datatable').DataTable( {
+    paging: false
   } );
 
   $('.requests-datatable').DataTable( {
+    paging: false
   } );
 
   
