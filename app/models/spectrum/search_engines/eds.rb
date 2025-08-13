@@ -48,6 +48,13 @@ module Spectrum
         # raise
         Rails.logger.debug "Spectrum::SearchEngines::Eds.initialize() options=#{options.inspect}"
 
+        # fcd1, 07/29/25: FT1 limiter (Available in Library Collection)
+        if  options['ft1'] == 'off'
+          @ft1_limiter_on = false
+        else
+          @ft1_limiter_on = true
+        end
+
         @source = options.fetch('datasource', nil)
         @q = options.delete('q')
         @errors = nil
@@ -104,6 +111,21 @@ module Spectrum
       
         # All I have to do here is send it along to the gem library if it's in the URL
         search_options['range'] = options['range'] if options.key?('range')
+
+        # fcd1, 07/29/25: Add FT1 limiter to actions
+        if @ft1_limiter_on
+          limiter_action = "addlimiter(FT1:Y)"
+        else
+          limiter_action = "removelimiter(FT1:Y)"
+        end
+        # fcd1, 07/29/25
+        # existing code uses a string for an action, but need an array of string if more than one
+        search_options[:actions] = [search_options[:actions]] if search_options[:actions].is_a? String
+        if search_options[:actions]
+          search_options[:actions] << limiter_action
+        else
+          search_options[:actions] = limiter_action
+        end
 
         @search = eds_session.search(search_options)
         
@@ -209,7 +231,24 @@ module Spectrum
         return eds_search_modify( facet_param )
       end
 
+      # fcd1, 07/29/25: Updated method for EDS
+      # for now, just FT1 (Available in Library Collection) limiter
+      def pre_facet_options_with_links
+        facet_options = []
 
+        # FT1 (Available in Library Collection) limiter
+        # fcd1, 07/29/25: link_suffix is used to toggle the FT1 limiter on or off
+        # So, if it is currently on, we want to toggle it to off
+        link_suffix = @ft1_limiter_on ? '&ft1=off' : ''
+        facet_options << {
+          style: :checkbox,
+          value: @ft1_limiter_on,
+          link_suffix: link_suffix,
+          name: "Columbia's collection only"
+        }
+
+        facet_options
+      end
 
 #       # The "pre-facet-options" are the four checkboxes which precede the facets.
 #       # Return array of ad-hoc structures, parsed by summon's facets partial
@@ -574,7 +613,7 @@ module Spectrum
             params[key] = value
           end
         end
-        
+
         params
       end
       
