@@ -248,6 +248,11 @@ module Folio
       item_status_append_date = [
         'Aged to lost'
       ]
+
+      # (4) For some patron group check-outs, prepend the item enum/chron to the display string
+      patron_groups_prepend_enum_chron = [
+        'Indefinite'
+      ]
       
       # Consider each Item, rewrite item status names if appropriate
       items.each do |item|
@@ -264,6 +269,17 @@ module Folio
           loan_patron_group = loan['patronGroupAtCheckout']['name']
           if status_patron_patron_groups.include?(loan_patron_group)
             item['status']['name'] = loan['borrower']['lastName'] + loan['borrower']['firstName']
+            
+            # (4) For some patron group check-outs, prepend the item enum/chron to the display string
+            if patron_groups_prepend_enum_chron.include?(loan_patron_group)
+              enum  = item['enumeration'] || ''
+              chron = item['chronology'] || ''
+              enum_chron = "#{enum} #{chron}".strip
+              if enum_chron.present?
+                item['status']['name'] = "#{enum_chron} #{item['status']['name']}"
+              end
+            end
+            
           end
         end
         
