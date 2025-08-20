@@ -54,7 +54,9 @@
         %li=link_to "Print", "javascript:print()"
         %li=link_to "Email", email_solr_document_path(id: clio_id), {id: "emailLink", name: "email", class: "lightboxLink"}
   
-        %li=link_to "Send to Phone", "#", :onclick => "OpenTextMessage(#{clio_id}); return false;"
+        -# NEXT-1984 - Remove Send to Phone  
+        -# %li=link_to "Send to Phone", "#", :onclick => "OpenTextMessage(#{clio_id}); return false;"
+
         -# - if Rails.env != 'clio_prod'
         -#   %li=link_to "BL SMS", sms_solr_document_path(id: clio_id), {:id => "smsLink", :name => "sms", :class => "lightboxLink"}
   
