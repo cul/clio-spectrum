@@ -32,9 +32,9 @@ describe 'WorldCat links' do
   end
 
   it 'should work with ISSN' do
-    visit solr_document_path('10106073')
+    visit solr_document_path('ebs50974e')
     within '.holdings' do
-      expect(page).to have_link('WorldCat', href: 'https://www.worldcat.org/issn/20782489')
+      expect(page).to have_link('WorldCat', href: 'https://www.worldcat.org/issn/14764687')
     end
   end
 
