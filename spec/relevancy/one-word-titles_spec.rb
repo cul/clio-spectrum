@@ -37,35 +37,35 @@ describe 'Searching for one-word titles: ', :skip_travis do
 
   it 'Nature' do
     resp = solr_resp_ids_from_query('Nature')
-    expect(rank(resp, 3385138)).to be <= 1
+    expect(rank(resp, ebs50974e)).to be <= 1
 
     resp = solr_resp_ids_from_journal_title_query('Nature')
-    expect(rank(resp, 3385138)).to be <= 2
+    expect(rank(resp, ebs50974e)).to be <= 2
 
     resp = solr_resp_ejournal_ids_only('q' => 'Nature')
-    expect(rank(resp, 3385138)).to be <= 1
+    expect(rank(resp, ebs50974e)).to be <= 1
   end
 
   it 'Heart' do
     resp = solr_resp_ids_from_query('Heart')
-    expect(rank(resp, 4842107)).to be <= 10
+    expect(rank(resp, ebs32534e)).to be <= 10
 
     resp = solr_resp_ids_from_journal_title_query('Heart')
-    expect(rank(resp, 4842107)).to be <= 2
+    expect(rank(resp, ebs32534e)).to be <= 2
 
     resp = solr_resp_ejournal_ids_only('q' => 'Heart')
-    expect(rank(resp, 4842107)).to be <= 1
+    expect(rank(resp, ebs32534e)).to be <= 1
   end
 
   it 'Science' do
     resp = solr_resp_ids_from_query('Science')
-    expect(rank(resp, 14950826)).to be <= 1
+    expect(rank(resp, ebs3090380e)).to be <= 1
 
     resp = solr_resp_ids_from_journal_title_query('Science')
-    expect(rank(resp, 14950826)).to be <= 5
+    expect(rank(resp, ebs3090380e)).to be <= 5
 
     resp = solr_resp_ejournal_ids_only('q' => 'Science')
-    expect(rank(resp, 14950826)).to be <= 1
+    expect(rank(resp, ebs3090380e)).to be <= 1
   end
 
   it 'Neurology' do
@@ -114,13 +114,13 @@ describe 'Searching for one-word titles: ', :skip_travis do
 
   it 'Lancet' do
     resp = solr_resp_ids_from_query('Lancet')
-    expect(rank(resp, 3429912)).to be <= 5
+    expect(rank(resp, ebs45083e)).to be <= 5
 
     resp = solr_resp_ids_from_journal_title_query('Lancet')
-    expect(rank(resp, 3429912)).to be <= 3
+    expect(rank(resp, ebs45083e)).to be <= 3
 
     resp = solr_resp_ejournal_ids_only('q' => 'Lancet')
-    expect(rank(resp, 3429912)).to be <= 2
+    expect(rank(resp, ebs45083e)).to be <= 2
   end
 
   it 'Nation' do

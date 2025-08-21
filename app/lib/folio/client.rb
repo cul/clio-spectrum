@@ -244,9 +244,14 @@ module Folio
         'ReCAP Facility Indefinite',
         'Resource Sharing'
       ]
-      # (3) For some item statuses, we want to append the item-status-date to the display string
+      # (3) For some item statuses, append the item-status-date to the display string
       item_status_append_date = [
         'Aged to lost'
+      ]
+
+      # (4) For some patron group check-outs, prepend the item enum/chron to the display string
+      patron_groups_prepend_enum_chron = [
+        'Indefinite'
       ]
       
       # Consider each Item, rewrite item status names if appropriate
@@ -264,6 +269,17 @@ module Folio
           loan_patron_group = loan['patronGroupAtCheckout']['name']
           if status_patron_patron_groups.include?(loan_patron_group)
             item['status']['name'] = loan['borrower']['lastName'] + loan['borrower']['firstName']
+            
+            # (4) For some patron group check-outs, prepend the item enum/chron to the display string
+            if patron_groups_prepend_enum_chron.include?(loan_patron_group)
+              enum  = item['enumeration'] || ''
+              chron = item['chronology'] || ''
+              enum_chron = "#{enum} #{chron}".strip
+              if enum_chron.present?
+                item['status']['name'] = "#{enum_chron} #{item['status']['name']}"
+              end
+            end
+            
           end
         end
         
@@ -274,6 +290,18 @@ module Folio
             item['status']['name'] = item['status']['name'] + ' ' + item_status_date.gsub(/T.*/, '')
           end
         end
+
+        # No, not requested at this time
+        # # For some item statuses, pre-append the item enum/chron to the display string
+        # if item_status_prepend_enum_chron.include?(folio_item_status)
+        #   enum  = item['enumeration'] || ''
+        #   chron = item['chronology'] || ''
+        #   enum_chron = "#{enum} #{chron}".strip
+        #   if enum_chron.present?
+        #     item['status']['name'] = "#{enum_chron} #{item['status']['name']}"
+        #   end
+        # end
+        
       end
       
       # error?

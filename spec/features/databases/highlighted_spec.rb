@@ -26,11 +26,13 @@ describe 'Database Highlights' do
 
   it 'Should show highlighting in Virtual Shelf Browse', :js do
     # This item's call-number is just before that of "MEDLINE"
-    visit solr_document_path(7928198)
+    # visit solr_document_path(7928198)
+    visit solr_document_path(8067914)
     find('.btn.show_mini_browse', text: 'Show').click
 
     expect(page).to have_css('#nearby .nearby_content')
     expect(page).to have_css('#documents')
+    save_and_open_screenshot # debug
     within('#documents') do
       find('.result.database_record', text: 'MEDLINE')
     end
