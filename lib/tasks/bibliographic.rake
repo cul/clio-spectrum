@@ -383,3 +383,19 @@ end
 def puts_datestamp(msg)
   puts "#{Time.now}   #{msg}"
 end
+
+def lookup_boosts(bib_key)
+  return [] unless bib_key
+  return [] unless defined?(BOOSTS_CONFIG) && BOOSTS_CONFIG.is_a?(Hash)
+  
+  # whether we find boost terms or not, return an array
+  Array( BOOSTS_CONFIG[bib_key] )
+end
+
+
+
+
+
+
+
+

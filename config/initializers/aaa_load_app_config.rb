@@ -35,3 +35,6 @@ ITEM_STATUS_CODES ||= YAML.load(File.read(Rails.root.to_s + '/config/item_status
 ORDER_STATUS_CODES ||= YAML.load(File.read(Rails.root.to_s + '/config/order_status_codes.yml'))
 
 OFFSITE_CONFIG ||= YAML.load(File.read(Rails.root.to_s + '/config/offsite.yml'))
+
+BOOSTS_CONFIG ||= YAML.load(File.read(Rails.root.to_s + '/config/boosts.yml'))
+
