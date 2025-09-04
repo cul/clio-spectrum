@@ -27,8 +27,9 @@ class User < ApplicationRecord
   # Before first-time User record creation...
   before_create :set_personal_info_via_ldap
   
+  # ERROR "UNIQUE constraint failed" - need to figure this out
   # Every user-object instantiation...
-  after_initialize :set_personal_info_via_ldap
+  # after_initialize :set_personal_info_via_ldap
   
 
   def self.on_campus?(ip_addr)
