@@ -305,7 +305,14 @@ to_field 'source_display', extract_marc('995a', trim_punctuation: true)
 to_field 'repository_facet', extract_marc('996a', trim_punctuation: true)
 to_field 'repository_display', extract_marc('996a', trim_punctuation: true)
 
-to_field 'boost_exact', extract_marc('999a', trim_punctuation: true)
+# to_field 'boost_exact', extract_marc('999a', trim_punctuation: true)
+to_field 'boost_exact' do |record, accumulator|
+  bib_key = Marc21.extract_marc_from(record, '001', first: true, trim_punctuation: true).first
+  boost_terms = lookup_boosts(bib_key)
+  boost_terms.each do |term|
+    accumulator << term
+  end
+end
 
 # Removed 10/2019 in NEXT-1590, use marc_display_field restrictions instead
 # to_field 'database_restrictions_display', extract_marc('506a', trim_punctuation: false)

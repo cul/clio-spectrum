@@ -1,0 +1,161 @@
+# Boosts
+# key is bib key (001)
+# value is list of boost terms
+# Numeric keys are carry-overs from Voyager
+# "ebs" keys EBSCO HLM records
+
+402607:
+  - A + U
+  - A+U
+
+1671254:
+  - agricola
+
+1676406:
+  - book review
+  - book reviews
+
+2044498:
+  - clio
+
+2054244:
+  - web of knowledge
+
+2100385:
+  - lexis
+  - lexis nexis
+  - lexisnexis
+
+2293862:
+  - historical abstracts
+
+2293863:
+  - america history and life
+  - america history life
+
+2554991:
+  - dissertation
+  - dissertations
+
+3327456:
+  - nation
+
+3327564:
+  - new york times
+  - nyt
+  - nytimes
+
+3328400:
+  - washington post
+
+3328966:
+  - foundation center
+
+3385138:
+  - nature
+
+3385614:
+  - wall street journal
+  - wsj
+
+3429641:
+  - atlantic
+  - the atlantic
+  - atlantic monthly
+  - atlantic magazine
+
+3429848:
+  - jama
+
+3429912:
+  - lancet
+
+4066287:
+  - medline
+
+4173061:
+  - ancestry
+
+4793226:
+  - naxos
+
+4842087:
+  - gut
+
+4842107:
+  - heart
+
+5256813:
+  - book review
+  - book reviews
+
+5517003:
+  - naxos
+
+5560322:
+  - book review
+  - book reviews
+
+6329559:
+  - ebsco
+  - ebscohost
+  - ebsco host
+
+8407612:
+  - naxos
+
+9463370:
+  - cairn
+
+10516547:
+  - morningstar
+
+10620670:
+  - web of knowledge
+
+10940958:
+  - national geographic
+
+11528023:
+  - rilm
+
+14288290:
+  - swank
+
+15561089:
+  - new york times
+  - nyt
+  - nytimes
+
+15836754:
+  - wall street journal
+  - wsj
+
+16850192:
+  - reproduction
+
+ebs128532e:
+  - foreign affairs
+
+ebs20270e:
+  - consumer reports
+
+ebs25136e:
+  - the economist
+  - economist
+
+ebs32090e:
+  - harvard business review
+
+ebs51980e:
+  - the new yorker
+  - new yorker
+
+ebs62477e:
+  - science
+
+
+
+
+
+

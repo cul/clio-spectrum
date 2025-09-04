@@ -35,3 +35,8 @@ ITEM_STATUS_CODES ||= YAML.load(File.read(Rails.root.to_s + '/config/item_status
 ORDER_STATUS_CODES ||= YAML.load(File.read(Rails.root.to_s + '/config/order_status_codes.yml'))
 
 OFFSITE_CONFIG ||= YAML.load(File.read(Rails.root.to_s + '/config/offsite.yml'))
+
+# Load our relevancy boosts - and force the keys to be strings, not integers
+BOOSTS_CONFIG ||= YAML.load(File.read(Rails.root.to_s + '/config/boosts.yml'))
+BOOSTS_CONFIG.transform_keys!(&:to_s)
+
