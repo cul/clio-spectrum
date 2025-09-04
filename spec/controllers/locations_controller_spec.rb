@@ -9,7 +9,7 @@ describe LocationsController do
     controller.instance_variable_set(:@location, Location.find_by_location_code('avery'))
   end
 
-  context "\nYou may need to run 'rake hours:sync RAILS_ENV=test' and 'rake locations:load RAILS_ENV=test'.  See README.\n" do
+  context "\nYou may need to run 'rake hours:update_all RAILS_ENV=test' and 'rake locations:load RAILS_ENV=test'.  See README.\n" do
     describe 'build_markers ' do
       it 'should query the Library API', focus: false do
         api_query = controller.library_api_path, { params: { qt: 'location', locationID: 'alllocations' } }
