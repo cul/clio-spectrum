@@ -23,7 +23,13 @@ class User < ApplicationRecord
 
   before_validation(:default_email, on: :create)
   # before_validation(:generate_password, on: :create)
+
+  # Before first-time User record creation...
   before_create :set_personal_info_via_ldap
+  
+  # Every user-object instantiation...
+  after_initialize :set_personal_info_via_ldap
+  
 
   def self.on_campus?(ip_addr)
     # check passed string against regexp from standard library
@@ -105,26 +111,27 @@ class User < ApplicationRecord
   # end
 
   def set_personal_info_via_ldap
-    if uid
-      # This should use Resolv-Replace instead of DNS
-      ldap_ip_address = Resolv.getaddress('ldap.columbia.edu')
+    # Can't proceed without a uid!
+    return unless uid
 
-      entry = Net::LDAP.new(host: ldap_ip_address, port: 389).search(base: 'o=Columbia University, c=US', filter: Net::LDAP::Filter.eq('uid', uid)) || []
-      entry = entry.first
+    # This should use Resolv-Replace instead of DNS
+    ldap_ip_address = Resolv.getaddress('ldap.columbia.edu')
 
-      if entry
-        _mail = entry[:mail].to_s
-        if _mail.length > 6 and _mail.match(/^.+@.+$/)
-          self.email = _mail
-        else
-          self.email = uid + '@columbia.edu'
-        end
-        if User.column_names.include? 'last_name'
-          self.last_name = entry[:sn].to_s.delete('[').delete(']').delete('"')
-        end
-        if User.column_names.include? 'first_name'
-          self.first_name = entry[:givenname].to_s.delete('[').delete(']').delete('"')
-        end
+    entry = Net::LDAP.new(host: ldap_ip_address, port: 389).search(base: 'o=Columbia University, c=US', filter: Net::LDAP::Filter.eq('uid', uid)) || []
+    entry = entry.first
+
+    if entry
+      _mail = entry[:mail].to_s
+      if _mail.length > 6 and _mail.match(/^.+@.+$/)
+        self.email = _mail
+      else
+        self.email = uid + '@columbia.edu'
+      end
+      if User.column_names.include? 'last_name'
+        self.last_name = entry[:sn].to_s.delete('[').delete(']').delete('"')
+      end
+      if User.column_names.include? 'first_name'
+        self.first_name = entry[:givenname].to_s.delete('[').delete(']').delete('"')
       end
     end
 
