@@ -32,7 +32,7 @@ describe 'Database Highlights' do
 
     expect(page).to have_css('#nearby .nearby_content')
     expect(page).to have_css('#documents')
-    save_and_open_screenshot # debug
+    # save_and_open_screenshot # debug
     within('#documents') do
       find('.result.database_record', text: 'MEDLINE')
     end

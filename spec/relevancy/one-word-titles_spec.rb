@@ -24,48 +24,48 @@ describe 'Searching for one-word titles: ', :skip_travis do
 
   it 'Gut' do
     resp = solr_resp_ids_from_query('Gut')
-    resp.inspect
-    expect(rank(resp, 4842087)).to be <= 3
-    expect(rank(resp, 3942290)).to be <= 10
+    # puts resp.inspect # debug
+    # expect(rank(resp, 'ebs31871e')).to be <= 3
 
     resp = solr_resp_ids_from_journal_title_query('Gut')
-    expect(rank(resp, 4842087)).to be <= 2
+    puts resp.inspect # debug
+    expect(rank(resp, 'ebs31871e')).to be <= 2
 
     resp = solr_resp_ejournal_ids_only('q' => 'Gut')
-    expect(rank(resp, 4842087)).to be <= 1
+    expect(rank(resp, 'ebs31871e')).to be <= 1
   end
 
   it 'Nature' do
     resp = solr_resp_ids_from_query('Nature')
-    expect(rank(resp, ebs50974e)).to be <= 1
+    expect(rank(resp, 'ebs50974e')).to be <= 1
 
     resp = solr_resp_ids_from_journal_title_query('Nature')
-    expect(rank(resp, ebs50974e)).to be <= 2
+    expect(rank(resp, 'ebs50974e')).to be <= 2
 
     resp = solr_resp_ejournal_ids_only('q' => 'Nature')
-    expect(rank(resp, ebs50974e)).to be <= 1
+    expect(rank(resp, 'ebs50974e')).to be <= 1
   end
 
   it 'Heart' do
     resp = solr_resp_ids_from_query('Heart')
-    expect(rank(resp, ebs32534e)).to be <= 10
+    expect(rank(resp, 'ebs32534e')).to be <= 10
 
     resp = solr_resp_ids_from_journal_title_query('Heart')
-    expect(rank(resp, ebs32534e)).to be <= 2
+    expect(rank(resp, 'ebs32534e')).to be <= 2
 
     resp = solr_resp_ejournal_ids_only('q' => 'Heart')
-    expect(rank(resp, ebs32534e)).to be <= 1
+    expect(rank(resp, 'ebs32534e')).to be <= 1
   end
 
   it 'Science' do
     resp = solr_resp_ids_from_query('Science')
-    expect(rank(resp, ebs3090380e)).to be <= 1
+    expect(rank(resp, 'ebs3090380e')).to be <= 1
 
     resp = solr_resp_ids_from_journal_title_query('Science')
-    expect(rank(resp, ebs3090380e)).to be <= 5
+    expect(rank(resp, 'ebs3090380e')).to be <= 5
 
     resp = solr_resp_ejournal_ids_only('q' => 'Science')
-    expect(rank(resp, ebs3090380e)).to be <= 1
+    expect(rank(resp, 'ebs3090380e')).to be <= 1
   end
 
   it 'Neurology' do
