@@ -84,6 +84,8 @@ module Spectrum
         }
         # add additional options only when they're present.
         # some search keys exactly match params - some do not.
+        # fcd1, 09/04/25: NEXT-2006: Temporarily increase page size to 100 until paging issue fixed
+        search_options['results_per_page'] = 100
         search_options['results_per_page'] = options['resultsperpage'] if options.key?('resultsperpage')
         search_options['sort'] = options['sort'] if options.key?('sort')
         search_options['search_field'] = options['search_field'] if options.key?('search_field')
