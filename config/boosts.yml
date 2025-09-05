@@ -1,8 +1,13 @@
-# Boosts
+# Boosts ( NEXT-1932 / NEXT-2003 )
 # key is bib key (001)
 # value is list of boost terms
 # Numeric keys are carry-overs from Voyager
-# "ebs" keys EBSCO HLM records
+# "ebs" keys are EBSCO HLM E-Resource records
+
+# Sort by text of boost terms to make updating easier
+
+
+#   =====  A  =====
 
 402607:
   - A + U
@@ -11,150 +16,211 @@
 1671254:
   - agricola
 
+2293863:
+  - america history and life
+  - america history life
+
+4173061:
+  - ancestry
+  
+18195225:
+  - atlantic
+  - the atlantic
+  - atlantic monthly
+  - atlantic magazine
+  
+ebs8145e:
+  - atlantic
+  - the atlantic
+  - atlantic monthly
+  - atlantic magazine
+
+#   =====  B  =====
+
 1676406:
   - book review
   - book reviews
 
+5256813:
+  - book review
+  - book reviews
+  
+5560322:
+  - book review
+  - book reviews
+
+#   =====  C  =====
+
+9463370:
+  - cairn
+
+ebs390184e:  
+  - chicago manual of style
+
 2044498:
   - clio
+  
+ebs20270e:
+  - consumer reports
 
-2054244:
-  - web of knowledge
+#   =====  D  =====
+
+2554991:
+  - dissertation
+  - dissertations
+
+#   =====  E  =====
+
+6329559:
+  - ebsco
+  - ebscohost
+  - ebsco host
+  
+ebs25136e:
+  - the economist
+  - economist
+
+2403058:
+  - eebo
+
+4819903:
+  - eebo
+
+#   =====  F  =====
+
+ebs128532e:
+  - foreign affairs
+
+3328966:
+  - foundation center
+
+#   =====  G  =====
+
+17697707:
+  - gilgamesh
+
+ebs31871e:
+  - gut
+
+#   =====  H  =====
+
+ebs32090e:
+  - harvard business review
+
+ebs32534e:
+  - heart
+
+2293862:
+  - historical abstracts
+
+#   =====  I  =====
+#   =====  J  =====
+
+ebs38171e:
+  - jama
+
+#   =====  K  =====
+#   =====  L  =====
+
+ebs45083e:
+  - lancet
 
 2100385:
   - lexis
   - lexis nexis
   - lexisnexis
 
-2293862:
-  - historical abstracts
-
-2293863:
-  - america history and life
-  - america history life
-
-2554991:
-  - dissertation
-  - dissertations
-
-3327456:
-  - nation
-
-3327564:
-  - new york times
-  - nyt
-  - nytimes
-
-3328400:
-  - washington post
-
-3328966:
-  - foundation center
-
-3385138:
-  - nature
-
-3385614:
-  - wall street journal
-  - wsj
-
-3429641:
-  - atlantic
-  - the atlantic
-  - atlantic monthly
-  - atlantic magazine
-
-3429848:
-  - jama
-
-3429912:
-  - lancet
+#   =====  M  =====
 
 4066287:
   - medline
-
-4173061:
-  - ancestry
-
-4793226:
-  - naxos
-
-4842087:
-  - gut
-
-4842107:
-  - heart
-
-5256813:
-  - book review
-  - book reviews
-
-5517003:
-  - naxos
-
-5560322:
-  - book review
-  - book reviews
-
-6329559:
-  - ebsco
-  - ebscohost
-  - ebsco host
-
-8407612:
-  - naxos
-
-9463370:
-  - cairn
-
+  
 10516547:
   - morningstar
 
-10620670:
-  - web of knowledge
+#   =====  N  =====
+
+ebs50607e:
+  - nation
 
 10940958:
   - national geographic
 
-11528023:
-  - rilm
+ebs50974e:
+  - nature
 
-14288290:
-  - swank
+4793226:
+  - naxos
 
+5517003:
+  - naxos
+
+8407612:
+  - naxos
+    
 15561089:
   - new york times
   - nyt
   - nytimes
-
-15836754:
-  - wall street journal
-  - wsj
-
-16850192:
-  - reproduction
-
-ebs128532e:
-  - foreign affairs
-
-ebs20270e:
-  - consumer reports
-
-ebs25136e:
-  - the economist
-  - economist
-
-ebs32090e:
-  - harvard business review
+  
+ebs51953e:
+  - new york times
+  - nyt
+  - nytimes
 
 ebs51980e:
   - the new yorker
   - new yorker
 
+#   =====  O  =====
+
+1689053:
+  - oed
+  - oxford english dictionary
+  
+#   =====  P  =====
+#   =====  Q  =====
+#   =====  R  =====
+
+ebs60319e:
+  - reproduction
+
+11528023:
+  - rilm
+  
+#   =====  S  =====
+
 ebs62477e:
   - science
 
+14288290:
+  - swank
 
+#   =====  T  =====
+#   =====  U  =====
+#   =====  V  =====
+#   =====  W  =====
+
+ebs544674e:
+  - wall street journal
+  - wsj
+  
+15836754:
+  - wall street journal
+  - wsj
+
+ebs69285e:
+  - washington post
+
+2054244:
+  - web of knowledge
+  
+10620670:
+  - web of knowledge
+  
+#   =====  X  =====
+#   =====  Y  =====
+#   =====  Z  =====
 
 
 
