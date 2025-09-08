@@ -181,10 +181,11 @@ module Folio
     
     # Retrieve a list of FOLIO Holdings JSON records for a given FOLIO Instance UUID
     #   {{baseUrl}}/holdings-storage/holdings?query=(instanceId == "c3cf979d-3562-5cce-b130-88d36f4a99c6")
+    #  not discoverySuppress=="true"
     def self.get_holdings_by_instance(instance_uuid)
       return [] unless instance_uuid
       
-      query = '(instanceId=="' + instance_uuid + '")'
+      query = '(instanceId=="' + instance_uuid + '" not discoverySuppress=="true")'
       path = "/holdings-storage/holdings?query=#{query}&limit=1000"
       @folio_client ||= folio_client
       folio_response = @folio_client.get(path)
@@ -209,17 +210,42 @@ module Folio
       return loan
     end
     
+    def self.natural_sort_key(item_record)
+      enumeration = item_record['enumeration'].to_s
+      chronology  = item_record['chronology'].to_s
+      enum_chron  = "#{enumeration} #{chronology}".strip.downcase
+
+      # Split into numeric and non-numeric parts
+      parts = enum_chron.split(/(\d+)/)
+
+      parts.map do |part|
+        if part =~ /^\d+$/
+          part.to_i   # numeric chunk → integer
+        else
+          part        # non-numeric chunk → string
+        end
+      end
+    end
+    
 
     # Retrieve a list of all FOLIO Item JSON records for a given FOLIO Holding UUID
-    #   {{baseUrl}}/inventory/items-by-holdings-id?query=(holdingsRecordId=="d91b5d2a-d4f6-57f6-9108-35965f9fbf32")
+    # {{baseUrl}}/inventory/items-by-holdings-id?
+    #     query=(holdingsRecordId=="d91b5d2a-d4f6-57f6-9108-35965f9fbf32")
     def self.get_items_by_holding(holding_uuid)
       return nil unless holding_uuid
 
-      query = '(holdingsRecordId=="' + holding_uuid + '")'
+      query = '(holdingsRecordId=="' + holding_uuid + '" )'
       path = "/inventory/items-by-holdings-id?query=#{query}&limit=1000"
       @folio_client ||= folio_client
       folio_response = @folio_client.get(path)
+
       items = folio_response['items']
+
+      # Sort items by enum/chron for better user-facing display
+      items = items.sort_by { |item| self.natural_sort_key(item) }
+
+      # remove any suppressed items
+      items.reject! { |item| item['discoverySuppress'] == true }
       
       # (1) Sometimes a FOLIO Item Status is just not very clear to patrons,
       # rewrite to a more understandable label
@@ -227,16 +253,8 @@ module Folio
         'Aged to lost'  =>  'Unavailable'
       }
 
-      # (2) Replace "Checked Out" item status with User Last/First Name, if user is a status patron
-      # {{baseUrl}}/circulation/loans?query=itemId = '6eb2cd6d-3224-5493-82af-c142ba3127ee'&limit=1
-      # "loans": [
-      # "patronGroupAtCheckout": {
-      #     "id": "01fbe6a5-52d3-4229-b856-db418bf192ac",
-      #     "name": "Indefinite"
-      # },
-      # "borrower": {
-      #     "firstName": " at circ desk.",
-      #     "lastName": "In Maintenance. Ask for help",
+      # (2) Replace "Checked Out" item status with User Last/First Name, 
+      #     if user is a status patron (first/last names form a message to users)
       status_patron_patron_groups = [
         'Avery ILUO',
         'Indefinite',
@@ -249,10 +267,11 @@ module Folio
         'Aged to lost'
       ]
 
-      # (4) For some patron group check-outs, prepend the item enum/chron to the display string
-      patron_groups_prepend_enum_chron = [
-        'Indefinite'
-      ]
+      # No, prefix with enum/chron for ANYTHING other than 'Available'
+      # # (4) For some patron group check-outs, prepend the item enum/chron to the display string
+      # patron_groups_prepend_enum_chron = [
+      #   'Indefinite'
+      # ]
       
       # Consider each Item, rewrite item status names if appropriate
       items.each do |item|
@@ -270,15 +289,15 @@ module Folio
           if status_patron_patron_groups.include?(loan_patron_group)
             item['status']['name'] = loan['borrower']['lastName'] + loan['borrower']['firstName']
             
-            # (4) For some patron group check-outs, prepend the item enum/chron to the display string
-            if patron_groups_prepend_enum_chron.include?(loan_patron_group)
-              enum  = item['enumeration'] || ''
-              chron = item['chronology'] || ''
-              enum_chron = "#{enum} #{chron}".strip
-              if enum_chron.present?
-                item['status']['name'] = "#{enum_chron} #{item['status']['name']}"
-              end
-            end
+            # # (4) For some patron group check-outs, prepend the item enum/chron to the display string
+            # if patron_groups_prepend_enum_chron.include?(loan_patron_group)
+            #   enum  = item['enumeration'] || ''
+            #   chron = item['chronology'] || ''
+            #   enum_chron = "#{enum} #{chron}".strip
+            #   if enum_chron.present?
+            #     item['status']['name'] = "#{enum_chron} #{item['status']['name']}"
+            #   end
+            # end
             
           end
         end
@@ -288,6 +307,17 @@ module Folio
           item_status_date = item['status']['date']
           if item_status_date and item_status_date.start_with?(/^\d\d\d\d-\d\d-\d\d/)
             item['status']['name'] = item['status']['name'] + ' ' + item_status_date.gsub(/T.*/, '')
+          end
+        end
+
+        # For ANY non-"Available" status,
+        # if there is enum/chron data, use it to prefix the status
+        if folio_item_status != 'Available'
+          enum  = item['enumeration'] || ''
+          chron = item['chronology']  || ''
+          enum_chron = "#{enum} #{chron}".strip
+          if enum_chron.present?
+            item['status']['name'] = "#{enum_chron} #{item['status']['name']}"
           end
         end
 
@@ -303,7 +333,7 @@ module Folio
         # end
         
       end
-      
+
       # error?
       return {} unless items
       # success!

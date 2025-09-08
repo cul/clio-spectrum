@@ -372,13 +372,15 @@ module HoldingsHelper
 
       # add status icons
       entry['copies'].each do |copy|
-        copy['items'].each_pair do |_message, details|
-          # NEXT-1745 - turn them back on
-          # # NEXT-1668 - turn off colored indicators
-          # ### status_image = 'icons/' + 'none' + '.png'
-          status_image = 'icons/' + details['status'] + '.png'
+        copy['items'].each_pair do |message, details|
+          if ['Available'].include?(message)
+            status_image = 'icons/available.png'
+          elsif ['Checked out'].include?(message)
+            status_image = 'icons/unavailable.png'
+          else
+            status_image = 'icons/' + details['status'] + '.png'
+          end
           status_label = details['status'].humanize
-          # details['image_link'] = image_tag('icons/' + details['status'] + '.png')
           details['image_link'] = image_tag(status_image, title: status_label, alt: status_label)
         end
       end
