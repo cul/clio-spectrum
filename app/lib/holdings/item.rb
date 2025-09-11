@@ -67,7 +67,11 @@ module Holdings
           # end
 
           # FOLIO
-          mfhd_status[item_id]['itemStatus'] = 'Checked out'
+          # If FOLIO status is "Available" but SCSB says "Unavailable", 
+          # then we think it's a partner checkout from ReCAP - show as 'Checked Out' in CLIO
+          if mfhd_status[item_id]['itemStatus'] == 'Available'
+            mfhd_status[item_id]['itemStatus'] = 'Checked out'
+          end
 
         else
           # Did we get a value back from the SCSB API call other than Available/Unavailable?

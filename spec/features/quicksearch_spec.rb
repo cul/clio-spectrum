@@ -85,7 +85,7 @@ describe 'QuickSearch landing page' do
 
   # NEXT-849 - Quicksearch & Other Data Sources: "i" Information Content
   # NEXT-1048 - nothing happend when you click on the little round "i"
-  it 'should show popover i-button text in QuickSearch', :js do
+  it 'should show  q in QuickSearch', :js do
     # QUICKSEARCH
     visit quicksearch_index_path('q' => 'horse')
     expect(page).to have_css('.nested_result_set', count: 5)
@@ -120,7 +120,7 @@ describe 'QuickSearch landing page' do
       find('img').click
       expect(find('.category_title')).to have_text 'Dissertations from the library catalog'
     end
-    within('.results_header[data-source=summon_dissertations]') do
+    within('.results_header[data-source=articles_dissertations]') do
       find('img').click
       expect(find('.category_title')).to have_text 'Dissertations and theses from the Articles+ database. Many are full-text.'
     end
@@ -139,7 +139,7 @@ describe 'QuickSearch landing page' do
       find('img').click
       expect(find('.category_title')).to have_text 'E-books from the library catalog'
     end
-    within('.results_header[data-source=summon_ebooks]') do
+    within('.results_header[data-source=articles_ebooks]') do
       find('img').click
       expect(find('.category_title')).to have_text 'E-books from the Articles+ database'
     end

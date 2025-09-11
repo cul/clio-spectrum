@@ -260,7 +260,7 @@ module Holdings
               # If so, then just bump up the item (volume, part, etc.) count.
               mfhd_id_list = entry[:copies].first[:items][text][:mfhd_id_list]
               if mfhd_id_list.include?(holding[:holding_id])
-                entry[:copies].first[:items][text][:count] += 1
+                entry[:copies].first[:items][text][:copy_count] += 1
 
               # Otherwise, if it's from a different holding, then it's a new copy
               else

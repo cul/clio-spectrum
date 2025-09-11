@@ -211,4 +211,25 @@ module CulCatalogHelper
     # end
   end
 
+  def show_boosts(bib_key)
+    return unless BOOSTS_CONFIG.key?(bib_key)
+    
+    title = "<h4>Record Boosts</h4>\n"
+
+    list = "<ul>\n"
+    BOOSTS_CONFIG[bib_key].each do |boost_term|
+      list += "<li>#{boost_term}</li>\n"
+    end
+    list += "</ul>\n"
+    
+    spacing = "<br>\n"
+    
+    return (title + list + spacing).html_safe
+  end
+      
+      
+      
+      
+
 end
+
