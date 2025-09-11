@@ -272,33 +272,36 @@ describe 'Catalog Interface' do
   # NEXT-1015 - next from MARC
   it 'should support next/previous navigation from MARC view', :js do
     # locate a fairly static set of records for a stable test suite
-    visit catalog_index_path('q' => 'maigret simenon', 'f[location_facet][]' => 'Offsite')
+    visit catalog_index_path('q' => 'problems of the far east Kedleston', 'f[location_facet][]' => 'Offsite')
     within '#facets' do
       find('.panel-heading', text: 'Publication Date').click
-      fill_in 'range[pub_date_sort][end]', with: '1950'
+      fill_in 'range[pub_date_sort][end]', with: '1900'
       find('input.btn.submit').click
     end
 
-    expect(page).to have_text '1 - 4 of 4'
+    expect(page).to have_text '1 - 3 of 3'
 
-    click_link('Maigret sits it out')
-    expect(page).to have_text 'Back to Results | 1 of 4 | Next'
-    expect(page).to have_text 'Title Maigret sits it out'
+    # save_and_open_screenshot
+
+    click_link('Problems of the Far East')
+    expect(page).to have_text 'Back to Results | 1 of 3 | Next'
+    expect(page).to have_text 'Problems of the Far East'
 
     click_link('Display In')
     click_link('MARC View')
-    expect(page).to have_text 'Back to Results | 1 of 4 | Next'
-    expect(page).to have_text '245 1 0 |a Maigret sits it out'
+    expect(page).to have_text 'Back to Results | 1 of 3 | Next'
+    expect(page).to have_text '245 1 0 |a Problems of the Far East'
 
     within '#show_toolbar' do
       click_link('Next')
     end
-    expect(page).to have_text 'Back to Results | « Previous | 2 of 4 | Next »'
-    expect(page).to have_text '245 1 0 |a Maigret keeps a rendezvous'
+    expect(page).to have_text 'Back to Results | « Previous | 2 of 3 | Next »'
+    expect(page).to have_text '001       2764199'
+    expect(page).to have_text '245 1 0 |a Problems of the Far East'
 
     click_link('Return to Patron View')
-    expect(page).to have_text 'Back to Results | « Previous | 2 of 4 | Next »'
-    expect(page).to have_text 'Title Maigret keeps a rendezvous'
+    expect(page).to have_text 'Back to Results | « Previous | 2 of 3 | Next »'
+    expect(page).to have_text 'Problems of the Far East : Japan--Korea--China'
   end
 
   # NEXT-1054 - In the single item display menu, change "Services" to "Requests"
