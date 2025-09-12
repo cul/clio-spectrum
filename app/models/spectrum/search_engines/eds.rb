@@ -84,7 +84,9 @@ module Spectrum
         }
         # add additional options only when they're present.
         # some search keys exactly match params - some do not.
-        search_options['results_per_page'] = options['resultsperpage'] if options.key?('resultsperpage')
+        # fcd1, 09/12/25: fix results per page
+        # search_options['results_per_page'] = options['resultsperpage'] if options.key?('resultsperpage')
+        search_options['results_per_page'] = options['results_per_page'] if options.key?('results_per_page')
         search_options['sort'] = options['sort'] if options.key?('sort')
         search_options['search_field'] = options['search_field'] if options.key?('search_field')
         search_options[:actions] = options['actions'] if options.key?('actions')
@@ -443,7 +445,9 @@ module Spectrum
       end
 
       def set_page_size(per_page)
-        eds_search_modify('resultsperpage' => [(per_page || 10), 50].min)
+        # fcd1, 09/12/25: fix results per page
+        # eds_search_modify('resultsperpage' => [(per_page || 10), 50].min)
+        eds_search_modify('results_per_page' => [(per_page || 10), 50].min)
       end
 
       def total_items
