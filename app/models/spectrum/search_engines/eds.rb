@@ -84,9 +84,9 @@ module Spectrum
         }
         # add additional options only when they're present.
         # some search keys exactly match params - some do not.
-        # fcd1, 09/04/25: NEXT-2006: Temporarily increase page size to 100 until paging issue fixed
-        search_options['results_per_page'] = 100
-        search_options['results_per_page'] = options['resultsperpage'] if options.key?('resultsperpage')
+        # fcd1, 09/12/25: fix results per page
+        # search_options['results_per_page'] = options['resultsperpage'] if options.key?('resultsperpage')
+        search_options['results_per_page'] = options['results_per_page'] if options.key?('results_per_page')
         search_options['sort'] = options['sort'] if options.key?('sort')
         search_options['search_field'] = options['search_field'] if options.key?('search_field')
         search_options[:actions] = options['actions'] if options.key?('actions')
@@ -114,20 +114,8 @@ module Spectrum
         # All I have to do here is send it along to the gem library if it's in the URL
         search_options['range'] = options['range'] if options.key?('range')
 
-        # fcd1, 07/29/25: Add FT1 limiter to actions
-        if @ft1_limiter_on
-          limiter_action = "addlimiter(FT1:Y)"
-        else
-          limiter_action = "removelimiter(FT1:Y)"
-        end
-        # fcd1, 07/29/25
-        # existing code uses a string for an action, but need an array of string if more than one
-        search_options[:actions] = [search_options[:actions]] if search_options[:actions].is_a? String
-        if search_options[:actions]
-          search_options[:actions] << limiter_action
-        else
-          search_options[:actions] = limiter_action
-        end
+        # fcd1, 09/10/25: Add FT1 limiter
+        search_options[:limiters] = ['FT1:Y'] if @ft1_limiter_on
 
         @search = eds_session.search(search_options)
         
@@ -238,14 +226,11 @@ module Spectrum
       def pre_facet_options_with_links
         facet_options = []
 
-        # FT1 (Available in Library Collection) limiter
-        # fcd1, 07/29/25: link_suffix is used to toggle the FT1 limiter on or off
-        # So, if it is currently on, we want to toggle it to off
-        link_suffix = @ft1_limiter_on ? '&ft1=off' : ''
+        # FT1 (Available in Library Collection) limiter. Checkbox toggles limiter on-off
         facet_options << {
           style: :checkbox,
           value: @ft1_limiter_on,
-          link_suffix: link_suffix,
+          link_suffix: @ft1_limiter_on ? '&ft1=off' : '&ft1=on',
           name: "Columbia's collection only"
         }
 
@@ -460,7 +445,9 @@ module Spectrum
       end
 
       def set_page_size(per_page)
-        eds_search_modify('resultsperpage' => [(per_page || 10), 50].min)
+        # fcd1, 09/12/25: fix results per page
+        # eds_search_modify('resultsperpage' => [(per_page || 10), 50].min)
+        eds_search_modify('results_per_page' => [(per_page || 10), 50].min)
       end
 
       def total_items
@@ -528,7 +515,10 @@ module Spectrum
       # and by possible advanced-search indicator
       def eds_params_modify(extra_params = {})
         params = @search.raw_options.dup
-        
+
+        # Parameter used to enable/disable FT1 Limiter
+        params[:ft1] = @ft1_limiter_on ? 'on' : 'off'
+
         # don't persist the "actions" params that landed on this page
         params.delete(:actions)
         
