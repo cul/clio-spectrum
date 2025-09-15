@@ -287,7 +287,7 @@ module Folio
           loan = self.get_loan_by_item(item['id'])
           loan_patron_group = loan['patronGroupAtCheckout']['name']
           if status_patron_patron_groups.include?(loan_patron_group)
-            item['status']['name'] = loan['borrower']['lastName'] + loan['borrower']['firstName']
+            item['status']['name'] = loan['borrower']['lastName'].to_s + loan['borrower']['firstName'].to_s
             
             # # (4) For some patron group check-outs, prepend the item enum/chron to the display string
             # if patron_groups_prepend_enum_chron.include?(loan_patron_group)
