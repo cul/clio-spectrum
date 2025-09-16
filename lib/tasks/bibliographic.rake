@@ -2,43 +2,43 @@
 
 namespace :bibliographic do
 
-  desc 'Invoke a set of other rake tasks, to be executed daily'
-  task daily: :environment do
-    startTime = Time.now
-    puts_datestamp '====>>>  START bibliographic:daily  <<<===='
-
-    # put this FIRST, so that today's changes get pushed through to CLIO quickly.
-    # (The later full-slice will undo some edits, but hopefully the cumulative will put them back?)
-    puts_datestamp '==== bibliographic:extract:process (incremental) ===='
-    ENV['EXTRACT'] = 'incremental'
-    Rake::Task['bibliographic:extract:process'].invoke
-    Rake::Task['bibliographic:extract:process'].reenable
-
-    puts_datestamp '==== bibliographic:extract:fetch (full) ===='
-    ENV['EXTRACT'] = 'full'
-    Rake::Task['bibliographic:extract:fetch'].invoke
-    Rake::Task['bibliographic:extract:fetch'].reenable
-
-    puts_datestamp '==== bibliographic:extract:ingest_full_slice ===='
-    Rake::Task['bibliographic:extract:ingest_full_slice'].invoke
-
-    puts_datestamp '==== bibliographic:extract:process (cumulative) ===='
-    ENV['EXTRACT'] = 'cumulative'
-    Rake::Task['bibliographic:extract:process'].invoke
-    Rake::Task['bibliographic:extract:process'].reenable
-
-    puts_datestamp '==== bibliographic:prune_index ===='
-    Rake::Task['bibliographic:prune_index'].invoke
-
-    # Skip the optimize, rely on segment merging
-    # puts_datestamp '---- bibliographic:optimize ----'
-    # Rake::Task['bibliographic:optimize'].invoke
-
-    elapsed_minutes = (Time.now - startTime).div(60).round
-    hrs, min = elapsed_minutes.divmod(60)
-    elapsed_note = "(#{hrs} hrs, #{min} min)"
-    puts_datestamp "====>>>  END bibliographic:daily #{elapsed_note}  <<<===="
-  end
+  # desc 'Invoke a set of other rake tasks, to be executed daily'
+  # task daily: :environment do
+  #   startTime = Time.now
+  #   puts_datestamp '====>>>  START bibliographic:daily  <<<===='
+  #
+  #   # put this FIRST, so that today's changes get pushed through to CLIO quickly.
+  #   # (The later full-slice will undo some edits, but hopefully the cumulative will put them back?)
+  #   puts_datestamp '==== bibliographic:extract:process (incremental) ===='
+  #   ENV['EXTRACT'] = 'incremental'
+  #   Rake::Task['bibliographic:extract:process'].invoke
+  #   Rake::Task['bibliographic:extract:process'].reenable
+  #
+  #   puts_datestamp '==== bibliographic:extract:fetch (full) ===='
+  #   ENV['EXTRACT'] = 'full'
+  #   Rake::Task['bibliographic:extract:fetch'].invoke
+  #   Rake::Task['bibliographic:extract:fetch'].reenable
+  #
+  #   puts_datestamp '==== bibliographic:extract:ingest_full_slice ===='
+  #   Rake::Task['bibliographic:extract:ingest_full_slice'].invoke
+  #
+  #   puts_datestamp '==== bibliographic:extract:process (cumulative) ===='
+  #   ENV['EXTRACT'] = 'cumulative'
+  #   Rake::Task['bibliographic:extract:process'].invoke
+  #   Rake::Task['bibliographic:extract:process'].reenable
+  #
+  #   puts_datestamp '==== bibliographic:prune_index ===='
+  #   Rake::Task['bibliographic:prune_index'].invoke
+  #
+  #   # Skip the optimize, rely on segment merging
+  #   # puts_datestamp '---- bibliographic:optimize ----'
+  #   # Rake::Task['bibliographic:optimize'].invoke
+  #
+  #   elapsed_minutes = (Time.now - startTime).div(60).round
+  #   hrs, min = elapsed_minutes.divmod(60)
+  #   elapsed_note = "(#{hrs} hrs, #{min} min)"
+  #   puts_datestamp "====>>>  END bibliographic:daily #{elapsed_note}  <<<===="
+  # end
 
   desc 'delete stale records from the solr index'
   task prune_index: :environment do
@@ -82,12 +82,12 @@ namespace :bibliographic do
       end
     end
 
-    # Oh wait - we need to prune Law too (bib keys look like: b\d+)
-    # Just delete, don't be so worried about mistakes.  All Law bibs
-    # get automatically reloaded weekly anyway.
-    Rails.logger.info('-- pruning law...')
-    query = "timestamp:[* TO NOW/DAY-#{stale}DAYS] AND id:[b0 TO b999999]"
-    solr_connection.delete_by_query query
+    # # Oh wait - we need to prune Law too (bib keys look like: b\d+)
+    # # Just delete, don't be so worried about mistakes.  All Law bibs
+    # # get automatically reloaded weekly anyway.
+    # Rails.logger.info('-- pruning law...')
+    # query = "timestamp:[* TO NOW/DAY-#{stale}DAYS] AND id:[b0 TO b999999]"
+    # solr_connection.delete_by_query query
 
     # No, don't commit from client, rely on Solr server-side auto-commit
     # solr_connection.commit
@@ -314,53 +314,53 @@ namespace :bibliographic do
       Rails.logger.info('Ingest successful.')
     end
 
-    # Each day of the month (1-N), ingest some of the files from 'full',
-    # so that within each month we'll have re-processed the complete 'full'.
-    # There are about 130 full files currently.
-    # If we do ten per night, we can cover all the files in half a month.
-    desc "ingest a partial slice of the 'full' extract (run this every day)"
-    task :ingest_full_slice, [:monthday] => :environment do |_t, args|
-      setup_ingest_logger
-      Rails.logger.info('- begin task bibliographic:extract:ingest_full_slice')
-
-      full_dir = 'tmp/extracts/full/current'
-      todays_slice_of_full = []
-
-      # Create a range of ten files, based on day-of-the-month
-      # E.g., on the 12th, we'll look for "111" through "120"
-      monthday = Date.today.strftime('%d')
-      if args[:monthday]
-        Rails.logger.warn("- MONTHDAY OVERRIDE - was #{monthday}, override with #{args[:monthday]}")
-        monthday = args[:monthday]
-        unless monthday.match(/^\d+$/) && monthday.to_i > 0 && monthday.to_i < 32
-          Rails.logger.error("- illegal monthday override value [#{monthday}] - aborting.")
-          next
-        end
-      end
-      Rails.logger.info("- Day of the Month is:  #{monthday}")
-      slice_end = 10 * monthday.to_i
-      slice_start = slice_end - 9
-      Rails.logger.info("- indexing full extract files numbered #{slice_start} through #{slice_end}")
-      (slice_start..slice_end).to_a.each do |counter|
-        extract_file = sprintf('extract-%03d.xml', counter)
-        filename = "#{full_dir}/#{extract_file}"
-        todays_slice_of_full.push(filename) if File.exist?(filename)
-      end
-      Rails.logger.info("- processing #{todays_slice_of_full.size} extract files found within this range")
-      # provide additional hints if they might be useful
-      Rails.logger.info("- (within dir #{full_dir})") if todays_slice_of_full.size < 10
-
-      next if todays_slice_of_full.size.zero?
-
-      todays_slice_of_full.each do |filename|
-        Rails.logger.info('-' * 60)
-        Rake::Task['bibliographic:extract:ingest_file'].reenable
-        Rake::Task['bibliographic:extract:ingest_file'].invoke(filename)
-      end
-      Rails.logger.info('-' * 60)
-
-      Rails.logger.info("- finished processing #{todays_slice_of_full.size} files.")
-    end
+    # # Each day of the month (1-N), ingest some of the files from 'full',
+    # # so that within each month we'll have re-processed the complete 'full'.
+    # # There are about 130 full files currently.
+    # # If we do ten per night, we can cover all the files in half a month.
+    # desc "ingest a partial slice of the 'full' extract (run this every day)"
+    # task :ingest_full_slice, [:monthday] => :environment do |_t, args|
+    #   setup_ingest_logger
+    #   Rails.logger.info('- begin task bibliographic:extract:ingest_full_slice')
+    #
+    #   full_dir = 'tmp/extracts/full/current'
+    #   todays_slice_of_full = []
+    #
+    #   # Create a range of ten files, based on day-of-the-month
+    #   # E.g., on the 12th, we'll look for "111" through "120"
+    #   monthday = Date.today.strftime('%d')
+    #   if args[:monthday]
+    #     Rails.logger.warn("- MONTHDAY OVERRIDE - was #{monthday}, override with #{args[:monthday]}")
+    #     monthday = args[:monthday]
+    #     unless monthday.match(/^\d+$/) && monthday.to_i > 0 && monthday.to_i < 32
+    #       Rails.logger.error("- illegal monthday override value [#{monthday}] - aborting.")
+    #       next
+    #     end
+    #   end
+    #   Rails.logger.info("- Day of the Month is:  #{monthday}")
+    #   slice_end = 10 * monthday.to_i
+    #   slice_start = slice_end - 9
+    #   Rails.logger.info("- indexing full extract files numbered #{slice_start} through #{slice_end}")
+    #   (slice_start..slice_end).to_a.each do |counter|
+    #     extract_file = sprintf('extract-%03d.xml', counter)
+    #     filename = "#{full_dir}/#{extract_file}"
+    #     todays_slice_of_full.push(filename) if File.exist?(filename)
+    #   end
+    #   Rails.logger.info("- processing #{todays_slice_of_full.size} extract files found within this range")
+    #   # provide additional hints if they might be useful
+    #   Rails.logger.info("- (within dir #{full_dir})") if todays_slice_of_full.size < 10
+    #
+    #   next if todays_slice_of_full.size.zero?
+    #
+    #   todays_slice_of_full.each do |filename|
+    #     Rails.logger.info('-' * 60)
+    #     Rake::Task['bibliographic:extract:ingest_file'].reenable
+    #     Rake::Task['bibliographic:extract:ingest_file'].invoke(filename)
+    #   end
+    #   Rails.logger.info('-' * 60)
+    #
+    #   Rails.logger.info("- finished processing #{todays_slice_of_full.size} files.")
+    # end
 
     # end 'extract'
   end
