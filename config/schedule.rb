@@ -35,14 +35,16 @@ if %w(clio_batch_dev clio_batch_test clio_batch_prod).include?(@environment)
     offset = ''
   end
 
-
-  # == BIBLIOGRAPHIC ==
-  # Run all daily ingest tasks, together within one rake task.
-  # The daily clio-extract needs to complete before this.
-  # That begins at 10pm and usually completes by midnight.
-  every :day, at: offset + '1am' do
-    rake 'bibliographic:daily', subject: 'bibliographic:daily'
-  end
+  #
+  # FOLIO - TURN OFF - NEEDS TO BE REDONE FOR FOLIO
+  #
+  # # == BIBLIOGRAPHIC ==
+  # # Run all daily ingest tasks, together within one rake task.
+  # # The daily clio-extract needs to complete before this.
+  # # That begins at 10pm and usually completes by midnight.
+  # every :day, at: offset + '1am' do
+  #   rake 'bibliographic:daily', subject: 'bibliographic:daily'
+  # end
 
   # == DATABASE MAINTENANCE ==
   every :day, at: '3:10am' do
