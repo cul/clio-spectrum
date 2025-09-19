@@ -32,7 +32,6 @@ module HoldingsHelper
 
   # Support for:
   #   NEXT-113 - Do not make api request for online-only resources
-  #   NEXT-961 - Incorporate Law records into CLIO
   def has_loadable_holdings?(document)
     # 'location' alone is only found in the 'location_facet' field, which is currently
     # indexed but not stored, so I can't use it.
@@ -42,14 +41,10 @@ module HoldingsHelper
     #   Online >> EBOOKS|DELIM|13595275
     #   Lehman >> MICFICHE Y 3.T 25:2 J 13/2|DELIM|10465654
     #   Music Sound Recordings >> CD4384|DELIM|2653524
-    # Or, for Law:
-    #   Law >> JK1061 .B66 1992
     return false unless location_call_number_id = document[:location_call_number_id_display]
 
     Array.wrap(location_call_number_id).each do |portmanteau|
       location = portmanteau.partition(' >>').first
-      # This list of "Locations" are not available for live holdings lookups
-      return false if ['Law'].include? location
       # If we find any location that's not Online, Yes, it's a physical holding
       return true if location && location != 'Online'
     end
@@ -360,7 +355,7 @@ module HoldingsHelper
       end
 
       # location notes
-      # "additional" are from app_config, or hard-coded application logic (e.g., pegasus)
+      # "additional" are from app_config, or hard-coded application logic
       more_notes = additional_holdings_location_notes(nil, entry['location_name'])
       # There might already be location notes - if so, append.
       entry['location_note'] = if entry['location_note']
@@ -561,34 +556,6 @@ module HoldingsHelper
     hathi_holdings_data
   end
 
-
-  # def lookup_etas_status_NO_LONGER_CALLED(document)
-  #   begin
-  #     # Lookup by bib id (this will work for Voyager items)
-  #     id = document.id
-  #     # sql = "select * from hathi_etas where local_id = '#{id}'"
-  #     sql = "select * from hathi_overlap where local_id = '#{id}'"
-  # THIS IS SQLITE ONLY:
-  #     BROKEN:   records = ActiveRecord::Base.connection.execute(sql)
-  #     return records if records.size > 0
-  #   
-  #     # Lookup by OCLC number (this will work for Law, ReCAP)
-  #     oclc_keys = extract_by_key(document, 'oclc')
-  #     oclc_keys.each do |oclc_key|
-  #       oclc_tag, oclc_value = oclc_key.split(':')
-  #       next unless oclc_tag.eql?('oclc') && oclc_value
-  #       # sql = "select * from hathi_etas where oclc = '#{oclc_value}'"
-  #       sql = "select * from hathi_overlap where oclc = '#{oclc_value}'"
-  #       records = ActiveRecord::Base.connection.execute(sql)
-  #       return records if records.size > 0
-  #     end
-  #   rescue
-  #     # If anything went wrong, just return failure
-  #     return nil
-  #   end
-  #   
-  #   return nil
-  # end
   
   # hathi urls look like:
   #   http://catalog.hathitrust.org/api/volumes/brief/oclc/2912401.json

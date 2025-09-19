@@ -176,12 +176,6 @@ module CulCatalogHelper
     false
   end
 
-  # def law_requests_blurb
-  #   text = 'Requests serviced by the '.html_safe
-  #   link = link_to('Arthur W. Diamond Law Library', 'https://web.law.columbia.edu/library', target: '_blank')
-  #   blurb = content_tag(:div, "#{text}<nobr>#{link}</nobr>".html_safe, class: 'service_menu_blurb')
-  # end
-
   # def covid_19_blurb
   #   # text = '<font color="darkred" weight="bold"><small>Library request services are suspended until further notice.</small></font>'.html_safe
   #   text = '<font color="darkred" weight="bold"><small>Use the SCAN link in CLIO records when it is present</small></font>'.html_safe

@@ -25,14 +25,10 @@ $ ->
     hathi = res.data('hathi-access')
 
     if source == 'catalog'
-      # Hathi links, for Law, ReCAP, and Voyager
+      # Hathi links, for ReCAP and Catalog
       if (hathi)
         # console.log "hathi_catalog_items.push " + item_id
         hathi_catalog_items.push(item_id)
-      # exclude Law records from the catalog holdings check
-      # (but leave them in standard_id_set_csv, for Google, et.al.)
-      # if $.isNumeric(item_id)
-      if item_id.charAt(0) != 'b'
         
       # A bib item may have BOTH onsite and offsite holdings
         if (onsite)

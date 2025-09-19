@@ -82,13 +82,6 @@ namespace :bibliographic do
       end
     end
 
-    # # Oh wait - we need to prune Law too (bib keys look like: b\d+)
-    # # Just delete, don't be so worried about mistakes.  All Law bibs
-    # # get automatically reloaded weekly anyway.
-    # Rails.logger.info('-- pruning law...')
-    # query = "timestamp:[* TO NOW/DAY-#{stale}DAYS] AND id:[b0 TO b999999]"
-    # solr_connection.delete_by_query query
-
     # No, don't commit from client, rely on Solr server-side auto-commit
     # solr_connection.commit
 
