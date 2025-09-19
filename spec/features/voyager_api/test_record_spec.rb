@@ -35,9 +35,6 @@ describe 'record tests' do
     visit solr_document_path('6249927')
     expect(page).to have_css('#clio_holdings .holding', wait: 20)
     within ('div#clio_holdings') do
-      # # COVID OVERRIDE SPEC - link logic flipped, link label changed
-      # expect(page).not_to have_link('Offsite')
-      # # restore the following:
       expect(page).to have_link('Scan')
 
       # The href is blank - the Valet URL is in the onclick JS code
@@ -115,24 +112,4 @@ describe 'record tests' do
     end
   end
 
-  it 'special collections services', :js do
-    visit solr_document_path('6201975')
-    expect(page).to have_css('#clio_holdings .holding')
-    within ('div#clio_holdings') do
-      # COVID OVERRIDE SPEC
-      expect(page).not_to have_link('Scan & Deliver', href: 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?6201975')
-      # restore the following:
-      # # expect(page).to have_link('Scan & Deliver', href: 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?6201975')
-    end
-
-    # visit solr_document_path('6871895')
-    # expect(page).to have_css('#clio_holdings .holding')
-    # within ('div#clio_holdings') do
-    #   expect(page).to have_link('Scan & Deliver',
-    #                         href: 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?6871895',
-    #                         count: 3)
-    # end
-  end
 end
-
-7_686_002

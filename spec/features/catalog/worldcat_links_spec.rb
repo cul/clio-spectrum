@@ -24,12 +24,13 @@ describe 'WorldCat links' do
   end
 
 
-  it 'should work with ISBN' do
-    visit solr_document_path('14976920')
-    within '.holdings' do
-      expect(page).to have_link('WorldCat', href: 'https://www.worldcat.org/isbn/9781473993334')
-    end
-  end
+  # I can no longer find an example record with ISBN but no OCLC or ISSN
+  # it 'should work with ISBN' do
+  #   visit solr_document_path('14976920')
+  #   within '.holdings' do
+  #     expect(page).to have_link('WorldCat', href: 'https://www.worldcat.org/isbn/9781473993334')
+  #   end
+  # end
 
   it 'should work with ISSN' do
     visit solr_document_path('ebs50974e')

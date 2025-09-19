@@ -10,9 +10,6 @@ extend Traject::Macros::MarcFormats
 # Columbia's local format classification rules
 extend FormatMacro
 
-###LIBSYS-3996 - End ETAS
-# # Local code to lookup Hathi access status
-# extend HathiMacro
 
 # require 'traject/macros/marc21'
 # extend  Traject::Macros::Marc21
@@ -460,27 +457,6 @@ to_field 'url_munged_display' do |record, accumulator|
 
   end
 end
-
-### LIBSYS-3996 - End ETAS
-# # Add Hathi access status directly to Solr record
-# # - possible values:  'allow' or 'deny'
-# # - ETAS gives limited access to 'deny' items
-# # - lookup by bib id and OCLC number
-# to_field 'hathi_access_s', hathi_access
-
-# to_field 'hathi_access' do |record, accumulator|
-#   local_id = extract_marc('001', first: true)
-#   
-#   oclc_numbers = []
-#   oclc_raw = Marc21.extract_marc_from(record, '035a').flatten.uniq
-#   oclc_raw.each do |oclc|
-#     if clean_oclc = oclc.match(OCLC_CLEAN)
-#       oclc_numbers << clean_oclc[1]
-#     end
-#   end
-#   
-#   accumulator << lookup_hathi_access(local_id, oclc_numbers)
-# end
 
 
 # Shelf Browse support fields

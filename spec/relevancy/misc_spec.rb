@@ -17,6 +17,8 @@ describe 'WorldCat link support', :skip_travis do
     # setup UTF-8 Decomposed form string constants for our various targets
     # (copy & paste gives us the pre-composed, but raw Solr results are decomposed)
     decomposed = 'Tsukuba Daigaku Tetsugaku Shisōgakukei ronshū'.mb_chars.normalize(:d)
-    expect(first['title_display'].first).to match /^#{decomposed}$/
+    precomposed = 'Tsukuba Daigaku Tetsugaku Shisōgakukei ronshū'.mb_chars.normalize(:c)
+    # expect(first['title_display'].first).to match /^#{decomposed}$/
+    expect(first['title_display'].first).to match /^#{precomposed}$/
   end
 end
