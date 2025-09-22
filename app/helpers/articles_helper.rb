@@ -403,4 +403,15 @@ module ArticlesHelper
     # 1999-12-20 --> 12/20/1999
     return [parts[1], parts[2], parts[0]].join('/') if parts.size == 3
   end
+
+  def eds_prep_toggle_link(link, link_type)
+    case link_type
+    when :ft1
+      link.remove('&ft1=on').remove('&ft1=off').remove(/pagenumber=\d+/)
+    when :ft
+      link.remove('&ft=on').remove('&ft=off').remove(/pagenumber=\d+/)
+    when :rv
+      link.remove('&rv=on').remove('&rv=off').remove(/pagenumber=\d+/)
+    end
+  end
 end
