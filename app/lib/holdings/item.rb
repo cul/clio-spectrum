@@ -4,6 +4,10 @@ module Holdings
                 :temp_locations, :use_restrictions, :bound_withs
 
     # Item class initializing method
+    # Initialize an Item object - which is a what???
+    # - "mfhd_id" is the ID (FOLIO UUID) of this holding
+    # - "holdings_marc" is the MARC fields related to this holdings id, plucked out of the document MARC
+    # - "mfhd_status" is a hash of all the items in this holding, with their statuses
     def initialize(mfhd_id, holdings_marc, mfhd_status, scsb_status)
       @holding_id = mfhd_id
 
@@ -346,12 +350,14 @@ module Holdings
       # format date / time
       datetime = ''
       if item[:statusDate].present?
-        # Support date in item so we can use stored test features
-        todays_date = if item[:todaysDate].present?
-                        DateTime.parse(item[:todaysDate])
-                      else
-                        DateTime.now
-        end
+        # # Support date in item so we can use stored test features
+        # todays_date = if item[:todaysDate].present?
+        #                 DateTime.parse(item[:todaysDate])
+        #               else
+        #                 DateTime.now
+        # end
+        # No stored test features set "todaysDate"
+        todays_date = DateTime.now
 
         status_date = DateTime.parse(item[:statusDate])
         diff = status_date - todays_date

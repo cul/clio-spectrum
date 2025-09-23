@@ -130,14 +130,6 @@ class SolrDocument
     # If there are no items at all, we can't fetch circ status.
     return false if key?(:items_i) && (self[:items_i]).zero?
 
-    # But the circ_status SQL code will still work for non-barcoded items,
-    # and report items as 'Available'.
-    # So why not just let it run?  We have no evidence of unavailability,
-    # we may as well trust the 'available' status, and let unavailability be
-    # reported through normal workflow.
-    # # Only documents with barcoded items are tracked in Voyager circ system
-    # return self.has_key?(:barcode_txt)
-
     true
   end
 
