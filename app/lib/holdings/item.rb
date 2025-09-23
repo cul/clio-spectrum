@@ -67,9 +67,14 @@ module Holdings
           # end
 
           # FOLIO
-          # If FOLIO status is "Available" but SCSB says "Unavailable", 
-          # then we think it's a partner checkout from ReCAP - show as 'Checked Out' in CLIO
+          # In case of partner-checkout of a Columbia ReCAP item,
+          # if FOLIO has status "Available" but SCSB says "Unavailable",
+          # then we think it's a partner checkout from ReCAP - mark as 'Checked Out'.
           if mfhd_status[item_id]['itemStatus'] == 'Available'
+            mfhd_status[item_id]['itemStatus'] = 'Checked out'
+          end
+          # This is a check-out of a non-Columbia item
+          if not mfhd_status[item_id].key?("itemStatus")
             mfhd_status[item_id]['itemStatus'] = 'Checked out'
           end
 
