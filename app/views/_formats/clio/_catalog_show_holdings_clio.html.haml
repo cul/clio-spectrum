@@ -64,7 +64,7 @@
             = render 'catalog/bound_with', document: document, entry: entry, copy: copy
 
           -# Different 'items' with a 'copy' have varying statuses (Available, In-Transit, etc.)
-          - copy['items'].each do |item|
+          - copy['items'].sort_by { |message, details| message }.each do |item|
             .status
               - message, details = item
               - unless message =~ /^Status unknown/
