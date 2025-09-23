@@ -233,6 +233,7 @@ module Holdings
 
       # determine overall status
       status = determine_overall_status(mfhd_status)
+
       if status == 'unknown'
         return { status: 'none',
                  messages: [{ status_code: '0',
@@ -302,13 +303,67 @@ module Holdings
     #     :long_message => long version of message
     #
     def generate_message(item)
-
       # For FOLIO, our item looks like this:
       #   {"itemStatus"=>"Available", "itemStatusDate"=>"2025-05-15T05:14:32.890+00:00"}
       # Ignore the code, and just use the itemStatus as the short message?
       # (and long message isn't used anymore, so leave that out)
-      return { short_message: item['itemStatus'] }
+      # return { short_message: item['itemStatus'] }
       
+      # No - they needs lots of additional information.....
+      item_status = item['itemStatus']
+      
+      # (1) Sometimes a FOLIO Item Status is just not very clear to patrons,
+      # rewrite to a more understandable label
+      item_status_replacements = {
+        'Aged to lost'    =>  'Unavailable',
+        'Paged'           =>  'Unavailable',
+        'Awaiting pickup' =>  'Unavailable'
+      }
+      if item_status_replacements.include?(item_status)
+        item_status = item_status_replacements[item_status]
+      end
+      
+      # (2) Replace "Checked Out" item status with User Last/First Name, 
+      #     if user is a status patron (first/last names form a message to users)
+      status_patron_patron_groups = [
+        'Avery ILUO',
+        'Indefinite',
+        'Missing',
+        'ReCAP Facility Indefinite',
+        'Resource Sharing'
+      ]
+      if item_status == 'Checked out' and item['loanPatronGroup'].present?
+        if status_patron_patron_groups.include?( item['loanPatronGroup'] )
+          if item['loanPatronName'].present?
+            item_status = item['loanPatronName']
+          end
+        end
+      end
+
+      if item_status == 'Checked out' and item['loanDueDate'].present?
+        # Either "Checked out, due ...", or "Overdue as of ..."
+        if Time.parse(item['loanDueDate']) > Time.now
+          item_status = "Checked out, due " + item['loanDueDate'][0..9]
+        else
+          item_status = "Overdue as of " + item['loanDueDate'][0..9]
+        end
+      end
+
+      if item_status == 'Unavailable' and item['itemStatusDate'].present?
+        item_status = item_status + ' ' + item['itemStatusDate'][0..9]
+      end
+
+
+      # For ANY non-"Available" status, prefix with the item-label
+      # (enum + chron + volume + ... )
+      if item_status != 'Available' and item['itemLabel'].present?
+        item_status = item['itemLabel'] + ' ' + item_status
+      end
+      
+      
+      return { short_message: item_status}
+      
+      # ----------------------------------------------------
 
       # Voyager code below
       short_message = ''
@@ -344,6 +399,21 @@ module Holdings
         short_message: short_message,
         long_message: long_message }
     end
+
+    # def format_folio_due_date(due_date_str)
+    #   return nil if due_date_str.nil? || due_date_str.empty?
+    #
+    #   due_time = Time.parse(due_date_str)  # parses ISO8601 including timezone
+    #   now = Time.now
+    #
+    #   if due_time < now - 1 * 24 * 60 * 60 || due_time > now + 2 * 24 * 60 * 60
+    #     # More than 1 day in the past OR more than 2 days in the future → show only date
+    #     due_time.strftime('%Y-%m-%d')
+    #   else
+    #     # Within 1 day past to 2 days future → show date + time with am/pm
+    #     due_time.strftime('%Y-%m-%d %I:%M %p')  # e.g., 2026-02-14 04:59 AM
+    #   end
+    # end
 
 
     def format_datetime(item)
@@ -409,3 +479,4 @@ module Holdings
   end
 end
 
+ 
