@@ -343,14 +343,14 @@ module Holdings
       if item_status == 'Checked out' and item['loanDueDate'].present?
         # Either "Checked out, due ...", or "Overdue as of ..."
         if Time.parse(item['loanDueDate']) > Time.now
-          item_status = "Checked out, due " + item['loanDueDate'][0..9]
+          item_status = "Checked out, due " + format_datetime(item['loanDueDate'])
         else
-          item_status = "Overdue as of " + item['loanDueDate'][0..9]
+          item_status = "Overdue as of " + format_datetime(item['loanDueDate'])
         end
       end
 
       if item_status == 'Unavailable' and item['itemStatusDate'].present?
-        item_status = item_status + ' ' + item['itemStatusDate'][0..9]
+        item_status = item_status + ' ' + format_datetime(item['itemStatusDate'])
       end
 
 
@@ -364,59 +364,61 @@ module Holdings
       return { short_message: item_status}
       
       # ----------------------------------------------------
-
-      # Voyager code below
-      short_message = ''
-      long_message = ''
-      code = ''
-      # status patron message otherwise regular message
-      if item[:statusPatronMessage].present?
-        code = 'sp'
-        long_message = item[:statusPatronMessage]
-        short_message = long_message.gsub(/(Try|Place).+/, '').strip
-        short_message = short_message.gsub(/\W$/, '')
-      else
-        code = item[:statusCode].to_s
-        # append suffix to indicate whether there are requests - n = no requests, r = requests
-        code += if item[:requestCount] && item[:requestCount] > 0
-                  'r'
-                else
-                  'n'
-                end
-
-        # get parms for the message being processed
-        parms = ITEM_STATUS_CODES[code]
-
-        raise "Status code [#{code}] not found in config/item_status_codes.yml" unless parms
-
-        short_message = make_substitutions(parms['short_message'], item)
-      end
-
-      # add labels - but not for "Available" items
-      short_message = add_label(short_message, item) unless short_message == 'Available'
-
-      { status_code: code,
-        short_message: short_message,
-        long_message: long_message }
+      # # Voyager code below
+      # ----------------------------------------------------
+      # short_message = ''
+      # long_message = ''
+      # code = ''
+      # # status patron message otherwise regular message
+      # if item[:statusPatronMessage].present?
+      #   code = 'sp'
+      #   long_message = item[:statusPatronMessage]
+      #   short_message = long_message.gsub(/(Try|Place).+/, '').strip
+      #   short_message = short_message.gsub(/\W$/, '')
+      # else
+      #   code = item[:statusCode].to_s
+      #   # append suffix to indicate whether there are requests - n = no requests, r = requests
+      #   code += if item[:requestCount] && item[:requestCount] > 0
+      #             'r'
+      #           else
+      #             'n'
+      #           end
+      #
+      #   # get parms for the message being processed
+      #   parms = ITEM_STATUS_CODES[code]
+      #
+      #   raise "Status code [#{code}] not found in config/item_status_codes.yml" unless parms
+      #
+      #   short_message = make_substitutions(parms['short_message'], item)
+      # end
+      #
+      # # add labels - but not for "Available" items
+      # short_message = add_label(short_message, item) unless short_message == 'Available'
+      #
+      # { status_code: code,
+      #   short_message: short_message,
+      #   long_message: long_message }
+      # ----------------------------------------------------
     end
 
-    # def format_folio_due_date(due_date_str)
-    #   return nil if due_date_str.nil? || due_date_str.empty?
-    #
-    #   due_time = Time.parse(due_date_str)  # parses ISO8601 including timezone
-    #   now = Time.now
-    #
-    #   if due_time < now - 1 * 24 * 60 * 60 || due_time > now + 2 * 24 * 60 * 60
-    #     # More than 1 day in the past OR more than 2 days in the future → show only date
-    #     due_time.strftime('%Y-%m-%d')
-    #   else
-    #     # Within 1 day past to 2 days future → show date + time with am/pm
-    #     due_time.strftime('%Y-%m-%d %I:%M %p')  # e.g., 2026-02-14 04:59 AM
-    #   end
-    # end
+    def format_datetime(date_string)
+      return nil unless date_string.present?
+
+      date_time = date_string.to_time.in_time_zone  # respects config.time_zone
+      now = Time.now
+
+      if date_time < (now - 1.day) || date_time > (now + 2.days)
+        # More than 1 day in the past OR 
+        # more than 2 days in the future → show only date
+        date_time.strftime('%Y-%m-%d')
+      else
+        # Within 1 day past to 2 days future → show date + time with am/pm
+        date_time.strftime('%Y-%m-%d %I:%M%P')  # e.g., 2026-02-14 04:59 AM
+      end
+    end
 
 
-    def format_datetime(item)
+    def old_format_datetime(item)
       # format date / time
       datetime = ''
       if item[:statusDate].present?
