@@ -737,6 +737,11 @@ module HoldingsHelper
   end
 
   def aeon_link
+    if Rails.env != 'clio_prod'
+      valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+      return "#{valet_url}/special_collections/"
+    end
+
     aeon_url = APP_CONFIG['aeon_url'] || 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl'
     "#{aeon_url}?bibkey="
   end
