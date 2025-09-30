@@ -48,12 +48,17 @@ module Spectrum
         # raise
         Rails.logger.debug "Spectrum::SearchEngines::Eds.initialize() options=#{options.inspect}"
 
-        # fcd1, 07/29/25: FT1 limiter (Available in Library Collection)
-        if  options['ft1'] == 'off'
-          @ft1_limiter_on = false
-        else
-          @ft1_limiter_on = true
-        end
+        # FT1 'Available in Library Collection' limiter
+        # For new search, we want this limiter to be on by default
+        @ft1_limiter_on =  not(options['ft1'] == 'off')
+
+        # FT 'Full Text' limiter
+        # For new search, we want this limiter to be off by default
+        @ft_limiter_off =  not(options['ft'] == 'on')
+
+        # RV ''Scholarly (Peer Reviewed) JournalsFull Text' limiter
+        # For new search, we want this limiter to be off by default
+        @rv_limiter_off =  not(options['rv'] == 'on')
 
         @source = options.fetch('datasource', nil)
         @q = options.delete('q')
@@ -114,8 +119,12 @@ module Spectrum
         # All I have to do here is send it along to the gem library if it's in the URL
         search_options['range'] = options['range'] if options.key?('range')
 
-        # fcd1, 09/10/25: Add FT1 limiter
-        search_options[:limiters] = ['FT1:Y'] if @ft1_limiter_on
+        # fcd1, 09/17/25: construct limiters params, if needed
+        limiters = []
+        limiters << 'FT1:Y' if @ft1_limiter_on
+        limiters << 'FT:Y' unless @ft_limiter_off
+        limiters << 'RV:Y' unless @rv_limiter_off
+        search_options[:limiters] = limiters unless limiters.empty?
 
         @search = eds_session.search(search_options)
         
@@ -230,8 +239,25 @@ module Spectrum
         facet_options << {
           style: :checkbox,
           value: @ft1_limiter_on,
+          link_type: :ft1,
           link_suffix: @ft1_limiter_on ? '&ft1=off' : '&ft1=on',
           name: "Columbia's collection only"
+        }
+
+        facet_options << {
+          style: :checkbox,
+          value: not(@ft_limiter_off),
+          link_type: :ft,
+          link_suffix: @ft_limiter_off ? '&ft=on' : '&ft=off',
+          name: "Full Text"
+        }
+
+        facet_options << {
+          style: :checkbox,
+          value: not(@rv_limiter_off),
+          link_type: :rv,
+          link_suffix: @rv_limiter_off ? '&rv=on' : '&rv=off',
+          name: "Scholarly (Peer Reviewed) Journals"
         }
 
         facet_options
@@ -516,8 +542,10 @@ module Spectrum
       def eds_params_modify(extra_params = {})
         params = @search.raw_options.dup
 
-        # Parameter used to enable/disable FT1 Limiter
+        # fcd1, 09/18/25: limiters
         params[:ft1] = @ft1_limiter_on ? 'on' : 'off'
+        params[:ft] = @ft_limiter_off ? 'off' : 'on'
+        params[:rv] = @rv_limiter_off ? 'off' : 'on'
 
         # don't persist the "actions" params that landed on this page
         params.delete(:actions)
