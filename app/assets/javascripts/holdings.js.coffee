@@ -31,10 +31,10 @@ $ ->
         hathi_catalog_items.push(item_id)
         
       # A bib item may have BOTH onsite and offsite holdings
-        if (onsite)
-          onsite_catalog_items.push(item_id)
-        if (offsite)
-          offsite_catalog_items.push(item_id)
+      if (onsite)
+        onsite_catalog_items.push(item_id)
+      if (offsite)
+        offsite_catalog_items.push(item_id)
       # a set of zero or more IDs (ISBN, OCLC, or LCCN)
       standard_id_set_csv = res.attr('standard_ids')
       if (standard_id_set_csv)
@@ -46,7 +46,6 @@ $ ->
 
   if onsite_catalog_items.length
     # alert(onsite_catalog_items)  # debug
-    # retrieve_holdings(onsite_catalog_items)
     folio_retrieve_holdings_availability(onsite_catalog_items)
 
   if offsite_catalog_items.length
