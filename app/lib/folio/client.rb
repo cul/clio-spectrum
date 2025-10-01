@@ -335,7 +335,7 @@ module Folio
       # Process IDs in batches of 10
       item_id_list.each_slice(10) do |batch|
         item_query_clause = batch.map { |id| "itemId==#{id}" }.join(" or ")
-        query = "(status=\"Open\" and #{item_query_clause})"
+        query = "(status=\"Open\" and ( #{item_query_clause} ) )"
         path = "/circulation/loans?query=#{query}&limit=1000"
 
         folio_response = @folio_client.get(path)
