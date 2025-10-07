@@ -197,13 +197,11 @@ module CulCatalogHelper
     # end
   end
 
-  def show_boosts(bib_key)
-    return unless BOOSTS_CONFIG.key?(bib_key)
-    
+  def show_boosts(document)
+    return unless document['boost_exact'].present?
     title = "<h4>Record Boosts</h4>\n"
-
     list = "<ul>\n"
-    BOOSTS_CONFIG[bib_key].each do |boost_term|
+    document['boost_exact'].each do |boost_term|
       list += "<li>#{boost_term}</li>\n"
     end
     list += "</ul>\n"
