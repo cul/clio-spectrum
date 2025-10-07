@@ -20,7 +20,7 @@
         %ul.list-unstyled
           - result.pre_facet_options_with_links.each do |option|
             %div.search_option
-              = check_box_tag 'option', 'yes', option[:value], :href => request.original_url.remove('&ft1=on').remove('&ft1=off') + option[:link_suffix], :class => 'search_option_action'
+              = check_box_tag 'option', 'yes', option[:value], :href => eds_prep_toggle_link(request.original_url, option[:link_type]) + option[:link_suffix], :class => 'search_option_action'
               %span.option_name #{option[:name]}
 
     -# PUBLICATION DATE FACET HANDLED SEPARATELY
