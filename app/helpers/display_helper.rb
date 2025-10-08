@@ -196,8 +196,7 @@ module DisplayHelper
       
       image_tag(image_url,
                 class: "#{lookup_availability} bib_#{document.id} holding_#{hold_id} #{offsite_indicator}") +
-        process_holdings_location(loc_display) +
-        additional_brief_location_note(document, location)
+        process_holdings_location(loc_display)
       # Can't do this without more work...
       # Location.get_location_note(loc_display, document)
     end
@@ -207,11 +206,6 @@ module DisplayHelper
   def additional_holdings_location_notes(document, location)
     location_notes = []
 
-    # Law records need a link back to their native catalog
-    if document && document.in_pegasus?
-      location_notes << content_tag(:span, pegasus_item_link(document, 'Search Results'), class: 'url_link_note')
-    end
-
     # Check for any location notes in app_config - that's used for
     # somewhat dynamic values that we don't want to put in code
     app_config_notes = Location.get_app_config_location_notes(location)
@@ -219,33 +213,6 @@ module DisplayHelper
 
     return location_notes unless location_notes.empty?
     nil
-  end
-
-  # Any additional special note, for this document at this location
-  def additional_brief_location_note(document, _location)
-    # Law records need a link back to their native catalog
-    if document && document.in_pegasus?
-      return content_tag(:span, pegasus_item_link(document, 'Search Results'), class: 'url_link_note')
-    end
-  end
-
-  def pegasus_item_link(document, context = '')
-    site_url = 'https://pegasus.law.columbia.edu'
-    if document && document.id
-      # Law records ids are given a "b" prefix during CLIO ingest
-      # law_record_id = document.id.gsub(/^b/, '')
-      law_record_id = document.id.gsub(/^law/, '')
-      law_url = site_url + '/record/' + law_record_id
-      
-      # NEXT-996 - Rename "Pegasus" link
-      return link_to t('blacklight.law.check_message'),
-                     law_url,
-                     :'data-ga-category' => 'Pegasus Link',
-                     :'data-ga-action' => context,
-                     :'data-ga-label' => document['title_display'] || document.id
-    else
-      return link_to site_url, site_url
-    end
   end
 
   def determine_formats(document, source, formats = [])
@@ -851,12 +818,6 @@ module DisplayHelper
     attr['onsite']  = 'true' if document.has_onsite_holdings?
     attr['offsite'] = 'true' if document.has_offsite_holdings?
     
-    ### LIBSYS-3996 - End ETAS
-    # # NEXT-1635 - mark search-results docs with Hathi access status
-    # if (APP_CONFIG['hathi_search_results_links'])
-    #   attr['hathi_access'] = document['hathi_access_s'] if document['hathi_access_s']
-    # end
-
     attr
   end
 end

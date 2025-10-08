@@ -8,6 +8,10 @@ module Holdings
                 :item_status, :orders, :current_issues, :services,
                 :bibid, :donor_info, :location_note, :temp_loc_flag
 
+    # Initialize a Record object - which is a Holdings Record
+    # - "mfhd_id" is the ID (FOLIO UUID) of this holding
+    # - "marc" is the full Instance MARC
+    # - "mfhd_status" is a hash of all the items in this holding, with their statuses
     def initialize(mfhd_id, marc, mfhd_status, scsb_status)
       mfhd_status ||= {}
 
@@ -75,7 +79,8 @@ module Holdings
 
       # information from item level records
       item = Item.new(mfhd_id, holdings_marc, mfhd_status, scsb_status)
-
+      
+      
       @item_count = item.item_count
 
       @temp_locations = item.temp_locations
@@ -222,6 +227,8 @@ module Holdings
       # add available services
       @services = determine_services(@location_name, @location_code, @temp_loc_flag, @call_number, @item_status, @orders, @bibid, fmt, @bibid_pul)
     end
+
+
 
     # Collect data from all variables into a hash
     def to_hash
@@ -728,13 +735,6 @@ module Holdings
         #   unscannable = APP_CONFIG['unscannable_offsite_call_numbers'] || []
         #   services << 'recap_scan' unless unscannable.any? { |bad| call_number.starts_with?(bad) }
         #
-        #   # LIBSYS-3996  - End ETAS service
-        #   # # Physical loans of Princeton ETAS titles is not allowed
-        #   # # (but may be available via the Borrow Direct network)
-        #   # if location_code == 'scsbpul' && Covid.lookup_db_etas_status_princeton(bibid_pul) == 'deny'
-        #   #   services.delete('recap_loan')
-        #   #   services << 'borrow_direct'
-        #   # end
         # end
 
         # LIBSYS-3200 - 8/2021, turn off Avery Onsite
@@ -747,31 +747,6 @@ module Holdings
 
       # cleanup the list
       services = services.flatten.uniq
-
-
-      # LIBSYS-3996	- End ETAS service
-      # # ====== ETAS - NO ACCESS TO PHYSICAL BOOK ======
-      # # NEXT-1664 - Criteria for Page/Scan service links
-      # # If the bibid is in the ETAS database, marked as 'deny', then we have
-      # # emergency online access - and thus can't offer physical access to the book.
-      # # (But scanning has been deemed OK, so don't suppress scan options)
-      # if APP_CONFIG['hathi_etas'] && Covid.lookup_db_etas_status(bibid) == 'deny'
-      #   # --  Scan services  --
-      #   # services.delete('campus_scan')
-      #   # services.delete('recap_scan')
-      #
-      #   # --  Pick-Up services  --
-      #   services.delete('campus_paging')
-      #   services.delete('fli_paging')
-      #   services.delete('recap_loan')
-      #   # Can't offer our book, but can offer book via Borrow Direct
-      #   services << 'borrow_direct'
-      #
-      #   # --  Other services  --
-      #   services.delete('bearstor')
-      #   services.delete('avery_onsite')
-      #   services.delete('aeon')
-      # end
 
 
       # Last-chance rules, every physical item should offer some kind of "Scan" and "Pickup"

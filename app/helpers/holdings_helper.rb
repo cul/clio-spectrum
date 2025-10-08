@@ -32,7 +32,6 @@ module HoldingsHelper
 
   # Support for:
   #   NEXT-113 - Do not make api request for online-only resources
-  #   NEXT-961 - Incorporate Law records into CLIO
   def has_loadable_holdings?(document)
     # 'location' alone is only found in the 'location_facet' field, which is currently
     # indexed but not stored, so I can't use it.
@@ -42,14 +41,10 @@ module HoldingsHelper
     #   Online >> EBOOKS|DELIM|13595275
     #   Lehman >> MICFICHE Y 3.T 25:2 J 13/2|DELIM|10465654
     #   Music Sound Recordings >> CD4384|DELIM|2653524
-    # Or, for Law:
-    #   Law >> JK1061 .B66 1992
     return false unless location_call_number_id = document[:location_call_number_id_display]
 
     Array.wrap(location_call_number_id).each do |portmanteau|
       location = portmanteau.partition(' >>').first
-      # This list of "Locations" are not available for live holdings lookups
-      return false if ['Law'].include? location
       # If we find any location that's not Online, Yes, it's a physical holding
       return true if location && location != 'Online'
     end
@@ -170,9 +165,6 @@ module HoldingsHelper
                            tooltip:    'ReCAP Scan',    js_function: 'OpenWindow'},
       'offsite'        => {link_label: 'Scan',          service_url: offsite_link, 
                            tooltip:    'Offsite',       js_function: 'OpenWindow'},
-      # NEXT-1819 - replace ill_link with ill_scan_link
-      # 'ill'            => {link_label: 'Scan',          service_url: ill_link,
-      #                      tooltip:    'Illiad Book/Article Scan'},
       'ill_scan'       => {link_label: 'Scan',          service_url: ill_scan_link,
                            tooltip:    'Illiad Book/Article Scan'},
       # ====  PICK-UP SERVICES  ====
@@ -193,8 +185,8 @@ module HoldingsHelper
                            service_url: 'https://library.columbia.edu/resolve/barlib0001#'},
       'avery_onsite'   => {link_label: 'On-Site Use',      service_url: avery_onsite_link, 
                            tooltip:    'Avery Onsite',     js_function: 'OpenWindow'},
-      # 'aeon'           => {link_label: 'Special Collections', service_url: 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='},
-      'aeon'           => {link_label: 'Special Collections', service_url: aeon_link},
+      'aeon'           => {link_label: 'Special Collections', service_url: aeon_link,
+                           tooltip:    'Aeon Request'   ,     js_function: 'OpenWindow'},},
       'microform'      => {link_label: 'Arrange for Access', 
                            service_url: 'https://library.columbia.edu/libraries/pmrr/services.html?'},
       'precat'         => {link_label: 'Precataloging', service_url: precat_link, 
@@ -204,7 +196,6 @@ module HoldingsHelper
                            js_function: 'OpenWindow'},
       'in_process'     => {link_label: 'In Process',    service_url: in_process_link,
                            js_function: 'OpenWindow'},
-      # 'doc_delivery'   => {link_label: 'Scan', 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?'}
     }
   end
 
@@ -256,13 +247,8 @@ module HoldingsHelper
     # Which of this bib's services have now been reinstated? 
     services.select! { |service| reinstated.include?(service) }
 
-    # # NEXT-1660 - COVID - Don't offer offsite requests for Hathi ETAS
-    # etas_status = Covid.lookup_db_etas_status(clio_id)
-    # services.delete('offsite') if (APP_CONFIG['hathi_etas'] && etas_status == 'deny')
-
     # If none, give up.  Immediately return empty service list.
     return [] unless services
-    # If some, proceed as we did pre-COVID.
 
     service_links = services.select { |svc| SERVICE_ORDER.index(svc) }.sort_by { |svc| SERVICE_ORDER.index(svc) }.map do |svc|
       # title, link, extra = serviceConfig[svc]
@@ -360,7 +346,7 @@ module HoldingsHelper
       end
 
       # location notes
-      # "additional" are from app_config, or hard-coded application logic (e.g., pegasus)
+      # "additional" are from app_config, or hard-coded application logic
       more_notes = additional_holdings_location_notes(nil, entry['location_name'])
       # There might already be location notes - if so, append.
       entry['location_note'] = if entry['location_note']
@@ -443,7 +429,6 @@ module HoldingsHelper
   def extract_standard_bibkeys(document)
     bibkeys = []
 
-    # NEXT-1633, NEXT-1635 - COVID - Hathi match by OCLC preferred
     bibkeys << extract_by_key(document, 'oclc')
     bibkeys << extract_by_key(document, 'isbn')
     bibkeys << extract_by_key(document, 'issn')
@@ -504,15 +489,6 @@ module HoldingsHelper
       id_type, id_value = bibkey.split(':')
       next unless id_type && id_value
       
-      ### LIBSYS-3996 - End ETAS
-      # # NEXT-1633, NEXT-1635 - COVID
-      # # If this record is in our holdings-overlap report
-      # # (as Limited-View but ETAS-accessible OR as full-view)
-      # # then we ONLY want to do lookups by OCLC number
-      # if (document['hathi_access_s'].present?)
-      #   next unless id_type == 'oclc'
-      # end
-
       hathi_holdings_data = fetch_hathi_brief(id_type, id_value)
       break unless hathi_holdings_data.nil?
     end
@@ -520,32 +496,7 @@ module HoldingsHelper
     # nothing found, no further processing
     return nil if hathi_holdings_data.blank?
 
-    # NEXT-1633, NEXT-1635 - COVID - We've fetched Hathi bib availability data.
-    # Now - check the Hathi "holdings overlap" status from the Solr record.
-    # - "allow" means Full-View
-    # - "deny" means Limited View, but temporary ETAS access
     
-    ### LIBSYS-3996 - End ETAS
-    # # If either Hathi Access code is FOUND, return full hathi holdings data
-    # if (document['hathi_access_s'].present?)
-    #   return hathi_holdings_data
-    # end
-
-    ### LIBSYS-3996 - End ETAS
-    # # If NO HATHI ACCESS FOUND...
-    # # - "Full view" means we have access, allow it
-    # # - "Limited" or Blank means we don't have full-access - suppress it
-    # # - blank means NO holdings overlap: pass-thru "Full View", suppress "Limited"
-    # if (document['hathi_access_s'].blank?)
-    #   # Look at the Rights of each Item in the Hathi API response,
-    #   # If the item has limited-view, we'll suppress it from patron display,
-    #   #   because search-only access to a Hathi pageturner is useless.
-    #   # (Otherwise, the item has full-view and we'll leave it in for patrons)
-    #   hathi_holdings_data['items'].delete_if do |item|
-    #     item['usRightsString'].downcase.include?('limited')
-    #   end
-    # end
-
     # Look at the Rights of each Item in the Hathi API response,
     # If the item has limited-view, we'll suppress it from patron display,
     #   because search-only access to a Hathi pageturner is useless.
@@ -561,34 +512,6 @@ module HoldingsHelper
     hathi_holdings_data
   end
 
-
-  # def lookup_etas_status_NO_LONGER_CALLED(document)
-  #   begin
-  #     # Lookup by bib id (this will work for Voyager items)
-  #     id = document.id
-  #     # sql = "select * from hathi_etas where local_id = '#{id}'"
-  #     sql = "select * from hathi_overlap where local_id = '#{id}'"
-  # THIS IS SQLITE ONLY:
-  #     BROKEN:   records = ActiveRecord::Base.connection.execute(sql)
-  #     return records if records.size > 0
-  #   
-  #     # Lookup by OCLC number (this will work for Law, ReCAP)
-  #     oclc_keys = extract_by_key(document, 'oclc')
-  #     oclc_keys.each do |oclc_key|
-  #       oclc_tag, oclc_value = oclc_key.split(':')
-  #       next unless oclc_tag.eql?('oclc') && oclc_value
-  #       # sql = "select * from hathi_etas where oclc = '#{oclc_value}'"
-  #       sql = "select * from hathi_overlap where oclc = '#{oclc_value}'"
-  #       records = ActiveRecord::Base.connection.execute(sql)
-  #       return records if records.size > 0
-  #     end
-  #   rescue
-  #     # If anything went wrong, just return failure
-  #     return nil
-  #   end
-  #   
-  #   return nil
-  # end
   
   # hathi urls look like:
   #   http://catalog.hathitrust.org/api/volumes/brief/oclc/2912401.json
@@ -620,8 +543,6 @@ module HoldingsHelper
                         hathi_holdings_data['records'] &&
                         !hathi_holdings_data['records'].empty?
 
-      ### NEXT-1633 - COVID - stop suppressing Limited View Hathi links
-      ### LIBSYS-3996 - End ETAS, restore previous behavior (suppress "limited")
       # NEXT-1357 - Only display 'Full view' HathiTrust records
       hathi_holdings_data['items'].delete_if do |item|
         item['usRightsString'].downcase.include?('limited')
@@ -652,12 +573,6 @@ module HoldingsHelper
     return 'Full view' if test_value.match(/full/i)
     return 'Full view' if test_value.match(/allow/i)
 
-    # While ETAS is active, override limited-view/deny
-    if APP_CONFIG['hathi_etas']
-      return 'Log in for temporary access' if test_value.match(/deny/i)
-      return 'Log in for temporary access' if test_value.match(/limited/i)
-    end
-
     # normal language for limited-view items
     return 'Limited (search-only)'  if test_value.match(/deny/i)
     return 'Limited (search-only)'  if test_value.match(/limited/i)
@@ -665,42 +580,7 @@ module HoldingsHelper
     # default case - return the language as given
     return test_value
   end
-  # def hathi_item_link_label(item)
-  #   if (item['usRightsString'].downcase.include?('full'))
-  #     return item['usRightsString']
-  #   elsif (item['usRightsString'].downcase.include?('limited'))
-  #     return 'Log in for temporary access'
-  #   else
-  #     return item['usRightsString']
-  #   end
-  # end
 
-  # # Return the
-  # def format_hathi_search_result_link(document)
-  #   # show-links feature must be toggled on
-  #   return nil unless APP_CONFIG['hathi_search_results_links']
-  #   # document must have a hathi access value
-  #   return nil unless document['hathi_access_s']
-  #
-  #   # NEXT-1668 - turn off colored indicators
-  #   # green_check = image_tag('icons/online.png', class: 'availability')
-  #   green_check = image_tag('icons/none.png', class: 'availability')
-  #   label = hathi_link_label(document['hathi_access_s'])
-  #
-  #   # mark with spans so that onload JS can manipulate link DOM
-  #   # (add bib_#{document.id} as shortcut for JavaScript)
-  #   bib_class = "bib_#{document.id}"
-  #   label_span = content_tag(:span, label, class: "hathi_label #{bib_class}")
-  #   link_span = content_tag(:span, label_span, class: "hathi_link #{bib_class}")
-  #
-  #   return green_check + link_span
-  #
-  #   # TODO - real-time defered JS lookup of URL, for live linking
-  #   # = image_tag("icons/online.png")
-  #   #
-  #   # -# %a{href: "#{item['itemURL']}"}= item['usRightsString']
-  #   # %a{href: hathi_item_url(item)}= hathi_link_label(item)
-  # end
   
   def hathi_item_url(item)
     # if the 'item' we get isn't parsable for any reason,
@@ -853,8 +733,8 @@ module HoldingsHelper
   end
 
   def aeon_link
-    aeon_url = APP_CONFIG['aeon_url'] || 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl'
-    "#{aeon_url}?bibkey="
+    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+    return "#{valet_url}/special_collections/"
   end
 
   def precat_link

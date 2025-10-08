@@ -176,20 +176,6 @@ module CulCatalogHelper
     false
   end
 
-  # def law_requests_blurb
-  #   text = 'Requests serviced by the '.html_safe
-  #   link = link_to('Arthur W. Diamond Law Library', 'https://web.law.columbia.edu/library', target: '_blank')
-  #   blurb = content_tag(:div, "#{text}<nobr>#{link}</nobr>".html_safe, class: 'service_menu_blurb')
-  # end
-
-  # def covid_19_blurb
-  #   # text = '<font color="darkred" weight="bold"><small>Library request services are suspended until further notice.</small></font>'.html_safe
-  #   text = '<font color="darkred" weight="bold"><small>Use the SCAN link in CLIO records when it is present</small></font>'.html_safe
-  #   # link = link_to('Read More...', 'https://library.columbia.edu/about/news/alert.html', target: '_blank')
-  #   # blurb = content_tag(:div, "#{text}<nobr>#{link}</nobr>".html_safe, class: 'service_menu_blurb')
-  #   blurb = content_tag(:div, "#{text}".html_safe, class: 'service_menu_blurb')
-  # end
-
 
   def get_badge_html(document)
     return nil unless document && document.id
@@ -211,13 +197,11 @@ module CulCatalogHelper
     # end
   end
 
-  def show_boosts(bib_key)
-    return unless BOOSTS_CONFIG.key?(bib_key)
-    
+  def show_boosts(document)
+    return unless document['boost_exact'].present?
     title = "<h4>Record Boosts</h4>\n"
-
     list = "<ul>\n"
-    BOOSTS_CONFIG[bib_key].each do |boost_term|
+    document['boost_exact'].each do |boost_term|
       list += "<li>#{boost_term}</li>\n"
     end
     list += "</ul>\n"

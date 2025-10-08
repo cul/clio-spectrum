@@ -4,6 +4,10 @@ module Holdings
                 :temp_locations, :use_restrictions, :bound_withs
 
     # Item class initializing method
+    # Initialize an Item object - which is a what???
+    # - "mfhd_id" is the ID (FOLIO UUID) of this holding
+    # - "holdings_marc" is the MARC fields related to this holdings id, plucked out of the document MARC
+    # - "mfhd_status" is a hash of all the items in this holding, with their statuses
     def initialize(mfhd_id, holdings_marc, mfhd_status, scsb_status)
       @holding_id = mfhd_id
 
@@ -67,9 +71,14 @@ module Holdings
           # end
 
           # FOLIO
-          # If FOLIO status is "Available" but SCSB says "Unavailable", 
-          # then we think it's a partner checkout from ReCAP - show as 'Checked Out' in CLIO
+          # In case of partner-checkout of a Columbia ReCAP item,
+          # if FOLIO has status "Available" but SCSB says "Unavailable",
+          # then we think it's a partner checkout from ReCAP - mark as 'Checked Out'.
           if mfhd_status[item_id]['itemStatus'] == 'Available'
+            mfhd_status[item_id]['itemStatus'] = 'Checked out'
+          end
+          # This is a check-out of a non-Columbia item
+          if not mfhd_status[item_id].key?("itemStatus")
             mfhd_status[item_id]['itemStatus'] = 'Checked out'
           end
 
@@ -224,6 +233,7 @@ module Holdings
 
       # determine overall status
       status = determine_overall_status(mfhd_status)
+
       if status == 'unknown'
         return { status: 'none',
                  messages: [{ status_code: '0',
@@ -293,60 +303,133 @@ module Holdings
     #     :long_message => long version of message
     #
     def generate_message(item)
-
       # For FOLIO, our item looks like this:
       #   {"itemStatus"=>"Available", "itemStatusDate"=>"2025-05-15T05:14:32.890+00:00"}
       # Ignore the code, and just use the itemStatus as the short message?
       # (and long message isn't used anymore, so leave that out)
-      return { short_message: item['itemStatus'] }
+      # return { short_message: item['itemStatus'] }
       
-
-      # Voyager code below
-      short_message = ''
-      long_message = ''
-      code = ''
-      # status patron message otherwise regular message
-      if item[:statusPatronMessage].present?
-        code = 'sp'
-        long_message = item[:statusPatronMessage]
-        short_message = long_message.gsub(/(Try|Place).+/, '').strip
-        short_message = short_message.gsub(/\W$/, '')
-      else
-        code = item[:statusCode].to_s
-        # append suffix to indicate whether there are requests - n = no requests, r = requests
-        code += if item[:requestCount] && item[:requestCount] > 0
-                  'r'
-                else
-                  'n'
-                end
-
-        # get parms for the message being processed
-        parms = ITEM_STATUS_CODES[code]
-
-        raise "Status code [#{code}] not found in config/item_status_codes.yml" unless parms
-
-        short_message = make_substitutions(parms['short_message'], item)
+      # No - they needs lots of additional information.....
+      item_status = item['itemStatus']
+      
+      # (1) Sometimes a FOLIO Item Status is just not very clear to patrons,
+      # rewrite to a more understandable label
+      item_status_replacements = {
+        'Aged to lost'    =>  'Unavailable',
+        'Paged'           =>  'Unavailable',
+        'Awaiting pickup' =>  'Unavailable'
+      }
+      if item_status_replacements.include?(item_status)
+        item_status = item_status_replacements[item_status]
+      end
+      
+      # (2) Replace "Checked Out" item status with User Last/First Name, 
+      #     if user is a status patron (first/last names form a message to users)
+      status_patron_patron_groups = [
+        'Avery ILUO',
+        'Indefinite',
+        'Missing',
+        'ReCAP Facility Indefinite',
+        'Resource Sharing'
+      ]
+      if item_status == 'Checked out' and item['loanPatronGroup'].present?
+        if status_patron_patron_groups.include?( item['loanPatronGroup'] )
+          if item['loanPatronName'].present?
+            item_status = item['loanPatronName']
+          end
+        end
       end
 
-      # add labels - but not for "Available" items
-      short_message = add_label(short_message, item) unless short_message == 'Available'
+      if item_status == 'Checked out' and item['loanDueDate'].present?
+        # Either "Checked out, due ...", or "Overdue as of ..."
+        if Time.parse(item['loanDueDate']) > Time.now
+          item_status = "Checked out, due " + format_datetime(item['loanDueDate'])
+        else
+          item_status = "Overdue as of " + format_datetime(item['loanDueDate'])
+        end
+      end
 
-      { status_code: code,
-        short_message: short_message,
-        long_message: long_message }
+      if item_status == 'Unavailable' and item['itemStatusDate'].present?
+        item_status = item_status + ' ' + format_datetime(item['itemStatusDate'])
+      end
+
+
+      # For ANY non-"Available" status, prefix with the item-label
+      # (enum + chron + volume + ... )
+      if item_status != 'Available' and item['itemLabel'].present?
+        item_status = item['itemLabel'] + ' ' + item_status
+      end
+      
+      
+      return { short_message: item_status}
+      
+      # ----------------------------------------------------
+      # # Voyager code below
+      # ----------------------------------------------------
+      # short_message = ''
+      # long_message = ''
+      # code = ''
+      # # status patron message otherwise regular message
+      # if item[:statusPatronMessage].present?
+      #   code = 'sp'
+      #   long_message = item[:statusPatronMessage]
+      #   short_message = long_message.gsub(/(Try|Place).+/, '').strip
+      #   short_message = short_message.gsub(/\W$/, '')
+      # else
+      #   code = item[:statusCode].to_s
+      #   # append suffix to indicate whether there are requests - n = no requests, r = requests
+      #   code += if item[:requestCount] && item[:requestCount] > 0
+      #             'r'
+      #           else
+      #             'n'
+      #           end
+      #
+      #   # get parms for the message being processed
+      #   parms = ITEM_STATUS_CODES[code]
+      #
+      #   raise "Status code [#{code}] not found in config/item_status_codes.yml" unless parms
+      #
+      #   short_message = make_substitutions(parms['short_message'], item)
+      # end
+      #
+      # # add labels - but not for "Available" items
+      # short_message = add_label(short_message, item) unless short_message == 'Available'
+      #
+      # { status_code: code,
+      #   short_message: short_message,
+      #   long_message: long_message }
+      # ----------------------------------------------------
+    end
+
+    def format_datetime(date_string)
+      return nil unless date_string.present?
+
+      date_time = date_string.to_time.in_time_zone  # respects config.time_zone
+      now = Time.now
+
+      if date_time < (now - 1.day) || date_time > (now + 2.days)
+        # More than 1 day in the past OR 
+        # more than 2 days in the future → show only date
+        date_time.strftime('%Y-%m-%d')
+      else
+        # Within 1 day past to 2 days future → show date + time with am/pm
+        date_time.strftime('%Y-%m-%d %I:%M%P')  # e.g., 2026-02-14 04:59 AM
+      end
     end
 
 
-    def format_datetime(item)
+    def old_format_datetime(item)
       # format date / time
       datetime = ''
       if item[:statusDate].present?
-        # Support date in item so we can use stored test features
-        todays_date = if item[:todaysDate].present?
-                        DateTime.parse(item[:todaysDate])
-                      else
-                        DateTime.now
-        end
+        # # Support date in item so we can use stored test features
+        # todays_date = if item[:todaysDate].present?
+        #                 DateTime.parse(item[:todaysDate])
+        #               else
+        #                 DateTime.now
+        # end
+        # No stored test features set "todaysDate"
+        todays_date = DateTime.now
 
         status_date = DateTime.parse(item[:statusDate])
         diff = status_date - todays_date
@@ -398,3 +481,4 @@ module Holdings
   end
 end
 
+ 

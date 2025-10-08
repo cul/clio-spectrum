@@ -24,8 +24,6 @@ class ApplicationController < ActionController::Base
   include BrowseSupport
   include PreferenceSupport
 
-  # include Covid
-
   # Please be sure to implement current_user and user_session. Blacklight depends on
   # these methods in order to perform user specific actions.
   check_authorization

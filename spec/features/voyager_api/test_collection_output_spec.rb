@@ -21,10 +21,10 @@ describe 'collection output tests' do
       expect(page).to have_text('Butler Stacks')
       expect(page).to have_text('PQ6046.B5 S25')
       
-      # COVID OVERRIDE SPEC
+      # Old terminology
       expect(page).not_to have_text('Scan & Deliver')
-      # restore the following:
-      # # expect(page).to have_text('Scan & Deliver')
+      # New terminology
+      expect(page).to have_text('Scan')
     end
   end
 end

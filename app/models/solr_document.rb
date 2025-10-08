@@ -33,31 +33,8 @@ class SolrDocument
 
   # Is this a Columbia record?  (v.s. ReCAP partner record)
   def columbia?
-    # Columbia bib ids are numeric, or numeric with 'b' prefix for Law,
     # ReCAP partner data is "SCSB-xxxx"
     !id.start_with?('SCSB')
-  end
-
-  # Detect Law records, cataloged in Pegasus (https://pegasus.law.columbia.edu/)
-  def in_pegasus?
-    key?('source_display') &&
-      Array(self['source_display']).include?('law')
-
-    # # Document must have an id, which must be a "b" followed by a number...
-    # return false unless id && id.match(/^b\d{2,9}$/)
-    #
-    # # And, confirm that the Location is "Law"
-    #
-    # # pull out the Location/call-number/holdings-id field...
-    # return false unless location_call_number_id = self[:location_call_number_id_display]
-    # # unpack, and confirm each occurrance ()
-    # Array.wrap(location_call_number_id).each do |portmanteau|
-    #   location = portmanteau.partition(' >>').first
-    #   # If we find any location that's not Law, this is NOT pegasus
-    #   return false if location && location != 'Law'
-    # end
-    #
-    # true
   end
   
   def simplye_link
@@ -135,8 +112,6 @@ class SolrDocument
   def has_circ_status?
     # Only Columbia items will be found in our local Voyager
     return false unless columbia?
-    # Pegasys (Law) will not have circ status
-    return false if in_pegasus?
 
     # Online resources have a single Holdings record & no Item records
     # They won't have any circulation status in Voyager
@@ -154,14 +129,6 @@ class SolrDocument
     # Even if the bib has holding(s), there may be no item records.
     # If there are no items at all, we can't fetch circ status.
     return false if key?(:items_i) && (self[:items_i]).zero?
-
-    # But the circ_status SQL code will still work for non-barcoded items,
-    # and report items as 'Available'.
-    # So why not just let it run?  We have no evidence of unavailability,
-    # we may as well trust the 'available' status, and let unavailability be
-    # reported through normal workflow.
-    # # Only documents with barcoded items are tracked in Voyager circ system
-    # return self.has_key?(:barcode_txt)
 
     true
   end

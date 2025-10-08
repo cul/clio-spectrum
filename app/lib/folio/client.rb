@@ -179,22 +179,6 @@ module Folio
     end
     
     
-    # Retrieve a list of FOLIO Holdings JSON records for a given FOLIO Instance UUID
-    #   {{baseUrl}}/holdings-storage/holdings?query=(instanceId == "c3cf979d-3562-5cce-b130-88d36f4a99c6")
-    #  not discoverySuppress=="true"
-    def self.get_holdings_by_instance(instance_uuid)
-      return [] unless instance_uuid
-      
-      query = '(instanceId=="' + instance_uuid + '" not discoverySuppress=="true")'
-      path = "/holdings-storage/holdings?query=#{query}&limit=1000"
-      @folio_client ||= folio_client
-      folio_response = @folio_client.get(path)
-      holdings = folio_response['holdingsRecords']
-      # error?
-      return {} unless holdings
-      # success!
-      return holdings
-    end
     
     def self.get_loan_by_item(item_uuid)
       return [] unless item_uuid
@@ -210,9 +194,167 @@ module Folio
       return loan
     end
     
-    def self.natural_sort_key(item_record)
-      enumeration = item_record['enumeration'].to_s
-      chronology  = item_record['chronology'].to_s
+
+
+    # Replacement for Voyager-based circ_status
+    # Given a bib id (e.g., 123, the FOLIO Instance HRID),
+    # Return a structure of availability statuses,
+    #   bib-id (NOT uuid) / holdings-uuid / item-uuid / status-data
+    #
+    # status-data needs lots of data elements...
+    # { 123: {
+    #     456: {
+    #       789: {
+    #         "itemStatus":     "Available",
+    #         "itemStatusDate": "2025-05-15T06:45:11.188+00:00"
+    #       }
+    #     }
+    # }
+    #
+    # Here's what Voyager circ_status returned:
+    #     7814714: {
+    #       holdLocation: "",
+    #       itemLabel: "",
+    #       requestCount: 0,
+    #       statusCode: 1,
+    #       statusDate: "2017-07-27",
+    #       statusPatronMessage: ""
+    #     }
+    #
+    # Use Instance-Set - a single call which joins Instance, Holdings, and Items.
+    # - we only care about Item-level availability
+    # - pay attention to suppresssion status during parsing!
+    #   query params only apply to Instance-level suppression.
+    #
+    # {{baseUrl}} /inventory-view/instance-set?  
+    #   instance=false&holdingsRecords=false&items=true&limit=1&
+    #   query=( hrid == "12950010" not discoverySuppress=="true" )
+    def self.get_availability(bib_id)
+      return {} unless bib_id
+      
+      Rails.logger.debug("entered get_availability(#{bib_id})")
+      availability = {}
+      availability[bib_id] ||= {}
+
+      toggles = 'instance=false&holdingsRecords=false&items=true'
+      query = '( hrid=="' + bib_id + '" not discoverySuppress=="true" )'
+      path = "/inventory-view/instance-set?#{toggles}&query=#{query}&limit=1"
+      @folio_client ||= folio_client
+      folio_response = @folio_client.get(path)
+
+      instance_set = folio_response['instanceSets'][0]
+
+      # instance_id = instance_set['id']  # instance UUID - do we need it?
+      
+      item_list = item_list = instance_set['items']
+      
+      # Sort items by enum/chron for better user-facing display
+      item_list = item_list.sort_by { |item| self.natural_sort_key(item) }
+      
+      # For any items which are checked-out, 
+      # we need to find out the patron and due-date.
+      checked_out_items = []
+      
+      item_list.each do |item|
+
+        # Is this Item suppressed?  Skip it.
+        next if item['discoverySuppress']
+        
+        # get UUID of Holding, create empty hash (if needed)
+        holding_id = item['holdingsRecordId']
+        availability[bib_id][holding_id] ||= {}
+
+        # get the UUID of this item, create empty hash
+        item_id = item['id']
+        availability[bib_id][holding_id][item_id] ||= {}
+
+        # Now, finally, gather the data elements we care about
+        availability[bib_id][holding_id][item_id]['itemStatus'] = item['status']['name']
+        availability[bib_id][holding_id][item_id]['itemStatusDate'] = item['status']['date']
+        availability[bib_id][holding_id][item_id]['itemLabel'] = self.build_item_label(item)
+
+
+        checked_out_items << item_id if (item['status']['name'] == 'Checked out')
+      end
+
+      # For checked-out items we need loan details
+      # - patron-name for any status patron check-outs, due-date, etc.
+      item_loans = get_item_loans(checked_out_items)
+      
+      # Add loan-related details for any checked-out items
+      availability = add_loan_details(availability, item_loans)
+      
+      return availability
+
+    end
+
+    def self.add_loan_details(availability, loans_by_item)
+      # loans_by_item: { itemId => { 'dueDate' => ..., 'borrower' => ..., ... } }
+
+      availability.each do |instance_id, holdings|
+        holdings.each do |holding_id, items|
+          items.each do |item_id, item_data|
+            if loans_by_item.key?(item_id)
+              loan = loans_by_item[item_id]
+              item_data['loanDueDate'] = loan['dueDate']
+              item_data['loanPatronGroup'] = loan['patronGroupAtCheckout']['name']
+              
+              # ONLY IF the patron-group is a STATUS PATRON GROUP,
+              # THEN record the First/Last names
+              # (NEVER for regular human patrons)
+              status_patron_patron_groups = [
+                'Avery ILUO',
+                'Indefinite',
+                'Missing',
+                'ReCAP Facility Indefinite',
+                'Resource Sharing'
+              ]
+              if status_patron_patron_groups.include?(item_data['loanPatronGroup'])
+                item_data['loanPatronName'] = [
+                  loan.dig('borrower', 'lastName').to_s.strip,
+                  loan.dig('borrower', 'firstName').to_s.strip
+                ].join(' ').strip
+              end
+            end
+          end
+        end
+      end
+
+      availability
+    end
+
+
+    def self.get_item_loans(item_id_list)
+      return {} if item_id_list.blank?
+
+      # If called with a single Item ID
+      item_id_list = Array(item_id_list)
+      @folio_client ||= folio_client
+      all_loans = []
+
+      # Process IDs in batches of 10
+      item_id_list.each_slice(10) do |batch|
+        item_query_clause = batch.map { |id| "itemId==#{id}" }.join(" or ")
+        query = "(status=\"Open\" and ( #{item_query_clause} ) )"
+        path = "/circulation/loans?query=#{query}&limit=1000"
+
+        folio_response = @folio_client.get(path)
+        loans = folio_response['loans'] || []
+        all_loans.concat(loans)
+      end
+      
+      # Convert to hash keyed by itemId
+      loans_by_item = {}
+      all_loans.each { |loan| loans_by_item[loan['itemId']] = loan }
+
+      loans_by_item
+    end
+
+
+
+    def self.natural_sort_key(item)
+      enumeration = item['enumeration'].to_s
+      chronology  = item['chronology'].to_s
       enum_chron  = "#{enumeration} #{chronology}".strip.downcase
 
       # Split into numeric and non-numeric parts
@@ -226,182 +368,239 @@ module Folio
         end
       end
     end
-    
 
-    # Retrieve a list of all FOLIO Item JSON records for a given FOLIO Holding UUID
-    # {{baseUrl}}/inventory/items-by-holdings-id?
-    #     query=(holdingsRecordId=="d91b5d2a-d4f6-57f6-9108-35965f9fbf32")
-    def self.get_items_by_holding(holding_uuid)
-      return nil unless holding_uuid
 
-      query = '(holdingsRecordId=="' + holding_uuid + '" )'
-      path = "/inventory/items-by-holdings-id?query=#{query}&limit=1000"
-      @folio_client ||= folio_client
-      folio_response = @folio_client.get(path)
-
-      items = folio_response['items']
-
-      # Sort items by enum/chron for better user-facing display
-      items = items.sort_by { |item| self.natural_sort_key(item) }
-
-      # remove any suppressed items
-      items.reject! { |item| item['discoverySuppress'] == true }
+    # Voyager itemLabel was:
+    #     itemLabel = [
+    #       item['ITEM_ENUM'],
+    #       item['CHRON'],
+    #       item['YEAR'],
+    #       item['CAPTION'],
+    #       item['FREETEXT']
+    #     ].reject(&:blank?).join(' ')
+    #
+    # FOLIO has the following fields under "Enumeration Data" in Inventory:
+    #     - Display summary
+    #     - Enumeration
+    #     - Chronology
+    #     - Volume
+    #     - Year, caption
+    # But I need examples with data to see how they would look
+    def self.build_item_label(item)
+      enumeration  = item['enumeration'].to_s
+      chronology   = item['chronology'].to_s
+      year_caption = Array(item['yearCaption']).join(' ')
+      # I have no example data - I don't know the JSON field names.
+      # These are guesses.
+      # volume          = item['volume'].to_s
+      # display_summary = item['displaySummary'].to_s
       
-      # (1) Sometimes a FOLIO Item Status is just not very clear to patrons,
-      # rewrite to a more understandable label
-      item_status_replacements = {
-        'Aged to lost'  =>  'Unavailable'
-      }
-
-      # (2) Replace "Checked Out" item status with User Last/First Name, 
-      #     if user is a status patron (first/last names form a message to users)
-      status_patron_patron_groups = [
-        'Avery ILUO',
-        'Indefinite',
-        'Missing',
-        'ReCAP Facility Indefinite',
-        'Resource Sharing'
-      ]
-      # (3) For some item statuses, append the item-status-date to the display string
-      item_status_append_date = [
-        'Aged to lost'
-      ]
-
-      # No, prefix with enum/chron for ANYTHING other than 'Available'
-      # # (4) For some patron group check-outs, prepend the item enum/chron to the display string
-      # patron_groups_prepend_enum_chron = [
-      #   'Indefinite'
-      # ]
+      item_label  = "#{enumeration} #{chronology} #{year_caption}".strip.downcase
       
-      # Consider each Item, rewrite item status names if appropriate
-      items.each do |item|
-        folio_item_status = item['status']['name']
-
-        # (1) simple replacements
-        if item_status_replacements.include?(folio_item_status)
-          item['status']['name'] = item_status_replacements[folio_item_status]
-        end
-        
-        # (2) status patron replacements
-        if folio_item_status == 'Checked out'
-          loan = self.get_loan_by_item(item['id'])
-          loan_patron_group = loan['patronGroupAtCheckout']['name']
-          if status_patron_patron_groups.include?(loan_patron_group)
-            item['status']['name'] = loan['borrower']['lastName'].to_s + loan['borrower']['firstName'].to_s
-            
-            # # (4) For some patron group check-outs, prepend the item enum/chron to the display string
-            # if patron_groups_prepend_enum_chron.include?(loan_patron_group)
-            #   enum  = item['enumeration'] || ''
-            #   chron = item['chronology'] || ''
-            #   enum_chron = "#{enum} #{chron}".strip
-            #   if enum_chron.present?
-            #     item['status']['name'] = "#{enum_chron} #{item['status']['name']}"
-            #   end
-            # end
-            
-          end
-        end
-        
-        # (3) append item-status-date, for certain item statuses
-        if item_status_append_date.include?(folio_item_status)
-          item_status_date = item['status']['date']
-          if item_status_date and item_status_date.start_with?(/^\d\d\d\d-\d\d-\d\d/)
-            item['status']['name'] = item['status']['name'] + ' ' + item_status_date.gsub(/T.*/, '')
-          end
-        end
-
-        # For ANY non-"Available" status,
-        # if there is enum/chron data, use it to prefix the status
-        if folio_item_status != 'Available'
-          enum  = item['enumeration'] || ''
-          chron = item['chronology']  || ''
-          enum_chron = "#{enum} #{chron}".strip
-          if enum_chron.present?
-            item['status']['name'] = "#{enum_chron} #{item['status']['name']}"
-          end
-        end
-
-        # No, not requested at this time
-        # # For some item statuses, pre-append the item enum/chron to the display string
-        # if item_status_prepend_enum_chron.include?(folio_item_status)
-        #   enum  = item['enumeration'] || ''
-        #   chron = item['chronology'] || ''
-        #   enum_chron = "#{enum} #{chron}".strip
-        #   if enum_chron.present?
-        #     item['status']['name'] = "#{enum_chron} #{item['status']['name']}"
-        #   end
-        # end
-        
-      end
-
-      # error?
-      return {} unless items
-      # success!
-      return items
+      return item_label
     end
 
 
 
 
-    # Replacement for Voyager-based circ_status
-    # Given a bib id (e.g., 123),
-    # Return a structure of availability statuses,
-    #   bib-id (NOT uuid) / holdings-uuid / item-uuid / status-data
-    # status-data so far is the item-status and date - but this can 
-    # be expanded as needed
-    # { 123: {
-    #     456: {
-    #       789: {
-    #         "itemStatus":     "Available",
-    #         "itemStatusDate": "2025-05-15T06:45:11.188+00:00"
-    #       }
-    #     }
-    # }
-    # We'll build this up in a series of item-specific API calls, because 
-    # FOLIO shortcut API endpoints often don't return clean raw data,
-    # only pre-processed opinionated display-oriented fields.
-    # Docs: https://docs.folio.org/docs/platform-essentials/item-status/itemstatus/
-    def self.get_availability(bib_id)
-      return {} unless bib_id
-      
-      Rails.logger.debug("entered get_availability(#{bib_id})")
-      availability = {}
 
-      # First, fetch the FOLIO Instance
-      instance = self.get_instance_by_hrid(bib_id)
-      # If not found in FOLIO, return our empty availability data
-      return availability unless instance
-      
-      # Our instance-level key will be the MARC 001 Bib ID - NOT the FOLIO UUID
-      availability[bib_id] = {}
+    # # BEGIN DEAD CODE
+    #
+    #
+    # # Replacement for Voyager-based circ_status
+    # # Given a bib id (e.g., 123),
+    # # Return a structure of availability statuses,
+    # #   bib-id (NOT uuid) / holdings-uuid / item-uuid / status-data
+    # # status-data so far is the item-status and date - but this can
+    # # be expanded as needed
+    # # { 123: {
+    # #     456: {
+    # #       789: {
+    # #         "itemStatus":     "Available",
+    # #         "itemStatusDate": "2025-05-15T06:45:11.188+00:00"
+    # #       }
+    # #     }
+    # # }
+    # # We'll build this up in a series of item-specific API calls, because
+    # # FOLIO shortcut API endpoints often don't return clean raw data,
+    # # only pre-processed opinionated display-oriented fields.
+    # # Docs: https://docs.folio.org/docs/platform-essentials/item-status/itemstatus/
+    # def self.get_availability_old(bib_id)
+    #   return {} unless bib_id
+    #
+    #   Rails.logger.debug("entered get_availability(#{bib_id})")
+    #   availability = {}
+    #
+    #   # First, fetch the FOLIO Instance
+    #   instance = self.get_instance_by_hrid(bib_id)
+    #   # If not found in FOLIO, return our empty availability data
+    #   return availability unless instance
+    #
+    #   # Our instance-level key will be the MARC 001 Bib ID - NOT the FOLIO UUID
+    #   availability[bib_id] = {}
+    #
+    #   # Next, get the list of holdings
+    #   Rails.logger.debug("calling get_holdings_by_instance()...")
+    #   holdings = self.get_holdings_by_instance(instance['id'])
+    #   Rails.logger.debug("done.  #{holdings.size} total holdings.")
+    #
+    #   Rails.logger.debug("calling get_items_by_holding() for each holding...")
+    #   holdings.each do |holding|
+    #     holding_id = holding['id']
+    #     availability[bib_id][holding_id] = {}
+    #
+    #     items = self.get_items_by_holding(holding_id)
+    #     items.each do |item|
+    #       item_id = item['id']
+    #       availability[bib_id][holding_id][item_id] = {}
+    #
+    #       # Now, finally, gather the data elements we care about
+    #       availability[bib_id][holding_id][item_id]['itemStatus'] = item['status']['name']
+    #       availability[bib_id][holding_id][item_id]['itemStatusDate'] = item['status']['date']
+    #     end
+    #
+    #   end
+    #   Rails.logger.debug("done.")
+    #
+    #   Rails.logger.debug("returning from get_availability(#{bib_id})")
+    #   return availability
+    # end
+    #
+    #
+    # # Retrieve a list of FOLIO Holdings JSON records for a given FOLIO Instance UUID
+    # #   {{baseUrl}}/holdings-storage/holdings?query=(instanceId == "c3cf979d-3562-5cce-b130-88d36f4a99c6")
+    # #  not discoverySuppress=="true"
+    # def self.get_holdings_by_instance(instance_uuid)
+    #   return [] unless instance_uuid
+    #
+    #   query = '(instanceId=="' + instance_uuid + '" not discoverySuppress=="true")'
+    #   path = "/holdings-storage/holdings?query=#{query}&limit=1000"
+    #   @folio_client ||= folio_client
+    #   folio_response = @folio_client.get(path)
+    #   holdings = folio_response['holdingsRecords']
+    #   # error?
+    #   return {} unless holdings
+    #   # success!
+    #   return holdings
+    # end
+    #
+    # # Retrieve a list of all FOLIO Item JSON records for a given FOLIO Holding UUID
+    # # {{baseUrl}}/inventory/items-by-holdings-id?
+    # #     query=(holdingsRecordId=="d91b5d2a-d4f6-57f6-9108-35965f9fbf32")
+    # def self.get_items_by_holding(holding_uuid)
+    #   return nil unless holding_uuid
+    #
+    #   query = '(holdingsRecordId=="' + holding_uuid + '" )'
+    #   path = "/inventory/items-by-holdings-id?query=#{query}&limit=1000"
+    #   @folio_client ||= folio_client
+    #   folio_response = @folio_client.get(path)
+    #
+    #   items = folio_response['items']
+    #
+    #   # Sort items by enum/chron for better user-facing display
+    #   items = items.sort_by { |item| self.natural_sort_key(item) }
+    #
+    #   # remove any suppressed items
+    #   items.reject! { |item| item['discoverySuppress'] == true }
+    #
+    #   # (1) Sometimes a FOLIO Item Status is just not very clear to patrons,
+    #   # rewrite to a more understandable label
+    #   item_status_replacements = {
+    #     'Aged to lost'  =>  'Unavailable'
+    #   }
+    #
+    #   # (2) Replace "Checked Out" item status with User Last/First Name,
+    #   #     if user is a status patron (first/last names form a message to users)
+    #   status_patron_patron_groups = [
+    #     'Avery ILUO',
+    #     'Indefinite',
+    #     'Missing',
+    #     'ReCAP Facility Indefinite',
+    #     'Resource Sharing'
+    #   ]
+    #   # (3) For some item statuses, append the item-status-date to the display string
+    #   item_status_append_date = [
+    #     'Aged to lost'
+    #   ]
+    #
+    #   # No, prefix with enum/chron for ANYTHING other than 'Available'
+    #   # # (4) For some patron group check-outs, prepend the item enum/chron to the display string
+    #   # patron_groups_prepend_enum_chron = [
+    #   #   'Indefinite'
+    #   # ]
+    #
+    #   # Consider each Item, rewrite item status names if appropriate
+    #   items.each do |item|
+    #     folio_item_status = item['status']['name']
+    #
+    #     # (1) simple replacements
+    #     if item_status_replacements.include?(folio_item_status)
+    #       item['status']['name'] = item_status_replacements[folio_item_status]
+    #     end
+    #
+    #     # (2) status patron replacements
+    #     if folio_item_status == 'Checked out'
+    #       loan = self.get_loan_by_item(item['id'])
+    #       loan_patron_group = loan['patronGroupAtCheckout']['name']
+    #       if status_patron_patron_groups.include?(loan_patron_group)
+    #         item['status']['name'] = loan['borrower']['lastName'].to_s + loan['borrower']['firstName'].to_s
+    #
+    #         # # (4) For some patron group check-outs, prepend the item enum/chron to the display string
+    #         # if patron_groups_prepend_enum_chron.include?(loan_patron_group)
+    #         #   enum  = item['enumeration'] || ''
+    #         #   chron = item['chronology'] || ''
+    #         #   enum_chron = "#{enum} #{chron}".strip
+    #         #   if enum_chron.present?
+    #         #     item['status']['name'] = "#{enum_chron} #{item['status']['name']}"
+    #         #   end
+    #         # end
+    #
+    #       end
+    #     end
+    #
+    #     # (3) append item-status-date, for certain item statuses
+    #     if item_status_append_date.include?(folio_item_status)
+    #       item_status_date = item['status']['date']
+    #       if item_status_date and item_status_date.start_with?(/^\d\d\d\d-\d\d-\d\d/)
+    #         item['status']['name'] = item['status']['name'] + ' ' + item_status_date.gsub(/T.*/, '')
+    #       end
+    #     end
+    #
+    #     # For ANY non-"Available" status,
+    #     # if there is enum/chron data, use it to prefix the status
+    #     if folio_item_status != 'Available'
+    #       enum  = item['enumeration'] || ''
+    #       chron = item['chronology']  || ''
+    #       enum_chron = "#{enum} #{chron}".strip
+    #       if enum_chron.present?
+    #         item['status']['name'] = "#{enum_chron} #{item['status']['name']}"
+    #       end
+    #     end
+    #
+    #     # No, not requested at this time
+    #     # # For some item statuses, pre-append the item enum/chron to the display string
+    #     # if item_status_prepend_enum_chron.include?(folio_item_status)
+    #     #   enum  = item['enumeration'] || ''
+    #     #   chron = item['chronology'] || ''
+    #     #   enum_chron = "#{enum} #{chron}".strip
+    #     #   if enum_chron.present?
+    #     #     item['status']['name'] = "#{enum_chron} #{item['status']['name']}"
+    #     #   end
+    #     # end
+    #
+    #   end
+    #
+    #   # error?
+    #   return {} unless items
+    #   # success!
+    #   return items
+    # end
+    #
+    #
+    #
+    # # END DEAD CODE
 
-      # Next, get the list of holdings
-      Rails.logger.debug("calling get_holdings_by_instance()...")
-      holdings = self.get_holdings_by_instance(instance['id'])
-      Rails.logger.debug("done.  #{holdings.size} total holdings.")
-      
-      Rails.logger.debug("calling get_items_by_holding() for each holding...")
-      holdings.each do |holding|
-        holding_id = holding['id']
-        availability[bib_id][holding_id] = {}
-        
-        items = self.get_items_by_holding(holding_id)
-        items.each do |item|
-          item_id = item['id']
-          availability[bib_id][holding_id][item_id] = {}
 
-          # Now, finally, gather the data elements we care about
-          availability[bib_id][holding_id][item_id]['itemStatus'] = item['status']['name']
-          availability[bib_id][holding_id][item_id]['itemStatusDate'] = item['status']['date']
-        end
-
-      end
-      Rails.logger.debug("done.")
-
-      Rails.logger.debug("returning from get_availability(#{bib_id})")
-      return availability
-    end
-    
   end
 
 end
