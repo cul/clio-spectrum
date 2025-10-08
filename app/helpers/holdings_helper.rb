@@ -165,9 +165,6 @@ module HoldingsHelper
                            tooltip:    'ReCAP Scan',    js_function: 'OpenWindow'},
       'offsite'        => {link_label: 'Scan',          service_url: offsite_link, 
                            tooltip:    'Offsite',       js_function: 'OpenWindow'},
-      # NEXT-1819 - replace ill_link with ill_scan_link
-      # 'ill'            => {link_label: 'Scan',          service_url: ill_link,
-      #                      tooltip:    'Illiad Book/Article Scan'},
       'ill_scan'       => {link_label: 'Scan',          service_url: ill_scan_link,
                            tooltip:    'Illiad Book/Article Scan'},
       # ====  PICK-UP SERVICES  ====
@@ -188,8 +185,8 @@ module HoldingsHelper
                            service_url: 'https://library.columbia.edu/resolve/barlib0001#'},
       'avery_onsite'   => {link_label: 'On-Site Use',      service_url: avery_onsite_link, 
                            tooltip:    'Avery Onsite',     js_function: 'OpenWindow'},
-      # 'aeon'           => {link_label: 'Special Collections', service_url: 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl?bibkey='},
-      'aeon'           => {link_label: 'Special Collections', service_url: aeon_link},
+      'aeon'           => {link_label: 'Special Collections', service_url: aeon_link,
+                           tooltip:    'Aeon Request'   ,     js_function: 'OpenWindow'},},
       'microform'      => {link_label: 'Arrange for Access', 
                            service_url: 'https://library.columbia.edu/libraries/pmrr/services.html?'},
       'precat'         => {link_label: 'Precataloging', service_url: precat_link, 
@@ -199,7 +196,6 @@ module HoldingsHelper
                            js_function: 'OpenWindow'},
       'in_process'     => {link_label: 'In Process',    service_url: in_process_link,
                            js_function: 'OpenWindow'},
-      # 'doc_delivery'   => {link_label: 'Scan', 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/docdel?'}
     }
   end
 
@@ -737,13 +733,8 @@ module HoldingsHelper
   end
 
   def aeon_link
-    if Rails.env != 'clio_prod'
-      valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
-      return "#{valet_url}/special_collections/"
-    end
-
-    aeon_url = APP_CONFIG['aeon_url'] || 'http://www.columbia.edu/cgi-bin/cul/aeon/request.pl'
-    "#{aeon_url}?bibkey="
+    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+    return "#{valet_url}/special_collections/"
   end
 
   def precat_link
