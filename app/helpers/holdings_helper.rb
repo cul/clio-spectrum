@@ -186,7 +186,7 @@ module HoldingsHelper
       'avery_onsite'   => {link_label: 'On-Site Use',      service_url: avery_onsite_link, 
                            tooltip:    'Avery Onsite',     js_function: 'OpenWindow'},
       'aeon'           => {link_label: 'Special Collections', service_url: aeon_link,
-                           tooltip:    'Aeon Request'   ,     js_function: 'OpenWindow'},},
+                           tooltip:    'Aeon Request'   ,     js_function: 'OpenWindow'},
       'microform'      => {link_label: 'Arrange for Access', 
                            service_url: 'https://library.columbia.edu/libraries/pmrr/services.html?'},
       'precat'         => {link_label: 'Precataloging', service_url: precat_link, 
