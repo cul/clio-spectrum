@@ -319,12 +319,13 @@ module Folio
         holding_id = item['holdingsRecordId']
         item_id    = item['id']
 
+        availability[bib_id] ||= {}
         availability[bib_id][holding_id] ||= {}
         availability[bib_id][holding_id][item_id] ||= {}
 
-        status = item.get('status', {}) or {}
-        availability[bib_id][holding_id][item_id]['itemStatus']     = status.get('name', None)
-        availability[bib_id][holding_id][item_id]['itemStatusDate'] = status.get('date', None)
+        status = item['status'] || {}
+        availability[bib_id][holding_id][item_id]['itemStatus']     = status['name']
+        availability[bib_id][holding_id][item_id]['itemStatusDate'] = status['date']
         availability[bib_id][holding_id][item_id]['itemLabel']      = build_item_label(item)
 
         checked_out_items << item_id if status['name'] == 'Checked out'
