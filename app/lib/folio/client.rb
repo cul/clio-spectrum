@@ -229,7 +229,7 @@ module Folio
     # {{baseUrl}} /inventory-view/instance-set?  
     #   instance=false&holdingsRecords=false&items=true&limit=1&
     #   query=( hrid == "12950010" not discoverySuppress=="true" )
-    def self.get_availability(bib_id)
+    def self.get_availability_without_boundwith(bib_id)
       return {} unless bib_id
       
       Rails.logger.debug("entered get_availability(#{bib_id})")
@@ -287,6 +287,98 @@ module Folio
       return availability
 
     end
+
+
+    # Replacement for Voyager-based circ_status, now includes bound-withs
+    def self.get_availability(bib_id)
+      return {} unless bib_id
+
+      Rails.logger.debug("entered get_availability(#{bib_id})")
+      availability = { bib_id => {} }
+
+      # 1. Fetch instance-set (normal holdings/items)
+      instance_items = fetch_instance_items(bib_id)
+
+      # 2. Collect holding IDs for bound-with lookup
+      holding_ids = instance_items.map { |it| it['holdingsRecordId'] }.compact.uniq
+
+      # 3. Supplement with any bound-with items
+      bound_with_items = fetch_bound_with_items(holding_ids)
+
+      # 4. Combine both item sets (regular + bound-with)
+      all_items = (instance_items + bound_with_items)
+                    .uniq { |it| it['id'] } # deduplicate by item UUID
+                    .sort_by { |item| natural_sort_key(item) }
+
+      # 5. Collect checked-out items to get loan details
+      checked_out_items = []
+
+      all_items.each do |item|
+        next if item['discoverySuppress']
+
+        holding_id = item['holdingsRecordId']
+        item_id    = item['id']
+
+        availability[bib_id] ||= {}
+        availability[bib_id][holding_id] ||= {}
+        availability[bib_id][holding_id][item_id] ||= {}
+
+        status = item['status'] || {}
+        availability[bib_id][holding_id][item_id]['itemStatus']     = status['name']
+        availability[bib_id][holding_id][item_id]['itemStatusDate'] = status['date']
+        availability[bib_id][holding_id][item_id]['itemLabel']      = build_item_label(item)
+
+        checked_out_items << item_id if status['name'] == 'Checked out'
+      end
+
+      # 6. Fetch and merge loan details
+      item_loans = get_item_loans(checked_out_items)
+      add_loan_details(availability, item_loans)
+    end
+
+    # -------------------------------------------------------------------
+    # Helpers
+    # -------------------------------------------------------------------
+
+    # Use /inventory-view/instance-set for standard holdings/items
+    def self.fetch_instance_items(bib_id)
+      toggles = 'instance=false&holdingsRecords=false&items=true'
+      query   = "( hrid==\"#{bib_id}\" not discoverySuppress==\"true\" )"
+      path    = "/inventory-view/instance-set?#{toggles}&query=#{query}&limit=1"
+
+      @folio_client ||= folio_client
+      response = @folio_client.get(path)
+      instance_set = response.dig('instanceSets', 0)
+      instance_set ? instance_set['items'] || [] : []
+    end
+
+    # Fetch bound-with parts and resolve their item records
+    def self.fetch_bound_with_items(holding_ids)
+      return [] if holding_ids.empty?
+
+      @folio_client ||= folio_client
+      all_bound_with_items = []
+
+      holding_ids.each_slice(20) do |batch|
+        holding_query = batch.map { |id| "holdingId==#{id}" }.join(' or ')
+        bw_path = "/inventory-storage/bound-with-parts?query=#{holding_query}"
+        bw_response = @folio_client.get(bw_path)
+        parts = bw_response['boundWithParts'] || []
+        item_ids = parts.map { |p| p['itemId'] }.compact.uniq
+        next if item_ids.empty?
+
+        # Retrieve those item records
+        item_query = item_ids.map { |id| "id==#{id}" }.join(' or ')
+        items_path = "/inventory-storage/items?query=#{item_query}"
+        items_resp = @folio_client.get(items_path)
+        items = items_resp['items'] || []
+        all_bound_with_items.concat(items)
+      end
+
+      all_bound_with_items
+    end
+
+
 
     def self.add_loan_details(availability, loans_by_item)
       # loans_by_item: { itemId => { 'dueDate' => ..., 'borrower' => ..., ... } }
@@ -387,20 +479,24 @@ module Folio
     #     - Year, caption
     # But I need examples with data to see how they would look
     def self.build_item_label(item)
-      enumeration  = item['enumeration'].to_s
-      chronology   = item['chronology'].to_s
-      year_caption = Array(item['yearCaption']).join(' ')
-      # I have no example data - I don't know the JSON field names.
-      # These are guesses.
-      # volume          = item['volume'].to_s
-      # display_summary = item['displaySummary'].to_s
-      
-      item_label  = "#{enumeration} #{chronology} #{year_caption}".strip.downcase
-      
-      return item_label
+      enumeration      = item['enumeration'].to_s.strip
+      chronology       = item['chronology'].to_s.strip
+      year_caption_raw = item['yearCaption']
+      volume           = item['volume'].to_s.strip
+      display_summary  = item['displaySummary'].to_s.strip
+
+      # yearCaption may be an array or a single string
+      year_caption = if year_caption_raw.is_a?(Array)
+                       year_caption_raw.compact.map(&:to_s).join(' ')
+                     else
+                       year_caption_raw.to_s
+                     end
+
+      # Build label from non-empty fields
+      [enumeration, chronology, year_caption, volume, display_summary]
+        .reject(&:empty?)
+        .join(' ')
     end
-
-
 
 
 

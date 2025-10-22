@@ -26,19 +26,10 @@ describe 'An articles search' do
     expect(page).to have_css('.index_toolbar a', text: 'Next')
   end
 
-  # NEXT-1078 - CLIO Articles limit 500 records, Summon 1,000
+  # NEXT-1078 - CLIO Articles limit 500 records, Summon 1,000, EDS apparently no limit!
   it 'can paginate through 1000 total items' do
-    visit articles_index_path('q' => 'Aardvark', 's.pn' => 20, 's.ps' => 50)
+    visit articles_index_path('q' => 'Aardvark', 'pagenumber' => 20, 'results_per_page' => 50)
     expect(page).to have_text('Aardvark')
     expect(page).to have_text('« Previous | 951 - 1000 of ')
-    expect(page).to_not have_text('There was an error searching this datasource')
-
-    # visit articles_index_path('q' => 'Aardvark', 's.pn' => 21, 's.ps' => 50)
-    # 2022 - Limit has been doubled!!
-    visit articles_index_path('q' => 'Aardvark', 's.pn' => 41, 's.ps' => 50)
-    expect(page).to have_text('There was an error searching this datasource. (Maximum supported returned results set size is 2000 (provided size is 2050).)')
-
-    visit articles_index_path('q' => 'Aardvark', 's.pn' => 20, 's.ps' => 51)
-    expect(page).to have_text('There was an error searching this datasource. (Maximum supported page size is 50 (provided size is 51).)')
   end
 end
