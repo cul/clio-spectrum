@@ -228,7 +228,7 @@ module Holdings
         return { status: 'none',
                  messages: [{ status_code: '0',
                               short_message: 'Status unknown',
-                              long_message: 'No item status available' }] }
+                              long_message: 'No item status available (1)' }] }
       end
 
       # determine overall status
@@ -238,12 +238,11 @@ module Holdings
         return { status: 'none',
                  messages: [{ status_code: '0',
                               short_message: 'Status unknown',
-                              long_message: 'No item status available' }] }
+                              long_message: 'No item status available (2)' }] }
       end
 
       # generate messages
       messages = generate_messages(mfhd_status)
-
       { status: status, messages: messages }
     end
 
@@ -287,6 +286,7 @@ module Holdings
       messages = []
 
       mfhd_status.each do |_item_id, item|
+        next unless item and item['itemStatus']
         messages << generate_message(item)
       end
       messages

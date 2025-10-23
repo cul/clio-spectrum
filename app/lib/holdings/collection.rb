@@ -40,7 +40,6 @@ module Holdings
       output = {}
 
       holdings = @holdings_records.collect(&:to_hash)
-      # raise
 
       # The SCSB MARC sometimes puts each item of an NYPL serial in it's own
       # holdings record (results in 100's of holdings records)

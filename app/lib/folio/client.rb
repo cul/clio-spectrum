@@ -297,16 +297,22 @@ module Folio
       availability = { bib_id => {} }
 
       # 1. Fetch instance-set (normal holdings/items)
-      instance_items = fetch_instance_items(bib_id)
+      instance_set = fetch_instance_set(bib_id)
+      return {} unless instance_set
+      # instance_items = fetch_instance_items(bib_id)
+      regular_items = instance_set['items'] || []
 
       # 2. Collect holding IDs for bound-with lookup
-      holding_ids = instance_items.map { |it| it['holdingsRecordId'] }.compact.uniq
+      # holding_ids = instance_items.map { |it| it['holdingsRecordId'] }.compact.uniq
+      all_holdings = instance_set['holdingsRecords'] || []
+      all_holding_ids = all_holdings.map { |holding| holding['id']}
 
       # 3. Supplement with any bound-with items
-      bound_with_items = fetch_bound_with_items(holding_ids)
+      # bound_with_items = fetch_bound_with_items(holding_ids)
+      bound_with_items = fetch_bound_with_items(all_holding_ids)
 
       # 4. Combine both item sets (regular + bound-with)
-      all_items = (instance_items + bound_with_items)
+      all_items = (regular_items + bound_with_items)
                     .uniq { |it| it['id'] } # deduplicate by item UUID
                     .sort_by { |item| natural_sort_key(item) }
 
@@ -334,6 +340,10 @@ module Folio
       # 6. Fetch and merge loan details
       item_loans = get_item_loans(checked_out_items)
       add_loan_details(availability, item_loans)
+
+      Rails.logger.debug("get_availability(#{bib_id}) returning: #{availability}")
+
+      return availability
     end
 
     # -------------------------------------------------------------------
@@ -341,15 +351,17 @@ module Folio
     # -------------------------------------------------------------------
 
     # Use /inventory-view/instance-set for standard holdings/items
-    def self.fetch_instance_items(bib_id)
-      toggles = 'instance=false&holdingsRecords=false&items=true'
+    def self.fetch_instance_set(bib_id)
+      toggles = 'instance=false&holdingsRecords=true&items=true'
       query   = "( hrid==\"#{bib_id}\" not discoverySuppress==\"true\" )"
       path    = "/inventory-view/instance-set?#{toggles}&query=#{query}&limit=1"
 
       @folio_client ||= folio_client
       response = @folio_client.get(path)
       instance_set = response.dig('instanceSets', 0)
-      instance_set ? instance_set['items'] || [] : []
+      return instance_set
+      # raise
+      # instance_set ? instance_set['items'] || [] : []
     end
 
     # Fetch bound-with parts and resolve their item records
@@ -358,21 +370,33 @@ module Folio
 
       @folio_client ||= folio_client
       all_bound_with_items = []
-
-      holding_ids.each_slice(20) do |batch|
-        holding_query = batch.map { |id| "holdingId==#{id}" }.join(' or ')
+      
+      holding_ids.each do |holding_id|
+        # Lookup bound-with parts for this holding
+        holding_query = "holdingsRecordId==#{holding_id}"
         bw_path = "/inventory-storage/bound-with-parts?query=#{holding_query}"
         bw_response = @folio_client.get(bw_path)
         parts = bw_response['boundWithParts'] || []
-        item_ids = parts.map { |p| p['itemId'] }.compact.uniq
-        next if item_ids.empty?
+        next if parts.blank?
 
-        # Retrieve those item records
-        item_query = item_ids.map { |id| "id==#{id}" }.join(' or ')
-        items_path = "/inventory-storage/items?query=#{item_query}"
-        items_resp = @folio_client.get(items_path)
-        items = items_resp['items'] || []
-        all_bound_with_items.concat(items)
+        parts.each do |part|
+          item_id = part['itemId']
+          next if item_id.blank?
+
+          # Retrieve the item record
+          item_query = "id==#{item_id}"
+          items_path = "/item-storage/items?query=#{item_query}"
+          items_resp = @folio_client.get(items_path)
+          items = items_resp['items'] || []
+          next if items.blank?
+
+          item = items.first
+          # record the bound-with holding here, not the primary holding
+          item['holdingsRecordId'] = holding_id
+
+          all_bound_with_items << item
+        end
+        
       end
 
       all_bound_with_items
@@ -382,7 +406,6 @@ module Folio
 
     def self.add_loan_details(availability, loans_by_item)
       # loans_by_item: { itemId => { 'dueDate' => ..., 'borrower' => ..., ... } }
-
       availability.each do |instance_id, holdings|
         holdings.each do |holding_id, items|
           items.each do |item_id, item_data|
@@ -411,7 +434,6 @@ module Folio
           end
         end
       end
-
       availability
     end
 
