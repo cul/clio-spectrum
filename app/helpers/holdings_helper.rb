@@ -99,6 +99,11 @@ module HoldingsHelper
         # NEXT-1854 - If URL is used as link text, it should be rewritten
         title = rewrite_resolver_url(title)
       end
+      
+      # URLs in WorldShare records need to be proxied
+      if APP_CONFIG['proxy_worldshare_856'] && document.id.start_with?('oc')
+        url = proxy_qurl(url)
+      end
 
       # links << [title, note, url]   # as ARRAY
       links << { title: title, note: note, url: url } # as HASH
@@ -144,6 +149,16 @@ module HoldingsHelper
 
     # Rewritten URL is the new base url and the key, no delimiter
     return new_url + key
+  end
+
+
+  def proxy_qurl(url)
+    proxy_url = 'https://ezproxy.cul.columbia.edu'
+    # If it's already proxied, do nothing
+    return url if url.start_with?(proxy_url)
+    
+    # return the proxied URL, using "qurl" proxying 
+    return "#{proxy_url}/login?qurl=" + CGI.escape(url)
   end
 
 
