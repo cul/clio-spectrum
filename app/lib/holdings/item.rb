@@ -287,6 +287,10 @@ module Holdings
 
       mfhd_status.each do |_item_id, item|
         next unless item and item['itemStatus']
+
+        # LIBSYS-7954 - Never display any messages for certain Item Statuses
+        next if item['itemStatus'] == 'Withdrawn'
+
         messages << generate_message(item)
       end
       messages
