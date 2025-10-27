@@ -272,6 +272,9 @@ module Holdings
       unavailable_count = 0
       mfhd_status.each do |_item_id, item|
         if item.key?('itemStatus')
+          # Withdrawn items don't count as available or unavailable - ignore
+          next if item['itemStatus'] == 'Withdrawn'
+          
           # Any status EXCEPT 'Available' means the item can't be checked out
           unavailable_count += 1 unless item['itemStatus'] == 'Available'
         else
