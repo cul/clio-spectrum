@@ -8,7 +8,7 @@ module Holdings
       # raise "Holdings::Collection got nil/empty circ_status" unless circ_status
       folio_availability ||= {}
       scsb_status ||= {}
-      document_status = folio_availability[document.id] || {}
+      folio_document_status = folio_availability[document.id] || {}
       document_marc = document.to_marc
 
       # collect mfhd records
@@ -23,7 +23,8 @@ module Holdings
 
         # Sequence - MFHD ID used to gather all associated fields
         mfhd_id = t852['0']
-        mfhd_status = document_status[mfhd_id] || {}
+        
+        mfhd_status = folio_document_status[mfhd_id] || {}
 
         @holdings_records << Record.new(mfhd_id, document_marc, mfhd_status, scsb_status)
       end

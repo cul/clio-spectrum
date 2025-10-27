@@ -44,14 +44,15 @@ module Holdings
       end
 
       # Drop potentially misleading SCSB status for material that's not offsite
-      scsb_status = {} unless @location_code =~ /^off,/ or @location_code =~ /^scsb/;
+      scsb_status = {} unless @location_code =~ /^off,/ or @location_code =~ /^scsb/
 
       @call_number      = parse_call_number(tag852)           # string
       @summary_holdings = parse_summary_holdings(tag866list)  # array
       @public_notes     = parse_public_notes(tag890list)      # array
       @shelving_title   = parse_shelving_title(tag852)        # string
 
-      holdings_tags = %w(867 868
+      holdings_tags = %w(852
+                         867 868
                          876
                          891 892 893 894 895)
 
