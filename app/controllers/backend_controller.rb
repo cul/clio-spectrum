@@ -100,6 +100,9 @@ class BackendController < ApplicationController
     available_count = 0
 
     item_status_hash.each do |item_id, status_hash|
+      # Withdrawn items don't count as available or unavailable - ignore
+      next if status_hash['itemStatus'] == 'Withdrawn'
+
       item_count += 1
       available_count += 1 if status_hash['itemStatus'] == 'Available'
     end

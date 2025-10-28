@@ -27,6 +27,12 @@ module Holdings
       # {
       #   "CU18799175"  =>  "Available"
       # }
+      
+      # Is this an offsite holding?
+      tag852 = holdings_marc['852']
+      location_code = tag852['b']
+      is_offsite = ( location_code.start_with?('off') or location_code.start_with?('scsb') )
+
 
       @item_count = 0
       # item_id_list = []
@@ -47,9 +53,16 @@ module Holdings
         # SCSB availability status may be:  Available, Unavailable, Not Available (?)
         case scsb_status[barcode]
 
-        # SCSB does not have a status for this item.  It's not offsite.
+        # SCSB does not have a status for this item.
         when nil
-        # no-op.  do nothing.
+          if is_offsite
+            # This item is offsite, but SCSB has no item status?
+            # Maybe in-process at ReCAP, or some other anomolous condition.
+            # No matter what, we can't pretend this this is available.
+            if mfhd_status[item_id]['itemStatus'] == 'Available'
+              mfhd_status[item_id].delete('itemStatus')
+            end
+          end
 
         # Available, status code 1
         when 'Available'
@@ -228,7 +241,7 @@ module Holdings
         return { status: 'none',
                  messages: [{ status_code: '0',
                               short_message: 'Status unknown',
-                              long_message: 'No item status available' }] }
+                              long_message: 'No item status available (1)' }] }
       end
 
       # determine overall status
@@ -238,12 +251,11 @@ module Holdings
         return { status: 'none',
                  messages: [{ status_code: '0',
                               short_message: 'Status unknown',
-                              long_message: 'No item status available' }] }
+                              long_message: 'No item status available (2)' }] }
       end
 
       # generate messages
       messages = generate_messages(mfhd_status)
-
       { status: status, messages: messages }
     end
 
@@ -260,6 +272,9 @@ module Holdings
       unavailable_count = 0
       mfhd_status.each do |_item_id, item|
         if item.key?('itemStatus')
+          # Withdrawn items don't count as available or unavailable - ignore
+          next if item['itemStatus'] == 'Withdrawn'
+          
           # Any status EXCEPT 'Available' means the item can't be checked out
           unavailable_count += 1 unless item['itemStatus'] == 'Available'
         else
@@ -287,6 +302,11 @@ module Holdings
       messages = []
 
       mfhd_status.each do |_item_id, item|
+        next unless item and item['itemStatus']
+
+        # LIBSYS-7954 - Never display any messages for certain Item Statuses
+        next if item['itemStatus'] == 'Withdrawn'
+
         messages << generate_message(item)
       end
       messages
