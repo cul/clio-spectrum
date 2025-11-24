@@ -782,6 +782,12 @@ module HoldingsHelper
     in_process_link = APP_CONFIG['in_process_link'] || "#{valet_url}/in_process/"
   end
 
+  def notonshelf_link
+    # 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess?'
+    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+    notonshelf_link = APP_CONFIG['notonshelf_link'] || "#{valet_url}/notonshelf/"
+  end
+
 
   # ====  SERVICES NOT MANAGED BY determine_services()/service_links()  ====
   
