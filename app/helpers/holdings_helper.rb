@@ -764,10 +764,10 @@ module HoldingsHelper
     item_feedback_link = APP_CONFIG['item_feedback_link'] || "#{valet_url}/item_feedback/"
   end
 
-  def recall_link
-    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
-    recall_link = APP_CONFIG['recall_link'] || "#{valet_url}/recall/"
-  end
+  # def recall_link
+  #   valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+  #   recall_link = APP_CONFIG['recall_link'] || "#{valet_url}/recall/"
+  # end
 
   # "On Order" is handled identically to "In Process"
   def on_order_link
