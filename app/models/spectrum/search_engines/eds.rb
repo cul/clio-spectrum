@@ -78,6 +78,9 @@ module Spectrum
         }
         eds_session = EBSCO::EDS::Session.new(session_params)
 
+        # if query is null/blank, EDS API will generate an error. Inserting empty string avoids error
+        @q = "''" if @q.blank?
+
         # Something's funky here.  
         #   :query needs to be a symbol,
         #   "page" needs to be a string
