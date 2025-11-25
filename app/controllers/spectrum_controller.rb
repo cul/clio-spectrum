@@ -45,7 +45,7 @@ class SpectrumController < ApplicationController
     if params['q'].nil? && params['s.q'].nil? &&
        params['s.fq'].nil? && params['s.ff'].nil? ||
        (params['q'].to_s.empty? && 
-       ['library_web', 'lweb', 'articles'].include?(active_source))
+       ['library_web', 'lweb'].include?(active_source))
       flash.now[:error] = 'You cannot search with an empty string.' if params['commit']
     elsif @search_layout.nil?
       flash[:error] = 'No search layout specified'
