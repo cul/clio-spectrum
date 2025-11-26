@@ -108,7 +108,7 @@ class BackendController < ApplicationController
     end
 
     # If we didn't find ANY items with a known availability status....
-    return 'none' if item_count = 0
+    return 'none' if item_count == 0
     
     return 'unavailable' if available_count == 0
     return 'available'   if available_count == item_count
