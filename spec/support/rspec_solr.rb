@@ -44,7 +44,8 @@ def solr_resp_ids_from_query(query)
 end
 
 def solr_resp_ids_from_journal_title_query(query)
-  solr_resp_doc_ids_only('q'  => "{!qf=$title_qf pf=$title_pf}#{query}",
+  solr_resp_doc_ids_only('q'  => "{!edismax qf=$title_qf pf=$title_pf}#{query}",
+                         'defType' => 'lucene',
                          'fq' => 'format:Journal/Periodical',
                          'sort' => 'score desc, pub_date_sort desc')
 end
@@ -274,7 +275,16 @@ end
 
 def ejournal_titles
   # return the filter-query param, to be merged into the Solr search:
-  { 'fq' => '{!raw f=source_facet}ejournal' }
+  # This was for Voyager - we added the "source_facet" field
+  # { 'fq' => '{!raw f=source_facet}ejournal' }
+  # This is for FOLIO - we don't have source_facet for direct-to-Solr loads
+  {
+    'fq' => [
+      '{!raw f=format}Journal/Periodical',
+      '{!raw f=format}Online'
+    ]
+  }
+  
 end
 
 # # response documents will only have id and title_245a_display fields, and there will be no facets in the response
