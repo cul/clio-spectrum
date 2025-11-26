@@ -114,13 +114,13 @@ describe 'Searching for one-word titles: ', :skip_travis do
 
   it 'Lancet' do
     resp = solr_resp_ids_from_query('Lancet')
-    expect(rank(resp, ebs45083e)).to be <= 5
+    expect(rank(resp, 'ebs45083e')).to be <= 5
 
     resp = solr_resp_ids_from_journal_title_query('Lancet')
-    expect(rank(resp, ebs45083e)).to be <= 3
+    expect(rank(resp, 'ebs45083e')).to be <= 3
 
     resp = solr_resp_ejournal_ids_only('q' => 'Lancet')
-    expect(rank(resp, ebs45083e)).to be <= 2
+    expect(rank(resp, 'ebs45083e')).to be <= 2
   end
 
   it 'Nation' do

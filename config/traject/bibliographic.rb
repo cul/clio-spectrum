@@ -89,7 +89,7 @@ to_field 'text', extract_all_marc_values(from: '010', to: '852') do |record, acc
   # 876$p - Barcode
   extra_fields << Marc21.extract_marc_from(record, '876p')
   # 891$c, $a, $e - Donor Info ('Gift', donor name, donor code)
-  extra_fields << Marc21.extract_marc_from(record, '891cae')
+  extra_fields << Marc21.extract_marc_from(record, '891cdae')
   # 948$A-Z - Processing Information
   extra_fields << Marc21.extract_marc_from(record, "948#{ATOZ}")
   # 965$a - Collection Description

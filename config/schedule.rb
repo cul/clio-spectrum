@@ -58,10 +58,10 @@ if %w(clio_batch_dev clio_batch_test clio_batch_prod).include?(@environment)
   end
 
   # == RECAP ==
-  every :day, at: offset + '7am' do
+  every :day, at: offset + '3am' do
     rake 'recap:delete_new[2]', subject: 'recap:delete_new'
   end
-  every :day, at: offset + '8am' do
+  every :day, at: offset + '5am' do
     rake 'recap:ingest_new[2]', subject: 'recap:ingest_new'
   end
 

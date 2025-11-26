@@ -106,6 +106,9 @@ class BackendController < ApplicationController
       item_count += 1
       available_count += 1 if status_hash['itemStatus'] == 'Available'
     end
+
+    # If we didn't find ANY items with a known availability status....
+    return 'none' if item_count == 0
     
     return 'unavailable' if available_count == 0
     return 'available'   if available_count == item_count

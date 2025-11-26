@@ -764,10 +764,10 @@ module HoldingsHelper
     item_feedback_link = APP_CONFIG['item_feedback_link'] || "#{valet_url}/item_feedback/"
   end
 
-  def recall_link
-    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
-    recall_link = APP_CONFIG['recall_link'] || "#{valet_url}/recall/"
-  end
+  # def recall_link
+  #   valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+  #   recall_link = APP_CONFIG['recall_link'] || "#{valet_url}/recall/"
+  # end
 
   # "On Order" is handled identically to "In Process"
   def on_order_link
@@ -780,6 +780,12 @@ module HoldingsHelper
     # 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess?'
     valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
     in_process_link = APP_CONFIG['in_process_link'] || "#{valet_url}/in_process/"
+  end
+
+  def notonshelf_link
+    # 'https://www1.columbia.edu/sec-cgi-bin/cul/forms/inprocess?'
+    valet_url = APP_CONFIG['valet_url'] || 'https://valet.cul.columbia.edu'
+    notonshelf_link = APP_CONFIG['notonshelf_link'] || "#{valet_url}/notonshelf/"
   end
 
 

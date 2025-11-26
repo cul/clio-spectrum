@@ -77,10 +77,11 @@ describe 'record tests' do
   end
 
   it 'special collections link', :js do
-    visit solr_document_path('10104738')
+    visit solr_document_path('19807754')
     expect(page).to have_css('#clio_holdings .holding')
     within ('div#clio_holdings') do
-      expect(page).to have_link('Special Collections', href: '/special_collections/10104738')
+      link = find_link('Special Collections')
+      expect(link[:href]).to end_with('/special_collections/19807754')
     end
   end
 
@@ -88,7 +89,8 @@ describe 'record tests' do
     visit solr_document_path('12954047')
     expect(page).to have_css('#clio_holdings .holding')
     within ('div#clio_holdings') do
-      expect(page).to have_link('Special Collections', href: '/special_collections/12954047')
+      link = find_link('Special Collections')
+      expect(link[:href]).to end_with('/special_collections/12954047')
     end
   end
 

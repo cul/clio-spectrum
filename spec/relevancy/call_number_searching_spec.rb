@@ -21,7 +21,7 @@ describe 'Testing Call Number Searching', :skip_travis do
     expect(resp.size).to be <= 1
     expect(rank(resp, 814350)).to be <= 1
 
-    resp = solr_resp_doc_ids_only('q' => '{!qf=location_call_number_txt pf=location_call_number_txt}AA966 B25 R11')
+    resp = solr_resp_doc_ids_only('q' => '{!type=edismax qf=location_call_number_txt pf=location_call_number_txt}AA966 B25 R11')
 
     expect(resp.size).to be <= 1
     expect(rank(resp, 814350)).to be <= 1
@@ -33,7 +33,7 @@ describe 'Testing Call Number Searching', :skip_travis do
     expect(resp.size).to be <= 1
     expect(rank(resp, 814350)).to be <= 1
 
-    resp = solr_resp_doc_ids_only('q' => '{!qf=location_call_number_txt pf=location_call_number_txt}"AA966 B25 R11"')
+    resp = solr_resp_doc_ids_only('q' => '{!type=edismax qf=location_call_number_txt pf=location_call_number_txt}"AA966 B25 R11"')
 
     expect(resp.size).to be <= 1
     expect(rank(resp, 814350)).to be <= 1
@@ -45,7 +45,7 @@ describe 'Testing Call Number Searching', :skip_travis do
     expect(resp.size).to be >= 600
     expect(resp.size).to be <= 700
 
-    resp = solr_resp_doc_ids_only('q' => '{!qf=location_call_number_txt pf=location_call_number_txt}AA966')
+    resp = solr_resp_doc_ids_only('q' => '{!type=edismax qf=location_call_number_txt pf=location_call_number_txt}AA966', defType: 'lucene')
 
     expect(resp.size).to be >= 600
     expect(resp.size).to be <= 700
@@ -57,14 +57,14 @@ describe 'Testing Call Number Searching', :skip_travis do
     expect(resp.size).to be >= 600
     expect(resp.size).to be <= 700
 
-    resp = solr_resp_doc_ids_only('q' => '{!qf=location_call_number_txt pf=location_call_number_txt}"AA966"')
+    resp = solr_resp_doc_ids_only('q' => '{!type=edismax qf=location_call_number_txt pf=location_call_number_txt}"AA966"')
 
     expect(resp.size).to be >= 600
     expect(resp.size).to be <= 700
   end
 
   it 'Zine Call-Number searching' do
-    resp = solr_resp_doc_ids_only('q' => '{!qf=location_call_number_txt pf=location_call_number_txt}Zines')
+    resp = solr_resp_doc_ids_only('q' => '{!type=edismax qf=location_call_number_txt pf=location_call_number_txt}Zines', defType: 'lucene')
 
     expect(resp.size).to be >= 6000
     expect(resp.size).to be <= 9000
@@ -74,7 +74,7 @@ describe 'Testing Call Number Searching', :skip_travis do
     expect(resp.size).to be <= 1
     expect(rank(resp, 7684507)).to be <= 1
 
-    resp = solr_resp_doc_ids_only('q' => '{!qf=location_call_number_txt pf=location_call_number_txt}Zines W474o')
+    resp = solr_resp_doc_ids_only('q' => '{!type=edismax qf=location_call_number_txt pf=location_call_number_txt}Zines W474o', defType: 'lucene')
 
     expect(resp.size).to be <= 1
     expect(rank(resp, 7684507)).to be <= 1
