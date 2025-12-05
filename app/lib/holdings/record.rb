@@ -89,6 +89,13 @@ module Holdings
       @bound_withs = item.bound_withs
       @item_status = item.item_status
 
+      # LIBSYS-8007 - All 4off locations display as Unavailable
+      if @location_code.end_with?('4off')
+        @item_status = { status:   'not_available', 
+                         messages: [ { short_message: 'Unavailable' } ] 
+                       }
+      end
+
       # NEXT-1502 - display_helper.rb and record.rb
       # Sometimes libraries become Unavailable (moves, renovations).
       # Change OPAC display/services instead of updating ALL items in ILMS
