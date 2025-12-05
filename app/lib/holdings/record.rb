@@ -859,36 +859,38 @@ module Holdings
     #           'uts', 'uts,per', 'uts,unn', 'war']
     # end
 
-    def scan_messages(messages = [])
-      return [] unless messages
-      services = []
-      messages.each do |message|
-        # status code 0 == "status unknown"
-        next if message[:status_code] == '0'
-        # status patrons
-        if message[:status_code] == 'sp'
-          services << scan_message(message[:long_message])
-        else
-          status_code_config = ITEM_STATUS_CODES[message[:status_code]]
-          raise "Status code '#{message[:status_code]}' not found in ITEM_STATUS_CODES" unless status_code_config
-          services << status_code_config['services'] unless status_code_config['services'].nil?
-        end
-      end
-      services
-    end
+    # Obsolete with FOLIO - no longer used
+    # def scan_messages(messages = [])
+    #   return [] unless messages
+    #   services = []
+    #   messages.each do |message|
+    #     # status code 0 == "status unknown"
+    #     next if message[:status_code] == '0'
+    #     # status patrons
+    #     if message[:status_code] == 'sp'
+    #       services << scan_message(message[:long_message])
+    #     else
+    #       status_code_config = ITEM_STATUS_CODES[message[:status_code]]
+    #       raise "Status code '#{message[:status_code]}' not found in ITEM_STATUS_CODES" unless status_code_config
+    #       services << status_code_config['services'] unless status_code_config['services'].nil?
+    #     end
+    #   end
+    #   services
+    # end
 
-    # Scan item message string for things like "Recall", "Hold", etc.
-    # (Is this even doing anything anymore?)
-    def scan_message(message = '')
-      return [] unless message
-      out = []
-      # We don't offer Recall/Hold in the holdings request area
-      # out << 'recall_hold'    if message =~ /Recall/i
-      # out << 'recall_hold'    if message =~ /hold /
-      out << 'borrow_direct'  if message =~ /Borrow/
-      out << 'in_process'     if message =~ /In Process/
-      out
-    end
+    # Obsolete with FOLIO - no longer used
+    # # Scan item message string for things like "Recall", "Hold", etc.
+    # # (Is this even doing anything anymore?)
+    # def scan_message(message = '')
+    #   return [] unless message
+    #   out = []
+    #   # We don't offer Recall/Hold in the holdings request area
+    #   # out << 'recall_hold'    if message =~ /Recall/i
+    #   # out << 'recall_hold'    if message =~ /hold /
+    #   out << 'borrow_direct'  if message =~ /Borrow/
+    #   out << 'in_process'     if message =~ /In Process/
+    #   out
+    # end
 
 
     # LIBSYS-6253 - Lehman 2023, Return of the Mold
