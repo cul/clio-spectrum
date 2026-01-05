@@ -81,7 +81,8 @@ if ['clio_batch_prod'].include?(@environment)
   # Only download ReCAP extract files from SCSB once.
   # Then each environment can index from this local location individually.
   every :day, at: '11:30pm' do
-    rake 'recap:download', subject: 'recap download'
+    # set proxy explicitly here, don't rely on tricky cron/bundle/rake settings
+    rake 'recap:download http_proxy=http://squid.cul.columbia.edu:3131', subject: 'recap download'
   end
 
   # NEXT-1822 - SimplyE ETL workflow replaced with API lookup
