@@ -129,6 +129,8 @@ module Spectrum
         limiters << 'RV:Y' unless @rv_limiter_off
         search_options[:limiters] = limiters unless limiters.empty?
 
+        search_options[:highlight] = false
+
         @search = eds_session.search(search_options)
         
         begin
