@@ -78,8 +78,9 @@ describe 'Item Locations should show correct library hours', :skip_travis do
 
   it 'for Law' do
     visit solr_document_path('in00033542908')
-    expect(page).to have_text('Law Library')
-    click_link('Law Library')
+    expect(find('.holdings-container')).to have_text('Treasure Room')
+    # expect(page).to have_text('Law Library')
+    click_link('Treasure Room')
     expect(page).to have_text('Law Library')
     expect(page).to have_text('Arthur W. Diamond')
     expect(page).to have_text('Jerome Greene Hall')

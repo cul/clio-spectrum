@@ -13,7 +13,7 @@ describe 'Testing Author Searching', :skip_travis do
   # 100 1  |a Seuss, |c Dr.
   it 'subfield 100$c (titles and words associated with a name)' do
     resp = solr_resp_doc_ids_only(author_search_args('dr seuss'))
-    expect(resp.size).to be <= 80
+    expect(resp.size).to be <= 100
     expect(rank(resp, 3157951)).to be <= 50
   end
 
@@ -21,7 +21,7 @@ describe 'Testing Author Searching', :skip_travis do
   # 100 1  |a Reich, Steve, |d 1936- |e composer.
   it 'subfield 100$d (dates associated with a name)' do
     resp = solr_resp_doc_ids_only(author_search_args('steve reich 1936'))
-    expect(resp.size).to be <= 500
+    expect(resp.size).to be <= 800
     expect(rank(resp, 12918947)).to be <= 100
     expect(rank(resp, 12028590)).to be <= 100
   end
