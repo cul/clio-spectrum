@@ -69,7 +69,13 @@ callnumber_map = Traject::TranslationMap.new('callnumber_map')
 #   # geo_variant_count = 0
 # end
 
-to_field 'id', extract_marc('001', first: true)
+# Our old version of traject doesn't yet have the built-in 'strip' macro,
+# so do this ourselves
+# to_field 'id', extract_marc('001', first: true)
+to_field 'id', extract_marc('001', first: true) do |_record, accumulator|
+  accumulator.first.strip!
+end
+
 
 to_field 'marc_display', serialized_marc(format: 'xml')
 
