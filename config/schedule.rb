@@ -51,7 +51,7 @@ if %w(clio_batch_dev clio_batch_test clio_batch_prod).include?(@environment)
     rake 'blacklight:delete_old_searches[1]', subject: 'blacklight:delete_old_searches'
   end
   every :day, at: '3:20am' do
-    rake 'sessions:cleanup[1]', subject: 'sessions:cleanup'
+    rake 'sessions:cleanup[15]', subject: 'sessions:cleanup'
   end
   every :day, at: '3:30am' do
     rake 'hours:update_all', subject: 'hours:update_all'
