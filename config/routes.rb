@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   # multi-format download handler
   get 'catalog/download'
 
+  # NEXT-1858 - Citation File Naming
+  get 'catalog/citations.ris' => 'catalog#endnote', defaults: { format: 'endnote' }
+
   ##### COPIED FROM VANILLA BLACKLIGHT 6.0 APP
   mount Blacklight::Engine => '/'
 
@@ -60,7 +63,8 @@ Rails.application.routes.draw do
 
   # blacklight-marc gem gives endnote as an action, not just format of 'show',
   # to allow endnote export of multiple records at once
-  get 'catalog/endnote', as: 'endnote_catalog'
+  # ? is this line redundant ?
+  # get 'catalog/endnote', as: 'endnote_catalog'
 
   # special admin pages
   get 'admin/system'

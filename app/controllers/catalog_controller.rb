@@ -756,6 +756,18 @@ EOS
     return false
   end
   
+  # NEXT-1858 - Citation File Naming
+  def endnote
+    @response, @documents = action_documents
+
+    respond_to do |format|
+      format.endnote do
+        headers['Content-Disposition'] = 'attachment; filename="citations.ris"'
+        # render the standard endnote template
+        render 'catalog/endnote'  # or whatever your endnote template path is
+      end
+    end
+  end
 
 end
 
