@@ -6,34 +6,36 @@
 
     = render partial: '/datasource_warning', locals: {warning: warning}
 
-    %p This searches catalog records for archival collections from several repositories:
-    %ul
-      %li=link_to "Avery Library, Department of Drawing & Archives", "https://archivesportal.cul.columbia.edu/repository.php?r=nnc-a"
-      %li=link_to "Barnard Archives and Special Collections", "https://archives.barnard.edu/"
-      %li=link_to "Burke Library Archives at Union Theological Seminary", "https://archivesportal.cul.columbia.edu/repository.php?r=nnc-ut"
-      %li=link_to "Columbia University Archives", "https://archivesportal.cul.columbia.edu/repository.php?r=nnc-ua"
-      %li=link_to "Health Sciences Library Archives & Special Collections", "https://archivesportal.cul.columbia.edu/repository.php?r=nnc-m"
-      %li=link_to "Rare Book & Manuscript Library", "https://archivesportal.cul.columbia.edu/repository.php?r=nnc-rb"
-      %li=link_to "Starr East Asian Library Rare Books & Special Collections", "https://archivesportal.cul.columbia.edu/repository.php?r=nnc-ea"
+    %p{:style => "font-size: 16px;"} Search for catalog records of archival and special collections from several repositories:
+    %ul{:style => "font-size: 16px;"}
+      %li=link_to "Avery Library, Department of Drawing & Archives", "https://library.columbia.edu/libraries/avery/drawings-archives.html"
+      %li=link_to "Barnard Archives & Special Collections", "https://archives.barnard.edu/"
+      %li=link_to "Burke Library Archives at Union Theological Seminary", "https://library.columbia.edu/libraries/burke.html"
+      %li=link_to "Columbia University Archives", "https://library.columbia.edu/libraries/cuarchives.html"
+      %li=link_to "C.V. Starr East Asian Library Rare Books & Special Collections", "https://library.columbia.edu/libraries/eastasian.html"
+      %li=link_to "Health Sciences Library Archives & Special Collections", "https://www.library-archives.cumc.columbia.edu/"
+      %li=link_to "Oral History Archives at Columbia", "https://library.columbia.edu/libraries/rbml/oral-history.html"
+      %li=link_to "Rare Book & Manuscript Library", "https://library.columbia.edu/libraries/rbml.html"
 
-    %p Archival collections include personal papers, institutional records, corporate archives, architectural drawings, printed ephemera, realia, and many other types of content.
+    %p{:style => "font-size: 16px;"} Archival collections include personal papers, institutional records, corporate archives, architectural drawings, oral histories, printed ephemera, objects, and more.
+    %p{:style => "font-size: 16px;"} CLIO searches collection-level descriptions only.
+    %p{:style => "font-size: 16px;"} To search the full text of the associated finding aids, try #{link_to 'Archival Finding Aids', 'https://findingaids.library.columbia.edu/'}.
+    %p{:style => "font-size: 16px;"} To search for digital content, try #{link_to 'Digital Library Collections', 'https://dlc.library.columbia.edu/'}.
 
-    %p This source searches archival collection-level descriptions. It does not search the full-text of the associated finding aids nor any related digitized content.
+
 
 
 
   .landing_side.col-sm-4
     .well.sidebar-nav
       .nav
-        %ul.nav.nav-list
-          %li.nav-header Guide
-          %li=link_to "Search Tips", "https://library.columbia.edu/collections/using-archives.html", :target => "_blank"
+        %ul.nav.nav-list{:style => "font-size: 16px;"}
+          %li.nav-header{:style => "color: #535353; text-transform: capitalize; font-size: 16px;"} Need Help?
+          %li=link_to "Guide: Searching Archival & Special Collections", "https://library.columbia.edu/collections/search/search-archives.html"
+          %li=link_to "Ask a Librarian", " https://resolver.library.columbia.edu/lweb0031"
           %li.nav-divider
-
-        %ul.nav.nav-list
-          %li.nav-header Related Links
-          %li= link_to "Archival Finding Aids", "https://findingaids.library.columbia.edu/"
-          %li=link_to "Center for Human Rights Documentation & Research", "https://resolver.library.columbia.edu/clio7038717"
-          %li=link_to "Columbia Center for Oral History", "https://library.columbia.edu/indiv/ccoh.html"
-          %li=link_to "Human Rights Web Archive", "https://hrwa.cul.columbia.edu/"
-          %li=link_to "Oral History Research Office Interviews Portal", "https://oralhistoryportal.cul.columbia.edu/"
+        %ul.nav.nav-list{:style => "font-size: 16px;"}
+          %li.nav-header{:style => "color: #535353; text-transform: capitalize; font-size: 16px;"} Related Search Tools
+          %li=link_to "Archival Finding Aids", "https://findingaids.library.columbia.edu/"
+          %li=link_to "AEON Special Collections Researcher Account", "https://aeon.cul.columbia.edu/"
+          %li=link_to "Digital Library Collections", "https://dlc.library.columbia.edu/"
