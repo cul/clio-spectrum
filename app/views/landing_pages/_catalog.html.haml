@@ -7,8 +7,8 @@
 
     = render partial: '/datasource_warning', locals: {warning: warning}
 
-    %p Search Columbia's catalog of over 18 million items for:
-    %ul
+    %p{:style => "font-size: 16px;"} Search Columbia's catalog of over 26 million items for:
+    %ul{:style => "font-size: 16px;"}
       %li books
       %li journals and newspaper titles
       %li audio and video recordings
@@ -18,29 +18,24 @@
       %li government documents
       %li maps and atlases
 
-    %p From the results page, refine your search by any combination of format, publication date, author, library location, language, subject, recently added, or call number.  To view these options before searching, enter a blank search.
+    %p{:style => "font-size: 16px;"} For more targeted results, try an #{link_to 'Advanced Search (TO-DO)'}, or narrow your results by format, date, and other options on the search results page.
 
-    %p To find individual articles, try our #{datasource_switch_link('articles', 'articles')} search
+    %p{:style => "font-size: 16px;"} To find individual articles, try searching #{datasource_switch_link('Articles+', 'articles')}.
 
 
   .landing_side.col-sm-4
     .well.sidebar-nav
       .nav
-        %ul.nav.nav-list
-          %li.nav-header Guide
-          %li=link_to 'Search Tips', 'https://blogs.cul.columbia.edu/clio/guides/catalog-guide/', :target => '_blank'
+        %ul.nav.nav-list{:style => "font-size: 16px;"}
+          %li.nav-header{:style => "color: #535353;"} Need Help?
+          %li=link_to "Guide: Searching in CLIO", " https://library.columbia.edu/collections/search/search-clio.html"
+          %li=link_to "Ask a Librarian", " https://resolver.library.columbia.edu/lweb0031"
 
           %li.nav-divider
 
-        %ul.nav.nav-list
-          %li.nav-header Other Useful Catalogs
-          %li= link_to 'Course Reserves', 'https://resolver.library.columbia.edu/lweb0182', :target => '_blank'
+        %ul.nav.nav-list{:style => "font-size: 16px;"}
+          %li.nav-header{:style => "color: #535353;"} Related Search Tools
           %li= link_to 'Borrow Direct', 'https://resolver.library.columbia.edu/lweb0012', :target => '_blank'
           %li= link_to 'Interlibrary Loan (ILL)', 'https://resolver.library.columbia.edu/lweb0014', :target => '_blank'
           %li= link_to 'WorldCat', 'https://resolver.library.columbia.edu/AMS7418', :target => '_blank'
           %li= link_to 'Teachers College Catalog', 'https://resolver.library.columbia.edu/AMS8580', :target => '_blank'
-          %li= link_to 'Numeric Data Catalog', 'https://resolver.library.columbia.edu/APZ9144', :target => '_blank'
-          %li= link_to 'Spatial Data Catalog', 'https://resolver.library.columbia.edu/clio6269876', :target => '_blank'
-
-
-
