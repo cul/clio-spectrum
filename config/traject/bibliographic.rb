@@ -69,7 +69,13 @@ callnumber_map = Traject::TranslationMap.new('callnumber_map')
 #   # geo_variant_count = 0
 # end
 
-to_field 'id', extract_marc('001', first: true)
+# Our old version of traject doesn't yet have the built-in 'strip' macro,
+# so do this ourselves
+# to_field 'id', extract_marc('001', first: true)
+to_field 'id', extract_marc('001', first: true) do |_record, accumulator|
+  accumulator.first.strip!
+end
+
 
 to_field 'marc_display', serialized_marc(format: 'xml')
 
@@ -152,8 +158,13 @@ to_field 'title_first_facet', marc_sortable_title do |_record, accumulator|
   end
 end
 to_field 'title_addl_txt', extract_marc("245abnps:130#{ATOZ}:240abcdefgklmnopqrs:210ab:222ab:242abnp:243abcdefgklmnopqrs:246abcdefgnp:247abcdefgnp:780#{ATOZ}:785#{ATOZ}:700gklmnoprst:710fgklmnopqrst:711fgklnpst:730abcdefgklmnopqrst:740anp", trim_punctuation: false, alternate_script: true)
-to_field 'title_series_txt', extract_marc("830#{ATOZ}", trim_punctuation: true, alternate_script: true)
-to_field 'title_series_display', extract_marc("830#{ATOZ}", trim_punctuation: true, alternate_script: false)
+
+# NEXT-2029 - records not found in "series" text search
+# to_field 'title_series_txt', extract_marc("830#{ATOZ}", trim_punctuation: true, alternate_script: true)
+# to_field 'title_series_display', extract_marc("830#{ATOZ}", trim_punctuation: true, alternate_script: false)
+to_field 'title_series_txt', extract_marc("490alvx3:800#{ATOZ}:810#{ATOZ}:811#{ATOZ}:830#{ATOZ}:840ahv", trim_punctuation: true, alternate_script: true)
+to_field 'title_series_display', extract_marc("490alvx3:800#{ATOZ}:810#{ATOZ}:811#{ATOZ}:830#{ATOZ}:840ahv", trim_punctuation: true, alternate_script: false)
+
 to_field 'title_sort', marc_sortable_title do |_record, accumulator|
   accumulator.map! { |title| title.strip.gsub(/[^[:word:]\s]/, '').downcase }
 end

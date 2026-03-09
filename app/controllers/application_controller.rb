@@ -137,7 +137,7 @@ class ApplicationController < ActionController::Base
     @debug_entries[:user_characteristics] = @user_characteristics
   end
 
-  # AJAX handler for browser-option setting/getting
+  # AJAX handlers for browser-option setting/getting
   def set_browser_option_handler
     unless params.key?('name') && params.key?('value')
       render(json: nil, status: :bad_request) && return
@@ -145,15 +145,6 @@ class ApplicationController < ActionController::Base
 
     set_browser_option(params['name'], params['value'])
     render json: nil, status: :ok
-  end
-
-  # Rails method for browser-option setting/getting
-  def set_browser_option(name, value)
-    _clio_browser_options = YAML.load(cookies[:_clio_browser_options] || '{}')
-    _clio_browser_options = {} unless _clio_browser_options.is_a?(Hash)
-    _clio_browser_options[name] = value
-    cookies[:_clio_browser_options] = { value: _clio_browser_options.to_yaml,
-                                        expires: 1.year.from_now }
   end
 
   # AJAX handler for browser-option setting/getting
@@ -169,11 +160,35 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # Rails method for browser-option setting/getting
-  def get_browser_option(name)
-    _clio_browser_options = YAML.load(cookies[:_clio_browser_options] || '{}')
-    _clio_browser_options.is_a?(Hash) ? _clio_browser_options[name] : nil
+  # Cookie-Based tracking of browser options - disabled
+  # def set_browser_option_COOKIE(name, value)
+  #   _clio_browser_options = YAML.load(cookies[:_clio_browser_options] || '{}')
+  #   _clio_browser_options = {} unless _clio_browser_options.is_a?(Hash)
+  #   _clio_browser_options[name] = value
+  #   cookies[:_clio_browser_options] = { value: _clio_browser_options.to_yaml,
+  #                                       expires: 1.year.from_now }
+  # end
+  # def get_browser_option_COOKIE(name)
+  #   _clio_browser_options = YAML.load(cookies[:_clio_browser_options] || '{}')
+  #   _clio_browser_options.is_a?(Hash) ? _clio_browser_options[name] : nil
+  # end
+
+  # Session-Based tracking of browser options
+  def set_browser_option(name, value)
+    session[:browser_options] ||= {}
+    session[:browser_options] = {} unless session[:browser_options].is_a?(Hash)
+    session[:browser_options][name] = value
+    
+    # Delete the overly large cookie - the old way of persisting browser options
+    # TODO:  delete this line about a year after the switch - January 2027
+    cookies.delete(:_clio_browser_options)
   end
+  def get_browser_option(name)
+    browser_options = session[:browser_options]
+    browser_options.is_a?(Hash) ? browser_options[name] : nil
+  end
+
+
 
   # AJAX handler for persistence of selected-items
   def selected_items_handler

@@ -653,9 +653,12 @@ module Holdings
 
       # ====== ITEM STATUS "NONE"?? ======
       # Item Status is "none"?  Something's odd, this is not a regular holding.
-      # Might be In-Process?
+      # Might be In-Process?  Might be On-Order?
       if item_status[:status] == 'none'
         services << 'in_process' if call_number =~ /in process/i
+
+        services << 'borrow_direct' if call_number =~ /on order/i
+
       end
 
 
