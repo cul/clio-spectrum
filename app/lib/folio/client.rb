@@ -40,7 +40,8 @@ module Folio
         okapi_headers: { 
           'X-Okapi-Tenant': folio_config['okapi_tenant'], 
           'User-Agent': 'FolioApiClient'
-        }
+        },
+        timeout: folio_config.key?('okapi_timeout') ? folio_config['okapi_timeout'] : 15
       )
       return @folio_client
     end
@@ -55,6 +56,9 @@ module Folio
       json_response = @folio_client.get("/users?query=#{query}")
       first_user = json_response["users"].first
       return first_user
+    rescue StandardError => e
+      Rails.logger.error("get_user_by_username(#{username}) failed: #{e.class}: #{e.message}")
+      nil
     end
 
     # /circulation/loans?query=(userId==5a05ac92-5512-5f1e-8198-31bcb9bf3397) sortby id
@@ -66,6 +70,9 @@ module Folio
       json_response = @folio_client.get("/circulation/loans?query=#{query}&limit=1000")
       all_open_loans = json_response["loans"]
       return all_open_loans
+    rescue StandardError => e
+      Rails.logger.error("get_loans_by_user_id(#{user_id}) failed: #{e.class}: #{e.message}")
+      []
     end
     
     # /circulation/loans?query=(userId==5a05ac92-5512-5f1e-8198-31bcb9bf3397) sortby id
@@ -77,6 +84,9 @@ module Folio
       json_response = @folio_client.get("/circulation/requests?query=#{query}&limit=100")
       all_open_requests = json_response["requests"]
       return all_open_requests
+    rescue StandardError => e
+      Rails.logger.error("get_requests_by_user_id(#{user_id}) failed: #{e.class}: #{e.message}")
+      []
     end
 
     # FOLIO has two kinds of blocks - automated and manual
@@ -108,6 +118,9 @@ module Folio
       end
 
       return all_blocks
+    rescue StandardError => e
+      Rails.logger.error("get_blocks_by_user_id(#{user_id}) failed: #{e.class}: #{e.message}")
+      []
     end
 
     
@@ -159,6 +172,9 @@ module Folio
       connection = FolioClient.connection
       token = FolioClient::Authenticator.token(login_params, connection)
       response = connection.delete(path, nil, { 'x-okapi-token': token })
+    rescue StandardError => e
+      Rails.logger.error("delete_request(#{request_id}) failed: #{e.class}: #{e.message}")
+      nil
     end
   
     # Retrieve a single FOLIO Instance JSON record for a given Voyager Bib ID
@@ -176,6 +192,9 @@ module Folio
       else
         return {}
       end
+    rescue StandardError => e
+      Rails.logger.error("get_instance_by_hrid(#{hrid}) failed: #{e.class}: #{e.message}")
+      {}
     end
     
     
@@ -192,6 +211,9 @@ module Folio
       return {} unless loan
       # success!
       return loan
+    rescue StandardError => e
+      Rails.logger.error("get_loan_by_item(#{item_uuid}) failed: #{e.class}: #{e.message}")
+      {}
     end
     
 
@@ -285,7 +307,9 @@ module Folio
       availability = add_loan_details(availability, item_loans)
       
       return availability
-
+    rescue StandardError => e
+      Rails.logger.error("get_availability_without_boundwith(#{bib_id}) failed: #{e.class}: #{e.message}")
+      {}
     end
 
 
@@ -344,6 +368,9 @@ module Folio
       Rails.logger.debug("get_availability(#{bib_id}) returning: #{availability}")
 
       return availability
+    rescue StandardError => e
+      Rails.logger.error("get_availability(#{bib_id}) failed: #{e.class}: #{e.message}")
+      {}
     end
 
     # -------------------------------------------------------------------
@@ -362,6 +389,9 @@ module Folio
       return instance_set
       # raise
       # instance_set ? instance_set['items'] || [] : []
+    rescue StandardError => e
+      Rails.logger.error("fetch_instance_set(#{bib_id}) failed: #{e.class}: #{e.message}")
+      nil
     end
 
     # Fetch bound-with parts and resolve their item records
@@ -400,6 +430,9 @@ module Folio
       end
 
       all_bound_with_items
+    rescue StandardError => e
+      Rails.logger.error("fetch_bound_with_items(#{holding_ids}) failed: #{e.class}: #{e.message}")
+      []
     end
 
 
@@ -462,6 +495,9 @@ module Folio
       all_loans.each { |loan| loans_by_item[loan['itemId']] = loan }
 
       loans_by_item
+    rescue StandardError => e
+      Rails.logger.error("get_item_loans(#{item_id_list}) failed: #{e.class}: #{e.message}")
+      {}
     end
 
 

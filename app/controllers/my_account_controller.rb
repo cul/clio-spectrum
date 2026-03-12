@@ -146,7 +146,7 @@ class MyAccountController < ApplicationController
     @user = Folio::Client.get_user_by_username(uni)
     
     # FOLIO User UUID
-    user_id = @user['id']
+    user_id = @user['id'] if @user
     
     # But wait - are they trying to snoop on another user?
     if params[:uni]
@@ -160,7 +160,7 @@ class MyAccountController < ApplicationController
       return redirect_to my_account_index_path unless @user
       # It worked?  Ok, then proceed.
       @snooping = true
-      user_id = @user['id']
+      user_id = @user['id'] if @user
     end
     
     # For the given FOLIO user_id (the current user, or a snooped-upon user),
