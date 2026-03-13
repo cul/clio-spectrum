@@ -28,6 +28,9 @@ describe 'CLIO support for Law records' do
       find('a', text: 'Is Not').click
     end
 
+    # save_and_open_page # debug
+    # save_and_open_screenshot # debug
+
     # confirm
     expect(find('.blacklight-location_facet .facet-content')).to have_css('li', minimum: 5)
     expect(find('.blacklight-location_facet .facet-content')).to have_text 'NOT Law'

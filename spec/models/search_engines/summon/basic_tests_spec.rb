@@ -36,7 +36,7 @@ describe 'Spectrum::SearchEngines::Summon' do
     end
   end
 
-  describe 'basic articles search' do
+  describe 'basic articles search', skip: 'Articles tests not yet rewritten for EDS' do
     before(:each) do
       @sum = Spectrum::SearchEngines::Summon.new({ 'source' => 'articles', 's.q' => 'hardnose dictator', 'new_search' => true }, SUMMON_FACETS_FOR_SPECS)
     end
