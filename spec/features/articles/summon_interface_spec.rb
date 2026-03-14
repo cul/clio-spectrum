@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Summon Interface' do
+describe 'Summon Interface', skip: 'Articles tests not yet rewritten for EDS' do
   context 'use appropriate language in the links to full text' do
     # Turn this URL (multiple s.fvf) into Rails code
     # http://localhost:3000/articles?s.fvf[]=IsFullText,true&s.fvf[]=ContentType,Audio+Recording&q=

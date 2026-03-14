@@ -15,16 +15,15 @@
     = link_to "My Saved Lists", lists_path
   
 
-  // %p= "Barcode: #{@user['barcode']}"
-  - if @snooping
+  - if @snooping && @user
     .alert.alert-danger
       %strong 
         YOU ARE VIEWING BORROWING ACCOUNT FOR ANOTHER USER:
         %br
         = user_display_name(@user)
-        = "-- barcode:  " + @user['barcode']
+        = "-- barcode:  " + @user['barcode'].to_s
         %br
-        = "FOLIO ID:  " + @user['id']
+        = "FOLIO ID:  " + @user['id'].to_s
 
   - if @blocks.length > 0
     %br
