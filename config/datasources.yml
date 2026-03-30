@@ -24,7 +24,7 @@ datasources:
   articles:
     name: Articles+
     title: Articles+
-    description: Articles, e-books, dissertations, music, images, and more from a mostly full-text database
+    description: Articles, e-books, images, and more from a mostly full-text database
     warningXX: We are currently experiencing performance problems with this datasource.  We are working with the vendor to resolve this issue.
     render_options:
       format: article
