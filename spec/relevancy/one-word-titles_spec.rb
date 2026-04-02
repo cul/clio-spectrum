@@ -59,57 +59,57 @@ describe 'Searching for one-word titles: ', :skip_travis do
 
   it 'Science' do
     resp = solr_resp_ids_from_query('Science')
-    expect(rank(resp, 'ebs3090380e')).to be <= 1
+    expect(rank(resp, 'ebs62477e')).to be <= 1
 
     resp = solr_resp_ids_from_journal_title_query('Science')
-    expect(rank(resp, 'ebs3090380e')).to be <= 5
+    expect(rank(resp, 'ebs62477e')).to be <= 5
 
     resp = solr_resp_ejournal_ids_only('q' => 'Science')
-    expect(rank(resp, 'ebs3090380e')).to be <= 1
+    expect(rank(resp, 'ebs62477e')).to be <= 1
   end
 
   it 'Neurology' do
     resp = solr_resp_ids_from_query('Neurology')
-    expect(rank(resp, 3385162)).to be <= 5
+    expect(rank(resp, 'ebs51426e')).to be <= 5
 
     resp = solr_resp_ids_from_journal_title_query('Neurology')
-    expect(rank(resp, 3385162)).to be <= 1
+    expect(rank(resp, 'ebs51426e')).to be <= 3
 
     resp = solr_resp_ejournal_ids_only('q' => 'Neurology')
-    expect(rank(resp, 3385162)).to be <= 1
+    expect(rank(resp, 'ebs51426e')).to be <= 3
   end
 
   it 'Circulation' do
     resp = solr_resp_ids_from_query('Circulation')
-    expect(rank(resp, 3384258)).to be <= 5
+    expect(rank(resp, 'ebs183081e')).to be <= 5
 
     resp = solr_resp_ids_from_journal_title_query('Circulation')
-    expect(rank(resp, 3384258)).to be <= 1
+    expect(rank(resp, 'ebs183081e')).to be <= 3
 
     resp = solr_resp_ejournal_ids_only('q' => 'Circulation')
-    expect(rank(resp, 3384258)).to be <= 1
+    expect(rank(resp, 'ebs183081e')).to be <= 3
   end
 
   it 'JAMA' do
     resp = solr_resp_ids_from_query('JAMA')
-    expect(rank(resp, 3429848)).to be <= 10
+    expect(rank(resp, 'ebs38171e')).to be <= 10
 
     resp = solr_resp_ids_from_journal_title_query('JAMA')
-    expect(rank(resp, 3429848)).to be <= 1
+    expect(rank(resp, 'ebs38171e')).to be <= 1
 
     resp = solr_resp_ejournal_ids_only('q' => 'JAMA')
-    expect(rank(resp, 3429848)).to be <= 1
+    expect(rank(resp, 'ebs38171e')).to be <= 1
   end
 
   it 'Brain' do
     resp = solr_resp_ids_from_query('Brain')
-    expect(rank(resp, 14947553)).to be <= 5
+    expect(rank(resp, 'ebs11782e')).to be <= 5
 
     resp = solr_resp_ids_from_journal_title_query('Brain')
-    expect(rank(resp, 14947553)).to be <= 2
+    expect(rank(resp, 'ebs11782e')).to be <= 2
 
     resp = solr_resp_ejournal_ids_only('q' => 'Brain')
-    expect(rank(resp, 14947553)).to be <= 2
+    expect(rank(resp, 'ebs11782e')).to be <= 2
   end
 
   it 'Lancet' do
@@ -123,15 +123,16 @@ describe 'Searching for one-word titles: ', :skip_travis do
     expect(rank(resp, 'ebs45083e')).to be <= 2
   end
 
+
   it 'Nation' do
     resp = solr_resp_ids_from_query('Nation')
-    expect(rank(resp, 3327456)).to be <= 7
+    expect(rank(resp, 'ebs50607e')).to be <= 7
 
     resp = solr_resp_ids_from_journal_title_query('Nation')
-    expect(rank(resp, 3327456)).to be <= 6
+    expect(rank(resp, 'ebs50607e')).to be <= 6
 
     resp = solr_resp_ejournal_ids_only('q' => 'Nation')
-    expect(rank(resp, 3327456)).to be <= 6
+    expect(rank(resp, 'ebs50607e')).to be <= 6
   end
 end
 

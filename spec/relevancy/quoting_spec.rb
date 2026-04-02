@@ -33,6 +33,7 @@ describe 'Apostrophe-like character searching', :skip_travis do
       # puts "quoted lookalike=[#{lookalike}]"
       query = "Qur#{lookalike}anic and non-Qur#{lookalike}anic Islam"
       resp = solr_resp_doc_ids_only('q' => '"' + query + '"')
+      print("\n" + resp.to_s + "\n")
       expect(rank(resp, 2043563)).to be < 10
     end
   end
