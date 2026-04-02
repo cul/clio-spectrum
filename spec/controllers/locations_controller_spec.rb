@@ -11,22 +11,12 @@ describe LocationsController do
 
   context "\nYou may need to run 'rake hours:update_all RAILS_ENV=test' and 'rake locations:load RAILS_ENV=test'.  See README.\n" do
     describe 'build_markers ' do
+
       it 'should query the Library API', focus: false do
-        api_query = controller.library_api_path, { params: { qt: 'location', locationID: 'alllocations' } }
-        expect(RestClient).to receive(:get).with(api_query[0], api_query[1]).and_call_original
+        api_query = controller.library_api_path
+        expect(RestClient).to receive(:get).with(api_query).and_call_original
         controller.build_markers
       end
-
-      # Bogus test - there's no guarantee of the order of locations in the array of location-markers
-      # it 'assigns current marker' do
-      #   controller.build_markers
-      #   # What's the numeric position of "avery" in an
-      #   # alphabetical list of markers?
-      #   # expect(assigns(:current_marker_index)).to eq(0)
-      #   # Now that "art-properties" has been added,
-      #   # "avery" is bumped to array index position 1
-      #   expect(assigns(:current_marker_index)).to eq(1)
-      # end
 
       it 'should not have a marker for location that does not have a map' do
         markers = controller.build_markers
@@ -47,7 +37,7 @@ describe LocationsController do
       it 'returns the production path when config variable is missing' do
         allow(APP_CONFIG).to receive(:has_key?).with('library_api_path').and_return(false)
         path = controller.library_api_path
-        expect(path).to eq('https://api.library.columbia.edu/query.json')
+        expect(path).to eq('https://api.library.columbia.edu/locations/v2/query.json')
       end
     end
   end
