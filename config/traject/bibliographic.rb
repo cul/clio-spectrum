@@ -587,6 +587,15 @@ end
 #   end
 # end
 
+# ======  FOLIO  ======
+to_field 'instance_uuid_s' do |record, accumulator|
+  record.fields('999').each do |field999|
+    next unless field999.indicator1 == 'f'
+    next unless field999.indicator2 == 'f'
+    accumulator << field999['i']
+  end
+end
+
 
 
 # Broken during multi-threaded indexing
