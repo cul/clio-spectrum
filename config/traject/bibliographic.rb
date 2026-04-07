@@ -157,7 +157,7 @@ to_field 'title_first_facet', marc_sortable_title do |_record, accumulator|
     end
   end
 end
-to_field 'title_addl_txt', extract_marc("245abnps:130#{ATOZ}:240abcdefgklmnopqrs:210ab:222ab:242abnp:243abcdefgklmnopqrs:246abcdefgnp:247abcdefgnp:780#{ATOZ}:785#{ATOZ}:700gklmnoprst:710fgklmnopqrst:711fgklnpst:730abcdefgklmnopqrst:740anp", trim_punctuation: false, alternate_script: true)
+to_field 'title_addl_txt', extract_marc("245abnps:130#{ATOZ}:240abcdefgklmnopqrs:210ab:222ab:242abnp:243abcdefgklmnopqrs:246abcdefgnp:247abcdefgnp:505t:780#{ATOZ}:785#{ATOZ}:700gklmnoprst:710fgklmnopqrst:711fgklnpst:730abcdefgklmnopqrst:740anp", trim_punctuation: false, alternate_script: true)
 
 # NEXT-2029 - records not found in "series" text search
 # to_field 'title_series_txt', extract_marc("830#{ATOZ}", trim_punctuation: true, alternate_script: true)
@@ -586,6 +586,15 @@ end
 #     end
 #   end
 # end
+
+# ======  FOLIO  ======
+to_field 'instance_uuid_s' do |record, accumulator|
+  record.fields('999').each do |field999|
+    next unless field999.indicator1 == 'f'
+    next unless field999.indicator2 == 'f'
+    accumulator << field999['i']
+  end
+end
 
 
 

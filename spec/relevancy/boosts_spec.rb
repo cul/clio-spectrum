@@ -38,7 +38,7 @@ describe 'Boosts', :skip_travis do
 
   it 'foreign affairs' do
     resp = solr_resp_doc_ids_only('q' => 'foreign affairs')
-    expect(rank(resp, 14948784)).to be <= 1
+    expect(rank(resp, 'ebs128532e')).to be <= 1
   end
 
   it 'morningstar' do
@@ -53,12 +53,12 @@ describe 'Boosts', :skip_travis do
 
   it 'science' do
     resp = solr_resp_doc_ids_only('q' => 'science')
-    expect(rank(resp, 14950826)).to be <= 1
+    expect(rank(resp, 'ebs62477e')).to be <= 1
   end
 
   it 'the new yorker' do
     resp = solr_resp_doc_ids_only('q' => 'the new yorker')
-    expect(rank(resp, 3327567)).to be <= 1
+    expect(rank(resp, 'ebs51980e')).to be <= 1
   end
 
   it 'naxos' do
@@ -70,12 +70,12 @@ describe 'Boosts', :skip_travis do
 
   it 'consumer reports' do
     resp = solr_resp_doc_ids_only('q' => 'consumer reports')
-    expect(rank(resp, 14948087)).to be <= 1
+    expect(rank(resp, 'ebs20270e')).to be <= 1
   end
 
   it 'harvard business review' do
     resp = solr_resp_doc_ids_only('q' => 'harvard business review')
-    expect(rank(resp, 4813595)).to be <= 1
+    expect(rank(resp, 'ebs32090e')).to be <= 1
   end
 
   it 'web of knowledge' do
@@ -86,7 +86,7 @@ describe 'Boosts', :skip_travis do
 
   it 'the economist' do
     resp = solr_resp_doc_ids_only('q' => 'the economist')
-    expect(rank(resp, 3325775)).to be <= 1
+    expect(rank(resp, 'ebs25136e')).to be <= 1
   end
 
   it 'cairn' do

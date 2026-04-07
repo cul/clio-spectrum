@@ -35,7 +35,8 @@ class LocationsController < ApplicationController
     if APP_CONFIG.key?('library_api_path') && APP_CONFIG['library_api_path']
       APP_CONFIG['library_api_path']
     else
-      'https://api.library.columbia.edu/query.json'
+      # 'https://api.library.columbia.edu/query.json'
+      'https://api.library.columbia.edu/locations/v2/query.json'
     end
   end
 
@@ -56,12 +57,14 @@ class LocationsController < ApplicationController
     begin
       # repeatedly re-fetch the full ALL-Location JSON...
       @library_api_return = JSON.parse(
-        RestClient.get(library_api_path,
-                       params: { qt: 'location', locationID: 'alllocations' })
+        RestClient.get(library_api_path)
       )
     rescue => ex
       Rails.logger.error "LocationsController error fetching location data from #{library_api_path}: #{ex.message}"
     end
+
+    # puts "@library_api_return:" + @library_api_return.to_s  # DEBUG
+
     # And get all location records...
     @locations = Location.all
     api_loc = library_api_info.select { |m| m['locationID'] == @location['location_code'] }

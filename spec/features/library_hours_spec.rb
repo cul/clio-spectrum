@@ -82,7 +82,7 @@ describe 'Item Locations should show correct library hours', :skip_travis do
     # expect(page).to have_text('Law Library')
     click_link('Treasure Room')
     expect(page).to have_text('Law Library')
-    expect(page).to have_text('Arthur W. Diamond')
+    expect(page).to have_text('Li Lu Law Library')
     expect(page).to have_text('Jerome Greene Hall')
     # page.save_and_open_page # debug
     expect(page).to have_link('Home Page', href: 'https://www.law.columbia.edu/library')
