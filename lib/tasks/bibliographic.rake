@@ -149,6 +149,12 @@ namespace :bibliographic do
     desc 'process deletes file'
     task deletes: :environment do
       setup_ingest_logger
+      Rails.logger.info('---- begin task bibliographic:extract:deletes')
+
+      Rails.logger.debug('---- turning off http(s)_proxy (squid)')
+      ENV.delete('http_proxy')
+      ENV.delete('https_proxy')
+
       extract = EXTRACTS.find { |x| x == ENV['EXTRACT'] }
       extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*delete*")) if extract
       files_to_read = (ENV['DELETES_FILE'] || extract_files).listify.sort
