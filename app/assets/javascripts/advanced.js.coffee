@@ -14,6 +14,6 @@ $ ->
 
   $('.advanced_search_toggle_bis').click ->
     parent = $(this).parents('.landing_page.catalog')
-    parent.find('.advanced_search .search_box').toggle()
-    parent.find('.basic_search .search_box').toggle()
+    parent.find('.advanced_search .search_box').show()
+    parent.find('.basic_search .search_box').hide()
 
