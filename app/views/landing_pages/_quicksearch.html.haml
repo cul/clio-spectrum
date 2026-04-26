@@ -6,30 +6,22 @@
 
     = render partial: '/datasource_warning', locals: {warning: warning}
 
-    %p Quicksearch performs a combined search of:
- 
-    %dl.dl-horizontal
-      %dt #{datasource_switch_link('Catalog', 'catalog')}
-      %dd Books, journals, U.S. government information, online resources, videos, and more
-      %dt #{datasource_switch_link('Articles+', 'articles')}
-      %dd Journal articles, e-books, dissertations, and more
-      -# %dt #{datasource_switch_link('Academic Commons', 'academic_commons')}
-      %dt #{datasource_switch_link('Academic Commons', 'ac')}
-      %dd Digital repository of Columbia research
-      -# %dt #{datasource_switch_link('Libraries Website', 'library_web')}
-      %dt #{datasource_switch_link('Libraries Website', 'lweb')}
-      %dd Information about the libraries from the Libraries Website
-      %dt #{datasource_switch_link('GeoData', 'geo')}
-      %dd Columbia's catalog of geospatial data sets
+    %p Quicksearch searches across many collections at once.
+    %p Best for: exploring a subject, getting an overview, finding various types of sources.
+    %h4 What can you find with Quicksearch?
+    %ul
+      %li Physical and electronic books and media
+      %li Journal articles and scholarly publications
+      %li Columbia's digital collections and research
+      %li Library website content
+      %li Maps and datasets
+    %h4 Need something more specific?
+    %p For advanced search options or to narrow your search, choose from the Source menu on the left.
 
   .landing_side.col-sm-4
     .well.sidebar-nav
       .nav
         %ul.nav.nav-list
-          %li.nav-header Guide
-          %li=link_to "Search Tips", "https://blogs.cul.columbia.edu/clio/guides/quicksearch-guide/", :target => "_blank"
-          %li.nav-divider
-
-        %ul.nav.nav-list
-          %li.nav-header Related Links
-          %li=link_to "CLIO News ", "https://blogs.cul.columbia.edu/clio/"
+          %li.nav-header Need Help?
+          %li=link_to "Guide: Searching in CLIO", " https://library.columbia.edu/collections/search/search-clio.html"
+          %li=link_to "Ask a Librarian", " https://resolver.library.columbia.edu/lweb0031"
