@@ -93,6 +93,10 @@ class SolrDocument
       serialized.scan(/\|(\w)\|([^\|]*)/) { |code, value|
         item[code] = value
       }
+      
+      # It's only valid if it has both an item id and a holding id
+      next if item['0'].blank? || item['a'].blank?
+      
       items << item if holding_id.blank? || holding_id == item['0']
     end
     return items

@@ -544,6 +544,8 @@ end
 # Raw data from holdings fields within this record
 to_field 'items_ss' do |record, accumulator|
   record.fields('876').each do |field876|
+    # It's only valid if it has both an item id and a holding id
+    next unless field876 && field876['0'] && field876['a']
     serialized = ""
     field876.subfields.each do |subfield|
       serialized.concat("|#{subfield.code}|#{subfield.value}")
@@ -557,7 +559,8 @@ end
 to_field 'items_i' do |record, accumulator|
   count = 0
   record.fields('876').each do |field876|
-    next unless field876 && field876['a']
+    # It's only valid if it has both an item id and a holding id
+    next unless field876 && field876['0'] && field876['a']
     count += 1
   end
   accumulator << count
