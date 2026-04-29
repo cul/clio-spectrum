@@ -254,7 +254,7 @@ module Folio
     def self.get_availability_without_boundwith(bib_id)
       return {} unless bib_id
       
-      Rails.logger.debug("entered get_availability(#{bib_id})")
+      Rails.logger.debug("Folio::Client.get_availability_without_boundwith(#{bib_id})")
       availability = {}
       availability[bib_id] ||= {}
 
@@ -317,7 +317,7 @@ module Folio
     def self.get_availability(bib_id)
       return {} unless bib_id
 
-      Rails.logger.debug("entered get_availability(#{bib_id})")
+      Rails.logger.debug("Folio::Client.get_availability(#{bib_id})")
       availability = { bib_id => {} }
 
       # 1. Fetch instance-set (normal holdings/items)
