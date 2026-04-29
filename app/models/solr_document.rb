@@ -142,21 +142,27 @@ class SolrDocument
     return false unless self[:location_facet].present?
 
     # string regexp against the location-facet field
-    self.fetch(:location_facet, nil) do |location_facet|
+    Array(self[:location_facet]).each do |location_facet|
       return true if location_facet =~ /^Offsite/
       return true if location_facet =~ /ReCAP/i
       # (this should not really happen)
       return true if location_facet =~ /scsb/i
     end
 
-    # string regexp against the location display/code field
-    self.fetch(:location_txt, nil) do |location_txt|
-      # LIBSYS-8137 - assume all "off*" locations are Offsite
-      return true if location_txt =~ / off,/
+    # TODO - location_txt is NOT a returned field from Solr search
+    # # string regexp against the location display/code field
+    # self.fetch(:location_txt, nil) do |location_txt|
+    #   # LIBSYS-8137 - assume all "off*" locations are Offsite
+    #   return true if location_txt =~ / off,/
+    #   # LIBSYS-8169 - Law Support
+    #   return true if location_txt =~ /lawgnofr|lawspofr|lawcdofr/
+    # end
+
+    Array(self[:location_call_number_id_display]).each do |location_portmanteau|
       # LIBSYS-8169 - Law Support
-      return true if location_txt =~ /lawgnofr|lawspofr|lawcdofr/
+      return true if location_portmanteau =~ /Law.*Offsite/
     end
-    
+
     # No offsite location found
     false
   end
