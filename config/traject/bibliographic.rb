@@ -106,6 +106,9 @@ to_field 'text', extract_all_marc_values(from: '010', to: '852') do |record, acc
   extra_fields << Marc21.extract_marc_from(record, '960u')
   # 992$a - Normalized Location Name (location facet term)
   extra_fields << Marc21.extract_marc_from(record, '992a')
+  # 999$i - FOLIO Instance and Item UUIDs
+  extra_fields << Marc21.extract_marc_from(record, '999i')
+  extra_fields << Marc21.extract_marc_from(record, '876a')
 
   accumulator << extra_fields.flatten.join(' ')
 end
