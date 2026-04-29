@@ -57,7 +57,7 @@ module Folio
       first_user = json_response["users"].first
       return first_user
     rescue StandardError => e
-      Rails.logger.error("get_user_by_username(#{username}) failed: #{e.class}: #{e.message}")
+      Rails.logger.error("Folio::Client.get_user_by_username(#{username}) failed: #{e.class}: #{e.message}")
       nil
     end
 
@@ -71,7 +71,7 @@ module Folio
       all_open_loans = json_response["loans"]
       return all_open_loans
     rescue StandardError => e
-      Rails.logger.error("get_loans_by_user_id(#{user_id}) failed: #{e.class}: #{e.message}")
+      Rails.logger.error("Folio::Client.get_loans_by_user_id(#{user_id}) failed: #{e.class}: #{e.message}")
       []
     end
     
@@ -85,7 +85,7 @@ module Folio
       all_open_requests = json_response["requests"]
       return all_open_requests
     rescue StandardError => e
-      Rails.logger.error("get_requests_by_user_id(#{user_id}) failed: #{e.class}: #{e.message}")
+      Rails.logger.error("Folio::Client.get_requests_by_user_id(#{user_id}) failed: #{e.class}: #{e.message}")
       []
     end
 
@@ -119,7 +119,7 @@ module Folio
 
       return all_blocks
     rescue StandardError => e
-      Rails.logger.error("get_blocks_by_user_id(#{user_id}) failed: #{e.class}: #{e.message}")
+      Rails.logger.error("Folio::Client.get_blocks_by_user_id(#{user_id}) failed: #{e.class}: #{e.message}")
       []
     end
 
@@ -173,7 +173,7 @@ module Folio
       token = FolioClient::Authenticator.token(login_params, connection)
       response = connection.delete(path, nil, { 'x-okapi-token': token })
     rescue StandardError => e
-      Rails.logger.error("delete_request(#{request_id}) failed: #{e.class}: #{e.message}")
+      Rails.logger.error("Folio::Client.delete_request(#{request_id}) failed: #{e.class}: #{e.message}")
       nil
     end
   
@@ -193,7 +193,7 @@ module Folio
         return {}
       end
     rescue StandardError => e
-      Rails.logger.error("get_instance_by_hrid(#{hrid}) failed: #{e.class}: #{e.message}")
+      Rails.logger.error("Folio::Client.get_instance_by_hrid(#{hrid}) failed: #{e.class}: #{e.message}")
       {}
     end
     
@@ -212,7 +212,7 @@ module Folio
       # success!
       return loan
     rescue StandardError => e
-      Rails.logger.error("get_loan_by_item(#{item_uuid}) failed: #{e.class}: #{e.message}")
+      Rails.logger.error("Folio::Client.get_loan_by_item(#{item_uuid}) failed: #{e.class}: #{e.message}")
       {}
     end
     
@@ -365,11 +365,11 @@ module Folio
       item_loans = get_item_loans(checked_out_items)
       add_loan_details(availability, item_loans)
 
-      Rails.logger.debug("get_availability(#{bib_id}) returning: #{availability}")
+      Rails.logger.debug("Folio::Client.get_availability(#{bib_id}) returning: #{availability}")
 
       return availability
     rescue StandardError => e
-      Rails.logger.error("get_availability(#{bib_id}) failed: #{e.class}: #{e.message}")
+      Rails.logger.error("Folio::Client.get_availability(#{bib_id}) failed: #{e.class}: #{e.message}")
       {}
     end
 
@@ -390,7 +390,7 @@ module Folio
       # raise
       # instance_set ? instance_set['items'] || [] : []
     rescue StandardError => e
-      Rails.logger.error("fetch_instance_set(#{bib_id}) failed: #{e.class}: #{e.message}")
+      Rails.logger.error("Folio::Client.fetch_instance_set(#{bib_id}) failed: #{e.class}: #{e.message}")
       nil
     end
 
@@ -431,7 +431,7 @@ module Folio
 
       all_bound_with_items
     rescue StandardError => e
-      Rails.logger.error("fetch_bound_with_items(#{holding_ids}) failed: #{e.class}: #{e.message}")
+      Rails.logger.error("Folio::Client.fetch_bound_with_items(#{holding_ids}) failed: #{e.class}: #{e.message}")
       []
     end
 
@@ -496,7 +496,7 @@ module Folio
 
       loans_by_item
     rescue StandardError => e
-      Rails.logger.error("get_item_loans(#{item_id_list}) failed: #{e.class}: #{e.message}")
+      Rails.logger.error("Folio::Client.get_item_loans(#{item_id_list}) failed: #{e.class}: #{e.message}")
       {}
     end
 
