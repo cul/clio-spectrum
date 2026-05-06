@@ -106,6 +106,9 @@ to_field 'text', extract_all_marc_values(from: '010', to: '852') do |record, acc
   extra_fields << Marc21.extract_marc_from(record, '960u')
   # 992$a - Normalized Location Name (location facet term)
   extra_fields << Marc21.extract_marc_from(record, '992a')
+  # 999$i - FOLIO Instance and Item UUIDs
+  extra_fields << Marc21.extract_marc_from(record, '999i')
+  extra_fields << Marc21.extract_marc_from(record, '876a')
 
   accumulator << extra_fields.flatten.join(' ')
 end
@@ -541,6 +544,8 @@ end
 # Raw data from holdings fields within this record
 to_field 'items_ss' do |record, accumulator|
   record.fields('876').each do |field876|
+    # It's only valid if it has both an item id and a holding id
+    next unless field876 && field876['0'] && field876['a']
     serialized = ""
     field876.subfields.each do |subfield|
       serialized.concat("|#{subfield.code}|#{subfield.value}")
@@ -554,7 +559,8 @@ end
 to_field 'items_i' do |record, accumulator|
   count = 0
   record.fields('876').each do |field876|
-    next unless field876 && field876['a']
+    # It's only valid if it has both an item id and a holding id
+    next unless field876 && field876['0'] && field876['a']
     count += 1
   end
   accumulator << count
@@ -588,11 +594,14 @@ end
 # end
 
 # ======  FOLIO  ======
+# Find the first 999 with indicators f,f and subfield $i (Instance)
 to_field 'instance_uuid_s' do |record, accumulator|
   record.fields('999').each do |field999|
     next unless field999.indicator1 == 'f'
     next unless field999.indicator2 == 'f'
+    next unless field999['i']
     accumulator << field999['i']
+    break
   end
 end
 

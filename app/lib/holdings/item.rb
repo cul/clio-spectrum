@@ -210,6 +210,9 @@ module Holdings
       bound_withs = []
 
       holdings_marc.each_by_tag('876') do |t876|
+        # It's only valid if it has both an item id and a holding id
+        next if t876['0'].blank? || t876['a'].blank?
+        
         # subfield x has barcode of primary item for bound-withs
         next unless t876['x'].present?
         # barcodes look like:  HR01335049, or 1001654853

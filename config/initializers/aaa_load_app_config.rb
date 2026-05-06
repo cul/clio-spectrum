@@ -37,7 +37,8 @@ DONOR_INFO ||= YAML.load(File.read(Rails.root.to_s + '/config/donor_info.yml'))
 
 ORDER_STATUS_CODES ||= YAML.load(File.read(Rails.root.to_s + '/config/order_status_codes.yml'))
 
-OFFSITE_CONFIG ||= YAML.load(File.read(Rails.root.to_s + '/config/offsite.yml'))
+# Not needed - assuming "off," is enough
+# OFFSITE_CONFIG ||= YAML.load(File.read(Rails.root.to_s + '/config/offsite.yml'))
 
 # Load our relevancy boosts - and force the keys to be strings, not integers
 BOOSTS_CONFIG ||= YAML.load(File.read(Rails.root.to_s + '/config/boosts.yml'))

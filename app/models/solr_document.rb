@@ -93,6 +93,10 @@ class SolrDocument
       serialized.scan(/\|(\w)\|([^\|]*)/) { |code, value|
         item[code] = value
       }
+      
+      # It's only valid if it has both an item id and a holding id
+      next if item['0'].blank? || item['a'].blank?
+      
       items << item if holding_id.blank? || holding_id == item['0']
     end
     return items
@@ -137,12 +141,26 @@ class SolrDocument
   def has_offsite_holdings?
     return false unless self[:location_facet].present?
 
-    # string regexp against the location field
-    self[:location_facet].each do |location_facet|
+    # string regexp against the location-facet field
+    Array(self[:location_facet]).each do |location_facet|
       return true if location_facet =~ /^Offsite/
       return true if location_facet =~ /ReCAP/i
       # (this should not really happen)
       return true if location_facet =~ /scsb/i
+    end
+
+    # TODO - location_txt is NOT a returned field from Solr search
+    # # string regexp against the location display/code field
+    # self.fetch(:location_txt, nil) do |location_txt|
+    #   # LIBSYS-8137 - assume all "off*" locations are Offsite
+    #   return true if location_txt =~ / off,/
+    #   # LIBSYS-8169 - Law Support
+    #   return true if location_txt =~ /lawgnofr|lawspofr|lawcdofr/
+    # end
+
+    Array(self[:location_call_number_id_display]).each do |location_portmanteau|
+      # LIBSYS-8169 - Law Support
+      return true if location_portmanteau =~ /Law.*Offsite/
     end
 
     # No offsite location found

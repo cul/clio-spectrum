@@ -112,7 +112,7 @@ module Recap
       Rails.logger.debug "- get_bib_availability(#{bibliographicId}, #{institutionId})"
 
       conn ||= open_connection
-      raise "get_bib_availability() bad connection [#{conn.inspect}]" unless conn
+      raise "Recap::ScsbRest.get_bib_availability() bad connection [#{conn.inspect}]" unless conn
 
       get_scsb_rest_args
       path = @scsb_args[:bib_availability_path]
@@ -121,7 +121,7 @@ module Recap
         institutionId:   institutionId
       }
       # Noisy debugging when needed
-      Rails.logger.debug "get_bib_availability(#{bibliographicId}) calling SCSB REST API with params #{params.inspect}"
+      Rails.logger.debug "Recap::ScsbRest.get_bib_availability(#{bibliographicId}) calling SCSB REST API with params #{params.inspect}"
       response = conn.post path, params.to_json
       Rails.logger.debug "SCSB response status: #{response.status}"
       Rails.logger.debug "SCSB response body: #{response.body}"
