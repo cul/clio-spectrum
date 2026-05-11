@@ -36,7 +36,7 @@ author:
         search: abcdfgjklnpqtu
     -   tag: 111
         display: acdefgjklnpqtu
-        search: acdefgjklnpqtu
+        search:  acdefgklnpqtu
 author_other:
     -   tag: 700
         ind1: :all
@@ -47,12 +47,12 @@ author_other:
         ind1: :all
         ind2: ' 013'
         display: abcdefghklmnoprstu
-        search: abcdefghklmnoprstu
+        search: abcdfgjklnpqtu
     -   tag: 711
         ind1: :all
         ind2: ' 013'
         display: acdefghjklnpqstu
-        search: acdefghjklnpqstu
+        search: acdefgklnpqtu
 biographical_historical_note:
     -   tag: 545
         display: ab
@@ -138,7 +138,7 @@ creator:
         ind1: :all
         ind2: ' 013'
         display: abcdefghklmnoprstu
-        search: abcdefghklmnoprstu
+        search: abcdfgjklnpqtu
 credit_line:
     -   tag: 541
         ind1: ' 1'
