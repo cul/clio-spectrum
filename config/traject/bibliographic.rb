@@ -92,23 +92,28 @@ to_field 'text', extract_all_marc_values(from: '010', to: '852') do |record, acc
 
   # 856$z - Electronic Location and Access / Public note
   extra_fields << Marc21.extract_marc_from(record, '856z')
+  # 876$a - Item UUID
+  extra_fields << Marc21.extract_marc_from(record, '876a')
   # 876$p - Barcode
   extra_fields << Marc21.extract_marc_from(record, '876p')
+  # 876$x - CGD, or, bound-with barcode
+  extra_fields << Marc21.extract_marc_from(record, '876x')
   # 891$c, $a, $e - Donor Info ('Gift', donor name, donor code)
   extra_fields << Marc21.extract_marc_from(record, '891cdae')
   # 948$A-Z - Processing Information
   extra_fields << Marc21.extract_marc_from(record, "948#{ATOZ}")
-  # 965$a - Collection Description
-  extra_fields << Marc21.extract_marc_from(record, '965a')
+  # 955 - EBSCO HLM details (resource type and marc source)
+  extra_fields << Marc21.extract_marc_from(record, '955a2')
   # 960$f - Invoice Number
   extra_fields << Marc21.extract_marc_from(record, '960f')
   # 960$u - Fund Code
   extra_fields << Marc21.extract_marc_from(record, '960u')
+  # 965$a - Collection Description
+  extra_fields << Marc21.extract_marc_from(record, '965a')
   # 992$a - Normalized Location Name (location facet term)
   extra_fields << Marc21.extract_marc_from(record, '992a')
   # 999$i - FOLIO Instance and Item UUIDs
   extra_fields << Marc21.extract_marc_from(record, '999i')
-  extra_fields << Marc21.extract_marc_from(record, '876a')
 
   accumulator << extra_fields.flatten.join(' ')
 end
