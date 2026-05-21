@@ -112,6 +112,8 @@ to_field 'text', extract_all_marc_values(from: '010', to: '852') do |record, acc
   extra_fields << Marc21.extract_marc_from(record, '965a')
   # 992$a - Normalized Location Name (location facet term)
   extra_fields << Marc21.extract_marc_from(record, '992a')
+  # 997$a - Law Holding Note - and CLIO Acquisition Date
+  extra_fields << Marc21.extract_marc_from(record, '997a')
   # 999$i - FOLIO Instance and Item UUIDs
   extra_fields << Marc21.extract_marc_from(record, '999i')
 
@@ -310,9 +312,12 @@ to_field 'lc_subclass_facet', extract_marc('990a', translation_map: 'callnumber_
 # to_field 'clio_id_display', extract_marc('001', first: true, trim_punctuation: true)
 
 to_field 'acq_dt' do |record, accumulator|
-  tag997a = Marc21.extract_marc_from(record, '997a', first: true, trim_punctuation: true).first
-  # Acquisition Date ("Recently Added") should look like:  2017-08-20T00:00:00.000Z
-  accumulator << tag997a if tag997a =~ /[\d\-]+T[\d\:\.]+Z/
+  Marc21.extract_marc_from(record, '997a', trim_punctuation: true).each do |tag997a|
+    # Acquisition Date ("Recently Added") should look like:  2017-08-20T00:00:00.000Z
+    if tag997a =~ /[\d\-]+T[\d\:\.]+Z/
+      accumulator << tag997a 
+    end
+  end
 end
 
 to_field 'source_facet', extract_marc('995a', trim_punctuation: true)
