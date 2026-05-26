@@ -103,25 +103,25 @@ continued_by:
         ind1: :all
         ind2: '0'
         display: abcdghkmnst
-        search: t
+        search: st
 continued_in_part_by:
     -   tag: 785
         ind1: :all
         ind2: '1'
         display: abcdghkmnst
-        search: t
+        search: st
 continues:
     -   tag: 780
         ind1: :all
         ind2: '0'
         display: abcdghkmnst
-        search: t
+        search: st
 continues_in_part:
     -   tag: 780
         ind1: :all
         ind2: '1'
         display: abcdghkmnst
-        search: t
+        search: st
 creator:
     -   tag: 100
         display: abcdefgjklnpqtu
