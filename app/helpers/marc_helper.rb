@@ -131,9 +131,11 @@ module MarcHelper
       if search_subfields.present?
         search = select_subfields(field, search_subfields)
 
-        # The display field is html-escaped. the search data should be as-is.
-        # Combine carefully to avoid rails auto-escaping.
-        display = raw("#{display}#{DELIM}#{search}")
+        if search.present?
+          # The display field is html-escaped. the search data should be as-is.
+          # Combine carefully to avoid rails auto-escaping.
+          display = raw("#{display}#{DELIM}#{search}")
+        end
       end
     end
     display
