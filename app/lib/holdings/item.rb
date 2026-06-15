@@ -371,6 +371,14 @@ module Holdings
           item_status = "Overdue as of " + format_datetime(item['loanDueDate'])
         end
       end
+      
+      
+      if item_status == 'Available' and item['returnDate'].present? and not Rails.env.clio_prod?
+        if Time.parse(item['returnDate']) > 8.hours.ago
+          item_status = "Returned: " + format_datetime(item['returnDate'])
+        end
+      end
+      
 
       if item_status == 'Unavailable' and item['itemStatusDate'].present?
         item_status = item_status + ' ' + format_datetime(item['itemStatusDate'])

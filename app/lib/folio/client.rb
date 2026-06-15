@@ -251,66 +251,68 @@ module Folio
     # {{baseUrl}} /inventory-view/instance-set?  
     #   instance=false&holdingsRecords=false&items=true&limit=1&
     #   query=( hrid == "12950010" not discoverySuppress=="true" )
-    def self.get_availability_without_boundwith(bib_id)
-      return {} unless bib_id
-      
-      Rails.logger.debug("Folio::Client.get_availability_without_boundwith(#{bib_id})")
-      availability = {}
-      availability[bib_id] ||= {}
 
-      toggles = 'instance=false&holdingsRecords=false&items=true'
-      query = '( hrid=="' + bib_id + '" not discoverySuppress=="true" )'
-      path = "/inventory-view/instance-set?#{toggles}&query=#{query}&limit=1"
-      @folio_client ||= folio_client
-      folio_response = @folio_client.get(path)
-
-      instance_set = folio_response['instanceSets'][0]
-
-      # instance_id = instance_set['id']  # instance UUID - do we need it?
-      
-      item_list = item_list = instance_set['items']
-      
-      # Sort items by enum/chron for better user-facing display
-      item_list = item_list.sort_by { |item| self.natural_sort_key(item) }
-      
-      # For any items which are checked-out, 
-      # we need to find out the patron and due-date.
-      checked_out_items = []
-      
-      item_list.each do |item|
-
-        # Is this Item suppressed?  Skip it.
-        next if item['discoverySuppress']
-        
-        # get UUID of Holding, create empty hash (if needed)
-        holding_id = item['holdingsRecordId']
-        availability[bib_id][holding_id] ||= {}
-
-        # get the UUID of this item, create empty hash
-        item_id = item['id']
-        availability[bib_id][holding_id][item_id] ||= {}
-
-        # Now, finally, gather the data elements we care about
-        availability[bib_id][holding_id][item_id]['itemStatus'] = item['status']['name']
-        availability[bib_id][holding_id][item_id]['itemStatusDate'] = item['status']['date']
-        availability[bib_id][holding_id][item_id]['itemLabel'] = self.build_item_label(item)
-
-
-        checked_out_items << item_id if (item['status']['name'] == 'Checked out')
-      end
-
-      # For checked-out items we need loan details
-      # - patron-name for any status patron check-outs, due-date, etc.
-      item_loans = get_item_loans(checked_out_items)
-      
-      # Add loan-related details for any checked-out items
-      availability = add_loan_details(availability, item_loans)
-      
-      return availability
-    rescue StandardError => e
-      Rails.logger.error("get_availability_without_boundwith(#{bib_id}) failed: #{e.class}: #{e.message}")
-      {}
-    end
+    # REPLACED BY get_availability(), below
+    # def self.Xget_availability_without_boundwith(bib_id)
+    #   return {} unless bib_id
+    #
+    #   Rails.logger.debug("Folio::Client.get_availability_without_boundwith(#{bib_id})")
+    #   availability = {}
+    #   availability[bib_id] ||= {}
+    #
+    #   toggles = 'instance=false&holdingsRecords=false&items=true'
+    #   query = '( hrid=="' + bib_id + '" not discoverySuppress=="true" )'
+    #   path = "/inventory-view/instance-set?#{toggles}&query=#{query}&limit=1"
+    #   @folio_client ||= folio_client
+    #   folio_response = @folio_client.get(path)
+    #
+    #   instance_set = folio_response['instanceSets'][0]
+    #
+    #   # instance_id = instance_set['id']  # instance UUID - do we need it?
+    #
+    #   item_list = item_list = instance_set['items']
+    #
+    #   # Sort items by enum/chron for better user-facing display
+    #   item_list = item_list.sort_by { |item| self.natural_sort_key(item) }
+    #
+    #   # For any items which are checked-out,
+    #   # we need to find out the patron and due-date.
+    #   checked_out_items = []
+    #
+    #   item_list.each do |item|
+    #
+    #     # Is this Item suppressed?  Skip it.
+    #     next if item['discoverySuppress']
+    #
+    #     # get UUID of Holding, create empty hash (if needed)
+    #     holding_id = item['holdingsRecordId']
+    #     availability[bib_id][holding_id] ||= {}
+    #
+    #     # get the UUID of this item, create empty hash
+    #     item_id = item['id']
+    #     availability[bib_id][holding_id][item_id] ||= {}
+    #
+    #     # Now, finally, gather the data elements we care about
+    #     availability[bib_id][holding_id][item_id]['itemStatus'] = item['status']['name']
+    #     availability[bib_id][holding_id][item_id]['itemStatusDate'] = item['status']['date']
+    #     availability[bib_id][holding_id][item_id]['itemLabel'] = self.build_item_label(item)
+    #
+    #
+    #     checked_out_items << item_id if (item['status']['name'] == 'Checked out')
+    #   end
+    #
+    #   # For checked-out items we need loan details
+    #   # - patron-name for any status patron check-outs, due-date, etc.
+    #   item_loans = get_item_loans(checked_out_items)
+    #
+    #   # Add loan-related details for any checked-out items
+    #   availability = add_loan_details(availability, item_loans)
+    #
+    #   return availability
+    # rescue StandardError => e
+    #   Rails.logger.error("get_availability_without_boundwith(#{bib_id}) failed: #{e.class}: #{e.message}")
+    #   {}
+    # end
 
 
     # Replacement for Voyager-based circ_status, now includes bound-withs
@@ -340,8 +342,9 @@ module Folio
                     .uniq { |it| it['id'] } # deduplicate by item UUID
                     .sort_by { |item| natural_sort_key(item) }
 
-      # 5. Collect checked-out items to get loan details
+      # 5. Collect checked-out/available items to get loan details
       checked_out_items = []
+      available_items = []
 
       all_items.each do |item|
         next if item['discoverySuppress']
@@ -359,11 +362,13 @@ module Folio
         availability[bib_id][holding_id][item_id]['itemLabel']      = build_item_label(item)
 
         checked_out_items << item_id if status['name'] == 'Checked out'
+        available_items << item_id if status['name'] == 'Available'
       end
 
       # 6. Fetch and merge loan details
       item_loans = get_item_loans(checked_out_items)
-      add_loan_details(availability, item_loans)
+      item_checkins = get_item_checkins(available_items)
+      add_loan_details(availability, item_loans, item_checkins)
 
       Rails.logger.debug("Folio::Client.get_availability(#{bib_id}) returning: #{availability}")
 
@@ -437,7 +442,7 @@ module Folio
 
 
 
-    def self.add_loan_details(availability, loans_by_item)
+    def self.add_loan_details(availability, loans_by_item, checkins_by_item)
       # loans_by_item: { itemId => { 'dueDate' => ..., 'borrower' => ..., ... } }
       availability.each do |instance_id, holdings|
         holdings.each do |holding_id, items|
@@ -463,6 +468,10 @@ module Folio
                   loan.dig('borrower', 'firstName').to_s.strip
                 ].join(' ').strip
               end
+            end
+            if checkins_by_item.key?(item_id)
+              checkin = checkins_by_item[item_id]
+              item_data['returnDate'] = checkin['returnDate']              
             end
           end
         end
@@ -500,6 +509,30 @@ module Folio
       {}
     end
 
+    def self.get_item_checkins(item_id_list)
+      return {} if item_id_list.blank?
+      item_id_list = Array(item_id_list)
+      @folio_client ||= folio_client
+      all_loans = []
+
+      item_id_list.each_slice(10) do |batch|
+        item_query_clause = batch.map { |id| "itemId==#{id}" }.join(" or ")
+        query = "(status=\"Closed\" and (#{item_query_clause}))"
+        path = "/circulation/loans?query=#{query}&orderBy=returnDate&order=desc&limit=1000"
+        folio_response = @folio_client.get(path)
+        loans = folio_response['loans'] || []
+        all_loans.concat(loans)
+      end
+
+      checkins_by_item = {}
+      all_loans.each do |loan|
+        checkins_by_item[loan['itemId']] ||= loan
+      end
+      checkins_by_item
+    rescue StandardError => e
+      Rails.logger.error("Folio::Client.get_item_checkins(#{item_id_list}) failed: #{e.class}: #{e.message}")
+      {}
+    end
 
 
     def self.natural_sort_key(item)
