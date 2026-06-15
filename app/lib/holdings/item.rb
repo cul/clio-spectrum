@@ -372,7 +372,7 @@ module Holdings
         end
       end
       
-      
+      # NEXT-2036 - time stamp for recently checked in items
       if item_status == 'Available' and item['returnDate'].present? and not Rails.env.clio_prod?
         if Time.parse(item['returnDate']) > 8.hours.ago
           item_status = "Returned: " + format_datetime(item['returnDate'])
