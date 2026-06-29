@@ -60,7 +60,9 @@ $(document).ready(function() {
     // what the user sees at all, only on the managed key search terms.
     // datumTokenizer: Bloodhound.tokenizers.obj.whitespace('keywords'),
     // Use the pre-cooked "tokens" - split on commas, spaces removed
-    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('tokens'),
+    // datumTokenizer: Bloodhound.tokenizers.obj.whitespace('tokens'),
+    // NEXT-2141: Add title to the list of searched fields
+    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('tokens', 'title'),
 
     // Sort suggestions by their Title field, alphabetically
     sorter: function (a, b) {
