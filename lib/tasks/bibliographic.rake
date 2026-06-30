@@ -233,20 +233,24 @@ namespace :bibliographic do
 
       # If blacklight.yml configuration has:
       #   http://username:password@URL
-      # then pull out username and password, 
-      # and pass them along appropriatlly for Traject (in indexer.settings)
+      # then pull out username and password to setup basic auth 
       indexing_url = Blacklight.connection_config[:indexing_url] || Blacklight.connection_config[:url]
       parsed_url = URI.parse(indexing_url)
       solr_user = parsed_url.user
       solr_password = parsed_url.password
       parsed_url.user = parsed_url.password = nil  # strip credentials back out of the URL itself
 
+      http_client = HTTPClient.new
+      if solr_user
+        http_client.set_auth(parsed_url.to_s, solr_user, solr_password)
+        http_client.force_basic_auth = true
+      end
+
       # explicity set the settings
       indexer.settings do
         # provide 'solr.url', Blacklight.connection_config[:indexing_url] || Blacklight.connection_config[:url]
         provide 'solr.url', parsed_url.to_s
-        provide 'solr_writer.basic_auth_user', solr_user if solr_user
-        provide 'solr_writer.basic_auth_password', solr_password if solr_password
+        provide 'solr_json_writer.http_client', http_client
         provide 'debug_ascii_progress', true
         # 'debug' to see full traject options
         provide 'log.level', 'info'
