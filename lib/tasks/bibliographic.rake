@@ -231,9 +231,22 @@ namespace :bibliographic do
       # create new traject indexer
       indexer = Traject::Indexer.new
 
+      # If blacklight.yml configuration has:
+      #   http://username:password@URL
+      # then pull out username and password, 
+      # and pass them along appropriatlly for Traject (in indexer.settings)
+      indexing_url = Blacklight.connection_config[:indexing_url] || Blacklight.connection_config[:url]
+      parsed_url = URI.parse(indexing_url)
+      solr_user = parsed_url.user
+      solr_password = parsed_url.password
+      parsed_url.user = parsed_url.password = nil  # strip credentials back out of the URL itself
+
       # explicity set the settings
       indexer.settings do
-        provide 'solr.url', Blacklight.connection_config[:indexing_url] || Blacklight.connection_config[:url]
+        # provide 'solr.url', Blacklight.connection_config[:indexing_url] || Blacklight.connection_config[:url]
+        provide 'solr.url', parsed_url.to_s
+        provide 'solr_writer.basic_auth_user', solr_user if solr_user
+        provide 'solr_writer.basic_auth_password', solr_password if solr_password
         provide 'debug_ascii_progress', true
         # 'debug' to see full traject options
         provide 'log.level', 'info'
