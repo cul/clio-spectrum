@@ -249,7 +249,8 @@ namespace :bibliographic do
       # explicity set the settings
       indexer.settings do
         # provide 'solr.url', Blacklight.connection_config[:indexing_url] || Blacklight.connection_config[:url]
-        provide 'solr.url', parsed_url.to_s
+        # provide 'solr.url', parsed_url.to_s
+        provide 'solr.update_url', "#{parsed_url}/update/json"
         provide 'solr_json_writer.http_client', http_client
         provide 'debug_ascii_progress', true
         # 'debug' to see full traject options
@@ -283,9 +284,9 @@ namespace :bibliographic do
       begin
         # Nokogiri XML parser can't handle illegal control chars
         if filename.ends_with?('.xml')
-          Rails.logger.debug("---- cleaning #{filename}...")
+          Rails.logger.info("---- cleaning #{filename}...")
           clean_ingest_file(filename)
-          Rails.logger.debug('---- XML well-formedness check...')
+          Rails.logger.info('---- XML well-formedness check...')
           if File.exist?('/usr/bin/xmlwf')
             # Rails.logger.debug("----- running xmllint against #{filename}...")
             # output, status = Open3.capture2e("xmllint --noout #{filename}")
