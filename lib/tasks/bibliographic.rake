@@ -159,7 +159,15 @@ namespace :bibliographic do
       extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*delete*")) if extract
       files_to_read = (ENV['DELETES_FILE'] || extract_files).listify.sort
 
-      Rails.logger.info('No delete files found.') if files_to_read.empty?
+      if files_to_read.empty?
+        Rails.logger.info('No delete files found -- skipping deletes.')
+        next
+      end
+
+      solr_url = Blacklight.connection_config[:indexing_url] || Blacklight.connection_config[:url]
+      redacted_url = URI.parse(solr_url).tap { |u| u.userinfo = nil }.to_s
+      Rails.logger.info("---- creating solr connection to #{redacted_url}")
+      solr_connection = RSolr.connect(url: solr_url)
 
       files_to_read.each do |file|
         raise "File does not exist: #{file}" unless File.exist?(file)
@@ -179,8 +187,6 @@ namespace :bibliographic do
 
         ids_to_delete.each_slice(DELETES_SLICE) do |slice|
           begin
-            solr_url = Blacklight.connection_config[:indexing_url] || Blacklight.connection_config[:url]
-            solr_connection = RSolr.connect(url: solr_url)
             solr_delete_ids(solr_connection, slice)
             Rails.logger.info("#{slice.size} ids deleted (if in index)")
           rescue => e
@@ -189,6 +195,9 @@ namespace :bibliographic do
           end
         end
       end
+
+      solr_connection.commit
+      Rails.logger.info('Commit after deletes successful.')
     end
 
     desc 'ingest latest bibliographic records'
