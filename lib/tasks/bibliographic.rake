@@ -167,7 +167,7 @@ namespace :bibliographic do
       solr_url = Blacklight.connection_config[:indexing_url] || Blacklight.connection_config[:url]
       redacted_url = URI.parse(solr_url).tap { |u| u.userinfo = nil }.to_s
       Rails.logger.info("---- creating solr connection to #{redacted_url}")
-      solr_connection = RSolr.connect(url: solr_url)
+      solr_connection = RSolr.connect(url: solr_url, read_timeout: 600)
 
       files_to_read.each do |file|
         raise "File does not exist: #{file}" unless File.exist?(file)
@@ -219,6 +219,15 @@ namespace :bibliographic do
       end
       Rails.logger.info('-' * 60)
 
+      if files_to_read.any?
+        solr_url = Blacklight.connection_config[:indexing_url] || Blacklight.connection_config[:url]
+        redacted_url = URI.parse(solr_url).tap { |u| u.userinfo = nil }.to_s
+        Rails.logger.info("---- creating solr connection to #{redacted_url}")
+        solr_connection = RSolr.connect(url: solr_url, read_timeout: 600)
+        solr_connection.commit
+        Rails.logger.info('Commit after ingest successful.')
+      end
+
       Rails.logger.info("- finished processing #{files_to_read.size} files.")
     end
 
@@ -254,7 +263,9 @@ namespace :bibliographic do
         # Exception: Errno::EADDRNOTAVAIL: Cannot assign requested address - 
         # connect(2) for "clio-solr-prod1.cul.columbia.edu" port 8983 (clio-solr-prod1.cul.columbia.edu:8983)
         provide 'processing_thread_pool', '0'
-        provide 'solr_writer.commit_on_close', 'true'
+        # 7/9/2026 - don't commit per-file, we'll commit once after all files are ingested
+        # provide 'solr_writer.commit_on_close', 'true'
+        provide 'solr_writer.commit_on_close', 'false'
         # How many records skipped due to errors before we
         #   bail out with a fatal error?
         provide 'solr_writer.max_skipped', '100'
