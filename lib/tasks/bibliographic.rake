@@ -116,11 +116,9 @@ namespace :bibliographic do
     desc 'fetch the latest bibliographic extract from EXTRACT_HOME'
     task :fetch do
       setup_ingest_logger
-      extract = EXTRACTS.find { |x| x == ENV['EXTRACT'] }
-      unless extract
-        Rails.logger.error('Extract not specified -- aborting')
-        abort
-      end
+
+      extract = validate_extract_name(ENV['EXTRACT'])
+      abort('Extract not specified or not recognized -- aborting') unless extract
       extract_dir = APP_CONFIG['extract_home'] + '/' + extract
 
       temp_dir_name = File.join(Rails.root, "tmp/extracts/#{extract}/current/")
@@ -155,7 +153,7 @@ namespace :bibliographic do
       ENV.delete('http_proxy')
       ENV.delete('https_proxy')
 
-      extract = EXTRACTS.find { |x| x == ENV['EXTRACT'] }
+      extract = validate_extract_name(ENV['EXTRACT'])
       extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*delete*")) if extract
       files_to_read = (ENV['DELETES_FILE'] || extract_files).listify.sort
 
@@ -203,7 +201,10 @@ namespace :bibliographic do
     desc 'ingest latest bibliographic records'
     task ingest: :environment do
       setup_ingest_logger
-      extract = EXTRACTS.find { |x| x == ENV['EXTRACT'] }
+
+      extract = validate_extract_name(ENV['EXTRACT'])
+      abort('Extract not specified or not recognized -- aborting') unless extract
+
       Rails.logger.info("- begin task bibliographic:extract:ingest with extract=#{extract}")
 
       extract_files = Dir.glob(File.join(Rails.root, "tmp/extracts/#{extract}/current/*.xml")) if extract

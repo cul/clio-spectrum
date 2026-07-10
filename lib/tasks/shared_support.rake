@@ -1,3 +1,4 @@
+# shared_support.rake - constants and helpers supporting rake tasks
 require 'time' # gives us ISO time formatting
 require 'marc'
 require 'open3'
@@ -6,9 +7,6 @@ require 'rake'
 
 require File.join(Rails.root.to_s, 'config', 'initializers/aaa_load_app_config.rb')
 
-
-# EXTRACTS = %w(full incremental cumulative subset law auth recap foia).freeze
-EXTRACTS = %w(full incremental subset auth recap foia hlm worldshare).freeze
 
 # process large 'deletes' files in batches of this many
 DELETES_SLICE = 10000
@@ -31,6 +29,31 @@ AUTHORITIES_SOLR = RSolr.connect(url: APP_CONFIG['authorities_solr_url'])
 #   AUTHORITIES_SOLR.close unless AUTHORITIES_SOLR.blank?
 #   AUTHORITIES_SOLR = RSolr.connect(url: APP_CONFIG['authorities_solr_url'])
 # end
+
+
+# Returns the extract name if it's in the valid_extracts list, 
+# otherwise returns nil.
+def validate_extract_name(extract_name)
+  valid_extracts = Array(APP_CONFIG['valid_extracts'])
+  if valid_extracts.empty?
+    Rails.logger.error("APP_CONFIG['valid_extracts'] is missing or empty -- aborting")
+    abort
+  end
+
+  if extract_name.blank?
+    Rails.logger.warn('no extract name supplied')
+    return nil
+  end
+
+  if valid_extracts.include?(extract_name)
+    return extract_name
+  end
+  
+  Rails.logger.warn("Invalid extract name '#{extract_name}' (expected one of: #{valid_extracts.join(', ')})")
+  return nil
+end
+
+
 
 def setup_ingest_logger
   # Redirect logger to stderr for our ingest tasks tasks
