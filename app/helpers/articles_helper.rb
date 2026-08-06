@@ -41,7 +41,7 @@ module ArticlesHelper
   end
 
   def eds_get_article_type(document)
-    type = document.eds_publication_type
+    type = document.eds_publication_type || 'Unknown'
     best_link = eds_best_link(document)
     
     type += ': ' + link_to( best_link[:label], best_link[:url] )
