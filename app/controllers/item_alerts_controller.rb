@@ -6,16 +6,13 @@
 # The item-id does not have to be a Voyager ID.  Item Alerts are in
 # theory applicable to non-catalog datasources.
 class ItemAlertsController < ApplicationController
-  check_authorization
-  load_and_authorize_resource except: :create
-
   before_action :authenticate_user!
+  before_action :require_item_alerts_manager!
   layout 'no_sidebar'
 
   # GET /item_alerts
   # GET /item_alerts.json
   def index
-    authorize! :read, ItemAlert
     @item_alerts = ItemAlert.all
 
     respond_to do |format|
@@ -27,8 +24,7 @@ class ItemAlertsController < ApplicationController
   # GET /item_alerts/1
   # GET /item_alerts/1.json
   def show
-    # authorize! :read, @item_alert
-    # @item_alert = ItemAlert.find(params[:id])
+    @item_alert = ItemAlert.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -37,7 +33,6 @@ class ItemAlertsController < ApplicationController
   end
 
   def show_table_row
-    authorize! :read, @item_alert
     @item_alert = ItemAlert.find(params[:id])
 
     render layout: false
@@ -47,7 +42,6 @@ class ItemAlertsController < ApplicationController
   # GET /item_alerts/new.json
   def new
     @item_alert = ItemAlert.new(author: current_user)
-    authorize! :create, @item_alert
 
     respond_to do |format|
       format.html # new.html.erb
@@ -58,7 +52,6 @@ class ItemAlertsController < ApplicationController
   # GET /item_alerts/1/edit
   def edit
     @item_alert = ItemAlert.find(params[:id])
-    authorize! :edit, @item_alert
 
     respond_to do |format|
       format.html # new.html.erb
@@ -70,7 +63,6 @@ class ItemAlertsController < ApplicationController
   # POST /item_alerts.json
   def create
     @item_alert = ItemAlert.new(item_alert_params)
-    authorize! :create, ItemAlert
 
     respond_to do |format|
       if @item_alert.save
@@ -93,7 +85,6 @@ class ItemAlertsController < ApplicationController
   # PUT /item_alerts/1.json
   def update
     @item_alert = ItemAlert.find(params[:id])
-    authorize! :create, @item_alert
 
     respond_to do |format|
       # if @item_alert.update_attributes(params[:item_alert])
@@ -116,7 +107,6 @@ class ItemAlertsController < ApplicationController
   def destroy
     @item_alert = ItemAlert.find(params[:id])
     @item_alert.destroy
-    authorize! :delete, @item_alert
 
     respond_to do |format|
       format.html { redirect_to item_alerts_url }
@@ -125,6 +115,11 @@ class ItemAlertsController < ApplicationController
   end
 
   private
+
+  def require_item_alerts_manager!
+    return if current_user && current_user.item_alerts_manager?
+    redirect_to root_url, alert: 'You are not authorized to manage item alerts.'
+  end
 
   def item_alert_params
     # # Unpermitted keys are logged at DEBUG in test and development.

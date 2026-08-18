@@ -18,7 +18,7 @@ describe 'QuickSearch landing page' do
 
     # Verify that we're now on the landing page
     expect(page).to_not have_css('.result_set')
-    expect(page).to have_text('Quicksearch performs a combined search of')
+    expect(page).to have_text('Quicksearch searches across many collections at once')
   end
 
   # NEXT-1026 - Clicking 'All Results' for Libraries Website
@@ -98,7 +98,7 @@ describe 'QuickSearch landing page' do
     within('.results_header[data-source=articles]') do
       find('img').click
       expect(page).to have_css('.category_title')
-      expect(find('.category_title')).to have_text 'Articles, e-books, dissertations, music, images, and more from a mostly full-text database'
+      expect(find('.category_title')).to have_text 'Articles+ Articles, e-books, images, and more from a mostly full-text database'
     end
     within('.results_header[data-source=ac]') do
       find('img').click

@@ -66,6 +66,6 @@
 -# and pass it to update_google_holdings() [defined in holdings.js]
 = render "google_books_check", :documents => document
 
-- if active_source == "databases" && can?(:manage, ItemAlert)
+- if active_source == "databases" && current_user && current_user.item_alerts_manager?
   = render "/_formats/database/catalog_manage_alert", :document => document
 
