@@ -12,6 +12,7 @@ class SearchBuilder < Blacklight::SearchBuilder
   # add to the beginning of the processing chain
   self.default_processor_chain.unshift(:validate_sort)
   self.default_processor_chain.unshift(:validate_pub_date)
+  self.default_processor_chain.unshift(:normalize_smart_quotes)
 
   # These methods are passed a hash, which will
   # become the Solr request parameters.
@@ -19,6 +20,26 @@ class SearchBuilder < Blacklight::SearchBuilder
   # on another hash - blacklight_params - which is available
   # to subclasses of Blacklight::Solr::SearchBuilder
 
+  SMART_QUOTE_MAP = {
+    "\u2018" => "'", "\u2019" => "'", "\u201A" => "'", "\u201B" => "'",
+    "\u201C" => '"', "\u201D" => '"', "\u201E" => '"', "\u201F" => '"',
+    "\u00AB" => '"', "\u00BB" => '"'
+  }.freeze
+  SMART_QUOTE_REGEX = Regexp.union(SMART_QUOTE_MAP.keys).freeze
+
+  def normalize_smart_quotes(_solr_parameters)
+    if blacklight_params[:q].is_a?(String)
+      blacklight_params[:q] = blacklight_params[:q].gsub(SMART_QUOTE_REGEX, SMART_QUOTE_MAP)
+    end
+
+    if blacklight_params[:adv].is_a?(Hash)
+      blacklight_params[:adv].each_value do |attrs|
+        next unless attrs.is_a?(Hash) && attrs['value'].is_a?(String)
+        attrs['value'] = attrs['value'].gsub(SMART_QUOTE_REGEX, SMART_QUOTE_MAP)
+      end
+    end
+  end
+  
   # Remove any pattern of question-marks and whitespace from end of q.
   # We don't need single-character-wildcards, and this was breaking searches.
   def remove_trailing_question_marks(solr_parameters)
