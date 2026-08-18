@@ -70,6 +70,12 @@ class User < ApplicationRecord
   end
 
   # application-level admin permissions
+  def item_alerts_manager?
+    return true if admin?
+    item_alerts_managers = Array(APP_CONFIG['item_alerts_managers']) || []
+    return item_alerts_managers.include? uid
+  end
+
   def valet_admin?
     return true if admin?
     valet_admins = Array(APP_CONFIG['valet_admins']) || []

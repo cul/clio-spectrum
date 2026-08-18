@@ -1,4 +1,4 @@
-- if can?(:manage, ItemAlert)
+- if current_user && current_user.item_alerts_manager?
   #show_alert_management
     %h3 Manage Database Alerts / Access Requirements
 
