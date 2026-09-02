@@ -280,6 +280,9 @@ class ApplicationController < ActionController::Base
 
     session['debug_mode'] = @debug_mode
 
+    # Never read or write view fragment caches when in debug mode
+    self.perform_caching = false if @debug_mode
+    
     @current_user = current_user
     default_debug
   end
