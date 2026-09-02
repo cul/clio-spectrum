@@ -72,6 +72,7 @@
                 = message
                 - if details['copy_count'] > 1
                   (#{details['copy_count']} copies)
+                = details['debug']
 
           - if copy['donor_info_icon'].present?
             .donor_info

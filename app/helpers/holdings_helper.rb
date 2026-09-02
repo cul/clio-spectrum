@@ -362,13 +362,15 @@ module HoldingsHelper
         copy['items'].each_pair do |message, details|
           if ['Available'].include?(message)
             status_image = 'icons/available.png'
-          elsif ['Checked out'].include?(message)
+          # elsif ['Checked out'].include?(message)
+          elsif message.include?('Checked out')
             status_image = 'icons/unavailable.png'
           else
             status_image = 'icons/' + details['status'] + '.png'
           end
           status_label = details['status'].humanize
           details['image_link'] = image_tag(status_image, title: status_label, alt: status_label)
+          details['debug'] = '(DEBUG INFO status: ' + details['status'] + ')'
         end
       end
     end
