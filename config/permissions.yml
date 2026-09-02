@@ -1,14 +1,10 @@
 site:
   manage:
-    # LibSys staff (CLIO group, USG)
-    - aes2340
+    # LibSys staff (CLIO group)
     - ak4338
-    - avk2126
-    - bw12
-    - jlc62
+    - fcd1
     - sam119
     - slt0
-    - yz2524
     # Pseudo-user for use in Specs
     - test_mngr
 
@@ -16,22 +12,16 @@ site:
   # and for advanced admin-ish features
   pilot:
     # CLIO dev team
-    - aes2340
     - ak4338
-    - avk2126
-    - jlc62
+    - fcd1
     - sam119
     - slt0
-    - yz2524
     # spectrum planning --> columbia unified discovery
+    - aes2340
     - asb2154
-    - bw12
     - cak2158
-    - cmm2169
     - hhb2119
-    - jc2120
     - sem2166
-    - shs4
 
 # item_alerts:
 #   manage:
