@@ -2,6 +2,8 @@ require 'rest-client'
 class LocationsController < ApplicationController
   layout 'location'
 
+  DayInfo = Struct.new(:to_day_of_week, :to_opens_closes, :note)
+
   def show
     # raw_location comes from the Voyager response.  It might be something like:
     #     Avery Classics - By appt. (Non-Circulating)
@@ -19,7 +21,9 @@ class LocationsController < ApplicationController
 
       if @location.library_code
         range_start = Date.today
-        @hours = LibraryHours.hours_for_range(@location.library_code, range_start, range_start + 6.days)
+        # fcd1, 90/16/26: To backout of NEXT-2093, uncomment next line, and comment out the line after
+        # @hours = LibraryHours.hours_for_range(@location.library_code, range_start, range_start + 6.days)
+        @hours = get_hours(@location.library_code)
       end
 
       @display_title = @library ? @library.name : @location.name
@@ -91,6 +95,49 @@ class LocationsController < ApplicationController
 
       markers.to_json
     end
+  end
+
+  # fcd1, 09/16/26: methods get_hours, fetch_hours, prep_days_info were added for NEXT-2093.
+  # If backing out of NEXT-2093, leaving these methods in the code is fine, just won't be called.
+  def get_hours(library_code)
+    date_today = DateTime.now
+    hours_info = fetch_hours(library_code,
+                            date_today.strftime('%Y-%m-%d'),
+                            (date_today + 6).strftime('%Y-%m-%d'))
+    prep_days_info(hours_info)
+  end
+
+  # This method encapsulates the call to the hours API
+  def fetch_hours(library_code, start_date, end_date)
+    Rails.logger.warn "Calling Hours API"
+    hours_api_locations_url = APP_CONFIG['hours_api_locations_url']
+    uri = URI("#{hours_api_locations_url}#{library_code}")
+    uri.query = URI.encode_www_form(start_date: start_date, end_date: end_date)
+
+    response = Net::HTTP.get_response(uri)
+
+    if response.is_a?(Net::HTTPSuccess)
+      parsed_response = JSON.parse(response.body)
+      hours_info = parsed_response["data"][library_code]
+    else
+      hours_info = nil
+    end
+    hours_info
+  end
+
+  # This method is used to format for display in CLIO the hours info returned by the hours API
+  def prep_days_info(hours_info)
+    return nil unless hours_info
+    days_info = []
+    hours_info.each do |day|
+      prepped_formatted_date =
+        day["formatted_date"].delete_prefix("0").gsub(/-0*/, ' - ').gsub(/(AM|PM)/, ' \1')
+      day_info = DayInfo.new(DateTime.strptime(day["date"], '%Y-%m-%d').strftime('%A'),
+                             prepped_formatted_date,
+                             day["note"])
+      days_info << day_info
+    end
+    days_info
   end
 
   private

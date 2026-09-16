@@ -33,13 +33,18 @@
               .list_group
                 -full_hours_url="https://hours.library.columbia.edu/locations/#{h(@location.library_code)}"
                 %a{href: full_hours_url, class: 'list-group-item active'}Hours (Full Hours Info)
-                - @hours.each do |hour|
-                  - today_class = hour.date == Date.today ? "list-group-item list-group-item-success" : "list-group-item"
+                -# fcd1, 09/16/26: NEXT-2093. To back out, uncomment next 2 lines, comment out following 2 lines
+                -# @hours.each do |hour|
+                  -# today_class = hour.date == Date.today ? "list-group-item list-group-item-success" : "list-group-item"
+                - @hours.each_with_index do |hour, i|
+                  - today_class = i == 0 ? "list-group-item list-group-item-success" : "list-group-item"
                   .list-group-item{:class => today_class }
                     .row
                       .col-md-4= hour.to_day_of_week
                       .col-md-8= hour.to_opens_closes
                       .col-md-12.hours_note= hour.note.to_s
+          - else
+            %a{href: 'https://hours.library.columbia.edu'}='Library Hours'
 
   - else
     %h2 No location information for #{h(params[:id])}
