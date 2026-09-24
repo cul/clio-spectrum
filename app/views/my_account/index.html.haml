@@ -7,6 +7,7 @@
     My Borrowing Account
 
   %p= "Logged in as: #{current_user.name} (#{current_user.uid}) -- #{link_to "logout", destroy_user_session_path}"
+  = "Email: #{current_user.email}"
 
   %li Place hold requests from the item’s CLIO page
   
