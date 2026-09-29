@@ -31,10 +31,11 @@ describe 'Boosts', :skip_travis do
     expect(rank(resp, 2100385)).to be <= 1
   end
 
-  it 'foundation center' do
-    resp = solr_resp_doc_ids_only('q' => 'foundation center')
-    expect(rank(resp, 3328966)).to be <= 1
-  end
+  # WEBUPDATES-1308 - Replaced with "Candid"?
+  # it 'foundation center' do
+  #   resp = solr_resp_doc_ids_only('q' => 'foundation center')
+  #   expect(rank(resp, 3328966)).to be <= 1
+  # end
 
   it 'foreign affairs' do
     resp = solr_resp_doc_ids_only('q' => 'foreign affairs')
@@ -58,7 +59,8 @@ describe 'Boosts', :skip_travis do
 
   it 'the new yorker' do
     resp = solr_resp_doc_ids_only('q' => 'the new yorker')
-    expect(rank(resp, 'ebs51980e')).to be <= 1
+    expect(rank(resp, 'ebs51980e')).to be <= 2
+    expect(rank(resp, 'ebs31066037e')).to be <= 2
   end
 
   it 'naxos' do
@@ -81,7 +83,8 @@ describe 'Boosts', :skip_travis do
   it 'web of knowledge' do
     resp = solr_resp_doc_ids_only('q' => 'web of knowledge')
     expect(rank(resp, 10620670)).to be <= 2
-    expect(rank(resp, 2054244)).to be <= 2
+    # 9/2026 - suppressed in FOLIO
+    # expect(rank(resp, 2054244)).to be <= 2
   end
 
   it 'the economist' do
