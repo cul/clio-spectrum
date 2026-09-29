@@ -59,7 +59,9 @@ gem 'auto-session-timeout'
 # gem 'cancan'
 gem 'cancancan'
 
-gem 'json'
+# don't let Bundler move us to json 3.x until everything else is ready
+# gem 'json'
+gem "json", "~> 2.0"
 
 # # Rails 5 requirement
 # gem 'listen'

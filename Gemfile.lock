@@ -621,7 +621,7 @@ DEPENDENCIES
   jquery-datatables-rails
   jquery-rails
   jquery-ui-rails
-  json
+  json (~> 2.0)
   kaminari
   launchy
   lcsort
