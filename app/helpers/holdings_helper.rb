@@ -93,6 +93,9 @@ module HoldingsHelper
       end
       url = subfieldU
       
+      # LIBSYS-8305 - new TOC links
+      url = rewrite_toc_url(url)
+
       # NEXT-1852 - new resolver links in CLIO test
       if (APP_CONFIG['resolver_rewrite_856'] || false)
         url = rewrite_resolver_url(url)
@@ -120,7 +123,7 @@ module HoldingsHelper
     #    links.sort { |x,y| x.first <=> y.first }
   end
 
-  # NEXT-1852 - new resolver links in CLIO test
+  # NEXT-1852 - new resolver URLs
   def rewrite_resolver_url(url)
     # Only rewrite URLs to the legacy HTTP resolver CGI
     old_url = 'http://www.columbia.edu/cgi-bin/cul/resolve?'
@@ -134,6 +137,17 @@ module HoldingsHelper
 
     # Rewritten URL is the new base url and the key, no delimiter
     return new_url + key
+  end
+
+  # LIBSYS-8305 - new TOC links
+  def rewrite_toc_url(url)
+    # Only rewrite URLs to the old CUIT-hosted CGI
+    old_cgi = 'http://www.columbia.edu/cgi-bin/cul/toc.pl?'
+    return url unless url.start_with?(old_cgi)
+    
+    new_cgi = APP_CONFIG['toc_base_url'] || 'https://systems.library.columbia.edu/cul/toc/toc.pl?'
+    
+    return new_cgi + url.delete_prefix(old_cgi)
   end
 
 
