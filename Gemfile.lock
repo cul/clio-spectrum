@@ -76,8 +76,8 @@ GEM
     autoprefixer-rails (10.4.21.0)
       execjs (~> 2)
     aws-eventstream (1.4.0)
-    aws-partitions (1.1281.0)
-    aws-sdk-core (3.254.1)
+    aws-partitions (1.1290.0)
+    aws-sdk-core (3.257.0)
       aws-eventstream (~> 1, >= 1.3.0)
       aws-partitions (~> 1, >= 1.992.0)
       aws-sigv4 (~> 1.9)
@@ -85,11 +85,12 @@ GEM
       bigdecimal
       jmespath (~> 1, >= 1.6.1)
       logger
-    aws-sdk-kms (1.130.0)
-      aws-sdk-core (~> 3, >= 3.254.0)
+      rexml (~> 3.4, >= 3.4.2)
+    aws-sdk-kms (1.132.0)
+      aws-sdk-core (~> 3, >= 3.256.0)
       aws-sigv4 (~> 1.5)
-    aws-sdk-s3 (1.229.0)
-      aws-sdk-core (~> 3, >= 3.254.1)
+    aws-sdk-s3 (1.232.3)
+      aws-sdk-core (~> 3, >= 3.256.0)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.5)
     aws-sigv4 (1.12.1)
@@ -105,7 +106,7 @@ GEM
       latex-decode (~> 0.0)
       logger (~> 1.7)
       racc (~> 1.7)
-    bigdecimal (4.1.2)
+    bigdecimal (4.1.3)
     binding_of_caller (1.0.1)
       debug_inspector (>= 1.2.0)
     blacklight (6.24.0)
@@ -202,7 +203,7 @@ GEM
     devise-guests (0.8.3)
       devise
     diff-lcs (1.6.2)
-    domain_name (0.6.20240107)
+    domain_name (0.6.20260921)
     dot-properties (0.1.4)
       bundler (>= 2.2.33)
     dry-core (1.0.0)
@@ -351,7 +352,7 @@ GEM
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
-    mime-types-data (3.2026.0701)
+    mime-types-data (3.2026.0922)
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
     minitest (5.26.1)
@@ -369,7 +370,7 @@ GEM
     net-ldap (0.19.0)
     net-pop (0.1.2)
       net-protocol
-    net-protocol (0.2.2)
+    net-protocol (0.4.0)
       timeout
     net-scp (4.1.0)
       net-ssh (>= 2.6.5, < 8.0.0)
@@ -454,6 +455,7 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     retriable (3.8.0)
+    rexml (3.4.4)
     rouge (4.7.0)
     rsolr (2.3.0)
       builder (>= 2.1.2)
@@ -569,7 +571,7 @@ GEM
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    whenever (1.1.2)
+    whenever (1.1.3)
       chronic (>= 0.6.3)
     xlsxtream (3.1.0)
       zip_kit (>= 6.2, < 7)
@@ -619,7 +621,7 @@ DEPENDENCIES
   jquery-datatables-rails
   jquery-rails
   jquery-ui-rails
-  json
+  json (~> 2.0)
   kaminari
   launchy
   lcsort

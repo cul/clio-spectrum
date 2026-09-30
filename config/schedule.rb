@@ -59,10 +59,10 @@ if %w(clio_batch_dev clio_batch_test clio_batch_prod).include?(@environment)
 
   # == RECAP ==
   every :day, at: offset + '3am' do
-    rake 'recap:delete_new[2]', subject: 'recap:delete_new'
+    rake 'recap:delete_new[10]', subject: 'recap:delete_new'
   end
   every :day, at: offset + '5am' do
-    rake 'recap:ingest_new[2]', subject: 'recap:ingest_new'
+    rake 'recap:ingest_new[10]', subject: 'recap:ingest_new'
   end
 
   # FOLIO - DISABLE AUTHORITY UPDATES UNTIL FOLIO FEED DEVELOPED

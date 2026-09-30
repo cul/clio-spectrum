@@ -174,7 +174,9 @@ namespace :bibliographic do
         ids_to_delete = []
 
         File.open(file, 'r').each do |line|
-          ids_to_delete << line
+          # ids_to_delete << line
+          id = line.sub(/#.*/, '').strip
+          ids_to_delete << id unless id.empty?
         end
 
         ids_to_delete.sort.uniq!

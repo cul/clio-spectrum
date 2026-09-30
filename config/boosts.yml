@@ -106,8 +106,9 @@ ebs25136e:
 ebs128532e:
   - foreign affairs
 
-3328966:
-  - foundation center
+# WEBUPDATES-1308 - Replaced with "Candid"?
+# 3328966:
+#   - foundation center
 
 #   =====  G  =====
 
@@ -231,8 +232,9 @@ ebs544674e:
 ebs69285e:
   - washington post
 
-2054244:
-  - web of knowledge
+# 9/2026 - suppressed in FOLIO
+# 2054244:
+#   - web of knowledge
   
 10620670:
   - web of knowledge
