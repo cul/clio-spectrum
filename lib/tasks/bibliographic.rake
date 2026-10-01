@@ -179,7 +179,8 @@ namespace :bibliographic do
           ids_to_delete << id unless id.empty?
         end
 
-        ids_to_delete.sort.uniq!
+        ids_to_delete = ids_to_delete.sort.uniq
+
         id_count = ids_to_delete.size
 
         Rails.logger.info("#{id_count} ids to delete.")
