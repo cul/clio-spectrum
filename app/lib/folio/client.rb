@@ -158,25 +158,40 @@ module Folio
     end
 
 
+    # def self.delete_request(request_id:)
+    #   return nil unless request_id
+    #
+    #   @folio_client ||= folio_client
+    #
+    #   path = "/circulation/requests/#{request_id}"
+    #
+    #   # Deletes aren't yet handled natively by SUL folio_client gem.
+    #   # And, with_token_refresh_when_unauthorized() is a private method.
+    #   # Do everything ourselves, step by step, using the Faraday connection.
+    #   login_params = FolioClient.config.login_params
+    #   connection = FolioClient.connection
+    #   token = FolioClient::Authenticator.token(login_params, connection)
+    #   response = connection.delete(path, nil, { 'x-okapi-token': token })
+    # rescue StandardError => e
+    #   Rails.logger.error("Folio::Client.delete_request(#{request_id}) failed: #{e.class}: #{e.message}")
+    #   nil
+    # end
+
+    # Our folio_client_auth_patch.rb initializer adds the 
+    # missing delete() method to the FOLIO client
     def self.delete_request(request_id:)
       return nil unless request_id
 
       @folio_client ||= folio_client
-
-      path = "/circulation/requests/#{request_id}"
-
-      # Deletes aren't yet handled natively by SUL folio_client gem.
-      # And, with_token_refresh_when_unauthorized() is a private method.
-      # Do everything ourselves, step by step, using the Faraday connection.
-      login_params = FolioClient.config.login_params
-      connection = FolioClient.connection
-      token = FolioClient::Authenticator.token(login_params, connection)
-      response = connection.delete(path, nil, { 'x-okapi-token': token })
+      @folio_client.delete("/circulation/requests/#{request_id}")
+      true
     rescue StandardError => e
       Rails.logger.error("Folio::Client.delete_request(#{request_id}) failed: #{e.class}: #{e.message}")
       nil
     end
-  
+    
+    
+      
     # Retrieve a single FOLIO Instance JSON record for a given Voyager Bib ID
     #   {{baseUrl}}/search/instances?query=(hrid="123")&limit=1
     def self.get_instance_by_hrid(hrid)
