@@ -233,7 +233,8 @@ module Spectrum
         }
         value_remaps = {
           'all_fields' => 'keyword',
-          'all' => 'keyword'
+          'all' => 'keyword',
+          'subject_terms' => 'subject'
         }
         key_remaps.each do |clio_key, api_key|
           # We have a key that needs to be remapped
