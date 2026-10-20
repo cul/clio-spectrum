@@ -110,7 +110,7 @@ module Spectrum
         @search_field = options.delete('search_field') || ''
 
         @debug_mode = options.delete('debug_mode') || false
-        @debug_entries = Hash.arbitrary_depth
+        @debug_entries = {}
 
         # Map the 'q' CGI param to a 's.q' internal Summon param
         @params['s.q'] = options.delete('q')
@@ -288,7 +288,7 @@ module Spectrum
 
         # add in Facet limits
         @search.query.facet_value_filters.each do |fvf|
-          unless fvf.field_name.titleize.in?('Is Scholarly', 'Is Full Text')
+          unless fvf.field_name.titleize.in?( ['Is Scholarly', 'Is Full Text'] )
             facet_text = "#{fvf.negated? ? 'Not ' : ''}#{fvf.field_name.titleize}: #{fvf.value}"
             constraints << [facet_text, summon_search_cmd(fvf.remove_command)]
           end

@@ -74,7 +74,7 @@ module Spectrum
       #
       def invert_facet_value(facet_field, value)
         # # start with our current params...
-        # new_params = @params.deep_clone
+        # new_params = @params.deep_dup
         #
         # # remove what we don't want...
         # new_params.delete(:page)
@@ -210,7 +210,7 @@ module Spectrum
             field = attrs['field']
             value = attrs['value']
             next if value.to_s.empty?
-            remove_params = @params.deep_clone
+            remove_params = @params.deep_dup
             # remove_params[:action] = 'index'
             # "Calling URL helpers with string keys controller, action is deprecated"
             remove_params.delete(:controller)
@@ -229,7 +229,7 @@ module Spectrum
           end
         else
           unless @params[:q].to_s.empty?
-            remove_params = @params.deep_clone
+            remove_params = @params.deep_dup
             # remove_params[:action] = 'index'
             # "Calling URL helpers with string keys controller, action is deprecated"
             remove_params.delete(:controller)

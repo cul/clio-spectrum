@@ -474,7 +474,7 @@ to_field 'url_munged_display' do |record, accumulator|
     # accumulator << [field856.indicator2, field856['3'], field856['u'], field856['z']].join('|||')
 
     field856.subfields.each do |subfield|
-      if subfield.code.in?('u','g')
+      if subfield.code.in?( ['u','g'] )
         accumulator << [field856.indicator2, field856['3'], subfield.value, field856['z']].join('|||')
       end
     end

@@ -1,6 +1,6 @@
 module AdvancedHelper
   def change_params_and_redirect(changed_params, reg_params = params)
-    new_params = reg_params.deep_clone
+    new_params = reg_params.deep_dup
     new_params.delete(:page)
 
     Blacklight::Solr::FacetPaginator.request_keys.values.each do |paginator_key|

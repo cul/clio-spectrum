@@ -3,7 +3,7 @@ module LocalSolrHelperExtension
   include Blacklight::SearchHelper
 
   def remove_range_params(range_key, source_params = params)
-    p = source_params.deep_clone
+    p = source_params.deep_dup
     # need to dup the facet values too,
     # if the values aren't dup'd, then the values
     # from the session will get remove in the show view...

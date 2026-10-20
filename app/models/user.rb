@@ -47,7 +47,7 @@ class User < ApplicationRecord
   end
 
   def has_role?(area, role, admin_okay = true)
-    uid && uid.in?(PERMISSIONS_CONFIG[area][role]) ||
+    uid && uid.in?( Array(PERMISSIONS_CONFIG[area][role]) ) ||
       (admin_okay && self.admin?)
   end
 
@@ -71,7 +71,7 @@ class User < ApplicationRecord
     # Anyone in the cunix dpts-dev group is considered an admin
     return true if self.has_affil('CUL_dpts-dev')
     # But, we can also add extra unis as needed via permissions.yml
-    uid.in?(PERMISSIONS_CONFIG['site']['manage'])
+    uid.in?( Array(PERMISSIONS_CONFIG['site']['manage']) )
   end
 
   # application-level admin permissions

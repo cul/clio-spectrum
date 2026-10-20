@@ -335,7 +335,7 @@ class SpectrumController < ApplicationController
     @result_hash = {}
     new_params = params.to_unsafe_h
 
-    fixed_params = new_params.deep_clone
+    fixed_params = new_params.deep_dup
     %w(layout commit source sources controller action).each do |param_name|
       fixed_params.delete(param_name)
     end
