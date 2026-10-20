@@ -6,9 +6,10 @@
   %h3
     My Borrowing Account
 
-  %p= "Logged in as: #{current_user.name} (#{current_user.uid}) -- #{link_to "logout", destroy_user_session_path}"
+  = "Logged in as: #{current_user.name} (#{current_user.uid}) -- #{link_to "logout", destroy_user_session_path}"
+  %br
   = "Email: #{current_user.email}"
-
+  %br
   Find your lists at 
   = link_to "My Saved Lists", lists_path
   
