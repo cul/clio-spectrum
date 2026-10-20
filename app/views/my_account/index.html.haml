@@ -9,9 +9,8 @@
   %p= "Logged in as: #{current_user.name} (#{current_user.uid}) -- #{link_to "logout", destroy_user_session_path}"
   = "Email: #{current_user.email}"
 
-  %li 
-    Find your lists at 
-    = link_to "My Saved Lists", lists_path
+  Find your lists at 
+  = link_to "My Saved Lists", lists_path
   
 
   - if @snooping && @user
