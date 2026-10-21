@@ -29,11 +29,12 @@ module Spectrum
       def initialize(original_options = {})
         Rails.logger.debug "Spectrum::Search::Engine#initialize()"
 
-        options = original_options.to_hash.deep_clone
+        original_options = original_options.to_hash
+        @current_user = original_options['current_user']
+        options = original_options.except('current_user').deep_dup
         @source = options.delete('source') || options.delete(:source) || raise('Must specify source')
         @debug_mode = options.delete(:debug_mode) || options.delete('debug_mode') || false
-        @debug_entries = Hash.arbitrary_depth
-        @current_user = options.delete('current_user')
+        @debug_entries = {}
         @search_url = options.delete('search_url')
 
         # allow pass-in override solr url
@@ -166,7 +167,7 @@ module Spectrum
           extra_controller_params[:debugQuery] = 'true'
 
           debug_results = lambda do |*args|
-            @debug_entries['solr'] = [] if @debug_entries['solr'] == {}
+            @debug_entries['solr'] ||= []
             event = ActiveSupport::Notifications::Event.new(*args)
 
             hashed_event = {
@@ -175,14 +176,14 @@ module Spectrum
 
             }
 
-            @debug_entries['solr'] << hashed_event if @current_user && @current_user.has_role?('site', 'admin')
+            @debug_entries['solr'] << hashed_event if @current_user && @current_user.admin?
           end
 
           ActiveSupport::Notifications.subscribed(debug_results, 'execute.rsolr_client') do |*_args|
             # @search, @documents = search_results(@params.merge(extra_controller_params), search_params_logic)
             @search, @documents = search_results(@params.merge(extra_controller_params).with_indifferent_access)
 
-            @debug_entries['solr'] = [] if @debug_entries['solr'] == {}
+            @debug_entries['solr'] ||= []
 
             hashed_event = { params: @search['params'] }
             # retrieve values from native Solr response debug section,
@@ -510,7 +511,7 @@ module Spectrum
       # and also can be different depending on who's logged in.
       def self.generate_config(source, _current_user = nil)
         # If we're in one of the hybrid-source bento-box searches....
-        if source.in?('quicksearch', 'ebooks', 'dissertations', 'research_data')
+        if source.in?( ['quicksearch', 'ebooks', 'dissertations', 'research_data'] )
           self.blacklight_config = Blacklight::Configuration.new do |config|
             # Add the "All Fields" seach field first, then append all the other default searches
             # NEXT-705 - "All Fields" should be default, and should be first option

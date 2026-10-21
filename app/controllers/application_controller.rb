@@ -228,7 +228,7 @@ class ApplicationController < ActionController::Base
   def blacklight_search(sent_options = {})
     # raise
     # Rails.logger.debug "ApplicationController#blacklight_configght_search(sent_options=#{sent_options.inspect})"
-    options = sent_options.deep_clone
+    options = sent_options.deep_dup
     # options['source'] = active_source unless options['source']
     options['debug_mode'] = @debug_mode
     options['current_user'] = current_user
@@ -255,7 +255,7 @@ class ApplicationController < ActionController::Base
     # our search engine classes don't inherit from ApplicationController.
     # they may set their own @debug_entries instance variables, which we
     # here need to merge in with the controller-level instance variable.
-    @debug_entries = @debug_entries.recursive_merge(search_engine.debug_entries)
+    @debug_entries = @debug_entries.deep_merge!(search_engine.debug_entries)
 
     search_engine
   end
@@ -289,7 +289,7 @@ class ApplicationController < ActionController::Base
 
   def default_debug
     @debug_start_time = Time.now
-    @debug_entries = Hash.arbitrary_depth
+    @debug_entries = {}
     @debug_entries['params'] = params
 
     # Rails 4?  session.inspect now dumps full object internals,

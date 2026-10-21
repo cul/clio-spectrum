@@ -7,8 +7,8 @@ module DatasourcesHelper
 
   def datasource_list(category = :all)
     results = []
-    results |= get_datasource_bar['major_sources'] if category.in?(:all, :major)
-    results |= get_datasource_bar['minor_sources'] if category.in?(:all, :minor)
+    results |= get_datasource_bar['major_sources'] if category.in?( [:all, :major] )
+    results |= get_datasource_bar['minor_sources'] if category.in?( [:all, :minor] )
 
     results
   end

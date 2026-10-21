@@ -21,7 +21,7 @@
                 - value.each_pair do |k,v|
                   -if v.to_s =~ /^http/
                     .entry
-                      #{k.inspect.to_s.abbreviate(50) + " => "}
+                      #{k.inspect.to_s.truncate(50) + " => "}
                       = link_to v.to_s, v.to_s, :target => :blank
                   -else
                     .entry #{k.inspect} => #{v.inspect}

@@ -26,6 +26,11 @@ class User < ApplicationRecord
 
   # Before first-time User record creation...
   before_create :set_personal_info_via_ldap
+
+  # ...and again at every login.  Devise's :trackable module (enabled by
+  # cul_omniauth) increments sign_in_count and saves the user on each
+  # login, so this runs as part of that save.  Plain Rails callback, no override.
+  before_update :set_personal_info_via_ldap, if: :will_save_change_to_sign_in_count?
   
   # ERROR "UNIQUE constraint failed" - need to figure this out
   # Every user-object instantiation...
@@ -42,7 +47,7 @@ class User < ApplicationRecord
   end
 
   def has_role?(area, role, admin_okay = true)
-    uid && uid.in?(PERMISSIONS_CONFIG[area][role]) ||
+    uid && uid.in?( Array(PERMISSIONS_CONFIG[area][role]) ) ||
       (admin_okay && self.admin?)
   end
 
@@ -66,7 +71,7 @@ class User < ApplicationRecord
     # Anyone in the cunix dpts-dev group is considered an admin
     return true if self.has_affil('CUL_dpts-dev')
     # But, we can also add extra unis as needed via permissions.yml
-    uid.in?(PERMISSIONS_CONFIG['site']['manage'])
+    uid.in?( Array(PERMISSIONS_CONFIG['site']['manage']) )
   end
 
   # application-level admin permissions
@@ -94,7 +99,7 @@ class User < ApplicationRecord
   end
 
   def name
-    [first_name, last_name].join(' ')
+    [first_name, middle_name, last_name].reject(&:blank?).join(' ')
   end
 
   # Password methods required by Devise.
@@ -117,6 +122,8 @@ class User < ApplicationRecord
   #   self.password = SecureRandom.base64(8)
   # end
 
+  # Never raises - a slow or broken LDAP must not block login or user creation.
+  # Only overwrites a field when LDAP returned a usable value for it.
   def set_personal_info_via_ldap
     # Can't proceed without a uid!
     return unless uid
@@ -124,24 +131,32 @@ class User < ApplicationRecord
     # This should use Resolv-Replace instead of DNS
     ldap_ip_address = Resolv.getaddress('ldap.columbia.edu')
 
-    entry = Net::LDAP.new(host: ldap_ip_address, port: 389).search(base: 'o=Columbia University, c=US', filter: Net::LDAP::Filter.eq('uid', uid)) || []
+    ldap = Net::LDAP.new(host: ldap_ip_address, port: 389, connect_timeout: 3)
+    entry = ldap.search(base: 'o=Columbia University, c=US', filter: Net::LDAP::Filter.eq('uid', uid)) || []
     entry = entry.first
+    return unless entry
 
-    if entry
-      _mail = entry[:mail].to_s
-      if _mail.length > 6 and _mail.match(/^.+@.+$/)
-        self.email = _mail
-      else
-        self.email = uid + '@columbia.edu'
-      end
-      if User.column_names.include? 'last_name'
-        self.last_name = entry[:sn].to_s.delete('[').delete(']').delete('"')
-      end
-      if User.column_names.include? 'first_name'
-        self.first_name = entry[:givenname].to_s.delete('[').delete(']').delete('"')
-      end
+    # LDAP attribute values are always arrays - take the first value.
+    # (Calling .to_s on the array stored the literal string '["foo@columbia.edu"]')
+    mail   = Array(entry[:mail]).first.to_s.strip
+    first  = Array(entry[:givenname]).first.to_s.strip
+    middle = Array(entry[:cumiddlename]).first.to_s.strip
+    last   = Array(entry[:sn]).first.to_s.strip
+
+    # Skip an address another user row already has (unique index on email)
+    if mail.match?(/\A[^@\s]+@[^@\s]+\z/) && !User.where(email: mail).where.not(id: id).exists?
+      self.email = mail
     end
-
-    self
+    self.first_name = first[0, 40] if first.present?
+    self.last_name  = last[0, 40]  if last.present?
+    # A middle name can be removed in the ID system, so clear ours when it's
+    # missing - but only if first and last came back (a complete entry).
+    if middle.present?
+      self.middle_name = middle[0, 40]
+    elsif first.present? && last.present?
+      self.middle_name = nil
+    end
+  rescue StandardError => e
+    Rails.logger.warn "LDAP lookup failed for #{uid}: #{e.class}: #{e.message}"
   end
 end

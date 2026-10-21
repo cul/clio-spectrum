@@ -25,13 +25,13 @@
   .row
     .col-sm-4.no-bottom-space
       - if mini
-        %b= link_to_source_document document, :label=> link_label.abbreviate(100)
+        %b= link_to_source_document document, :label=> link_label.truncate(100)
       - else
         = render '/coins', document: document
         .item_anchor
           = render '/saved_lists/item_select_checkbox', item_id: document[:id]
         .item_select_allowance
-          %b= link_to_source_document document, :label=> link_label.abbreviate(100)
+          %b= link_to_source_document document, :label=> link_label.truncate(100)
 
     .col-sm-3.no-bottom-space= convert_values_to_text(document['author_display'] || document['author_vern_display'])
 

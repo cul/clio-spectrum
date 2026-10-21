@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_01_010101) do
+ActiveRecord::Schema.define(version: 2026_10_20_010101) do
 
   create_table "best_bets", force: :cascade do |t|
     t.string "title", null: false
@@ -32,16 +32,6 @@ ActiveRecord::Schema.define(version: 2021_02_01_010101) do
     t.string "user_type"
     t.string "document_type"
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
-  end
-
-  create_table "hathi_etas", id: false, force: :cascade do |t|
-    t.text "oclc", null: false
-    t.text "local_id", null: false
-    t.text "item_type"
-    t.text "access"
-    t.text "rights"
-    t.index ["local_id"], name: "hathi_etas_local_id"
-    t.index ["oclc"], name: "hathi_etas_oclc"
   end
 
   create_table "hathi_overlap", id: false, force: :cascade do |t|
@@ -223,6 +213,7 @@ ActiveRecord::Schema.define(version: 2021_02_01_010101) do
     t.string "provider", default: "saml", null: false
     t.text "affils"
     t.string "uid"
+    t.string "middle_name", limit: 40
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["login"], name: "index_users_on_login"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

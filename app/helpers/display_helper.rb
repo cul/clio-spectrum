@@ -161,7 +161,7 @@ module DisplayHelper
     non_circ_img = image_tag('icons/noncirc.png', class: 'availability')
     link_hash.map do |link|
       non_circ_img +
-        link_to(process_online_title(link[:title]).abbreviate(80), link[:url]) +
+        link_to(process_online_title(link[:title]).truncate(80), link[:url]) +
         content_tag(:span, link[:note], class: 'url_link_note')
     end
   end
