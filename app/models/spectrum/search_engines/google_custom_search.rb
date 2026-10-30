@@ -58,7 +58,12 @@ module Spectrum
           # service.list_cse_siterestricts(@q, cx: cs_id, start: @start, num: @rows)
           # service.list_cse_siterestricts(@q, service_params)
           service_params[:q] = @q
-          service.list_cse_siterestricts(service_params)
+          # LIBSYS-8376 - Migrate Google Custom Search to Vertex AI
+          # "cse_siterestricts" shuts down in November,
+          # free tier "cses" shuts down in January - a bit more time.
+          # Search results are equivalent, and we never hit free api limits.
+          # service.list_cse_siterestricts(service_params)
+          service.list_cses(**service_params)
         end
 
         @documents = Array(results.items).map { |item| LwebDocument.new(item) }

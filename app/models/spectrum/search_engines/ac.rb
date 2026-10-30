@@ -232,8 +232,8 @@ module Spectrum
           'search_field' => 'search_type'
         }
         value_remaps = {
-          'all_fields' => 'keyword',
-          'all' => 'keyword',
+          # 'all_fields' => 'keyword',
+          # 'all' => 'keyword',
           'subject_terms' => 'subject'
         }
         key_remaps.each do |clio_key, api_key|
@@ -243,7 +243,14 @@ module Spectrum
           clio_value = options[clio_key]
           api_value = value_remaps[clio_value] || clio_value
           api_params[api_key] = api_value
+
+          # AC Developer docs say there are only 4 valid search_type values: keyword, semantic, subject, title
+          if api_key == 'search_type' and not api_value.in?( ['semantic', 'subject', 'title'] )
+            api_params[api_key] = 'keyword'
+          end
+
         end
+        
 
         # facet filter params
         filters = %w(author date department subject type columbia_series)
